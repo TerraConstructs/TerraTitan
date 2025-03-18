@@ -34,3 +34,4 @@ Thumbs.db
 
 # DataStax credentials
 astra-credentials.json
+.aider*
