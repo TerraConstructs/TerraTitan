@@ -8,11 +8,14 @@ import type { ConversionRequestProps } from '../../util/index.js';
 export abstract class ConverterAgent {
   protected readonly agent: Agent;
 
-  constructor(name: string, instructions: string, model: LanguageModel) {
+  constructor(name: string, instructions: string, model: LanguageModel, evals?: Record<string, any>) {
     this.agent = new Agent({
       name: `Converter Agent for ${name}`,
       instructions: instructions,
       model,
+      evals: {
+        evals
+      }
     });
   }
 
