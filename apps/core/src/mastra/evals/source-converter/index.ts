@@ -1,4 +1,4 @@
-import { Metric, MetricResult } from '@mastra/core/metric';
+import { Metric, MetricResult } from '@mastra/core';
 import { type LanguageModel } from '@mastra/core/llm';
 import { SourceConverterJudge } from './judge.js';
 

@@ -35,12 +35,6 @@ importers:
       '@mastra/core':
         specifier: ^0.7.0
         version: 0.7.0(react@19.0.0)
-      '@mastra/rag':
-        specifier: ^0.1.14
-        version: 0.1.14(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/credential-providers@3.778.0)(@huggingface/transformers@3.4.2)(ai@4.2.8(react@19.0.0)(zod@3.24.2))(cohere-ai@7.16.0)(gpt-tokenizer@2.9.0)(jsdom@26.0.0)(openai@4.91.1(ws@8.18.1)(zod@3.24.2))(pg-query-stream@4.8.1(pg@8.14.1))(pg@8.14.1)(react@19.0.0)(tiktoken@1.0.20)(tree-sitter@0.22.4)(typescript@5.8.2)(web-tree-sitter@0.24.7)(ws@8.18.1)
-      '@mastra/upstash':
-        specifier: ^0.2.1
-        version: 0.2.1(react@19.0.0)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -1551,25 +1545,6 @@ packages:
 
   '@mastra/deployer@0.2.5':
     resolution: {integrity: sha512-3F7wvmN6RgmzQfBzbSrCP2a7BSU+pirh9/Fzljvv+qrfepL5RpuSZhiDoWLDt/w3rqD0Lys3JSQX6mwNdRDhGw==}
-
-  '@mastra/rag@0.1.14':
-    resolution: {integrity: sha512-QVef5EtUdmF2/Qr9tpYjAmPi/rFz11gj1zzftnv2n/85gQqY7aPqzo+BerchgfEVoENAysJAThTC+/myZZdMkw==}
-    peerDependencies:
-      ai: ^4.0.0
-
-  '@mastra/upstash@0.2.1':
-    resolution: {integrity: sha512-V+GWkEdeKRBgEQxi1sy/8ObxAmIZNQjdmmNPmymrqKFVsbts/zLgXzsFUjq8Po6UlJ4KWgdNCpNqr3Ya+dojEw==}
-
-  '@mistralai/mistralai@1.5.2':
-    resolution: {integrity: sha512-mBTIDQmuAX9RowMYteZFHJIYlEwDcHzzaxgXzrFtlvH9CkKXK7R1VnZ1sZSe+uLMg0dIXUVdPRUh1SwyFeSqXw==}
-    peerDependencies:
-      zod: '>= 3'
-
-  '@mixedbread-ai/sdk@2.2.11':
-    resolution: {integrity: sha512-NJiY6BVPR+s/DTzUPQS1Pv418trOmII/8hftmIqxXlYaKbIrgJimQfwCW9M6Y21YPcMA8zTQGYZHm4IWlMjIQw==}
-
-  '@mongodb-js/saslprep@1.2.1':
-    resolution: {integrity: sha512-1NCa8GsZ+OFLTw5KkKQS22wLS+Rs+y02sgkhr99Pm4OSXtSDHCJyq0uscPF0qA86ipGYH4PwtC2+a8Y4RKkCcg==}
 
   '@neon-rs/load@0.0.4':
     resolution: {integrity: sha512-kTPhdZyTQxB+2wpiRcFWrDcejc4JI6tkPuS7UZCG4l6Zvc5kU/gGQ/ozvHTh1XR5tS+UlfAfGuPajjzQjCiHCw==}
@@ -3330,6 +3305,10 @@ packages:
   commondir@1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
 
+  compromise@14.14.4:
+    resolution: {integrity: sha512-QdbJwronwxeqb7a5KFK/+Y5YieZ4PE1f7ai0vU58Pp4jih+soDCBMuKVbhDEPQ+6+vI3vSiG4UAAjTAXLJw1Qw==}
+    engines: {node: '>=12.0.0'}
+
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
@@ -3483,25 +3462,6 @@ packages:
   diff-match-patch@1.0.5:
     resolution: {integrity: sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==}
 
-  dingbat-to-unicode@1.0.1:
-    resolution: {integrity: sha512-98l0sW87ZT58pU4i61wa2OHwxbiYSbuxsCBozaVnYX2iCnr3bLM3fIes1/ej7h1YdOKuKt/MLs706TVnALA65w==}
-
-  discord-api-types@0.37.119:
-    resolution: {integrity: sha512-WasbGFXEB+VQWXlo6IpW3oUv73Yuau1Ig4AZF/m13tXcTKnMpc/mHjpztIlz4+BM9FG9BHQkEXiPto3bKduQUg==}
-
-  dom-serializer@2.0.0:
-    resolution: {integrity: sha512-wIkAryiqt/nV5EQKqQpo3SToSOV9J0DnbJqwK7Wv/Trc92zIAYZ4FlMu+JPFW1DfGFt81ZTCGgDEabffXeLyJg==}
-
-  domelementtype@2.3.0:
-    resolution: {integrity: sha512-OLETBj6w0OsagBwdXnPdN0cnMfF9opN69co+7ZrbfPGrdpPVNBUj02spi6B1N7wChLQiPn4CSH/zJvXw56gmHw==}
-
-  domhandler@5.0.3:
-    resolution: {integrity: sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==}
-    engines: {node: '>= 4'}
-
-  domutils@3.2.2:
-    resolution: {integrity: sha512-6kZKyUajlDuqlHKVX1w7gyslj9MPIXzIFiz/rGu35uC1wMi+kMhQwGhl4lt9unC9Vb9INnY9Z3/ZA3+FhASLaw==}
-
   dotenv@16.0.3:
     resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
     engines: {node: '>=12'}
@@ -3519,9 +3479,6 @@ packages:
 
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
-
-  ecdsa-sig-formatter@1.0.11:
-    resolution: {integrity: sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==}
 
   electron-to-chromium@1.5.114:
     resolution: {integrity: sha512-DFptFef3iktoKlFQK/afbo274/XNWD00Am0xa7M8FZUepHlHT8PEuiNBoRfFHbH1okqN58AlhbJ4QTkcnXorjA==}
@@ -3961,6 +3918,10 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
+  grad-school@0.0.5:
+    resolution: {integrity: sha512-rXunEHF9M9EkMydTBux7+IryYXEZinRk6g8OBOGDBzo/qWJjhTxy86i5q7lQYpCLHN8Sqv1XX3OIOc7ka2gtvQ==}
+    engines: {node: '>=8.0.0'}
+
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
 
@@ -4011,6 +3972,9 @@ packages:
 
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
+
+  heap@0.2.7:
+    resolution: {integrity: sha512-2bsegYkkHO+h/9MGbn6KWcE45cHZgPANo5LXF7EvWdT0yT2EguSVO1nDgU5c8+ZOPwp2vMNa7YFsJhVcDR9Sdg==}
 
   help-me@5.0.0:
     resolution: {integrity: sha512-7xgomUX6ADmcYzFik0HzAxh/73YlKR9bmFzf51CZwR+b6YtzU2m0u49hQCqV6SvlqIqsaxovfwdvbnsw3b/zpg==}
@@ -4339,18 +4303,13 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
-  kuler@2.0.0:
-    resolution: {integrity: sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A==}
-
-  leac@0.6.0:
-    resolution: {integrity: sha512-y+SqErxb8h7nE/fiEX07jsbuhrpO9lL8eca7/Y1nuWV2moNlXhyd59iDGcRf6moVyDMbmTNzL40SUyrFU/yDpg==}
-
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
   libsql@0.4.7:
     resolution: {integrity: sha512-T9eIRCs6b0J1SHKYIvD8+KCJMcWZ900iZyxdnSCdqxN12Z1ijzT+jY5nrk72Jw4B0HGzms2NgpryArlJqvc3Lw==}
+    cpu: [x64, arm64, wasm32]
     os: [darwin, linux, win32]
 
   lie@3.3.0:
@@ -5277,6 +5236,10 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  sentiment@5.0.2:
+    resolution: {integrity: sha512-ZeC3y0JsOYTdwujt5uOd7ILJNilbgFzUtg/LEG4wUv43LayFNLZ28ec8+Su+h3saHlJmIwYxBzfDHHZuiMA15g==}
+    engines: {node: '>=8.0'}
+
   set-blocking@2.0.0:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
 
@@ -5427,13 +5390,6 @@ packages:
   std-env@3.8.1:
     resolution: {integrity: sha512-vj5lIj3Mwf9D79hBkltk5qmkFI+biIKWS2IBxEyEU3AX1tUf7AoL8nSazCOiiqQsGKIq01SClsKEzweu34uwvA==}
 
-  stoppable@1.1.0:
-    resolution: {integrity: sha512-KXDYZ9dszj6bzvnEMRYvxgeTHU74QBFL54XKtP3nyMuJ81CFYtABZ3bAzL2EdFUaEwJOBOgENyFj3R7oTzDyyw==}
-    engines: {node: '>=4', npm: '>=6'}
-
-  streamx@2.22.0:
-    resolution: {integrity: sha512-sLh1evHOzBy/iWRiR6d1zRcLao4gGZr3C1kzNz4fopCOKJb6xD9ub8Mpi9Mr1R6id5o43S+d93fI48UC5uM9aw==}
-
   string-width@4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
     engines: {node: '>=8'}
@@ -5477,6 +5433,9 @@ packages:
 
   strnum@1.1.2:
     resolution: {integrity: sha512-vrN+B7DBIoTTZjnPNewwhx6cBA/H+IS7rfW68n7XxC1y7uoiGQBxaKzqucGUgavX15dJgiGztLJ8vxuEzwqBdA==}
+
+  suffix-thumb@5.0.2:
+    resolution: {integrity: sha512-I5PWXAFKx3FYnI9a+dQMWNqTxoRt6vdBdb0O+BJ1sxXCWtSoQCusc13E58f+9p4MYx/qCnEMkD5jac6K2j3dgA==}
 
   superjson@2.2.2:
     resolution: {integrity: sha512-5JRxVqC8I8NuOUjzBbvVJAKNM8qoVuH0O77h4WInc/qC2q5IreqKxYwgkga3PfA22OayK2ikceb/B26dztPl+Q==}
@@ -8227,96 +8186,6 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@mastra/rag@0.1.14(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/credential-providers@3.778.0)(@huggingface/transformers@3.4.2)(ai@4.2.8(react@19.0.0)(zod@3.24.2))(cohere-ai@7.16.0)(gpt-tokenizer@2.9.0)(jsdom@26.0.0)(openai@4.91.1(ws@8.18.1)(zod@3.24.2))(pg-query-stream@4.8.1(pg@8.14.1))(pg@8.14.1)(react@19.0.0)(tiktoken@1.0.20)(tree-sitter@0.22.4)(typescript@5.8.2)(web-tree-sitter@0.24.7)(ws@8.18.1)':
-    dependencies:
-      '@llamaindex/core': 0.4.23(@aws-crypto/sha256-js@5.2.0)(@huggingface/transformers@3.4.2)(gpt-tokenizer@2.9.0)(js-tiktoken@1.0.19)(pathe@2.0.3)(tiktoken@1.0.20)
-      '@llamaindex/env': 0.1.29(@huggingface/transformers@3.4.2)(gpt-tokenizer@2.9.0)
-      '@mastra/core': 0.7.0(react@19.0.0)
-      '@paralleldrive/cuid2': 2.2.2
-      ai: 4.2.8(react@19.0.0)(zod@3.24.2)
-      js-tiktoken: 1.0.19
-      llamaindex: 0.8.37(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/credential-providers@3.778.0)(@huggingface/transformers@3.4.2)(cohere-ai@7.16.0)(js-tiktoken@1.0.19)(jsdom@26.0.0)(openai@4.91.1(ws@8.18.1)(zod@3.24.2))(pathe@2.0.3)(pg-query-stream@4.8.1(pg@8.14.1))(pg@8.14.1)(tiktoken@1.0.20)(tree-sitter@0.22.4)(typescript@5.8.2)(web-tree-sitter@0.24.7)(ws@8.18.1)(zod@3.24.2)
-      node-html-better-parser: 1.4.11
-      pathe: 2.0.3
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@aws-crypto/sha256-js'
-      - '@aws-sdk/credential-providers'
-      - '@edge-runtime/vm'
-      - '@google/generative-ai'
-      - '@huggingface/transformers'
-      - '@mongodb-js/zstd'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - bare-buffer
-      - bufferutil
-      - cohere-ai
-      - encoding
-      - gcp-metadata
-      - gpt-tokenizer
-      - happy-dom
-      - jsdom
-      - kerberos
-      - less
-      - lightningcss
-      - mongodb-client-encryption
-      - msw
-      - openai
-      - pg
-      - pg-native
-      - pg-query-stream
-      - pgvector
-      - react
-      - sass
-      - sass-embedded
-      - snappy
-      - socks
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tiktoken
-      - tree-sitter
-      - typescript
-      - utf-8-validate
-      - voyageai
-      - web-tree-sitter
-      - ws
-
-  '@mastra/upstash@0.2.1(react@19.0.0)':
-    dependencies:
-      '@mastra/core': 0.7.0(react@19.0.0)
-      '@upstash/redis': 1.34.6
-      '@upstash/vector': 1.2.1
-    transitivePeerDependencies:
-      - aws-crt
-      - bufferutil
-      - encoding
-      - react
-      - supports-color
-      - utf-8-validate
-
-  '@mistralai/mistralai@1.5.2(zod@3.24.2)':
-    dependencies:
-      zod: 3.24.2
-      zod-to-json-schema: 3.24.5(zod@3.24.2)
-
-  '@mixedbread-ai/sdk@2.2.11':
-    dependencies:
-      form-data: 4.0.0
-      formdata-node: 6.0.3
-      js-base64: 3.7.2
-      node-fetch: 2.7.0
-      qs: 6.11.2
-      url-join: 4.0.1
-    transitivePeerDependencies:
-      - encoding
-
-  '@mongodb-js/saslprep@1.2.1':
-    dependencies:
-      sparse-bitfield: 3.0.3
-
   '@neon-rs/load@0.0.4': {}
 
   '@neon-rs/load@0.1.82': {}
@@ -10406,6 +10275,12 @@ snapshots:
 
   commondir@1.0.1: {}
 
+  compromise@14.14.4:
+    dependencies:
+      efrt: 2.7.0
+      grad-school: 0.0.5
+      suffix-thumb: 5.0.2
+
   concat-map@0.0.1: {}
 
   console-control-strings@1.1.0:
@@ -10526,28 +10401,6 @@ snapshots:
 
   diff-match-patch@1.0.5: {}
 
-  dingbat-to-unicode@1.0.1: {}
-
-  discord-api-types@0.37.119: {}
-
-  dom-serializer@2.0.0:
-    dependencies:
-      domelementtype: 2.3.0
-      domhandler: 5.0.3
-      entities: 4.5.0
-
-  domelementtype@2.3.0: {}
-
-  domhandler@5.0.3:
-    dependencies:
-      domelementtype: 2.3.0
-
-  domutils@3.2.2:
-    dependencies:
-      dom-serializer: 2.0.0
-      domelementtype: 2.3.0
-      domhandler: 5.0.3
-
   dotenv@16.0.3: {}
 
   dotenv@16.4.7: {}
@@ -10563,6 +10416,8 @@ snapshots:
       gopd: 1.2.0
 
   eastasianwidth@0.2.0: {}
+
+  efrt@2.7.0: {}
 
   ecdsa-sig-formatter@1.0.11:
     dependencies:
@@ -11084,6 +10939,8 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
+  grad-school@0.0.5: {}
+
   graphemer@1.4.0: {}
 
   graphql-request@6.1.0(graphql@16.10.0):
@@ -11155,6 +11012,8 @@ snapshots:
   hast-util-whitespace@3.0.0:
     dependencies:
       '@types/hast': 3.0.4
+
+  heap@0.2.7: {}
 
   help-me@5.0.0: {}
 
@@ -11526,10 +11385,6 @@ snapshots:
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
-
-  kuler@2.0.0: {}
-
-  leac@0.6.0: {}
 
   levn@0.4.1:
     dependencies:
@@ -12637,6 +12492,8 @@ snapshots:
 
   semver@7.7.1: {}
 
+  sentiment@5.0.2: {}
+
   set-blocking@2.0.0: {}
 
   setimmediate@1.0.5: {}
@@ -12826,6 +12683,8 @@ snapshots:
 
   std-env@3.8.1: {}
 
+  string-similarity@4.0.4: {}
+
   stoppable@1.1.0: {}
 
   streamx@2.22.0:
@@ -12877,6 +12736,8 @@ snapshots:
   strip-json-comments@3.1.1: {}
 
   strnum@1.1.2: {}
+
+  suffix-thumb@5.0.2: {}
 
   superjson@2.2.2:
     dependencies:

@@ -15,7 +15,7 @@ export class SourceConverterJudge extends MastraAgentJudge {
   async evaluate(output: string): Promise<{
     usesConstructs: boolean;
   }> {
-    const prompt = generateSourceCodePrompt({ output });
+    const prompt = generateSourceCodePrompt({ sourceCode: output });
     const result = await this.agent.generate(prompt, {
       output: z.object({
         usesConstructs: z.boolean(),
