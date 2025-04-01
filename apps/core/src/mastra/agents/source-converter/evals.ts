@@ -1,6 +1,6 @@
 import { openai } from "@ai-sdk/openai";
 import { PromptAlignmentMetric } from "@mastra/evals/llm";
-import { generateInstructions } from "./prompts";
+import { generateInstructions } from "./prompts.js";
  
 const model = openai("gpt-4o-mini");
  
