@@ -21,5 +21,5 @@ export const generateReasonPrompt = ({ usesConstructs }: { usesConstructs: boole
 
 Return your response in this format: 
 {
-  "reason": "This file is [valid/invalid] because [explanation]"
+  "reason": "This file is [valid/invalid] because it [uses/does not use] constructs from the terraconstructs project."
 }`;

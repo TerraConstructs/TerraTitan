@@ -74,8 +74,9 @@ class SourceConverterAgent extends ConverterAgent {
       input, responseText
     );
   
-    console.log('Metric Result:', {
+    console.log('ConstructChecker result:', {
       score: metric?.score,
+      reason: metric?.info?.reason,
     });
 
     return result.object;
