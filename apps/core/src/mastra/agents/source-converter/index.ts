@@ -1,9 +1,11 @@
 import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { type CoreMessage } from '@mastra/core';
 import { z } from 'zod';
 import { ConverterAgent } from '../converter/index.js';
 import { Sample, type ConversionRequestProps } from '../../util/index.js';
 import { generateInstructions, generateSampleInput, generateSampleResponse, generateNewPrompt } from './prompts.js';
+import { SourceConverterMetric } from '../../evals/source-converter/index.js';
 
 const GEMINI_2_5_PRO = 'gemini-2.5-pro-exp-03-25';
 
@@ -22,6 +24,9 @@ class SourceConverterAgent extends ConverterAgent {
       generateInstructions(),
       // ref: https://sdk.vercel.ai/providers/ai-sdk-providers/google-generative-ai#provider-instance
       google(model),
+      {
+        SourceConverterChecker: new SourceConverterMetric(openai('gpt-4o-mini')),
+      }
     );
     this._samples = [Sample.fromName(sampleNameOne), Sample.fromName(sampleNameTwo)];
   }
