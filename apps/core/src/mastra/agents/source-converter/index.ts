@@ -51,15 +51,31 @@ class SourceConverterAgent extends ConverterAgent {
         content: generateSampleResponse(sample),
       });
     }
+
+    const input = generateNewPrompt(requestProps)
     messages.push({
       role: 'user',
-      content: generateNewPrompt(requestProps),
+      content: input,
     });
     const result = await this.agent.generate(messages, {
       output: z.object({
         code: z.string(),
       }),
       temperature: 0,
+    });
+
+    // Extract text representation from the response
+    const responseText = typeof result.response.body === 'string' 
+    ? result.response.body 
+    : JSON.stringify(result.response.body);
+  
+    // Now you can use responseText in your measure method
+    const metric = await this.agent.evals.SourceConverterChecker?.measure(
+      input, responseText
+    );
+  
+    console.log('Metric Result:', {
+      score: metric?.score,
     });
 
     return result.object;
