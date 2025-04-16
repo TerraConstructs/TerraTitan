@@ -17,9 +17,9 @@ export class SourceConverterMetric extends Metric {
   }
  
   async measure(output: string): Promise<MetricResultWithInfo> {
-    const { usesConstructs } = await this.judge.evaluate(output);
+    const { usesConstructs, failedChecks } = await this.judge.evaluate(output);
     const score = await this.calculateScore(usesConstructs);
-    const reason = await this.judge.getReason({usesConstructs});
+    const reason = await this.judge.getReason({usesConstructs, failedChecks});
  
     return {
       score,

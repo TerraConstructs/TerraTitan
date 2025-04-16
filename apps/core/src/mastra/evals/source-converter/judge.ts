@@ -14,18 +14,20 @@ export class SourceConverterJudge extends MastraAgentJudge {
 
   async evaluate(output: string): Promise<{
     usesConstructs: boolean;
+    failedChecks: string[];
   }> {
     const prompt = generateSourceCodePrompt({ sourceCode: output });
     const result = await this.agent.generate(prompt, {
       output: z.object({
         usesConstructs: z.boolean(),
+        failedChecks: z.array(z.string()),
       }),
     });
     
     return result.object;
   }
 
-  async getReason(args: { usesConstructs: boolean }): Promise<string> {
+  async getReason(args: { usesConstructs: boolean, failedChecks: string[] }): Promise<string> {
     const prompt = generateReasonPrompt(args);
     const result = await this.agent.generate(prompt, {
       output: z.object({

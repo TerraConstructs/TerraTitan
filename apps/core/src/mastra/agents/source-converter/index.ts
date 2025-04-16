@@ -69,7 +69,6 @@ class SourceConverterAgent extends ConverterAgent {
     ? result.response.body 
     : JSON.stringify(result.response.body);
   
-    // Now you can use responseText in your measure method
     const metric = await this.agent.evals.SourceConverterChecker?.measure(
       input, responseText
     );
