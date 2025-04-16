@@ -25,6 +25,13 @@ const cloneRepo = new Step({
     const repoUrl = 'https://github.com/aws/aws-cdk';
     const localDir = path.join(process.cwd(), 'aws-cdk'); 
     
+    // we need the source code but we also need the declaration files for a separate step. These can be found in node_modules
+    // for this download the zip file from github instead of using git
+    // Add downloading base as well to this, this one can get clone
+    // 1. git clone terraconstructs/base and git working base
+    // 2. download relase archive from github for awscdk
+    // 3. resolve node_modules for awscdk declaration files
+    // these can be 3 parallel steps
     try {
       if (fs.existsSync(path.join(localDir, '.git'))) {
         console.log('AWS CDK repo exists, updating to latest...');
