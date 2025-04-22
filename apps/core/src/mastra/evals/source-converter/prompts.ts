@@ -1,4 +1,4 @@
-export const SOURCE_CODE_INSTRUCTIONS = `You are a senior software engineer in charge of reviewing source code converted from the awscdk project into our own projects called terraconstructs.`
+export const SOURCE_CODE_INSTRUCTIONS = `You are a senior typescript engineer in charge of reviewing source code converted from the awscdk project into our own projects called terraconstructs.`
 
 export const generateSourceCodePrompt = ({
   output,

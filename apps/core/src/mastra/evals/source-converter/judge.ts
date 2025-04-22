@@ -16,7 +16,6 @@ export class SourceConverterJudge extends MastraAgentJudge {
     usesConstructs: boolean;
     failedChecks: string[];
   }> {
-    const validSourceCode = "...";
     const prompt = generateSourceCodePrompt({ output: output});
     const result = await this.agent.generate(prompt, {
       output: z.object({
