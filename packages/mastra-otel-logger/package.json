@@ -31,7 +31,7 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
-    "@mastra/core": "0.9.1",
+    "@mastra/core": "0.9.4",
     "@opentelemetry/api": "^1.9.0",
     "@opentelemetry/api-logs": "^0.200.0",
     "@opentelemetry/core": "^2.0.0"

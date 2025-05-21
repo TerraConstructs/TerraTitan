@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import groupCheckbox from 'inquire-grouped-checkbox';
+// import { Sema } from 'async-sema';
 import { mastra } from './mastra/index.js';
 import { reviewPayloadSchema as cdktfRefReviewPayloadSchema } from './mastra/workflows/steps/batch-cdktf-ref-rag.js';
 import {
@@ -28,10 +29,14 @@ export async function runvNextWf(args?: CommandLineArgs) {
   const reviewStepId = reviewCdktfRefsStep.id; // Use the ID from the step object
 
   // Add a watcher to monitor execution
-  run.watch(async event => {
-    // Check if the specific review step is suspended in the overall workflow state
-    const reviewStepState = event.payload.workflowState.steps[reviewStepId];
+  run.watch(async ({ payload }) => {
+    const step = payload.currentStep;
+    if (!step) return; // ignore workflow-level pings
+    // Skip if not the review step and event is on 'suspended' status
+    if (step.id !== reviewStepId || step.status !== 'suspended') return;
 
+    // Check if the specific review step is suspended in the overall workflow state
+    const reviewStepState = payload.workflowState.steps[reviewStepId];
     if (reviewStepState?.status === 'suspended') {
       logger.info(`Workflow suspended, waiting for review on step: ${reviewStepId}`);
       try {
