@@ -130,11 +130,9 @@ const findLibCdktfRefsStep = createStep({
   },
 });
 
-const cdktfRefReviewResumeSchema = z
-  .object({
-    selectedReferences: z.array(choiceValueSchema),
-  })
-  .strict();
+const cdktfRefReviewResumeSchema = z.object({
+  selectedReferences: z.array(choiceValueSchema),
+});
 export type CdktfRefReviewResumeType = z.infer<typeof cdktfRefReviewResumeSchema>;
 export const reviewCdktfRefsStep = createStep({
   id: 'review-cdktf-refs',
@@ -326,8 +324,7 @@ export const vNextConversionWorkflow = createWorkflow({
     findLibInputRefsStep,
     findTestInputRefsStep,
     findLibCdktfRefsStep,
-    // TODO: upstream fix for createWorkflow.steps type inference on suspend & resume schemas
-    // reviewCdktfRefsStep,
+    reviewCdktfRefsStep,
     batchConvertSourceCodeStep,
     batchConvertUnitTestsStep,
     batchWriteToWorkspaceStep,
