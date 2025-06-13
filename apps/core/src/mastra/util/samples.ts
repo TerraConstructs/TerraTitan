@@ -46,6 +46,22 @@ const EXAMPLES: Record<string, ConversionExample> = {
       path.join(markdownAwsDocs, 'cloudwatch_event_permission.html.markdown'),
     ],
   },
+  'aws-events/event-bus/integ': {
+    type: ConversionType.INTEG,
+    inputFile: path.join(samplesDir, 'aws-events', 'event-bus', 'input', 'integ', 'integ.event-bus.ts'),
+    inputRefFiles: [path.join(samplesDir, 'aws-events', 'event-bus', 'input', 'declarations', 'event-bus.d.ts')],
+
+    // Example CDKTF Integ Test conversion result
+    outputFile: path.join(samplesDir, 'aws-events', 'event-bus', 'output', 'integ', 'event-bus.ts'),
+    outputRefFiles: [
+      path.join(declDir, 'terraconstructs', 'aws', 'notify', 'event-bus.d.ts'),
+      path.join(declDir, 'terraconstructs', 'aws', 'notify', 'queue.d.ts'),
+      path.join(declDir, 'terraconstructs', 'aws', 'notify', 'queue-config.generated.d.ts'),
+      path.join(declDir, 'terraconstructs', 'aws', 'iam', 'policy-document.d.ts'),
+      path.join(declDir, 'terraconstructs', 'aws', 'iam', 'policy-statement.d.ts'),
+      path.join(declDir, 'terraconstructs', 'aws', 'notify', 'resource-policy.d.ts'),
+    ],
+  },
   'aws-kinesis/stream/src': {
     type: ConversionType.SOURCE,
     inputFile: path.join(samplesDir, 'aws-kinesis', 'stream', 'input', 'src', 'stream.ts'),
@@ -65,6 +81,19 @@ const EXAMPLES: Record<string, ConversionExample> = {
     outputRefFiles: [
       // Unit Tests use Terraform HCL Markdown docs as attributes reference
       path.join(markdownAwsDocs, 'kinesis_stream.html.markdown'),
+    ],
+  },
+  'aws-kinesis/stream/integ': {
+    type: ConversionType.INTEG,
+    inputFile: path.join(samplesDir, 'aws-kinesis', 'stream', 'input', 'integ', 'integ.stream.ts'),
+    inputRefFiles: [path.join(samplesDir, 'aws-kinesis', 'stream', 'input', 'declarations', 'stream.d.ts')],
+    outputFile: path.join(samplesDir, 'aws-kinesis', 'stream', 'output', 'integ', 'stream.ts'),
+    outputRefFiles: [
+      // Integ Tests use Tcons declaration as attributes reference
+      path.join(declDir, 'terraconstructs', 'aws', 'notify', 'kinesis-stream.d.ts'),
+      path.join(declDir, 'terraconstructs', 'aws', 'iam', 'role.d.ts'),
+      path.join(declDir, 'terraconstructs', 'aws', 'iam', 'policy-statement.d.ts'),
+      path.join(declDir, 'terraconstructs', 'aws', 'iam', 'policy-document.d.ts'),
     ],
   },
 };

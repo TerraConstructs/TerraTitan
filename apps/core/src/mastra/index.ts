@@ -13,6 +13,7 @@ import { upstreamWorkflow } from './workflows/poc-ensure-upstream.js';
 import { vNextConversionWorkflow } from './workflows/vnext.js';
 import { batchConversionWorkflow } from './workflows/poc-batch-source-convert.js';
 import { batchTestConversionWorkflow } from './workflows/poc-batch-test-convert.js';
+import { integConversionWorkflow } from './workflows/poc-integ-convert.js';
 // import { sourceConverter } from './agents/source-converter/index.js';
 
 export const mastra: Mastra = new Mastra({
@@ -53,5 +54,6 @@ export const mastra: Mastra = new Mastra({
   },
   vnext_workflows: {
     vNextConversionWorkflow,
+    integConversionWorkflow,
   },
 });

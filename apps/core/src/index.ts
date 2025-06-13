@@ -8,6 +8,7 @@ import { runCdktfRefWf } from './wf-cdktf-ref.js';
 import { runEnsureUpstreamWf } from './wf-ensure-upstream.js';
 import { runBatchSourceConvertWf } from './wf-batch-source-convert.js';
 import { runBatchTestConvertWf } from './wf-batch-test-convert.js';
+import { runIntegConvertWf } from './wf-integ-conversion.js';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -35,6 +36,10 @@ const workflowTypeSchema = z.enum([
   'ensureUpstream',
   // 'convert-dynamic',
   'convert-vNext',
+  /**
+   * Demo Integ Code conversion workflow
+   */
+  'integConversion',
 ]);
 async function main() {
   console.log('>>>TerraTitan CLI - PoC<<<');
@@ -65,6 +70,7 @@ async function main() {
           { value: 'batchTestConvert', name: 'Demo Batch Unit Tests Conversion Workflow' },
           { value: 'cdktfRef', name: 'Demo aws-elasticloadbalancingv2.CfnTargetGroup CDKTF Reference retrieval' },
           { value: 'ensureUpstream', name: 'Demo ensure upstream for AWS CDK Module' },
+          { value: 'integConversion', name: 'Demo Integ Conversion workflow' },
           // { value: 'convert-dynamic', name: 'Conversion Wf (dynamic)' },
           // { value: 'convert-vNext', name: 'Conversion Wf vNext' },
         ],
@@ -85,6 +91,9 @@ async function main() {
         break;
       case 'ensureUpstream':
         await runEnsureUpstreamWf(args);
+        break;
+      case 'integConversion':
+        await runIntegConvertWf();
         break;
       // case 'convert-dynamic':
       //   await runDynamicWf(args);
