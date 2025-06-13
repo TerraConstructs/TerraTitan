@@ -7,6 +7,10 @@ export enum ConversionType {
    * Unit test file conversion templates
    */
   UNIT = 'unit',
+  /**
+   * Integration test file conversion templates
+   */
+  INTEG = 'integ',
 }
 
 /**
