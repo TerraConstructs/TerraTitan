@@ -13,6 +13,7 @@ Pay special attention to provided TypeScript declaration files and JSDocs for ac
 
 - Use the provided TypeScript declaration files and JSDocs as a primary reference for conversion.
 - Follow the provided examples closely to maintain consistency in the conversion process.
+- Imperative APIs from AWS CDK must be followed closely when converting to TerraConstructs. Any AWS CDK Resource that requires multiple provider AWS resources must configure and create those resources transparently in the TerraConstructs code.
 - Use all the TerraConstruct AWS Specific constructs for the conversion and pay extra attention to:
   - Extend the abstract AwsConstructBase class where the AWS CDK extends the Resource class
   - Make sure the Constructor Props also extend the AwsConstructProps Interface

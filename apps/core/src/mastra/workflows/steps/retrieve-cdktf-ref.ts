@@ -3,7 +3,7 @@ import { rerank } from '@mastra/rag';
 import { UpstashVector } from '@mastra/upstash';
 import { embed } from 'ai';
 import { z } from 'zod';
-import { getClassJsDocs } from '../../util/helpers.js';
+import { getTypeJsDocs } from '../../util/helpers.js';
 import { TokenCounter } from '../../util/tiktoken.js';
 import { getUpstashConfig, OPENAI_EMBED_MAX_TOKENS } from '../../util/rag.js';
 
@@ -80,7 +80,7 @@ export async function retrieveCdktfReferences(
   if (!sourceFile || !sourceClass) {
     throw new Error('Missing sourceFile or sourceClass in trigger data');
   }
-  const jsDocs = getClassJsDocs(sourceFile, sourceClass);
+  const jsDocs = getTypeJsDocs(sourceFile, sourceClass);
   if (!jsDocs) {
     throw new Error(`No JSDoc found for class ${sourceClass} in file ${sourceFile}`);
   }

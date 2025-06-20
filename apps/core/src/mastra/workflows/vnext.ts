@@ -186,6 +186,7 @@ export const batchConvertSourceCodeStep = createStep({
     const batchConvertResults: z.infer<typeof sourceConversionResultSchema> = [];
     for (const conversionRequest of await batchConvertSourceCodeRequests(batchRetrieveCdktfRefs)) {
       await lim();
+      console.log(`LLM Call: converting Source Code: ${conversionRequest.inputFile}`);
       const result = await sourceConverter.convert(conversionRequest);
       batchConvertResults.push({
         ...conversionRequest,
@@ -228,6 +229,7 @@ export const batchConvertUnitTestsStep = createStep({
     const batchConvertResults: z.infer<typeof unitTestsConversionResultSchema> = [];
     for (const conversionRequest of unitTestConversionRequests) {
       await lim();
+      console.log(`LLM Call: converting Unit Test: ${conversionRequest.inputFile}`);
       const result = await unitConverter.convert(conversionRequest);
       batchConvertResults.push({
         ...conversionRequest,

@@ -84,7 +84,7 @@ export async function batchConvertSourceCodeRequests(
               markdownPath,
               declarationPath,
             });
-            mergeDocs.process().writeTo(mergedDocsFile);
+            mergeDocs.process2().writeTo(mergedDocsFile);
           }
           mergedDocsFiles.push(mergedDocsFile);
         } else {

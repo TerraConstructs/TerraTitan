@@ -1,0 +1,20 @@
+{
+  "arguments": [
+    {
+      "name": "indexName",
+      "type": "string",
+      "description": "(Optional) The global secondary index name",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "tableName",
+      "type": "string",
+      "description": "(Required) The name of the table to enable contributor insights",
+      "required": true,
+      "optional": false,
+      "level": 0
+    }
+  ]
+}

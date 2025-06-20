@@ -13,6 +13,7 @@ Pay special attention to provided TypeScript declaration files and JSDocs for ac
 
 - Use the provided TypeScript declaration files and JSDocs as a primary reference for conversion.
 - Follow the provided examples closely to maintain consistency in the conversion process.
+- Imperative APIs from AWS CDK must be followed closely when testing the equivalent TerraConstructs. Some AWS CDK Resources may require multiple provider AWS resources to be configured and created transparently in the TerraConstructs code.
 - Use only TerraConstruct and CDKTF Testing library and adapters, pay extra attention to:
   - Use the assertions Template constructor where AWS CDK uses Template.fromStack()
   - The code must import "cdktf/lib/testing/adapters/jest" for access to the CDKTF Testing adapters

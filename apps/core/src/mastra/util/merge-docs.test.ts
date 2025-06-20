@@ -150,5 +150,44 @@ describe('MergeDocs', () => {
       });
       expect(mergeDocs.process().fullText).toMatchSnapshot();
     });
+    // TODO: Fall back to LLM on failure?
+    // test('should merge declaration and markdown with nested argument subsections', () => {
+    //   const mergeDocs = MergeDocs.fromProps({
+    //     markdownPath: path.join(fixturesDir, 'docs', 'rds_cluster.html.markdown'),
+    //     declarationPath: path.join(fixturesDir, 'declarations', 'rds-cluster', 'index.d.ts'),
+    //   });
+    //   expect(mergeDocs.process().fullText).toMatchSnapshot();
+    // });
+  });
+
+  describe('process2 test', () => {
+    test('cloudwatch_event_bus', () => {
+      const mergeDocs = MergeDocs.fromProps({
+        markdownPath: path.join(fixturesDir, 'docs', 'cloudwatch_event_bus.html.markdown'),
+        declarationPath: path.join(fixturesDir, 'declarations', 'cloudwatch-event-bus', 'index.d.ts'),
+      });
+      expect(mergeDocs.process2().fullText).toMatchSnapshot();
+    });
+    test('ami', () => {
+      const mergeDocs = MergeDocs.fromProps({
+        markdownPath: path.join(fixturesDir, 'docs', 'ami.html.markdown'),
+        declarationPath: path.join(fixturesDir, 'declarations', 'ami', 'index.d.ts'),
+      });
+      expect(mergeDocs.process2().fullText).toMatchSnapshot();
+    });
+    test('rds_cluster', () => {
+      const mergeDocs = MergeDocs.fromProps({
+        markdownPath: path.join(fixturesDir, 'docs', 'rds_cluster.html.markdown'),
+        declarationPath: path.join(fixturesDir, 'declarations', 'rds-cluster', 'index.d.ts'),
+      });
+      expect(mergeDocs.process2().fullText).toMatchSnapshot();
+    });
+    test('appautoscaling_policy', () => {
+      const mergeDocs = MergeDocs.fromProps({
+        markdownPath: path.join(fixturesDir, 'docs', 'appautoscaling_policy.html.markdown'),
+        declarationPath: path.join(fixturesDir, 'declarations', 'appautoscaling-policy', 'index.d.ts'),
+      });
+      expect(mergeDocs.process2().fullText).toMatchSnapshot();
+    });
   });
 });

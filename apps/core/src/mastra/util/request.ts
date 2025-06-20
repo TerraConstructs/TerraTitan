@@ -37,7 +37,14 @@ export class ConversionRequest {
     const contents: string[] = [];
     for (const inputRef of this.props.inputRefFiles) {
       const header = `// ${path.basename(inputRef)}\n`;
-      const inputRefSource = fs.readFileSync(inputRef, 'utf8');
+      let inputRefSource: string;
+      try {
+        inputRefSource = fs.readFileSync(inputRef, 'utf8');
+      } catch (e) {
+        console.log(`ignoring error reading input reference file ${inputRef}`);
+        inputRefSource = `// Error reading file: ${inputRef}`;
+        continue;
+      }
       if (inputRef.endsWith('generated.d.ts')) {
         // filter generated code down to only relevant declarations
         contents.push(header + filterInputRefFile(this.input, inputRefSource));

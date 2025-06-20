@@ -53,7 +53,7 @@ export interface KinesisStreamConfig extends cdktf.TerraformMetaArguments {
 }
 export interface KinesisStreamStreamModeDetails {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/kinesis_stream#stream_mode KinesisStream#stream_mode}
+    * (Required) Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
     */
     readonly streamMode: string;
 }

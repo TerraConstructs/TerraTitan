@@ -25,6 +25,21 @@ jobs:
           cache: 'pnpm'
           cache-dependency-path: .nvmrc
 
+      # setup tfdocs2json requirements
+      - uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_wrapper: false
+          tofu_version: 1.8.2
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24.1'
+          cache: 'true'
+      - name: Install tfdocs2json
+        working-directory: data/scripts/tfdocs2json
+        run: |
+          go install
+
       - name: Install dependencies
         run: pnpm install
 

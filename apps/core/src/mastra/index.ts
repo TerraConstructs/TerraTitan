@@ -2,6 +2,8 @@ import { Mastra } from '@mastra/core';
 import { createLogger, LogLevel } from '@mastra/core/logger';
 import { LibSQLStore } from '@mastra/libsql';
 import { OtelTransport } from 'mastra-otel-logger';
+// import agents
+import { docsMergerAgent } from './agents/docs-merger.js';
 
 // import workflows
 import { conversionWorkflow } from './workflows/conversion.js';
@@ -14,11 +16,15 @@ import { vNextConversionWorkflow } from './workflows/vnext.js';
 import { batchConversionWorkflow } from './workflows/poc-batch-source-convert.js';
 import { batchTestConversionWorkflow } from './workflows/poc-batch-test-convert.js';
 import { integConversionWorkflow } from './workflows/poc-integ-convert.js';
+import { mergeDocsWorkflow } from './workflows/poc-docs-merge.js';
 // import { sourceConverter } from './agents/source-converter/index.js';
 
 export const mastra: Mastra = new Mastra({
-  // TODO: sourceConverter should extend Agent?
-  // agents: { sourceConverter },
+  agents: {
+    // TODO: sourceConverter should be implemented as "dynamic" agent
+    // sourceConverter,
+    docsMergerAgent,
+  },
   // ensure storage config for suspend/resume workflows
   storage: new LibSQLStore({
     url: 'file:./mastra.db',
@@ -55,5 +61,6 @@ export const mastra: Mastra = new Mastra({
   vnext_workflows: {
     vNextConversionWorkflow,
     integConversionWorkflow,
+    mergeDocsWorkflow,
   },
 });

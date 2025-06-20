@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { execSync } from 'child_process';
 import {
   Project,
   InterfaceDeclaration,
@@ -10,6 +11,27 @@ import {
 } from 'ts-morph';
 import { type MergeDocsRequestProps } from './types.js';
 import { kebabToTitleCase } from './helpers.js';
+
+export interface TfDocs2JsonOutput {
+  arguments: Array<Argument>;
+  blocks?: Array<ArgumentBlock>;
+}
+
+export interface Argument {
+  name: string;
+  type?: string;
+  description: string;
+  required: boolean;
+  optional: boolean;
+  level: number;
+  nested_block?: string;
+  children?: Array<Argument>;
+}
+
+export interface ArgumentBlock {
+  name: string;
+  arguments: Array<Argument>;
+}
 
 // only available when merge-docs script has been ran
 // const mergedAwsDocs = path.join(gitRoot, 'data', 'reference', 'merged', 'provider-aws');
@@ -120,6 +142,42 @@ export class MergeDocs {
   }
 
   /**
+   * Process the markdown file with tfdocs2json and update the declaration file
+   */
+  public process2(): MergeDocs {
+    // Find the main Config interface for the resource type
+    const resourceType = path.basename(path.dirname(this.declarationPath));
+    const configInterfaceName = `${kebabToTitleCase(resourceType)}Config`;
+    const interfaces = this.sourceFile.getInterfaces();
+    const configInterface = interfaces.find(intf => intf.getName() === configInterfaceName);
+
+    if (!configInterface) {
+      console.warn(`No ${configInterfaceName} interface found in ${this.declarationPath}`);
+      return this;
+    }
+
+    const tfdocs2jsonOutput = this.tfdocs2Json();
+
+    updateInterfaceJSDoc(configInterface, tfdocs2jsonOutput.arguments);
+
+    // Find and update nested block interfaces
+    for (const block of tfdocs2jsonOutput.blocks ?? []) {
+      const nestedType = block.name[0]!.toUpperCase() + block.name.slice(1);
+      const nestedInterface = interfaces.find(intf => intf.getName().endsWith(nestedType));
+      if (!nestedInterface) {
+        this._warnings.push(`No nested interface found for ${nestedType}`);
+        continue;
+      }
+      if (block.arguments.length === 0) {
+        this._warnings.push(`No nested args found for nested struct - ${block.name}`);
+        continue;
+      }
+      updateInterfaceJSDoc(nestedInterface, block.arguments);
+    }
+    return this;
+  }
+
+  /**
    * Write the updated declaration file to disk
    */
   public writeTo(outputFilePath: string): void {
@@ -128,6 +186,35 @@ export class MergeDocs {
     fs.mkdirSync(outputFileDir, { recursive: true });
 
     fs.writeFileSync(outputFilePath, this.sourceFile.getFullText());
+  }
+
+  /**
+   * Runs the tfdoc2json command and returns the output
+   * or reads from cache if exists
+   * @returns The parsed JSON output from tfdoc2json
+   * @throws Error if the tfdoc2json command fails
+   */
+  private tfdocs2Json(): TfDocs2JsonOutput {
+    // read from cache if exists
+    const cacheFilePath = this.markdownPath.replace(/\.html\.markdown$/, '.json');
+    if (fs.existsSync(cacheFilePath)) {
+      console.log(`Using cached tfdoc2json output from ${cacheFilePath}`);
+      const cachedOutput = fs.readFileSync(cacheFilePath, 'utf-8');
+      return JSON.parse(cachedOutput) as TfDocs2JsonOutput;
+    }
+
+    // Run the tfdoc2json golang cli
+    const tfdocs2jsonPath = 'tfdocs2json';
+    const command = `${tfdocs2jsonPath} -md ${this.markdownPath}`;
+    try {
+      const output = execSync(command, { encoding: 'utf-8' });
+      // Write to cache file
+      fs.writeFileSync(cacheFilePath, output);
+      return JSON.parse(output) as TfDocs2JsonOutput;
+    } catch (error) {
+      console.error(`Error running tfdoc2json: ${error}`);
+      throw new Error(`Failed to run tfdoc2json command: ${error}`);
+    }
   }
 
   /**
@@ -246,7 +333,11 @@ function parseListItems(content: string): ListItem[] {
 
     const headerBlockMatch = line.match(/^###\s+(.+)$/);
     if (headerBlockMatch) {
-      const blockName = headerBlockMatch[1]!.trim().toLowerCase();
+      const blockName = headerBlockMatch[1]!
+        .trim()
+        .toLowerCase()
+        .replace(/`/g, '')
+        .replace(/ block$/, '');
       // Check if this block name exists as a nested block in our existing items
       const existingBlock = items.find(item => item.isNestedBlock && item.name.toLowerCase() === blockName);
       if (existingBlock) {
@@ -281,7 +372,8 @@ function parseListItems(content: string): ListItem[] {
         const isNestedBlock =
           description.includes('The structure of this block is described below') ||
           description.includes('Specified below') ||
-          description.includes('Documented below');
+          description.includes('Documented below') ||
+          description.match(/Block\]\([^)]*\) for details/) !== null;
         items.push({
           name: currentItem.name,
           description,
@@ -302,9 +394,8 @@ function parseListItems(content: string): ListItem[] {
       // Start new item
       currentItem = { name: listItemMatch[1]!.trim() };
       currentDescription = [listItemMatch[2]!.trim()];
-    }
-    // If not a new item, append to current description if we're in an item
-    else if (currentItem && line.trim()) {
+    } else if (currentItem && line.trim()) {
+      // If not a new item, append to current description if we're in an item
       currentDescription.push(line.trim());
     }
   }
@@ -325,5 +416,6 @@ function parseListItems(content: string): ListItem[] {
     });
   }
 
+  // console.log('Parsed items:', items);
   return items;
 }

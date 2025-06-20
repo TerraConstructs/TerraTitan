@@ -1,5 +1,3 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import { google } from '@ai-sdk/google';
 import { type CoreMessage } from '@mastra/core';
 import { z } from 'zod';

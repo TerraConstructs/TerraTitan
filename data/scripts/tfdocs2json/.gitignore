@@ -1,0 +1,4 @@
+build
+outputs
+aws-schema/*.json
+aws-schema/\.terraform*
