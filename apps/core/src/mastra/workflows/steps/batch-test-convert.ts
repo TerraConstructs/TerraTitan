@@ -1,10 +1,10 @@
-import path from 'node:path';
 import { z } from 'zod';
 import { batchRetrieveCdktfRefsOutputSchema } from './batch-cdktf-ref-rag.js';
 import { findTestInputRefsOutputSchema } from './find-input-refs.js';
-import { gitRoot } from '../../util/helpers.js';
-
-const markdownHclAwsDocs = path.join(gitRoot, 'data', 'reference', 'docs', 'provider-aws');
+import { 
+  processCdktfReferences, 
+  buildUnitTestConversionRequests
+} from '../../util/cdktf-ref-processor.js';
 
 // TODO: Use zod schemas in mastra/agents/unit-converter/index.ts
 export const unitTestsConversionSchema = z.object({
@@ -56,41 +56,9 @@ export async function batchConvertUnitTestsRequests(
   input: z.infer<typeof batchConvertUnitTestsRequestsInputSchema>,
   // outputModule: string,
 ): Promise<z.infer<typeof batchConvertUnitTestsRequestsOutputSchema>> {
-  const batchConvertRequests: z.infer<typeof batchConvertUnitTestsRequestsOutputSchema> = [];
-
-  // flat map all the references from the source code conversion
-  const markdownHclDocsFiles: string[] = [];
-  for (const inputFile of input.batchRetrieveCdktfRefs) {
-    // - get HCL markdown file from ragResults>ragResult>rerankedResults>metadata>url
-    for (const ragResult of inputFile.ragResults) {
-      for (const rerankedResult of ragResult.rerankedResults) {
-        const metadata = rerankedResult.metadata;
-        if (metadata && metadata.url) {
-          // Handle Docs URL to Markdown file conversion
-          // https://registry.terraform.io/providers/.../docs/resources/sns_topic > r/aws/sns_topic.html.markdown
-          const parsedUrl = new URL(metadata.url);
-          const docPath = parsedUrl.pathname.startsWith('/') ? parsedUrl.pathname.substring(1) : parsedUrl.pathname;
-          // Split the path and pop the last part (e.g., "ami")
-          const resourceName = docPath.split('/').pop();
-          if (!resourceName) {
-            console.log(`Invalid CDKTF Ref for ${inputFile.inputFile}: ${JSON.stringify(metadata, null, 2)}`);
-            throw new Error('Invalid metadata.url: ' + metadata.url);
-          }
-          const markdownHclDocsFile = path.join(markdownHclAwsDocs, 'r', `${resourceName}.html.markdown`);
-          markdownHclDocsFiles.push(markdownHclDocsFile);
-        } else {
-          console.log(`Invalid CDKTF Ref for ${inputFile.inputFile}: ${JSON.stringify(metadata, null, 2)}`);
-          throw new Error('Invalid metadata: ' + JSON.stringify(metadata, null, 2));
-        }
-      }
-    }
-  }
-  for (const inputFile of input.testInputFiles.inputFiles) {
-    batchConvertRequests.push({
-      inputFile: inputFile.inputFile,
-      inputRefFiles: inputFile.inputRefs,
-      outputRefFiles: markdownHclDocsFiles,
-    });
-  }
-  return batchConvertRequests;
+  // Process CDKTF references using shared utility
+  const processedRefs = processCdktfReferences(input.batchRetrieveCdktfRefs);
+  
+  // Build unit test conversion requests using shared utility
+  return buildUnitTestConversionRequests(processedRefs, input.testInputFiles.inputFiles);
 }

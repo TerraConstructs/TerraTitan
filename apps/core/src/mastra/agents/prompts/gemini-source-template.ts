@@ -1,9 +1,16 @@
 import { ConversionType, ConversionRequest, ConversionRequestProps, LibRef, Sample } from '../../util/index.js';
+import type { PromptTemplate } from './prompt-template.js';
 
-export function generateInstructions(): string {
-  // load TerraConstruct references for Source Conversion
-  const libRef = LibRef.terraConstructs(ConversionType.SOURCE);
-  return `You are a precise and thorough Typescript Code converter.
+/**
+ * Gemini-optimized source conversion prompt template using markdown formatting
+ * This maintains the current format used by the existing source converter
+ */
+export class GeminiSourcePromptTemplate implements PromptTemplate {
+  generateInstructions(): string {
+    // Load TerraConstruct references for Source Conversion
+    const libRef = LibRef.terraConstructs(ConversionType.SOURCE);
+    
+    return `You are a precise and thorough Typescript Code converter.
 
 Convert a given TypeScript code file containing an AWS CDK Construct to a TerraConstruct (using CDKTF), following specified guidance and examples.
 Ensure the output is a valid source code file that can be directly written to disk.
@@ -60,10 +67,10 @@ ${libRef.aws}
 - Pay attention to any special conversion nuances outlined in the examples, such as specific method or property differences between AWS CDK and TerraConstructs and CDKTF Provider AWS Resources.
 - Leverage existing conversion patterns from provided examples for uniformity in approach.
 `;
-}
+  }
 
-export function generateSampleInput(sample: Sample): string {
-  return `Convert the following AWS CDK Constructs to TerraConstructs.
+  generateSampleInput(sample: Sample): string {
+    return `Convert the following AWS CDK Constructs to TerraConstructs.
 \`\`\`typescript
 ${sample.input}
 \`\`\`
@@ -85,17 +92,18 @@ Format:
 {
     "code": "converted code"
 }`;
-}
+  }
 
-export function generateSampleResponse(sample: Sample): string {
-  return `{
+  generateSampleResponse(sample: Sample): string {
+    return `{
   "code": "${sample.output}"
 }`;
-}
+  }
 
-export function generateNewPrompt(props: ConversionRequestProps): string {
-  const request = new ConversionRequest(ConversionType.SOURCE, props);
-  return `Convert the following AWS CDK Constructs to TerraConstructs.
+  generateNewPrompt(props: ConversionRequestProps): string {
+    const request = new ConversionRequest(ConversionType.SOURCE, props);
+    
+    return `Convert the following AWS CDK Constructs to TerraConstructs.
 \`\`\`typescript
 ${request.input}
 \`\`\`
@@ -117,4 +125,5 @@ Format:
     "code": "converted code"
 }
 `;
+  }
 }

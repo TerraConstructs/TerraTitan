@@ -1,9 +1,16 @@
 import { ConversionType, ConversionRequest, ConversionRequestProps, LibRef, Sample } from '../../util/index.js';
+import type { PromptTemplate } from './prompt-template.js';
 
-export function generateInstructions(): string {
-  // load TerraConstruct references for Source Conversion
-  const libRef = LibRef.terraConstructs(ConversionType.UNIT);
-  return `You are a precise and thorough Typescript Code converter.
+/**
+ * Gemini-optimized unit test conversion prompt template using markdown formatting
+ * This maintains the current format used by the existing unit test converter
+ */
+export class GeminiUnitPromptTemplate implements PromptTemplate {
+  generateInstructions(): string {
+    // Load TerraConstruct references for Unit Test Conversion
+    const libRef = LibRef.terraConstructs(ConversionType.UNIT);
+    
+    return `You are a precise and thorough Typescript Code converter.
 
 Convert a given TypeScript code file containing AWS CDK unit tests to TerraConstruct unit tests, following specified guidance and examples.
 Ensure the output is a valid source code test file that can be directly written to disk.
@@ -49,6 +56,7 @@ ${libRef.aws}
 
 - Generate a TypeScript source code test file (.test.ts) formatted for CDKTF.
 - Ensure the file is syntactically correct and ready for writing to disk.
+- put the source code between triple back ticks ("\`\`\`")
 
 ## Notes
 
@@ -56,64 +64,63 @@ ${libRef.aws}
 - Pay attention to any special conversion nuances outlined in the examples, such as specific method or property differences between AWS CDK and TerraConstructs and CDKTF Provider AWS Resources.
 - Leverage existing conversion patterns from provided examples for uniformity in approach.
 `;
-}
+  }
 
-export function generateSampleInput(sample: Sample): string {
-  return `Convert the following AWS CDK Construct Unit Tests to TerraConstructs Unit Tests.
+  generateSampleInput(sample: Sample): string {
+    return `Convert the following AWS CDK Unit Tests to TerraConstructs.
 \`\`\`typescript
 ${sample.input}
 \`\`\`
 
 ## Reference Documents
-**AWS CDK Tested Construct Type Declarations:**
-Refer to the following Reference declarations used by the AWSCDK constructs:
+**TerraConstructs Testing Declarations:**:
+Strictly adhere to the following testing declarations for TerraConstructs:
+\`\`\`typescript
+${sample.outputRefs}
+\`\`\`
+
+**AWS CDK Test Declarations:**
+Refer to the following Reference declarations used by the AWS CDK unit tests:
 \`\`\`typescript
 ${sample.inputRef}
 \`\`\`
 
-**Target documentations:**
-Ensure generated configurations are tested to follow the following documentation
-
-------------------------
-${sample.outputRefs}
-------------------------
-
 Format:
 {
-    "code": "converted code"
+    "code": "converted test code"
 }`;
-}
+  }
 
-export function generateSampleResponse(sample: Sample): string {
-  return `{
+  generateSampleResponse(sample: Sample): string {
+    return `{
   "code": "${sample.output}"
 }`;
-}
+  }
 
-export function generateNewPrompt(props: ConversionRequestProps): string {
-  const request = new ConversionRequest(ConversionType.UNIT, props);
-  return `Convert the following AWS CDK Construct Unit Tests to TerraConstructs Unit Tests.
+  generateNewPrompt(props: ConversionRequestProps): string {
+    const request = new ConversionRequest(ConversionType.UNIT, props);
+    
+    return `Convert the following AWS CDK Unit Tests to TerraConstructs.
 \`\`\`typescript
 ${request.input}
 \`\`\`
 
 ## Reference Documents
-
-**AWS CDK Tested Construct Type Declarations:**
-Refer to the following Reference declarations used by the AWSCDK constructs:
+**TerraConstructs Testing Declarations:**:
+Strictly adhere to the following testing declarations for TerraConstructs:
+\`\`\`typescript
+${request.outputRefs}
+\`\`\`
+**AWS CDK Test Declarations:**
+Refer to the following Reference declarations used by the AWS CDK unit tests:
 \`\`\`typescript
 ${request.inputRef}
 \`\`\`
 
-**Target documentations:**
-Ensure generated configurations are tested to follow the following documentation
-
-------------------------
-${request.outputRefs}
-------------------------
-
 Format:
 {
-    "code": "converted code"
-}`;
+    "code": "converted test code"
+}
+`;
+  }
 }
