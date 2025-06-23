@@ -41,7 +41,6 @@ if (!upstashToken) {
 }
 const counter = new TokenCounter(embeddingModel);
 const store = new UpstashVector({
-  namespace,
   url: upstashUrl,
   token: upstashToken,
 });
@@ -77,8 +76,7 @@ let results: QueryResult[] = [];
 try {
   results = await store.query({
     // TODO: Currently ref-embed.ts stores every AWS Resource in a single Upstash namespace === indexName
-    indexName,
-    namespace, // use the same namespace as the store
+    indexName: namespace, // use the same namespace as the store
     queryVector: queryEmbedding,
     includeVector: true, // required for reranking
     topK: 10, // Retrieve top 10 related nodes (adjust as needed)

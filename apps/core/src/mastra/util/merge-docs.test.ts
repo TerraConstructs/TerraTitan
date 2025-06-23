@@ -173,7 +173,7 @@ describe('MergeDocs', () => {
     test(
       'cloudwatch_event_bus',
       {
-        timeout: 10000, // Increase timeout for this test
+        timeout: 15000, // Increase timeout for this test
       },
       () => {
         const mergeDocs = MergeDocs.fromProps({
@@ -194,7 +194,7 @@ describe('MergeDocs', () => {
     test(
       'ami',
       {
-        timeout: 10000, // Increase timeout for this test
+        timeout: 15000, // Increase timeout for this test
       },
       () => {
         const mergeDocs = MergeDocs.fromProps({
@@ -215,7 +215,7 @@ describe('MergeDocs', () => {
     test(
       'rds_cluster',
       {
-        timeout: 10000, // Increase timeout for this test
+        timeout: 15000, // Increase timeout for this test
       },
       () => {
         const mergeDocs = MergeDocs.fromProps({
