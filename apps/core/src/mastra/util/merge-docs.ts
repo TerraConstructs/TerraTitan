@@ -144,7 +144,7 @@ export class MergeDocs {
   /**
    * Process the markdown file with tfdocs2json and update the declaration file
    */
-  public process2(): MergeDocs {
+  public process2(tfdocs2jsonOutput?: TfDocs2JsonOutput): MergeDocs {
     // Find the main Config interface for the resource type
     const resourceType = path.basename(path.dirname(this.declarationPath));
     const configInterfaceName = `${kebabToTitleCase(resourceType)}Config`;
@@ -156,7 +156,9 @@ export class MergeDocs {
       return this;
     }
 
-    const tfdocs2jsonOutput = this.tfdocs2Json();
+    if (!tfdocs2jsonOutput) {
+      tfdocs2jsonOutput = this.tfdocs2Json();
+    }
 
     updateInterfaceJSDoc(configInterface, tfdocs2jsonOutput.arguments);
 
