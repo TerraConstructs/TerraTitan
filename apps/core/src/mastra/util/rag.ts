@@ -49,6 +49,7 @@ export interface UpstashConfig {
  * pre-created Upstash indexnames for TerraTitan are
  *
  * - 'provider-aws-resources-small'
+ * - 'provider-aws-resources-5-100-0' (versioned for terraform-provider-aws v5.100.0)
  * - 'provider-aws-resources-large'
  *
  * @param indexName - The pre-created index on Upstash

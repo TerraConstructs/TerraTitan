@@ -94,8 +94,8 @@ importers:
         version: 0.0.4(zod@3.25.13)
     devDependencies:
       '@cdktf/provider-aws':
-        specifier: ^19.54.0
-        version: 19.59.0(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2)
+        specifier: ^20.1.0
+        version: 20.1.0(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2)
       '@mastra/evals':
         specifier: ^0.1.23
         version: 0.1.23(ai@4.3.9(react@19.0.0)(zod@3.25.13))(react@19.0.0)
@@ -121,8 +121,8 @@ importers:
         specifier: ^2.186.0
         version: 2.186.0(constructs@10.4.2)
       cdktf:
-        specifier: ^0.20.0
-        version: 0.20.11(constructs@10.4.2)
+        specifier: ^0.21.0
+        version: 0.21.0(constructs@10.4.2)
       constructs:
         specifier: ^10.4.2
         version: 10.4.2
@@ -134,7 +134,7 @@ importers:
         version: 0.6.3(@opentelemetry/api@1.9.0)(react@19.0.0)(typescript@5.8.2)
       terraconstructs:
         specifier: ^0.0.15
-        version: 0.0.15(@cdktf/provider-aws@19.59.0(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2))(@cdktf/provider-cloudinit@10.0.3(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2))(@cdktf/provider-time@10.3.0(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2))(@cdktf/provider-tls@10.0.1(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2))(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2)
+        version: 0.0.15(@cdktf/provider-aws@20.1.0(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2))(@cdktf/provider-cloudinit@10.0.3(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2))(@cdktf/provider-time@10.3.0(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2))(@cdktf/provider-tls@10.0.1(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2))(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2)
       tsx:
         specifier: ^4.19.3
         version: 4.19.3
@@ -659,12 +659,12 @@ packages:
     resolution: {integrity: sha512-H45s8fVLYjbhFH62dIJ3WtmJ6RSPt/3DRO0ZcT2SUiYiQyz3BLVb9ADEnLl91m74aQPS3AzzeajZHYOalWe3bg==}
     engines: {node: '>=6.9.0'}
 
-  '@cdktf/provider-aws@19.59.0':
-    resolution: {integrity: sha512-YoeBWK2Vrpx0nApPpYx9KBQK0hjoVxDA2A0wEWWn3tXnG1FMHwEtmc7kguImT6rSugwEgXD5kJFsexHTEXRGTA==}
-    engines: {node: '>= 18.12.0'}
+  '@cdktf/provider-aws@20.1.0':
+    resolution: {integrity: sha512-ONRJFu5qz/4nqis5f9OxRk8rOZQnuOiDoRtOu3z53fiFxzow0vvA2afnkfntoZGOsynDerqyWPX4/y8A6k6+8g==}
+    engines: {node: '>= 20.9.0'}
     peerDependencies:
-      cdktf: ^0.20.0
-      constructs: ^10.3.0
+      cdktf: ^0.21.0
+      constructs: ^10.4.2
 
   '@cdktf/provider-cloudinit@10.0.3':
     resolution: {integrity: sha512-UHz2n3cE0Eo8J/gEu48PRW2OAJUGPNYSem3263kBsnaKYrcf7FcAmu4kmMtJDAyamW916zHxd//gZexd7yM69A==}
@@ -2565,10 +2565,10 @@ packages:
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
 
-  cdktf@0.20.11:
-    resolution: {integrity: sha512-YoubhokJ8s60WNrP2+cpQinb0DdMXlaFFDnPPv2A/tcRkzkwO9dWuMiXhhA0XlBJ1qA5pibaonu9Cc4B9JgKuQ==}
+  cdktf@0.21.0:
+    resolution: {integrity: sha512-bdTOOyrFSXw0p5d7/3dye7ZWYzrUatyMjWEAAwTGoqghjygRj6Q55y1QZnSB021NRDzYZ3BhFGsOkpmIjQMzNQ==}
     peerDependencies:
-      constructs: ^10.3.0
+      constructs: ^10.4.2
     bundledDependencies:
       - archiver
       - json-stable-stringify
@@ -5614,24 +5614,24 @@ snapshots:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  '@cdktf/provider-aws@19.59.0(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2)':
+  '@cdktf/provider-aws@20.1.0(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2)':
     dependencies:
-      cdktf: 0.20.11(constructs@10.4.2)
+      cdktf: 0.21.0(constructs@10.4.2)
       constructs: 10.4.2
 
-  '@cdktf/provider-cloudinit@10.0.3(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2)':
+  '@cdktf/provider-cloudinit@10.0.3(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2)':
     dependencies:
-      cdktf: 0.20.11(constructs@10.4.2)
+      cdktf: 0.21.0(constructs@10.4.2)
       constructs: 10.4.2
 
-  '@cdktf/provider-time@10.3.0(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2)':
+  '@cdktf/provider-time@10.3.0(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2)':
     dependencies:
-      cdktf: 0.20.11(constructs@10.4.2)
+      cdktf: 0.21.0(constructs@10.4.2)
       constructs: 10.4.2
 
-  '@cdktf/provider-tls@10.0.1(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2)':
+  '@cdktf/provider-tls@10.0.1(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2)':
     dependencies:
-      cdktf: 0.20.11(constructs@10.4.2)
+      cdktf: 0.21.0(constructs@10.4.2)
       constructs: 10.4.2
 
   '@clack/core@0.3.5':
@@ -8130,7 +8130,7 @@ snapshots:
 
   ccount@2.0.1: {}
 
-  cdktf@0.20.11(constructs@10.4.2):
+  cdktf@0.21.0(constructs@10.4.2):
     dependencies:
       constructs: 10.4.2
 
@@ -10101,13 +10101,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  terraconstructs@0.0.15(@cdktf/provider-aws@19.59.0(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2))(@cdktf/provider-cloudinit@10.0.3(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2))(@cdktf/provider-time@10.3.0(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2))(@cdktf/provider-tls@10.0.1(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2))(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2):
+  terraconstructs@0.0.15(@cdktf/provider-aws@20.1.0(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2))(@cdktf/provider-cloudinit@10.0.3(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2))(@cdktf/provider-time@10.3.0(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2))(@cdktf/provider-tls@10.0.1(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2))(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2):
     dependencies:
-      '@cdktf/provider-aws': 19.59.0(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2)
-      '@cdktf/provider-cloudinit': 10.0.3(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2)
-      '@cdktf/provider-time': 10.3.0(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2)
-      '@cdktf/provider-tls': 10.0.1(cdktf@0.20.11(constructs@10.4.2))(constructs@10.4.2)
-      cdktf: 0.20.11(constructs@10.4.2)
+      '@cdktf/provider-aws': 20.1.0(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2)
+      '@cdktf/provider-cloudinit': 10.0.3(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2)
+      '@cdktf/provider-time': 10.3.0(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2)
+      '@cdktf/provider-tls': 10.0.1(cdktf@0.21.0(constructs@10.4.2))(constructs@10.4.2)
+      cdktf: 0.21.0(constructs@10.4.2)
       constructs: 10.4.2
 
   test-exclude@6.0.0:
