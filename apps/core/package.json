@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@cdktf/provider-aws": "^19.54.0",
+    "@mastra/evals": "^0.1.23",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@repo/vitest-config": "workspace:*",

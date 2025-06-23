@@ -1,0 +1,601 @@
+{
+  "arguments": [
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "attribute",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "billingMode",
+      "type": "string",
+      "description": "(Optional) Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "deletionProtectionEnabled",
+      "type": "bool",
+      "description": "(Optional) Enables deletion protection for table. Defaults to `false`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "globalSecondaryIndex",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "hashKey",
+      "type": "string",
+      "description": "(Required, Forces new resource) Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "importTable",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "localSecondaryIndex",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) Unique within a region name of the table.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "onDemandThroughput",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "pointInTimeRecovery",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "rangeKey",
+      "type": "string",
+      "description": "(Optional, Forces new resource) Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "readCapacity",
+      "type": "number",
+      "description": "(Optional) Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "replica",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "restoreDateTime",
+      "type": "string",
+      "description": "(Optional) Time of the point-in-time recovery point to restore.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "restoreSourceName",
+      "type": "string",
+      "description": "(Optional) Name of the table to restore. Must match the name of an existing table.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "restoreSourceTableArn",
+      "type": "string",
+      "description": "(Optional) ARN of the source table to restore. Must be supplied for cross-region restores.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "restoreToLatestTime",
+      "type": "bool",
+      "description": "(Optional) If set, restores table to the most recent point-in-time recovery point.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "serverSideEncryption",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "streamArn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "streamEnabled",
+      "type": "bool",
+      "description": "(Optional) Whether Streams are enabled.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "streamLabel",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "streamViewType",
+      "type": "string",
+      "description": "(Optional) When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tableClass",
+      "type": "string",
+      "description": "(Optional) Storage class of the table.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tags",
+      "type": "map",
+      "description": "(Optional) A map of tags to populate on the created table. If configured with a provider [`defaultTags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tagsAll",
+      "type": "map",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "timeouts",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "ttl",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "writeCapacity",
+      "type": "number",
+      "description": "(Optional) Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.",
+      "required": false,
+      "optional": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "pointInTimeRecovery",
+      "full_name": "PointInTimeRecovery",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Required) Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "serverSideEncryption",
+      "full_name": "ServerSideEncryption",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Required) Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS-_owned_ key (shown as `DEFAULT` in the AWS console). Potentially confusingly, if `enabled` is `true` and no `kmsKeyArn` is specified then server-side encryption is set to the _default_ KMS-_managed_ key (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS-_owned_ and KMS-_managed_ keys.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional, Forces new resource) ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "timeouts",
+      "full_name": "Timeouts",
+      "arguments": [
+        {
+          "name": "create",
+          "type": "string",
+          "description": "(Default `30m`)",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "delete",
+          "type": "string",
+          "description": "(Default `10m`)",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "update",
+          "type": "string",
+          "description": "(Default `60m`)",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "globalSecondaryIndex",
+      "full_name": "GlobalSecondaryIndex",
+      "arguments": [
+        {
+          "name": "hashKey",
+          "type": "string",
+          "description": "(Required) Name of the hash key in the index; must be defined as an attribute in the resource.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Required) Name of the index.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "nonKeyAttributes",
+          "type": "set",
+          "description": "(Optional) Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "projectionType",
+          "type": "string",
+          "description": "(Required) One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "rangeKey",
+          "type": "string",
+          "description": "(Optional) Name of the range key; must be defined",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "readCapacity",
+          "type": "number",
+          "description": "(Optional) Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "writeCapacity",
+          "type": "number",
+          "description": "(Optional) Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "onDemandThroughput",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "onDemandThroughput",
+      "full_name": "GlobalSecondaryIndexOnDemandThroughput",
+      "arguments": [
+        {
+          "name": "maxReadRequestUnits",
+          "type": "number",
+          "description": "(Optional) Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "maxWriteRequestUnits",
+          "type": "number",
+          "description": "(Optional) Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "onDemandThroughput",
+      "full_name": "OnDemandThroughput",
+      "arguments": [
+        {
+          "name": "maxReadRequestUnits",
+          "type": "number",
+          "description": "(Optional) Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "maxWriteRequestUnits",
+          "type": "number",
+          "description": "(Optional) Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "replica",
+      "full_name": "Replica",
+      "arguments": [
+        {
+          "name": "arn",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": false
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional) ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "pointInTimeRecovery",
+          "type": "bool",
+          "description": "(Optional) Whether to enable Point In Time Recovery for the replica. Default is `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "propagateTags",
+          "type": "bool",
+          "description": "(Optional) Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "regionName",
+          "type": "string",
+          "description": "(Required) Region name of the replica.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "streamArn",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": false
+        },
+        {
+          "name": "streamLabel",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "ttl",
+      "full_name": "Ttl",
+      "arguments": [
+        {
+          "name": "attributeName",
+          "type": "string",
+          "description": "(Optional) Name of the table attribute to store the TTL timestamp in.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Whether TTL is enabled.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "attribute",
+      "full_name": "Attribute",
+      "arguments": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Required) Name of the attribute",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "(Required) Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "importTable",
+      "full_name": "ImportTable",
+      "arguments": [
+        {
+          "name": "inputCompressionType",
+          "type": "string",
+          "description": "(Optional) Type of compression to be used on the input coming from the imported table.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "inputFormat",
+          "type": "string",
+          "description": "(Required) The format of the source data.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "inputFormatOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3BucketSource",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "inputFormatOptions",
+      "full_name": "ImportTableInputFormatOptions",
+      "arguments": [
+        {
+          "name": "csv",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "csv",
+      "full_name": "ImportTableInputFormatOptionsCsv",
+      "arguments": [
+        {
+          "name": "delimiter",
+          "type": "string",
+          "description": "(Optional) The delimiter used for separating items in the CSV file being imported.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "headerList",
+          "type": "set",
+          "description": "(Optional) List of the headers used to specify a common header for all source CSV files being imported.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "s3BucketSource",
+      "full_name": "ImportTableS3BucketSource",
+      "arguments": [
+        {
+          "name": "bucket",
+          "type": "string",
+          "description": "(Required) The S3 bucket that is being imported from.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bucketOwner",
+          "type": "string",
+          "description": "(Optional) The account number of the S3 bucket that is being imported from.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "keyPrefix",
+          "type": "string",
+          "description": "(Optional) The key prefix shared by all S3 Objects that are being imported.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "localSecondaryIndex",
+      "full_name": "LocalSecondaryIndex",
+      "arguments": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Required) Name of the index.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "nonKeyAttributes",
+          "type": "list",
+          "description": "(Optional) Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "projectionType",
+          "type": "string",
+          "description": "(Required) One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "rangeKey",
+          "type": "string",
+          "description": "(Required) Name of the range key.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

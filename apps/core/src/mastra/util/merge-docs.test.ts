@@ -1,6 +1,7 @@
 import path from 'path';
+import fs from 'fs';
 import { expect, test, describe } from 'vitest';
-import { MergeDocs } from './merge-docs.js';
+import { MergeDocs, TfDocs2JsonOutput } from './merge-docs.js';
 
 /**
  * TempConfig
@@ -150,5 +151,110 @@ describe('MergeDocs', () => {
       });
       expect(mergeDocs.process().fullText).toMatchSnapshot();
     });
+    // TODO: Fall back to LLM on failure?
+    // test('should merge declaration and markdown with nested argument subsections', () => {
+    //   const mergeDocs = MergeDocs.fromProps({
+    //     markdownPath: path.join(fixturesDir, 'docs', 'rds_cluster.html.markdown'),
+    //     declarationPath: path.join(fixturesDir, 'declarations', 'rds-cluster', 'index.d.ts'),
+    //   });
+    //   expect(mergeDocs.process().fullText).toMatchSnapshot();
+    // });
+  });
+
+  describe('process2 test', () => {
+    test('cloudwatch_event_bus mocked', () => {
+      const markdownBaseName = 'cloudwatch_event_bus.html.markdown';
+      const mergeDocs = MergeDocs.fromProps({
+        markdownPath: path.join(fixturesDir, 'docs', markdownBaseName),
+        declarationPath: path.join(fixturesDir, 'declarations', 'cloudwatch-event-bus', 'index.d.ts'),
+      });
+      expect(mergeDocs.process2(mocktfDocs2Json(markdownBaseName)).fullText).toMatchSnapshot();
+    });
+    test(
+      'cloudwatch_event_bus',
+      {
+        timeout: 10000, // Increase timeout for this test
+      },
+      () => {
+        const mergeDocs = MergeDocs.fromProps({
+          markdownPath: path.join(fixturesDir, 'docs', 'cloudwatch_event_bus.html.markdown'),
+          declarationPath: path.join(fixturesDir, 'declarations', 'cloudwatch-event-bus', 'index.d.ts'),
+        });
+        expect(mergeDocs.process2().fullText).toMatchSnapshot();
+      },
+    );
+    test('ami mocked', () => {
+      const markdownBaseName = 'ami.html.markdown';
+      const mergeDocs = MergeDocs.fromProps({
+        markdownPath: path.join(fixturesDir, 'docs', markdownBaseName),
+        declarationPath: path.join(fixturesDir, 'declarations', 'cloudwatch-event-bus', 'index.d.ts'),
+      });
+      expect(mergeDocs.process2(mocktfDocs2Json(markdownBaseName)).fullText).toMatchSnapshot();
+    });
+    test(
+      'ami',
+      {
+        timeout: 10000, // Increase timeout for this test
+      },
+      () => {
+        const mergeDocs = MergeDocs.fromProps({
+          markdownPath: path.join(fixturesDir, 'docs', 'ami.html.markdown'),
+          declarationPath: path.join(fixturesDir, 'declarations', 'ami', 'index.d.ts'),
+        });
+        expect(mergeDocs.process2().fullText).toMatchSnapshot();
+      },
+    );
+    test('rds_cluster mocked', () => {
+      const markdownBaseName = 'rds_cluster.html.markdown';
+      const mergeDocs = MergeDocs.fromProps({
+        markdownPath: path.join(fixturesDir, 'docs', markdownBaseName),
+        declarationPath: path.join(fixturesDir, 'declarations', 'cloudwatch-event-bus', 'index.d.ts'),
+      });
+      expect(mergeDocs.process2(mocktfDocs2Json(markdownBaseName)).fullText).toMatchSnapshot();
+    });
+    test(
+      'rds_cluster',
+      {
+        timeout: 10000, // Increase timeout for this test
+      },
+      () => {
+        const mergeDocs = MergeDocs.fromProps({
+          markdownPath: path.join(fixturesDir, 'docs', 'rds_cluster.html.markdown'),
+          declarationPath: path.join(fixturesDir, 'declarations', 'rds-cluster', 'index.d.ts'),
+        });
+        expect(mergeDocs.process2().fullText).toMatchSnapshot();
+      },
+    );
+    test('appautoscaling_policy mocked', () => {
+      const markdownBaseName = 'appautoscaling_policy.html.markdown';
+      const mergeDocs = MergeDocs.fromProps({
+        markdownPath: path.join(fixturesDir, 'docs', markdownBaseName),
+        declarationPath: path.join(fixturesDir, 'declarations', 'cloudwatch-event-bus', 'index.d.ts'),
+      });
+      expect(mergeDocs.process2(mocktfDocs2Json(markdownBaseName)).fullText).toMatchSnapshot();
+    });
+    test(
+      'appautoscaling_policy',
+      {
+        timeout: 10000, // Increase timeout for this test
+      },
+      () => {
+        const mergeDocs = MergeDocs.fromProps({
+          markdownPath: path.join(fixturesDir, 'docs', 'appautoscaling_policy.html.markdown'),
+          declarationPath: path.join(fixturesDir, 'declarations', 'appautoscaling-policy', 'index.d.ts'),
+        });
+        expect(mergeDocs.process2().fullText).toMatchSnapshot();
+      },
+    );
   });
 });
+
+/**
+ * Helper function to read mock tfdocs2json fixture
+ */
+function mocktfDocs2Json(markdownBaseName: string) {
+  const mockBaseName = markdownBaseName.replace(/\.html\.markdown$/, '.json');
+  const mockPath = path.join(fixturesDir, 'mock-tfdocs2json', mockBaseName);
+  const mockContent = fs.readFileSync(mockPath, 'utf-8');
+  return JSON.parse(mockContent) as TfDocs2JsonOutput;
+}

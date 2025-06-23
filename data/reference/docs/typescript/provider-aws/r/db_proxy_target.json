@@ -1,0 +1,36 @@
+{
+  "arguments": [
+    {
+      "name": "dbInstanceIdentifier",
+      "type": "string",
+      "description": "(Optional, Forces new resource) DB instance identifier.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "dbProxyName",
+      "type": "string",
+      "description": "(Required, Forces new resource) The name of the DB proxy.",
+      "required": true,
+      "optional": false,
+      "level": 0
+    },
+    {
+      "name": "targetGroupName",
+      "type": "string",
+      "description": "(Required, Forces new resource) The name of the target group.",
+      "required": true,
+      "optional": false,
+      "level": 0
+    },
+    {
+      "name": "dbClusterIdentifier",
+      "type": "string",
+      "description": "(Optional, Forces new resource) DB cluster identifier.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    }
+  ]
+}

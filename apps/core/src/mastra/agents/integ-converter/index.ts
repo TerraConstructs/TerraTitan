@@ -3,7 +3,7 @@ import { type CoreMessage } from '@mastra/core';
 import { z } from 'zod';
 import { ConverterAgent } from '../converter/index.js';
 import { Sample, type ConversionRequestProps } from '../../util/index.js';
-import { generateInstructions, generateSampleInput, generateSampleResponse, generateNewPrompt } from './prompts.js';
+import { PromptTemplateFactory } from '../prompts/prompt-template.js';
 
 /**
  * (< 200k tokens)
@@ -13,22 +13,26 @@ import { generateInstructions, generateSampleInput, generateSampleResponse, gene
 const GEMINI_2_5_PRO = 'gemini-2.5-pro-preview-06-05';
 
 /**
- * Class to convert unit test code from AWS CDK to TerraConstructs
+ * Class to convert integration test code from AWS CDK to TerraConstructs
  *
  * Hardcoded for:
  * - Google Provider
  * - 2 Shot AWSCDK -> TerraConstructs Samples
  */
 class IntegConverterAgent extends ConverterAgent {
-  private readonly _samples: Sample[];
   constructor(sampleNameOne: string, sampleNameTwo: string, model: string = GEMINI_2_5_PRO) {
+    const samples = [Sample.fromName(sampleNameOne), Sample.fromName(sampleNameTwo)];
+    const promptTemplate = PromptTemplateFactory.create('gemini', 'integ');
+    
     super(
       'Integration Test',
-      generateInstructions(),
+      promptTemplate,
       // ref: https://sdk.vercel.ai/providers/ai-sdk-providers/google-generative-ai#provider-instance
       google(model),
+      samples,
+      'gemini',
+      'integ',
     );
-    this._samples = [Sample.fromName(sampleNameOne), Sample.fromName(sampleNameTwo)];
   }
   /**
    * Converts the integration tests from AWS CDK to TerraConstructs
@@ -41,19 +45,19 @@ class IntegConverterAgent extends ConverterAgent {
    */
   async convert(requestProps: ConversionRequestProps): Promise<{ code: string }> {
     const messages: CoreMessage[] = [];
-    for (const sample of this._samples) {
+    for (const sample of this.samples) {
       messages.push({
         role: 'user',
-        content: generateSampleInput(sample),
+        content: this.promptTemplate.generateSampleInput(sample),
       });
       messages.push({
         role: 'assistant',
-        content: generateSampleResponse(sample),
+        content: this.promptTemplate.generateSampleResponse(sample),
       });
     }
     messages.push({
       role: 'user',
-      content: generateNewPrompt(requestProps),
+      content: this.promptTemplate.generateNewPrompt(requestProps),
     });
     const result = await this.agent.generate(messages, {
       output: z.object({

@@ -1,0 +1,395 @@
+{
+  "arguments": [
+    {
+      "name": "alarmArns",
+      "type": "list",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "(Required) Short name for the metric used in target tracking scaling policy.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) Name of the policy. Must be between 1 and 255 characters in length.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "policyType",
+      "type": "string",
+      "description": "(Optional) Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "resourceId",
+      "type": "string",
+      "description": "(Required) Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "scalableDimension",
+      "type": "string",
+      "description": "(Required) Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "serviceNamespace",
+      "type": "string",
+      "description": "(Required) AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "stepScalingPolicyConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "targetTrackingScalingPolicyConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "stepScalingPolicyConfiguration",
+      "full_name": "StepScalingPolicyConfiguration",
+      "arguments": [
+        {
+          "name": "adjustmentType",
+          "type": "string",
+          "description": "(Required) Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "cooldown",
+          "type": "number",
+          "description": "(Required) Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metricAggregationType",
+          "type": "string",
+          "description": "(Optional) Aggregation type for the policy's metrics. Valid values are \"Minimum\", \"Maximum\", and \"Average\". Without a value, AWS will treat the aggregation type as \"Average\".",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "minAdjustmentMagnitude",
+          "type": "number",
+          "description": "(Optional) Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "stepAdjustment",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "stepAdjustment",
+      "full_name": "StepScalingPolicyConfigurationStepAdjustment",
+      "arguments": [
+        {
+          "name": "metricIntervalLowerBound",
+          "type": "string",
+          "description": "(Optional) Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metricIntervalUpperBound",
+          "type": "string",
+          "description": "(Optional) Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "scalingAdjustment",
+          "type": "number",
+          "description": "(Required) Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "targetTrackingScalingPolicyConfiguration",
+      "full_name": "TargetTrackingScalingPolicyConfiguration",
+      "arguments": [
+        {
+          "name": "disableScaleIn",
+          "type": "bool",
+          "description": "(Optional) Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "scaleInCooldown",
+          "type": "number",
+          "description": "(Optional) Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "scaleOutCooldown",
+          "type": "number",
+          "description": "(Optional) Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "targetValue",
+          "type": "number",
+          "description": "(Required) Target value for the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "customizedMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "predefinedMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "customizedMetricSpecification",
+      "full_name": "TargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification",
+      "arguments": [
+        {
+          "name": "metricName",
+          "type": "string",
+          "description": "(Optional) Name of the metric.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "(Optional) Namespace of the metric.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "statistic",
+          "type": "string",
+          "description": "(Optional) Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "(Optional) Unit of the metric.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "dimensions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metrics",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "dimensions",
+      "full_name": "TargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensions",
+      "arguments": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Required) Name of the dimension.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "(Required) Value of the dimension.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "metrics",
+      "full_name": "TargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetrics",
+      "arguments": [
+        {
+          "name": "expression",
+          "type": "string",
+          "description": "(Optional) Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "(Required) Short name for the metric used in target tracking scaling policy.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "(Optional) Human-readable label for this metric or expression.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "returnData",
+          "type": "bool",
+          "description": "(Optional) Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metricStat",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "metricStat",
+      "full_name": "TargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricsMetricStat",
+      "arguments": [
+        {
+          "name": "stat",
+          "type": "string",
+          "description": "(Required) Statistic of the metrics to return.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "(Optional) Unit of the metric.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metric",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "metric",
+      "full_name": "TargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricsMetricStatMetric",
+      "arguments": [
+        {
+          "name": "metricName",
+          "type": "string",
+          "description": "(Required) Name of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "(Required) Namespace of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "dimensions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "dimensions",
+      "full_name": "TargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricsMetricStatMetricDimensions",
+      "arguments": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Required) Name of the dimension.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "(Required) Value of the dimension.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "predefinedMetricSpecification",
+      "full_name": "TargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification",
+      "arguments": [
+        {
+          "name": "predefinedMetricType",
+          "type": "string",
+          "description": "(Required) Metric type.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "resourceLabel",
+          "type": "string",
+          "description": "(Optional) Reserved for future use if the `predefinedMetricType` is not `ALBRequestCountPerTarget`. If the `predefinedMetricType` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

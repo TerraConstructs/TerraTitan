@@ -1,0 +1,91 @@
+{
+  "arguments": [
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Optional, Forces new resource) The name of the DB parameter group. If omitted, Terraform will assign a random, unique name.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "namePrefix",
+      "type": "string",
+      "description": "(Optional, Forces new resource) Creates a unique name beginning with the specified prefix. Conflicts with `name`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "skipDestroy",
+      "type": "bool",
+      "description": "(Optional) Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "tags",
+      "type": "map",
+      "description": "(Optional) A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "(Optional, Forces new resource) The description of the DB parameter group. Defaults to \"Managed by Terraform\".",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "family",
+      "type": "string",
+      "description": "(Required, Forces new resource) The family of the DB parameter group.",
+      "required": true,
+      "optional": false,
+      "level": 0
+    },
+    {
+      "name": "parameter",
+      "type": "block",
+      "description": "(Optional) The DB parameters to apply. See [`parameter` Block](#parameter-block) below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "parameter",
+      "arguments": [
+        {
+          "name": "applyMethod",
+          "type": "string",
+          "description": "(Optional) \"immediate\" (default), or \"pending-reboot\". Some engines can't apply some parameters without a reboot, and you will need to specify \"pending-reboot\" here.",
+          "required": false,
+          "optional": true,
+          "level": 0
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Optional, Forces new resource) The name of the DB parameter group. If omitted, Terraform will assign a random, unique name.",
+          "required": true,
+          "optional": false,
+          "level": 0
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "(Required) The value of the DB parameter.",
+          "required": true,
+          "optional": false,
+          "level": 0
+        }
+      ]
+    }
+  ]
+}

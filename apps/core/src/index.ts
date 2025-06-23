@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { argumentParser } from 'zodcli';
 import { commandLineArgsSchema, awsCdkModules, listWorkflowRuns } from './cli-util.js';
 import { runConversionWorkflow } from './wf-conversion.js';
+import { runDocMergeWf } from './wf-merge-docs.js';
 import { runvNextWf } from './wf-vnext.js';
 import { runCdktfRefWf } from './wf-cdktf-ref.js';
 import { runEnsureUpstreamWf } from './wf-ensure-upstream.js';
@@ -18,6 +19,10 @@ const workflowTypeSchema = z.enum([
    * Current conversion workflow
    */
   'convert',
+  /**
+   * Doc Merge Workflow (LLM)
+   */
+  'docsMerge',
   /**
    * Demo Batch Source Code conversion workflow
    */
@@ -65,6 +70,7 @@ async function main() {
         message: 'Select which workflow to run:',
         choices: [
           { value: 'convert', name: 'Conversion Workflow' },
+          { value: 'docsMerge', name: 'Docs Merge Workflow (LLM)' },
           { value: 'convert-vNext', name: 'Conversion Workflow vNext' },
           { value: 'batchConvert', name: 'Demo Batch Source Code Conversion Workflow' },
           { value: 'batchTestConvert', name: 'Demo Batch Unit Tests Conversion Workflow' },
@@ -79,6 +85,9 @@ async function main() {
     switch (wfToRun) {
       case 'convert':
         await runConversionWorkflow(args);
+        break;
+      case 'docsMerge':
+        await runDocMergeWf();
         break;
       case 'batchConvert':
         await runBatchSourceConvertWf();

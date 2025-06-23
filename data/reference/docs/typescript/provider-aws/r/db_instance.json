@@ -1,0 +1,682 @@
+{
+  "arguments": [
+    {
+      "name": "networkType",
+      "type": "string",
+      "description": "(Optional) The network type of the DB instance. Valid values: `IPV4`, `DUAL`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "description": "(Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb` is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "snapshotIdentifier",
+      "type": "string",
+      "description": "(Optional) Specifies whether or not to create this database from a snapshot.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "backupTarget",
+      "type": "string",
+      "description": "(Optional, Forces new resource) Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "enabledCloudwatchLogsExports",
+      "type": "set",
+      "description": "(Optional) Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "multiAz",
+      "type": "bool",
+      "description": "(Optional) Specifies if the RDS instance is multi-AZ",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "storageType",
+      "type": "string",
+      "description": "(Optional) One of \"standard\" (magnetic), \"gp2\" (general purpose SSD), \"gp3\" (general purpose SSD that needs `iops` independently) \"io1\" (provisioned IOPS SSD) or \"io2\" (block express storage provisioned IOPS SSD). The default is \"io1\" if `iops` is specified, \"gp2\" if not.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "customerOwnedIpEnabled",
+      "type": "bool",
+      "description": "(Optional) Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "deleteAutomatedBackups",
+      "type": "bool",
+      "description": "(Optional) Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "licenseModel",
+      "type": "string",
+      "description": "(Optional, but required for some DB engines, i.e., Oracle SE1) License model information for this DB instance. Valid values for this field are as follows: * RDS for MariaDB: `general-public-license` * RDS for Microsoft SQL Server: `license-included` * RDS for MySQL: `general-public-license` * RDS for Oracle: `bring-your-own-license | license-included`",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "monitoringInterval",
+      "type": "number",
+      "description": "(Optional) The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "ncharCharacterSetName",
+      "type": "string",
+      "description": "(Optional, Forces new resource) The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "customIamInstanceProfile",
+      "type": "string",
+      "description": "(Optional) The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "autoMinorVersionUpgrade",
+      "type": "bool",
+      "description": "(Optional) Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "backupRetentionPeriod",
+      "type": "number",
+      "description": "(Optional) The days to retain backups for.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "domain",
+      "type": "string",
+      "description": "(Optional) The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "finalSnapshotIdentifier",
+      "type": "string",
+      "description": "(Optional) The name of your final DB snapshot when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "storageThroughput",
+      "type": "number",
+      "description": "(Optional) The storage throughput value for the DB instance. Can only be set when `storageType` is `\"gp3\"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "allocatedStorage",
+      "type": "number",
+      "description": "(Required unless a `snapshotIdentifier` or `replicateSourceDb` is provided) The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "timezone",
+      "type": "string",
+      "description": "(Optional) Time zone of the DB instance. `timezone` is currently only supported by Microsoft SQL Server. The `timezone` can only be set on creation. See [MSSQL User Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone) for more information.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "vpcSecurityGroupIds",
+      "type": "set",
+      "description": "(Optional) List of VPC security groups to associate.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "dbSubnetGroupName",
+      "type": "string",
+      "description": "(Optional) Name of [DB subnet group](/docs/providers/aws/r/db_subnet_group.html).",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "domainFqdn",
+      "type": "string",
+      "description": "(Optional) The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "performanceInsightsRetentionPeriod",
+      "type": "number",
+      "description": "(Optional) Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "characterSetName",
+      "type": "string",
+      "description": "(Optional) The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "copyTagsToSnapshot",
+      "type": "bool",
+      "description": "(Optional, boolean) Copy all Instance `tags` to snapshots. Default is `false`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "maxAllocatedStorage",
+      "type": "number",
+      "description": "(Optional) Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "monitoringRoleArn",
+      "type": "string",
+      "description": "(Optional) The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "domainAuthSecretArn",
+      "type": "string",
+      "description": "(Optional, but required if domain_fqdn is provided) The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "domainOu",
+      "type": "string",
+      "description": "(Optional, but required if domain_fqdn is provided) The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "engineVersion",
+      "type": "string",
+      "description": "(Optional) The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engineVersionActual`, see [Attribute Reference](#attribute-reference) below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine version'.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "maintenanceWindow",
+      "type": "string",
+      "description": "(Optional) The window to perform maintenance in.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "manageMasterUserPassword",
+      "type": "bool",
+      "description": "(Optional) Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "upgradeStorageConfig",
+      "type": "bool",
+      "description": "(Optional) Whether to upgrade the storage file system configuration on the read replica.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "dedicatedLogVolume",
+      "type": "bool",
+      "description": "(Optional, boolean) Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "engine",
+      "type": "string",
+      "description": "(Required unless a `snapshotIdentifier` or `replicateSourceDb` is provided) The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the [DB cluster](/docs/providers/aws/r/rds_cluster.html)'s engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "storageEncrypted",
+      "type": "bool",
+      "description": "(Optional) Specifies whether the DB instance is encrypted. Note that if you are creating a cross-region read replica this field is ignored and you should instead declare `kmsKeyId` with a valid ARN. The default is `false` if not specified.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "description": "(Required unless a `snapshotIdentifier` or `replicateSourceDb` is provided) Username for the master DB user. Cannot be specified for a replica.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "tags",
+      "type": "map",
+      "description": "(Optional) A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "dbName",
+      "type": "string",
+      "description": "(Optional) The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "performanceInsightsKmsKeyId",
+      "type": "string",
+      "description": "(Optional) The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "caCertIdentifier",
+      "type": "string",
+      "description": "(Optional) The identifier of the CA certificate for the DB instance.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "backupWindow",
+      "type": "string",
+      "description": "(Optional) The daily time range (in UTC) during which automated backups are created if they are enabled.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "performanceInsightsEnabled",
+      "type": "bool",
+      "description": "(Optional) Specifies whether Performance Insights are enabled. Defaults to false.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "replicateSourceDb",
+      "type": "string",
+      "description": "(Optional) Specifies that this resource is a Replica database, and to use this value as the source database.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "masterUserSecretKmsKeyId",
+      "type": "string",
+      "description": "(Optional) The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "optionGroupName",
+      "type": "string",
+      "description": "(Optional) Name of the DB option group to associate.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "skipFinalSnapshot",
+      "type": "bool",
+      "description": "(Optional) Determines whether a final DB snapshot is created before the DB instance is deleted. If true is specified, no DBSnapshot is created. If false is specified, a DB snapshot is created before the DB instance is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "availabilityZone",
+      "type": "string",
+      "description": "(Optional) The AZ for the RDS instance.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "identifier",
+      "type": "string",
+      "description": "(Optional) The name of the RDS instance, if omitted, Terraform will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "instanceClass",
+      "type": "string",
+      "description": "(Required) The instance type of the RDS instance.",
+      "required": true,
+      "optional": false,
+      "level": 0
+    },
+    {
+      "name": "iops",
+      "type": "number",
+      "description": "(Optional) The amount of provisioned IOPS. Setting this implies a storage_type of \"io1\" or \"io2\". Can only be set when `storageType` is `\"io1\"`, `\"io2` or `\"gp3\"`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "kmsKeyId",
+      "type": "string",
+      "description": "(Optional) The ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "parameterGroupName",
+      "type": "string",
+      "description": "(Optional) Name of the DB parameter group to associate.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "domainIamRoleName",
+      "type": "string",
+      "description": "(Optional, but required if domain is provided) The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "iamDatabaseAuthenticationEnabled",
+      "type": "bool",
+      "description": "(Optional) Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "publiclyAccessible",
+      "type": "bool",
+      "description": "(Optional) Bool to control if instance is publicly accessible. Default is `false`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "applyImmediately",
+      "type": "bool",
+      "description": "(Optional) Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "deletionProtection",
+      "type": "bool",
+      "description": "(Optional) If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "engineLifecycleSupport",
+      "type": "string",
+      "description": "(Optional) The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "identifierPrefix",
+      "type": "string",
+      "description": "(Optional) Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "port",
+      "type": "number",
+      "description": "(Optional) The port on which the DB accepts connections.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "replicaMode",
+      "type": "string",
+      "description": "(Optional) Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "allowMajorVersionUpgrade",
+      "type": "bool",
+      "description": "(Optional) Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "domainDnsIps",
+      "type": "list",
+      "description": "(Optional, but required if domain_fqdn is provided)  The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "blueGreenUpdate",
+      "type": "block",
+      "description": "(Optional) Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "restoreToPointInTime",
+      "type": "block",
+      "description": "(Optional, Forces new resource) A configuration block for restoring a DB instance to an arbitrary point in time.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    },
+    {
+      "name": "s3Import",
+      "type": "block",
+      "description": "(Optional) Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)",
+      "required": false,
+      "optional": true,
+      "level": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "timeouts",
+      "arguments": [
+        {
+          "name": "create",
+          "type": "string",
+          "description": "(Default `40m`) - `update` - (Default `80m`) - `delete` - (Default `60m`)",
+          "required": false,
+          "optional": true,
+          "level": 0
+        },
+        {
+          "name": "delete",
+          "type": "string",
+          "description": "(Default `60m`)",
+          "required": false,
+          "optional": true,
+          "level": 0
+        },
+        {
+          "name": "update",
+          "type": "string",
+          "description": "(Default `80m`) - `delete` - (Default `60m`)",
+          "required": false,
+          "optional": true,
+          "level": 0
+        }
+      ]
+    },
+    {
+      "name": "blueGreenUpdate",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables [low-downtime updates](#low-downtime-updates) when `true`.",
+          "required": false,
+          "optional": true,
+          "level": 0
+        }
+      ]
+    },
+    {
+      "name": "restoreToPointInTime",
+      "arguments": [
+        {
+          "name": "sourceDbInstanceAutomatedBackupsArn",
+          "type": "string",
+          "description": "(Optional) The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.",
+          "required": false,
+          "optional": true,
+          "level": 0
+        },
+        {
+          "name": "sourceDbInstanceIdentifier",
+          "type": "string",
+          "description": "(Optional) The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.",
+          "required": false,
+          "optional": true,
+          "level": 0
+        },
+        {
+          "name": "sourceDbiResourceId",
+          "type": "string",
+          "description": "(Optional) The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.",
+          "required": false,
+          "optional": true,
+          "level": 0
+        },
+        {
+          "name": "useLatestRestorableTime",
+          "type": "bool",
+          "description": "(Optional) A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.",
+          "required": false,
+          "optional": true,
+          "level": 0
+        },
+        {
+          "name": "restoreTime",
+          "type": "string",
+          "description": "(Optional) The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.",
+          "required": false,
+          "optional": true,
+          "level": 0
+        }
+      ]
+    },
+    {
+      "name": "s3Import",
+      "arguments": [
+        {
+          "name": "bucketName",
+          "type": "string",
+          "description": "(Required) The bucket name where your backup is stored",
+          "required": true,
+          "optional": false,
+          "level": 0
+        },
+        {
+          "name": "bucketPrefix",
+          "type": "string",
+          "description": "(Optional) Can be blank, but is the path to your backup",
+          "required": false,
+          "optional": true,
+          "level": 0
+        },
+        {
+          "name": "ingestionRole",
+          "type": "string",
+          "description": "(Required) Role applied to load the data.",
+          "required": true,
+          "optional": false,
+          "level": 0
+        },
+        {
+          "name": "sourceEngine",
+          "type": "string",
+          "description": "(Required, as of Feb 2018 only 'mysql' supported) Source engine for the backup",
+          "required": true,
+          "optional": false,
+          "level": 0
+        },
+        {
+          "name": "sourceEngineVersion",
+          "type": "string",
+          "description": "(Required, as of Feb 2018 only '5.6' supported) Version of the source engine used to make the backup This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.",
+          "required": true,
+          "optional": false,
+          "level": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,11 +1,10 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import { google } from '@ai-sdk/google';
+import type { LanguageModel } from '@mastra/core';
 import { type CoreMessage } from '@mastra/core';
 import { z } from 'zod';
 import { ConverterAgent } from '../converter/index.js';
 import { Sample, type ConversionRequestProps } from '../../util/index.js';
-import { generateInstructions, generateSampleInput, generateSampleResponse, generateNewPrompt } from './prompts.js';
+import { PromptTemplateFactory } from '../prompts/prompt-template.js';
 
 /**
  * (< 200k tokens)
@@ -17,20 +16,23 @@ const GEMINI_2_5_PRO = 'gemini-2.5-pro-preview-03-25';
 /**
  * Class to convert source code from AWS CDK to TerraConstructs
  *
- * Hardcoded for:
- * - Google Provider
+ * Supports:
+ * - Configurable models (Google, Anthropic, etc.)
+ * - Model-specific prompt templates
  * - 2 Shot AWSCDK -> TerraConstructs Samples
  */
 class SourceConverterAgent extends ConverterAgent {
-  private readonly _samples: Sample[];
-  constructor(sampleNameOne: string, sampleNameTwo: string, model: string = GEMINI_2_5_PRO) {
-    super(
-      'Source Code',
-      generateInstructions(),
-      // ref: https://sdk.vercel.ai/providers/ai-sdk-providers/google-generative-ai#provider-instance
-      google(model),
+  constructor(sampleNameOne: string, sampleNameTwo: string, model: LanguageModel | string = GEMINI_2_5_PRO) {
+    // Handle both string and LanguageModel inputs for backward compatibility
+    const languageModel = typeof model === 'string' ? google(model) : model;
+    const modelType = PromptTemplateFactory.detectModelType(
+      typeof model === 'string' ? model : model.modelId || 'gemini',
     );
-    this._samples = [Sample.fromName(sampleNameOne), Sample.fromName(sampleNameTwo)];
+
+    const promptTemplate = PromptTemplateFactory.create(modelType, 'source');
+    const samples = [Sample.fromName(sampleNameOne), Sample.fromName(sampleNameTwo)];
+
+    super('Source Code', promptTemplate, languageModel, samples, modelType, 'source');
   }
   /**
    * Converts the source code from AWS CDK to TerraConstructs
@@ -43,26 +45,33 @@ class SourceConverterAgent extends ConverterAgent {
    */
   async convert(requestProps: ConversionRequestProps): Promise<{ code: string }> {
     const messages: CoreMessage[] = [];
-    for (const sample of this._samples) {
+
+    // Add few-shot examples using the prompt template
+    for (const sample of this.samples) {
       messages.push({
         role: 'user',
-        content: generateSampleInput(sample),
+        content: this.promptTemplate.generateSampleInput(sample),
       });
       messages.push({
         role: 'assistant',
-        content: generateSampleResponse(sample),
+        content: this.promptTemplate.generateSampleResponse(sample),
       });
     }
+
+    // Add the actual conversion request
     messages.push({
       role: 'user',
-      content: generateNewPrompt(requestProps),
+      content: this.promptTemplate.generateNewPrompt(requestProps),
     });
+
+    // Optional: Debug prompt output (uncomment for debugging)
     // messages.forEach((message, index) => {
     //   fs.writeFileSync(
     //     `prompts-${path.basename(requestProps.inputFile)}-${index}-${message.role}.md`,
     //     message.content as string,
     //   );
     // });
+
     const result = await this.agent.generate(messages, {
       output: z.object({
         code: z.string(),

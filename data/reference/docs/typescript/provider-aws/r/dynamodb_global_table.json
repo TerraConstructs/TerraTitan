@@ -1,0 +1,35 @@
+{
+  "arguments": [
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) The name of the global table. Must match underlying DynamoDB Table names in all regions.",
+      "required": true,
+      "optional": false,
+      "level": 0
+    },
+    {
+      "name": "replica",
+      "type": "block",
+      "description": "(Required) Underlying DynamoDB Table. At least 1 replica must be defined. See below.",
+      "required": false,
+      "optional": true,
+      "level": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "replica",
+      "arguments": [
+        {
+          "name": "regionName",
+          "type": "string",
+          "description": "(Required) AWS region name of replica DynamoDB TableE.g., `us-east-1`",
+          "required": true,
+          "optional": false,
+          "level": 0
+        }
+      ]
+    }
+  ]
+}

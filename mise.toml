@@ -2,3 +2,5 @@
 # bun is used in PoC scripts under ./data/scripts
 bun = "1.2.5"
 node = "22"
+go = "1.24.1"
+opentofu = "1.8.2"

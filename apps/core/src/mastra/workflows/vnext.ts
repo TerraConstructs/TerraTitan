@@ -23,6 +23,7 @@ import {
   prepareBatchReview,
   reviewPayloadSchema,
 } from './steps/batch-cdktf-ref-rag.js';
+import { ContextExporter, type ContextExportConfig } from '../util/export-context.js';
 
 /**
  * The initial Init data for the workflow
@@ -162,6 +163,109 @@ export const reviewCdktfRefsStep = createStep({
   },
 });
 
+/**
+ * A step to export conversion context for Claude Code users
+ */
+export const exportConversionContextStep = createStep({
+  id: 'export-conversion-context',
+  description: 'Export conversion context for Claude Code users',
+  inputSchema: batchRetrieveCdktfRefsOutputSchema,
+  outputSchema: z.object({
+    contextPath: z.string(),
+    batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema, // Pass through for next steps
+  }),
+  execute: async ({ inputData, getStepResult, getInitData }) => {
+    const batchRetrieveCdktfRefs = inputData;
+
+    // Get workspace and upstream details from earlier steps
+    const workspace = getStepResult(ensureWorkspaceStep);
+    const upstream = getStepResult(ensureUpstreamStep);
+    const libInputRefs = getStepResult(findLibInputRefsStep);
+    const testInputRefs = getStepResult(findTestInputRefsStep);
+    const initData = getInitData<typeof vNextConversionWorkflow>();
+
+    if (!workspace || !upstream || !libInputRefs || !testInputRefs) {
+      throw new Error('Missing required step results for context export');
+    }
+
+    // Use the same batch conversion functions to get exact same file processing
+    const sourceConversionRequests = await batchConvertSourceCodeRequests(batchRetrieveCdktfRefs);
+    const unitTestConversionRequests = await batchConvertUnitTestsRequests({
+      testInputFiles: testInputRefs,
+      batchRetrieveCdktfRefs,
+    });
+
+    // Transform data for context exporter using actual conversion request data
+    const config: ContextExportConfig = {
+      workspacePath: workspace.targetDir,
+      upstreamModule: {
+        name: upstream.moduleName,
+        tag: upstream.tag,
+        gitRepo: upstream.repo,
+        localPath: upstream.upstreamDir,
+      },
+      outputModule: initData.outputModule,
+      cdktfMappings: batchRetrieveCdktfRefs.map(item => ({
+        awsCdkConstruct: item.inputFile,
+        cdktfResources: item.ragResults.flatMap(ragResult =>
+          ragResult.rerankedResults.map(result => ({
+            resource: result.metadata.fqn || result.id,
+            confidence: result.rerankedScore,
+            selected: result.rerankedScore > 0.7, // Use threshold for selection
+          })),
+        ),
+      })),
+      fileInstructions: [
+        // Source files using actual conversion request data
+        ...sourceConversionRequests.map(request => ({
+          filePath: request.inputFile,
+          fileType: 'source' as const,
+          upstreamModule: upstream.moduleName,
+          awsCdkConstructs:
+            libInputRefs.inputFiles
+              .find(f => f.inputFile === request.inputFile)
+              ?.inputRefs.map(ref => ref.sourceClass) || [],
+          cdktfMappings: batchRetrieveCdktfRefs
+            .filter(item => item.inputFile === request.inputFile)
+            .flatMap(item =>
+              item.ragResults.flatMap(ragResult =>
+                ragResult.rerankedResults
+                  .filter(result => result.rerankedScore > 0.7)
+                  .map(result => result.metadata.fqn || result.id),
+              ),
+            ),
+          conversionGuidance: `Convert this AWS CDK source file to TerraConstructs following the established patterns. Pay special attention to extending AwsConstructBase and implementing the outputs getter.`,
+          inputRefFiles: request.inputRefFiles,
+          outputRefFiles: request.outputRefFiles, // Exact same merged docs files used in conversion
+        })),
+        // Test files using actual conversion request data
+        ...unitTestConversionRequests.map(request => ({
+          filePath: request.inputFile,
+          fileType: 'test' as const,
+          upstreamModule: upstream.moduleName,
+          awsCdkConstructs: [], // Tests don't directly contain constructs
+          cdktfMappings: [], // But reference the constructs being tested
+          conversionGuidance: `Convert this AWS CDK unit test to TerraConstructs testing patterns. Use Template constructor, CDKTF testing adapters, and snake_case field names.`,
+          inputRefFiles: request.inputRefFiles,
+          outputRefFiles: request.outputRefFiles, // Exact same markdown HCL docs used in conversion
+        })),
+      ],
+    };
+
+    // Export context
+    const contextExporter = new ContextExporter(config);
+    const contextPath = await contextExporter.export();
+
+    console.log(`✅ Conversion context exported to: ${contextPath}`);
+    console.log(`📖 Claude Code users can reference the context for manual completion`);
+
+    return {
+      contextPath,
+      batchRetrieveCdktfRefs, // Pass through for subsequent steps
+    };
+  },
+});
+
 // result from sourceConverter agent(s) merged into the sourceCodeConversions
 const sourceConversionResultSchema = z.array(
   sourceConversionRequestSchema.extend({
@@ -178,14 +282,18 @@ const sourceConversionResultSchema = z.array(
 export const batchConvertSourceCodeStep = createStep({
   id: 'convert-source-code',
   description: 'Convert a batch of reviewed Source Code conversion inputs',
-  inputSchema: batchRetrieveCdktfRefsOutputSchema,
+  inputSchema: z.object({
+    contextPath: z.string(),
+    batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema,
+  }),
   outputSchema: sourceConversionResultSchema,
   execute: async ({ inputData }) => {
-    const batchRetrieveCdktfRefs = inputData;
+    const batchRetrieveCdktfRefs = inputData.batchRetrieveCdktfRefs;
     const lim = RateLimit(1); // 1 request per second
     const batchConvertResults: z.infer<typeof sourceConversionResultSchema> = [];
     for (const conversionRequest of await batchConvertSourceCodeRequests(batchRetrieveCdktfRefs)) {
       await lim();
+      console.log(`LLM Call: converting Source Code: ${conversionRequest.inputFile}`);
       const result = await sourceConverter.convert(conversionRequest);
       batchConvertResults.push({
         ...conversionRequest,
@@ -212,10 +320,13 @@ const unitTestsConversionResultSchema = z.array(
 export const batchConvertUnitTestsStep = createStep({
   id: 'convert-test-code',
   description: 'Convert a batch of Unit Test conversion inputs',
-  inputSchema: batchRetrieveCdktfRefsOutputSchema, // Takes output of review step
+  inputSchema: z.object({
+    contextPath: z.string(),
+    batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema,
+  }),
   outputSchema: unitTestsConversionResultSchema,
   execute: async ({ inputData, getStepResult }) => {
-    const batchRetrieveCdktfRefs = inputData;
+    const batchRetrieveCdktfRefs = inputData.batchRetrieveCdktfRefs;
     const testInputFiles = getStepResult(findTestInputRefsStep);
     if (!testInputFiles) {
       throw new Error(`Could not retrieve results for step: ${findTestInputRefsStep.id}`);
@@ -228,6 +339,7 @@ export const batchConvertUnitTestsStep = createStep({
     const batchConvertResults: z.infer<typeof unitTestsConversionResultSchema> = [];
     for (const conversionRequest of unitTestConversionRequests) {
       await lim();
+      console.log(`LLM Call: converting Unit Test: ${conversionRequest.inputFile}`);
       const result = await unitConverter.convert(conversionRequest);
       batchConvertResults.push({
         ...conversionRequest,
@@ -302,6 +414,14 @@ const batchWriteToWorkspaceStep = createStep({
     );
     writtenFiles.push(...unitTestFiles);
 
+    // Include context directory in the output for user reference
+    const contextPath = path.join(workspace.targetDir, '.conversion-context');
+    writtenFiles.push(contextPath);
+
+    console.log(`📁 Total files written: ${writtenFiles.length}`);
+    console.log(`📖 Conversion context available at: ${contextPath}`);
+    console.log(`🔧 Claude Code users can reference the context for manual completion`);
+
     // TODO: When files are renamed due to conflicts, imports also need to be updated...
 
     return writtenFiles;
@@ -320,14 +440,15 @@ export const vNextConversionWorkflow = createWorkflow({
   steps: [
     ensureUpstreamStep,
     ensureWorkspaceStep,
-    prepareFindRefsStep, // Added intermediate step
+    prepareFindRefsStep,
     findLibInputRefsStep,
     findTestInputRefsStep,
     findLibCdktfRefsStep,
     reviewCdktfRefsStep,
-    batchConvertSourceCodeStep,
-    batchConvertUnitTestsStep,
-    batchWriteToWorkspaceStep,
+    exportConversionContextStep,
+    // batchConvertSourceCodeStep,
+    // batchConvertUnitTestsStep,
+    // batchWriteToWorkspaceStep,
   ],
 });
 
@@ -359,12 +480,17 @@ vNextConversionWorkflow
   .then(reviewCdktfRefsStep)
   // Output: batchRetrieveCdktfRefsOutputSchema (reviewed)
 
+  // Phase 3.5: Export Context (Sequential)
+  // exportConversionContextStep takes the output of reviewCdktfRefsStep
+  .then(exportConversionContextStep)
+  // Output: { contextPath: string, batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema }
+
   // Phase 4: Convert Code (Parallel)
-  // Both steps take the output of reviewCdktfRefsStep as inputData.
+  // Both steps take the output of exportConversionContextStep as inputData.
   // batchConvertUnitTestsStep (adjusted) fetches test refs internally.
   .parallel([
-    batchConvertSourceCodeStep, // Takes reviewed refs directly
-    batchConvertUnitTestsStep, // Takes reviewed refs, fetches test refs
+    batchConvertSourceCodeStep, // Takes context export output
+    batchConvertUnitTestsStep, // Takes context export output, fetches test refs
   ])
   // Output: { 'convert-source-code': ..., 'convert-test-code': ... }
   // This object becomes inputData for the final step.

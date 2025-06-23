@@ -6,7 +6,7 @@ import {
   findGeneratedImports,
   filterInputRefFile,
   kebabToTitleCase,
-  getClassJsDocs,
+  getTypeJsDocs as getClassJsDocs,
   findAwsCdkDeclarations,
   gitRoot,
 } from './helpers.js';
