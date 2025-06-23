@@ -22,11 +22,12 @@ dotenv.config();
 // re-use pre-created Upstash indexnames for TerraTitan
 // (determines embedding model and dimensions)
 //
-// - 'provider-aws-resources-small'
+// - 'provider-aws-resources-small' (original namespace)
+// - 'provider-aws-resources-5-100-0' (versioned for terraform-provider-aws v5.100.0)
 // - 'provider-aws-resources-large'
 const indexName = 'provider-aws-resources-small';
 // NOTE: store in same Upstash Index, different namespace:
-const namespace = 'aws-resources-summary';
+const namespace = 'provider-aws-resources-5-100-0';
 const outputDir = path.join(process.cwd(), 'output');
 
 // Get Pre-created Upstash Index configuration

@@ -30,7 +30,7 @@ dotenv.config();
 
 const indexName = 'provider-aws-resources-small';
 // NOTE: store in same Upstash Index, different namespace:
-const namespace = 'aws-resources-summary';
+const namespace = 'provider-aws-resources-5-100-0';
 // Get Pre-created Upstash Index configuration
 // set up with pay as you go
 // see: https://upstash.com/pricing/vector

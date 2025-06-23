@@ -86,7 +86,7 @@ export async function retrieveCdktfReferences(
   }
 
   const indexName = 'provider-aws-resources-small';
-  const namespace = 'aws-resources-summary';
+  const namespace = 'provider-aws-resources-5-100-0';
   // Get Pre-created Upstash Index configuration
   // set up with pay as you go
   // see: https://upstash.com/pricing/vector

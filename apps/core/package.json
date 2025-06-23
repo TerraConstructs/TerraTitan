@@ -53,7 +53,7 @@
     "typescript": "^5.8.2"
   },
   "devDependencies": {
-    "@cdktf/provider-aws": "^19.54.0",
+    "@cdktf/provider-aws": "^20.1.0",
     "@mastra/evals": "^0.1.23",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
@@ -62,7 +62,7 @@
     "@types/node": "^20.10.0",
     "@vitest/coverage-istanbul": "^3.0.9",
     "aws-cdk-lib": "^2.186.0",
-    "cdktf": "^0.20.0",
+    "cdktf": "^0.21.0",
     "constructs": "^10.4.2",
     "eslint": "^9.23.0",
     "mastra": "0.6.3",

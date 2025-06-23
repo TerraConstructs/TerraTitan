@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Configuration
-VERSION="v5.88.0"
+VERSION="v5.100.0"
 BASE_DIR=$(git rev-parse --show-toplevel)/data || {
   echo "Error: Script must be run from within a Git repository" >&2
   exit 1
