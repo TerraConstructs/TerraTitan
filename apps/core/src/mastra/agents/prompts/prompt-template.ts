@@ -3,6 +3,7 @@ import { ClaudeSourcePromptTemplate } from './claude-source-template.js';
 import { ClaudeUnitPromptTemplate } from './claude-unit-template.js';
 import { GeminiSourcePromptTemplate } from './gemini-source-template.js';
 import { GeminiUnitPromptTemplate } from './gemini-unit-template.js';
+import { GeminiIntegPromptTemplate } from './gemini-integ-template.js';
 
 /**
  * Defines the interface for prompt templates used by converter agents
@@ -37,7 +38,7 @@ export type ModelType = 'claude' | 'gemini';
 /**
  * Conversion types supported by prompt templates
  */
-export type ConversionType = 'source' | 'unit';
+export type ConversionType = 'source' | 'unit' | 'integ';
 
 /**
  * Factory for creating model-specific prompt templates
@@ -58,6 +59,8 @@ export class PromptTemplateFactory {
         return new GeminiSourcePromptTemplate();
       } else if (conversionType === 'unit') {
         return new GeminiUnitPromptTemplate();
+      } else if (conversionType === 'integ') {
+        return new GeminiIntegPromptTemplate();
       }
     }
 

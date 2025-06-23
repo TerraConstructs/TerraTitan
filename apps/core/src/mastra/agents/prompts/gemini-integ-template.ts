@@ -1,9 +1,19 @@
-import { ConversionType, ConversionRequest, ConversionRequestProps, LibRef, Sample } from '../../util/index.js';
+import type { PromptTemplate } from './prompt-template.js';
+import type { ConversionRequestProps, Sample } from '../../util/index.js';
+import { ConversionType, ConversionRequest, LibRef } from '../../util/index.js';
 
-export function generateInstructions(): string {
-  // load TerraConstruct references for Source Conversion
-  const libRef = LibRef.terraConstructs(ConversionType.UNIT);
-  return `You are a precise and thorough Typescript Code converter.
+/**
+ * Gemini-optimized prompt template for integration test conversion
+ * Uses markdown formatting for better compatibility with Gemini models
+ */
+export class GeminiIntegPromptTemplate implements PromptTemplate {
+  /**
+   * Generate the base instructions for integration test conversion
+   */
+  generateInstructions(): string {
+    // load TerraConstruct references for Unit Conversion (integration tests use similar patterns)
+    const libRef = LibRef.terraConstructs(ConversionType.UNIT);
+    return `You are a precise and thorough Typescript Code converter.
 
 Convert a given TypeScript code file containing AWS CDK Apps for integration testing to an application using the TerraConstruct library, following specified guidance and examples.
 Ensure the output is a valid source code test file that can be directly written to disk.
@@ -48,12 +58,14 @@ ${libRef.aws}
 
 - Ensure all necessary imports and dependencies are correctly referenced for TerraConstructs and CDKTF.
 - Pay attention to any special conversion nuances outlined.
-- Leverage existing conversion patterns for uniformity in approach.
-`;
-}
+- Leverage existing conversion patterns for uniformity in approach.`;
+  }
 
-export function generateSampleInput(sample: Sample): string {
-  return `Convert the following AWS CDK App for integration tests to TerraConstruct App.
+  /**
+   * Generate the sample input prompt for few-shot learning
+   */
+  generateSampleInput(sample: Sample): string {
+    return `Convert the following AWS CDK App for integration tests to TerraConstruct App.
 \`\`\`typescript
 ${sample.input}
 \`\`\`
@@ -76,17 +88,23 @@ Format:
 {
     "code": "converted code"
 }`;
-}
+  }
 
-export function generateSampleResponse(sample: Sample): string {
-  return `{
+  /**
+   * Generate the sample response for few-shot learning
+   */
+  generateSampleResponse(sample: Sample): string {
+    return `{
   "code": "${sample.output}"
 }`;
-}
+  }
 
-export function generateNewPrompt(props: ConversionRequestProps): string {
-  const request = new ConversionRequest(ConversionType.UNIT, props);
-  return `Convert the following AWS CDK App for integration tests to TerraConstruct App.
+  /**
+   * Generate the new conversion prompt for the actual conversion request
+   */
+  generateNewPrompt(props: ConversionRequestProps): string {
+    const request = new ConversionRequest(ConversionType.UNIT, props);
+    return `Convert the following AWS CDK App for integration tests to TerraConstruct App.
 \`\`\`typescript
 ${request.input}
 \`\`\`
@@ -109,4 +127,5 @@ Format:
 {
     "code": "converted code"
 }`;
+  }
 }
