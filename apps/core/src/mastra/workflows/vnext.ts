@@ -26,6 +26,50 @@ import {
 import { ContextExporter, type ContextExportConfig } from '../util/export-context.js';
 
 /**
+ * File filtering step schemas
+ */
+
+// Choice value for a single file
+const fileFilterChoiceValueSchema = z.object({
+  filePath: z.string(),
+  fileType: z.enum(['source', 'test', 'raw']),
+});
+
+// Individual file choice for the grouped checkbox
+const fileFilterChoiceSchema = z.object({
+  name: z.string(),
+  description: z.string(),
+  value: fileFilterChoiceValueSchema,
+  checked: z.boolean().optional().default(true),
+});
+
+// Group of file choices
+const fileFilterGroupSchema = z.object({
+  name: z.string(),
+  description: z.string(),
+  choices: z.array(fileFilterChoiceSchema),
+});
+
+// Suspend payload for file filtering
+export const fileFilterSuspendSchema = z.object({
+  message: z.string(),
+  groupedChoices: z.array(fileFilterGroupSchema),
+});
+
+// Resume data for file filtering
+export const fileFilterResumeSchema = z.object({
+  selectedFiles: z.array(fileFilterChoiceValueSchema),
+});
+
+export type FileFilterResumeType = z.infer<typeof fileFilterResumeSchema>;
+
+// Output schema for filtered input files
+const filteredInputFilesSchema = z.object({
+  filteredSrcInputs: findSrcInputRefsOutputSchema,
+  filteredTestInputs: findTestInputRefsOutputSchema,
+});
+
+/**
  * The initial Init data for the workflow
  */
 export const initSchema = z.object({
@@ -112,22 +156,131 @@ const findTestInputRefsStep = createStep({
   execute: async ({ inputData }) => findTestInputRefs(inputData),
 });
 
-const findLibCdktfRefsStep = createStep({
-  id: 'find-lib-output-refs',
-  description: 'Finds the Source Code CDKTF references for the conversion',
-  // InputSchema accepts the output object from the find refs parallel step
+/**
+ * Step to filter input files before processing
+ */
+export const filterInputFilesStep = createStep({
+  id: 'filter-input-files' as const,
+  description: 'Allow user to filter which source and test files to process',
+  suspendSchema: fileFilterSuspendSchema,
+  resumeSchema: fileFilterResumeSchema,
   inputSchema: z
     .object({
       [findLibInputRefsStep.id]: findSrcInputRefsOutputSchema,
-      [findTestInputRefsStep.id]: findTestInputRefsOutputSchema, // Include test refs even if unused
+      [findTestInputRefsStep.id]: findTestInputRefsOutputSchema,
     })
     .passthrough(),
-  outputSchema: batchRetrieveCdktfRefsOutputSchema,
-  execute: async ({ inputData }) => {
-    // Extract the required srcInputRefs from the input object
+  outputSchema: filteredInputFilesSchema,
+  execute: async ({ inputData, resumeData, suspend }) => {
     const srcInputRefs = inputData[findLibInputRefsStep.id];
-    if (!srcInputRefs) throw new Error(`Missing lib input refs in input for ${findLibCdktfRefsStep.id}`);
-    return await batchRetrieveCdktfRefs(srcInputRefs);
+    const testInputRefs = inputData[findTestInputRefsStep.id];
+
+    if (!srcInputRefs) throw new Error(`Missing src input refs in input for ${filterInputFilesStep.id}`);
+    if (!testInputRefs) throw new Error(`Missing test input refs in input for ${filterInputFilesStep.id}`);
+
+    // If resuming with user selections, filter the files
+    if (resumeData?.selectedFiles) {
+      const selectedFilePaths = new Set(resumeData.selectedFiles.map(f => f.filePath));
+
+      const filteredSrcInputs = {
+        inputFiles: srcInputRefs.inputFiles.filter(f => selectedFilePaths.has(f.inputFile)),
+        rawFiles: srcInputRefs.rawFiles.filter(f => selectedFilePaths.has(f)),
+      };
+
+      const filteredTestInputs = {
+        inputFiles: testInputRefs.inputFiles.filter(f => selectedFilePaths.has(f.inputFile)),
+      };
+
+      return {
+        filteredSrcInputs,
+        filteredTestInputs,
+      };
+    }
+
+    // Otherwise, suspend to show file selection
+    const groupedChoices = [];
+
+    // Add source files group
+    if (srcInputRefs.inputFiles.length > 0) {
+      groupedChoices.push({
+        name: 'Source Files',
+        description: `${srcInputRefs.inputFiles.length} source files with L1 constructs`,
+        choices: srcInputRefs.inputFiles.map(file => ({
+          name: path.basename(file.inputFile),
+          description: `L1 constructs: ${file.inputRefs.map(ref => ref.sourceClass).join(', ')}`,
+          value: {
+            filePath: file.inputFile,
+            fileType: 'source' as const,
+          },
+          checked: true,
+        })),
+      });
+    }
+
+    // Add raw source files (no L1 constructs)
+    if (srcInputRefs.rawFiles.length > 0) {
+      groupedChoices.push({
+        name: 'Raw Source Files',
+        description: `${srcInputRefs.rawFiles.length} source files without L1 constructs`,
+        choices: srcInputRefs.rawFiles.map(file => ({
+          name: path.basename(file),
+          description: 'No L1 constructs detected',
+          value: {
+            filePath: file,
+            fileType: 'raw' as const,
+          },
+          checked: true,
+        })),
+      });
+    }
+
+    // Add test files group
+    if (testInputRefs.inputFiles.length > 0) {
+      groupedChoices.push({
+        name: 'Test Files',
+        description: `${testInputRefs.inputFiles.length} unit test files`,
+        choices: testInputRefs.inputFiles.map(file => ({
+          name: path.basename(file.inputFile),
+          description: `Testing module: ${path.basename(path.dirname(file.inputFile))}`,
+          value: {
+            filePath: file.inputFile,
+            fileType: 'test' as const,
+          },
+          checked: true,
+        })),
+      });
+    }
+
+    await suspend({
+      message: 'Select files to process for conversion (deselect files you want to exclude)',
+      groupedChoices,
+    });
+    // mock return
+    return {
+      filteredSrcInputs: srcInputRefs,
+      filteredTestInputs: testInputRefs,
+    };
+  },
+});
+
+const findLibCdktfRefsStep = createStep({
+  id: 'find-lib-output-refs',
+  description: 'Finds the Source Code CDKTF references for the conversion',
+  // InputSchema accepts the output object from the filter step
+  inputSchema: filteredInputFilesSchema,
+  outputSchema: z.object({
+    batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema,
+    filteredInputs: filteredInputFilesSchema, // Pass through for later steps
+  }),
+  execute: async ({ inputData }) => {
+    // inputData is directly the filteredInputFilesSchema output
+    const filteredInputs = inputData;
+    if (!filteredInputs) throw new Error(`Missing filtered input files in input for ${findLibCdktfRefsStep.id}`);
+    const cdktfRefsResult = await batchRetrieveCdktfRefs(filteredInputs.filteredSrcInputs);
+    return {
+      batchRetrieveCdktfRefs: cdktfRefsResult,
+      filteredInputs,
+    };
   },
 });
 
@@ -138,19 +291,28 @@ export type CdktfRefReviewResumeType = z.infer<typeof cdktfRefReviewResumeSchema
 export const reviewCdktfRefsStep = createStep({
   id: 'review-cdktf-refs',
   description: 'Human in the loop review of all CDKTF reference suggestions in the batch',
-  inputSchema: batchRetrieveCdktfRefsOutputSchema,
+  inputSchema: z.object({
+    batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema,
+    filteredInputs: filteredInputFilesSchema,
+  }),
   suspendSchema: reviewPayloadSchema,
   resumeSchema: cdktfRefReviewResumeSchema,
-  outputSchema: batchRetrieveCdktfRefsOutputSchema,
+  outputSchema: z.object({
+    batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema,
+    filteredInputs: filteredInputFilesSchema,
+  }),
   execute: async ({ resumeData, inputData, suspend }) => {
-    const batch = inputData;
+    const { batchRetrieveCdktfRefs: batch, filteredInputs } = inputData;
     // Access the human input provided when resuming the workflow
     if (resumeData?.selectedReferences) {
       // answer will be an array of the `value` objects from `choices`
       const { selectedReferences } = resumeData;
       const mergedBatch = mergeSelections(batch, selectedReferences);
       // console.log('Merged Batch', JSON.stringify(mergedBatch, null, 2));
-      return mergedBatch;
+      return {
+        batchRetrieveCdktfRefs: mergedBatch,
+        filteredInputs,
+      };
     }
     const { updatedBatch, reviewPayload } = prepareBatchReview(batch, 0.7);
     if (reviewPayload) {
@@ -159,7 +321,10 @@ export const reviewCdktfRefsStep = createStep({
     }
     // no review needed
     // console.log('Updated Batch', JSON.stringify(updatedBatch, null, 2));
-    return updatedBatch;
+    return {
+      batchRetrieveCdktfRefs: updatedBatch,
+      filteredInputs,
+    };
   },
 });
 
@@ -169,24 +334,30 @@ export const reviewCdktfRefsStep = createStep({
 export const exportConversionContextStep = createStep({
   id: 'export-conversion-context',
   description: 'Export conversion context for Claude Code users',
-  inputSchema: batchRetrieveCdktfRefsOutputSchema,
+  inputSchema: z.object({
+    batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema,
+    filteredInputs: filteredInputFilesSchema,
+  }),
   outputSchema: z.object({
     contextPath: z.string(),
     batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema, // Pass through for next steps
+    filteredInputs: filteredInputFilesSchema, // Pass through filtered inputs for conversion steps
   }),
   execute: async ({ inputData, getStepResult, getInitData }) => {
-    const batchRetrieveCdktfRefs = inputData;
+    const { batchRetrieveCdktfRefs, filteredInputs } = inputData;
 
     // Get workspace and upstream details from earlier steps
     const workspace = getStepResult(ensureWorkspaceStep);
     const upstream = getStepResult(ensureUpstreamStep);
-    const libInputRefs = getStepResult(findLibInputRefsStep);
-    const testInputRefs = getStepResult(findTestInputRefsStep);
     const initData = getInitData<typeof vNextConversionWorkflow>();
 
-    if (!workspace || !upstream || !libInputRefs || !testInputRefs) {
+    if (!workspace || !upstream) {
       throw new Error('Missing required step results for context export');
     }
+
+    // Extract filtered inputs
+    const libInputRefs = filteredInputs.filteredSrcInputs;
+    const testInputRefs = filteredInputs.filteredTestInputs;
 
     // Use the same batch conversion functions to get exact same file processing
     const sourceConversionRequests = await batchConvertSourceCodeRequests(batchRetrieveCdktfRefs);
@@ -223,8 +394,8 @@ export const exportConversionContextStep = createStep({
           upstreamModule: upstream.moduleName,
           awsCdkConstructs:
             libInputRefs.inputFiles
-              .find(f => f.inputFile === request.inputFile)
-              ?.inputRefs.map(ref => ref.sourceClass) || [],
+              .find((f: any) => f.inputFile === request.inputFile)
+              ?.inputRefs.map((ref: any) => ref.sourceClass) || [],
           cdktfMappings: batchRetrieveCdktfRefs
             .filter(item => item.inputFile === request.inputFile)
             .flatMap(item =>
@@ -262,6 +433,7 @@ export const exportConversionContextStep = createStep({
     return {
       contextPath,
       batchRetrieveCdktfRefs, // Pass through for subsequent steps
+      filteredInputs, // Pass through filtered inputs for conversion steps
     };
   },
 });
@@ -285,6 +457,7 @@ export const batchConvertSourceCodeStep = createStep({
   inputSchema: z.object({
     contextPath: z.string(),
     batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema,
+    filteredInputs: filteredInputFilesSchema,
   }),
   outputSchema: sourceConversionResultSchema,
   execute: async ({ inputData }) => {
@@ -323,14 +496,12 @@ export const batchConvertUnitTestsStep = createStep({
   inputSchema: z.object({
     contextPath: z.string(),
     batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema,
+    filteredInputs: filteredInputFilesSchema,
   }),
   outputSchema: unitTestsConversionResultSchema,
-  execute: async ({ inputData, getStepResult }) => {
-    const batchRetrieveCdktfRefs = inputData.batchRetrieveCdktfRefs;
-    const testInputFiles = getStepResult(findTestInputRefsStep);
-    if (!testInputFiles) {
-      throw new Error(`Could not retrieve results for step: ${findTestInputRefsStep.id}`);
-    }
+  execute: async ({ inputData }) => {
+    const { batchRetrieveCdktfRefs, filteredInputs } = inputData;
+    const testInputFiles = filteredInputs.filteredTestInputs;
     const lim = RateLimit(1); // 1 request per second
     const unitTestConversionRequests = await batchConvertUnitTestsRequests({
       testInputFiles,
@@ -443,6 +614,7 @@ export const vNextConversionWorkflow = createWorkflow({
     prepareFindRefsStep,
     findLibInputRefsStep,
     findTestInputRefsStep,
+    filterInputFilesStep,
     findLibCdktfRefsStep,
     reviewCdktfRefsStep,
     exportConversionContextStep,
@@ -470,10 +642,15 @@ vNextConversionWorkflow
   // Output: { 'find-lib-input-refs': ..., 'find-test-input-refs': ... }
   // This object becomes inputData for the next step.
 
+  // Phase 2.5: Filter Input Files (Sequential)
+  // filterInputFilesStep receives output from Phase 2 and suspends for user selection
+  .then(filterInputFilesStep)
+  // Output: { filteredSrcInputs: ..., filteredTestInputs: ... }
+
   // Phase 3: Prepare and Review CDKTF Lib Refs (Sequential)
-  // findLibCdktfRefsStep receives the output object from Phase 2.
+  // findLibCdktfRefsStep receives the output object from Phase 2.5.
   // Its adjusted 'execute' function extracts the needed parts.
-  .then(findLibCdktfRefsStep) // Adjusted to handle Phase 2 output obj
+  .then(findLibCdktfRefsStep) // Adjusted to handle filtered input files
   // Output: batchRetrieveCdktfRefsOutputSchema (candidates)
 
   // reviewCdktfRefsStep takes the output of findLibCdktfRefsStep directly.
@@ -483,14 +660,14 @@ vNextConversionWorkflow
   // Phase 3.5: Export Context (Sequential)
   // exportConversionContextStep takes the output of reviewCdktfRefsStep
   .then(exportConversionContextStep)
-  // Output: { contextPath: string, batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema }
+  // Output: { contextPath: string, batchRetrieveCdktfRefs: batchRetrieveCdktfRefsOutputSchema, filteredInputs: filteredInputFilesSchema }
 
   // Phase 4: Convert Code (Parallel)
   // Both steps take the output of exportConversionContextStep as inputData.
-  // batchConvertUnitTestsStep (adjusted) fetches test refs internally.
+  // Both steps now use filtered inputs from user selection.
   .parallel([
     batchConvertSourceCodeStep, // Takes context export output
-    batchConvertUnitTestsStep, // Takes context export output, fetches test refs
+    batchConvertUnitTestsStep, // Takes context export output, uses filtered test files
   ])
   // Output: { 'convert-source-code': ..., 'convert-test-code': ... }
   // This object becomes inputData for the final step.
