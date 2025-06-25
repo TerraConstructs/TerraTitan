@@ -45,6 +45,15 @@ TerraTitan Core Workflows using Mastra.
    pnpm -w build
    ```
 
+1. **To install tfdocs2json CLI:**
+
+   ```bash
+   cd ../../data/scripts/tfdocs2json
+   make install
+   ```
+
+   > `tfdocs2json` is used by the LLM workflow to extract terraform-provider schema with docs from markdown
+
 1. **To run Mastra playground:**
 
    ```bash
