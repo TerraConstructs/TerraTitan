@@ -6,30 +6,30 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsEbsSnapshotConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot#id DataAwsEbsSnapshot#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot#id DataAwsEbsSnapshot#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot#most_recent DataAwsEbsSnapshot#most_recent}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot#most_recent DataAwsEbsSnapshot#most_recent}
     */
     readonly mostRecent?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot#owners DataAwsEbsSnapshot#owners}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot#owners DataAwsEbsSnapshot#owners}
     */
     readonly owners?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot#restorable_by_user_ids DataAwsEbsSnapshot#restorable_by_user_ids}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot#restorable_by_user_ids DataAwsEbsSnapshot#restorable_by_user_ids}
     */
     readonly restorableByUserIds?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot#snapshot_ids DataAwsEbsSnapshot#snapshot_ids}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot#snapshot_ids DataAwsEbsSnapshot#snapshot_ids}
     */
     readonly snapshotIds?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot#tags DataAwsEbsSnapshot#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot#tags DataAwsEbsSnapshot#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -37,23 +37,23 @@ export interface DataAwsEbsSnapshotConfig extends cdktf.TerraformMetaArguments {
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot#filter DataAwsEbsSnapshot#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot#filter DataAwsEbsSnapshot#filter}
     */
     readonly filter?: DataAwsEbsSnapshotFilter[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot#timeouts DataAwsEbsSnapshot#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot#timeouts DataAwsEbsSnapshot#timeouts}
     */
     readonly timeouts?: DataAwsEbsSnapshotTimeouts;
 }
 export interface DataAwsEbsSnapshotFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot#name DataAwsEbsSnapshot#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot#name DataAwsEbsSnapshot#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot#values DataAwsEbsSnapshot#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot#values DataAwsEbsSnapshot#values}
     */
     readonly values: string[];
 }
@@ -98,7 +98,7 @@ export declare class DataAwsEbsSnapshotFilterList extends cdktf.ComplexList {
 }
 export interface DataAwsEbsSnapshotTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot#read DataAwsEbsSnapshot#read}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot#read DataAwsEbsSnapshot#read}
     */
     readonly read?: string;
 }
@@ -121,7 +121,7 @@ export declare class DataAwsEbsSnapshotTimeoutsOutputReference extends cdktf.Com
     get readInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot aws_ebs_snapshot}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot aws_ebs_snapshot}
 */
 export declare class DataAwsEbsSnapshot extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ebs_snapshot";
@@ -129,12 +129,12 @@ export declare class DataAwsEbsSnapshot extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsEbsSnapshot resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsEbsSnapshot to import
-    * @param importFromId The id of the existing DataAwsEbsSnapshot that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsEbsSnapshot that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsEbsSnapshot to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_snapshot aws_ebs_snapshot} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_snapshot aws_ebs_snapshot} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

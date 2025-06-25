@@ -6,11 +6,11 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface IotTopicRuleDestinationConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination#enabled IotTopicRuleDestination#enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination#enabled IotTopicRuleDestination#enabled}
     */
     readonly enabled?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination#id IotTopicRuleDestination#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination#id IotTopicRuleDestination#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -19,27 +19,27 @@ export interface IotTopicRuleDestinationConfig extends cdktf.TerraformMetaArgume
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination#timeouts IotTopicRuleDestination#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination#timeouts IotTopicRuleDestination#timeouts}
     */
     readonly timeouts?: IotTopicRuleDestinationTimeouts;
     /**
     * vpc_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination#vpc_configuration IotTopicRuleDestination#vpc_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination#vpc_configuration IotTopicRuleDestination#vpc_configuration}
     */
     readonly vpcConfiguration: IotTopicRuleDestinationVpcConfiguration;
 }
 export interface IotTopicRuleDestinationTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination#create IotTopicRuleDestination#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination#create IotTopicRuleDestination#create}
     */
     readonly create?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination#delete IotTopicRuleDestination#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination#delete IotTopicRuleDestination#delete}
     */
     readonly delete?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination#update IotTopicRuleDestination#update}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination#update IotTopicRuleDestination#update}
     */
     readonly update?: string;
 }
@@ -73,19 +73,19 @@ export declare class IotTopicRuleDestinationTimeoutsOutputReference extends cdkt
 }
 export interface IotTopicRuleDestinationVpcConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination#role_arn IotTopicRuleDestination#role_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination#role_arn IotTopicRuleDestination#role_arn}
     */
     readonly roleArn: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination#security_groups IotTopicRuleDestination#security_groups}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination#security_groups IotTopicRuleDestination#security_groups}
     */
     readonly securityGroups?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination#subnet_ids IotTopicRuleDestination#subnet_ids}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination#subnet_ids IotTopicRuleDestination#subnet_ids}
     */
     readonly subnetIds: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination#vpc_id IotTopicRuleDestination#vpc_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination#vpc_id IotTopicRuleDestination#vpc_id}
     */
     readonly vpcId: string;
 }
@@ -119,7 +119,7 @@ export declare class IotTopicRuleDestinationVpcConfigurationOutputReference exte
     get vpcIdInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination aws_iot_topic_rule_destination}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination aws_iot_topic_rule_destination}
 */
 export declare class IotTopicRuleDestination extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_iot_topic_rule_destination";
@@ -127,12 +127,12 @@ export declare class IotTopicRuleDestination extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a IotTopicRuleDestination resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the IotTopicRuleDestination to import
-    * @param importFromId The id of the existing IotTopicRuleDestination that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing IotTopicRuleDestination that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the IotTopicRuleDestination to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iot_topic_rule_destination aws_iot_topic_rule_destination} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iot_topic_rule_destination aws_iot_topic_rule_destination} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

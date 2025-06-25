@@ -6,21 +6,21 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface SecuritylakeCustomLogSourceConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/securitylake_custom_log_source#event_classes SecuritylakeCustomLogSource#event_classes}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/securitylake_custom_log_source#event_classes SecuritylakeCustomLogSource#event_classes}
     */
     readonly eventClasses?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/securitylake_custom_log_source#source_name SecuritylakeCustomLogSource#source_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/securitylake_custom_log_source#source_name SecuritylakeCustomLogSource#source_name}
     */
     readonly sourceName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/securitylake_custom_log_source#source_version SecuritylakeCustomLogSource#source_version}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/securitylake_custom_log_source#source_version SecuritylakeCustomLogSource#source_version}
     */
     readonly sourceVersion?: string;
     /**
     * configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/securitylake_custom_log_source#configuration SecuritylakeCustomLogSource#configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/securitylake_custom_log_source#configuration SecuritylakeCustomLogSource#configuration}
     */
     readonly configuration?: SecuritylakeCustomLogSourceConfiguration[] | cdktf.IResolvable;
 }
@@ -93,7 +93,7 @@ export declare class SecuritylakeCustomLogSourceProviderDetailsList extends cdkt
 }
 export interface SecuritylakeCustomLogSourceConfigurationCrawlerConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/securitylake_custom_log_source#role_arn SecuritylakeCustomLogSource#role_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/securitylake_custom_log_source#role_arn SecuritylakeCustomLogSource#role_arn}
     */
     readonly roleArn: string;
 }
@@ -134,11 +134,11 @@ export declare class SecuritylakeCustomLogSourceConfigurationCrawlerConfiguratio
 }
 export interface SecuritylakeCustomLogSourceConfigurationProviderIdentity {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/securitylake_custom_log_source#external_id SecuritylakeCustomLogSource#external_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/securitylake_custom_log_source#external_id SecuritylakeCustomLogSource#external_id}
     */
     readonly externalId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/securitylake_custom_log_source#principal SecuritylakeCustomLogSource#principal}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/securitylake_custom_log_source#principal SecuritylakeCustomLogSource#principal}
     */
     readonly principal: string;
 }
@@ -185,13 +185,13 @@ export interface SecuritylakeCustomLogSourceConfiguration {
     /**
     * crawler_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/securitylake_custom_log_source#crawler_configuration SecuritylakeCustomLogSource#crawler_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/securitylake_custom_log_source#crawler_configuration SecuritylakeCustomLogSource#crawler_configuration}
     */
     readonly crawlerConfiguration?: SecuritylakeCustomLogSourceConfigurationCrawlerConfiguration[] | cdktf.IResolvable;
     /**
     * provider_identity block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/securitylake_custom_log_source#provider_identity SecuritylakeCustomLogSource#provider_identity}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/securitylake_custom_log_source#provider_identity SecuritylakeCustomLogSource#provider_identity}
     */
     readonly providerIdentity?: SecuritylakeCustomLogSourceConfigurationProviderIdentity[] | cdktf.IResolvable;
 }
@@ -237,7 +237,7 @@ export declare class SecuritylakeCustomLogSourceConfigurationList extends cdktf.
     get(index: number): SecuritylakeCustomLogSourceConfigurationOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/securitylake_custom_log_source aws_securitylake_custom_log_source}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/securitylake_custom_log_source aws_securitylake_custom_log_source}
 */
 export declare class SecuritylakeCustomLogSource extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_securitylake_custom_log_source";
@@ -245,12 +245,12 @@ export declare class SecuritylakeCustomLogSource extends cdktf.TerraformResource
     * Generates CDKTF code for importing a SecuritylakeCustomLogSource resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the SecuritylakeCustomLogSource to import
-    * @param importFromId The id of the existing SecuritylakeCustomLogSource that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/securitylake_custom_log_source#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing SecuritylakeCustomLogSource that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/securitylake_custom_log_source#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the SecuritylakeCustomLogSource to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/securitylake_custom_log_source aws_securitylake_custom_log_source} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/securitylake_custom_log_source aws_securitylake_custom_log_source} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

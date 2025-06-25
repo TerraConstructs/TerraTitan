@@ -6,28 +6,28 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface IvsRecordingConfigurationConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#id IvsRecordingConfiguration#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#id IvsRecordingConfiguration#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#name IvsRecordingConfiguration#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#name IvsRecordingConfiguration#name}
     */
     readonly name?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#recording_reconnect_window_seconds IvsRecordingConfiguration#recording_reconnect_window_seconds}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#recording_reconnect_window_seconds IvsRecordingConfiguration#recording_reconnect_window_seconds}
     */
     readonly recordingReconnectWindowSeconds?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#tags IvsRecordingConfiguration#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#tags IvsRecordingConfiguration#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#tags_all IvsRecordingConfiguration#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#tags_all IvsRecordingConfiguration#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
@@ -35,25 +35,25 @@ export interface IvsRecordingConfigurationConfig extends cdktf.TerraformMetaArgu
     /**
     * destination_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#destination_configuration IvsRecordingConfiguration#destination_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#destination_configuration IvsRecordingConfiguration#destination_configuration}
     */
     readonly destinationConfiguration: IvsRecordingConfigurationDestinationConfiguration;
     /**
     * thumbnail_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#thumbnail_configuration IvsRecordingConfiguration#thumbnail_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#thumbnail_configuration IvsRecordingConfiguration#thumbnail_configuration}
     */
     readonly thumbnailConfiguration?: IvsRecordingConfigurationThumbnailConfiguration;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#timeouts IvsRecordingConfiguration#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#timeouts IvsRecordingConfiguration#timeouts}
     */
     readonly timeouts?: IvsRecordingConfigurationTimeouts;
 }
 export interface IvsRecordingConfigurationDestinationConfigurationS3 {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#bucket_name IvsRecordingConfiguration#bucket_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#bucket_name IvsRecordingConfiguration#bucket_name}
     */
     readonly bucketName: string;
 }
@@ -77,7 +77,7 @@ export interface IvsRecordingConfigurationDestinationConfiguration {
     /**
     * s3 block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#s3 IvsRecordingConfiguration#s3}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#s3 IvsRecordingConfiguration#s3}
     */
     readonly s3: IvsRecordingConfigurationDestinationConfigurationS3;
 }
@@ -99,11 +99,11 @@ export declare class IvsRecordingConfigurationDestinationConfigurationOutputRefe
 }
 export interface IvsRecordingConfigurationThumbnailConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#recording_mode IvsRecordingConfiguration#recording_mode}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#recording_mode IvsRecordingConfiguration#recording_mode}
     */
     readonly recordingMode?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#target_interval_seconds IvsRecordingConfiguration#target_interval_seconds}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#target_interval_seconds IvsRecordingConfiguration#target_interval_seconds}
     */
     readonly targetIntervalSeconds?: number;
 }
@@ -131,11 +131,11 @@ export declare class IvsRecordingConfigurationThumbnailConfigurationOutputRefere
 }
 export interface IvsRecordingConfigurationTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#create IvsRecordingConfiguration#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#create IvsRecordingConfiguration#create}
     */
     readonly create?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#delete IvsRecordingConfiguration#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#delete IvsRecordingConfiguration#delete}
     */
     readonly delete?: string;
 }
@@ -163,7 +163,7 @@ export declare class IvsRecordingConfigurationTimeoutsOutputReference extends cd
     get deleteInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration aws_ivs_recording_configuration}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration aws_ivs_recording_configuration}
 */
 export declare class IvsRecordingConfiguration extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_ivs_recording_configuration";
@@ -171,12 +171,12 @@ export declare class IvsRecordingConfiguration extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a IvsRecordingConfiguration resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the IvsRecordingConfiguration to import
-    * @param importFromId The id of the existing IvsRecordingConfiguration that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing IvsRecordingConfiguration that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the IvsRecordingConfiguration to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ivs_recording_configuration aws_ivs_recording_configuration} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ivs_recording_configuration aws_ivs_recording_configuration} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

@@ -6,7 +6,7 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsSecretsmanagerSecretsConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/secretsmanager_secrets#id DataAwsSecretsmanagerSecrets#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/secretsmanager_secrets#id DataAwsSecretsmanagerSecrets#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -15,17 +15,17 @@ export interface DataAwsSecretsmanagerSecretsConfig extends cdktf.TerraformMetaA
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/secretsmanager_secrets#filter DataAwsSecretsmanagerSecrets#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/secretsmanager_secrets#filter DataAwsSecretsmanagerSecrets#filter}
     */
     readonly filter?: DataAwsSecretsmanagerSecretsFilter[] | cdktf.IResolvable;
 }
 export interface DataAwsSecretsmanagerSecretsFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/secretsmanager_secrets#name DataAwsSecretsmanagerSecrets#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/secretsmanager_secrets#name DataAwsSecretsmanagerSecrets#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/secretsmanager_secrets#values DataAwsSecretsmanagerSecrets#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/secretsmanager_secrets#values DataAwsSecretsmanagerSecrets#values}
     */
     readonly values: string[];
 }
@@ -69,7 +69,7 @@ export declare class DataAwsSecretsmanagerSecretsFilterList extends cdktf.Comple
     get(index: number): DataAwsSecretsmanagerSecretsFilterOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/secretsmanager_secrets aws_secretsmanager_secrets}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/secretsmanager_secrets aws_secretsmanager_secrets}
 */
 export declare class DataAwsSecretsmanagerSecrets extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_secretsmanager_secrets";
@@ -77,12 +77,12 @@ export declare class DataAwsSecretsmanagerSecrets extends cdktf.TerraformDataSou
     * Generates CDKTF code for importing a DataAwsSecretsmanagerSecrets resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsSecretsmanagerSecrets to import
-    * @param importFromId The id of the existing DataAwsSecretsmanagerSecrets that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/secretsmanager_secrets#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsSecretsmanagerSecrets that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/secretsmanager_secrets#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsSecretsmanagerSecrets to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/secretsmanager_secrets aws_secretsmanager_secrets} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/secretsmanager_secrets aws_secretsmanager_secrets} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

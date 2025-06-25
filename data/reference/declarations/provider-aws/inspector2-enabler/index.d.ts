@@ -6,38 +6,38 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface Inspector2EnablerConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/inspector2_enabler#account_ids Inspector2Enabler#account_ids}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/inspector2_enabler#account_ids Inspector2Enabler#account_ids}
     */
     readonly accountIds: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/inspector2_enabler#id Inspector2Enabler#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/inspector2_enabler#id Inspector2Enabler#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/inspector2_enabler#resource_types Inspector2Enabler#resource_types}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/inspector2_enabler#resource_types Inspector2Enabler#resource_types}
     */
     readonly resourceTypes: string[];
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/inspector2_enabler#timeouts Inspector2Enabler#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/inspector2_enabler#timeouts Inspector2Enabler#timeouts}
     */
     readonly timeouts?: Inspector2EnablerTimeouts;
 }
 export interface Inspector2EnablerTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/inspector2_enabler#create Inspector2Enabler#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/inspector2_enabler#create Inspector2Enabler#create}
     */
     readonly create?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/inspector2_enabler#delete Inspector2Enabler#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/inspector2_enabler#delete Inspector2Enabler#delete}
     */
     readonly delete?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/inspector2_enabler#update Inspector2Enabler#update}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/inspector2_enabler#update Inspector2Enabler#update}
     */
     readonly update?: string;
 }
@@ -70,7 +70,7 @@ export declare class Inspector2EnablerTimeoutsOutputReference extends cdktf.Comp
     get updateInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/inspector2_enabler aws_inspector2_enabler}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/inspector2_enabler aws_inspector2_enabler}
 */
 export declare class Inspector2Enabler extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_inspector2_enabler";
@@ -78,12 +78,12 @@ export declare class Inspector2Enabler extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a Inspector2Enabler resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the Inspector2Enabler to import
-    * @param importFromId The id of the existing Inspector2Enabler that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/inspector2_enabler#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing Inspector2Enabler that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/inspector2_enabler#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the Inspector2Enabler to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/inspector2_enabler aws_inspector2_enabler} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/inspector2_enabler aws_inspector2_enabler} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

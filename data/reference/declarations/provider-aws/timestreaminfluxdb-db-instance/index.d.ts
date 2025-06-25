@@ -8,7 +8,7 @@ export interface TimestreaminfluxdbDbInstanceConfig extends cdktf.TerraformMetaA
     /**
     * The amount of storage to allocate for your DB storage type in GiB (gibibytes).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#allocated_storage TimestreaminfluxdbDbInstance#allocated_storage}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#allocated_storage TimestreaminfluxdbDbInstance#allocated_storage}
     */
     readonly allocatedStorage: number;
     /**
@@ -16,19 +16,19 @@ export interface TimestreaminfluxdbDbInstanceConfig extends cdktf.TerraformMetaA
     * 					A bucket combines the concept of a database and a retention period (the duration of time
     * 					that each data point persists). A bucket belongs to an organization.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#bucket TimestreaminfluxdbDbInstance#bucket}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#bucket TimestreaminfluxdbDbInstance#bucket}
     */
     readonly bucket: string;
     /**
     * The Timestream for InfluxDB DB instance type to run InfluxDB on.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#db_instance_type TimestreaminfluxdbDbInstance#db_instance_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#db_instance_type TimestreaminfluxdbDbInstance#db_instance_type}
     */
     readonly dbInstanceType: string;
     /**
     * The id of the DB parameter group assigned to your DB instance.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#db_parameter_group_identifier TimestreaminfluxdbDbInstance#db_parameter_group_identifier}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#db_parameter_group_identifier TimestreaminfluxdbDbInstance#db_parameter_group_identifier}
     */
     readonly dbParameterGroupIdentifier?: string;
     /**
@@ -37,14 +37,14 @@ export interface TimestreaminfluxdbDbInstanceConfig extends cdktf.TerraformMetaA
     * 					to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS,
     * 					Influx IO Included 16000 IOPS.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#db_storage_type TimestreaminfluxdbDbInstance#db_storage_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#db_storage_type TimestreaminfluxdbDbInstance#db_storage_type}
     */
     readonly dbStorageType?: string;
     /**
     * Specifies whether the DB instance will be deployed as a standalone instance or
     * 					with a Multi-AZ standby for high availability.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#deployment_type TimestreaminfluxdbDbInstance#deployment_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#deployment_type TimestreaminfluxdbDbInstance#deployment_type}
     */
     readonly deploymentType?: string;
     /**
@@ -53,14 +53,22 @@ export interface TimestreaminfluxdbDbInstanceConfig extends cdktf.TerraformMetaA
     * 					prefix included in the endpoint. DB instance names must be unique per customer
     * 					and per region.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#name TimestreaminfluxdbDbInstance#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#name TimestreaminfluxdbDbInstance#name}
     */
     readonly name: string;
+    /**
+    * Specifies whether the networkType of the Timestream for InfluxDB instance is
+    * 					IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate
+    * 					over both IPv4 and IPv6 protocols.
+    *
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#network_type TimestreaminfluxdbDbInstance#network_type}
+    */
+    readonly networkType?: string;
     /**
     * The name of the initial organization for the initial admin user in InfluxDB. An
     * 					InfluxDB organization is a workspace for a group of users.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#organization TimestreaminfluxdbDbInstance#organization}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#organization TimestreaminfluxdbDbInstance#organization}
     */
     readonly organization: string;
     /**
@@ -69,17 +77,23 @@ export interface TimestreaminfluxdbDbInstanceConfig extends cdktf.TerraformMetaA
     * 					also use the InfluxDB CLI to create an operator token. These attributes will be
     * 					stored in a Secret created in AWS SecretManager in your account.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#password TimestreaminfluxdbDbInstance#password}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#password TimestreaminfluxdbDbInstance#password}
     */
     readonly password: string;
     /**
+    * The port number on which InfluxDB accepts connections.
+    *
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#port TimestreaminfluxdbDbInstance#port}
+    */
+    readonly port?: number;
+    /**
     * Configures the DB instance with a public IP to facilitate access.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#publicly_accessible TimestreaminfluxdbDbInstance#publicly_accessible}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#publicly_accessible TimestreaminfluxdbDbInstance#publicly_accessible}
     */
     readonly publiclyAccessible?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#tags TimestreaminfluxdbDbInstance#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#tags TimestreaminfluxdbDbInstance#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -93,32 +107,32 @@ export interface TimestreaminfluxdbDbInstanceConfig extends cdktf.TerraformMetaA
     * 					attributes will be stored in a Secret created in Amazon Secrets
     * 					Manager in your account
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#username TimestreaminfluxdbDbInstance#username}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#username TimestreaminfluxdbDbInstance#username}
     */
     readonly username: string;
     /**
     * A list of VPC security group IDs to associate with the DB instance.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#vpc_security_group_ids TimestreaminfluxdbDbInstance#vpc_security_group_ids}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#vpc_security_group_ids TimestreaminfluxdbDbInstance#vpc_security_group_ids}
     */
     readonly vpcSecurityGroupIds: string[];
     /**
     * A list of VPC subnet IDs to associate with the DB instance. Provide at least
     * 					two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#vpc_subnet_ids TimestreaminfluxdbDbInstance#vpc_subnet_ids}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#vpc_subnet_ids TimestreaminfluxdbDbInstance#vpc_subnet_ids}
     */
     readonly vpcSubnetIds: string[];
     /**
     * log_delivery_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#log_delivery_configuration TimestreaminfluxdbDbInstance#log_delivery_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#log_delivery_configuration TimestreaminfluxdbDbInstance#log_delivery_configuration}
     */
     readonly logDeliveryConfiguration?: TimestreaminfluxdbDbInstanceLogDeliveryConfiguration[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#timeouts TimestreaminfluxdbDbInstance#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#timeouts TimestreaminfluxdbDbInstance#timeouts}
     */
     readonly timeouts?: TimestreaminfluxdbDbInstanceTimeouts;
 }
@@ -126,13 +140,13 @@ export interface TimestreaminfluxdbDbInstanceLogDeliveryConfigurationS3Configura
     /**
     * The name of the S3 bucket to deliver logs to.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#bucket_name TimestreaminfluxdbDbInstance#bucket_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#bucket_name TimestreaminfluxdbDbInstance#bucket_name}
     */
     readonly bucketName: string;
     /**
     * Indicates whether log delivery to the S3 bucket is enabled.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#enabled TimestreaminfluxdbDbInstance#enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#enabled TimestreaminfluxdbDbInstance#enabled}
     */
     readonly enabled: boolean | cdktf.IResolvable;
 }
@@ -179,7 +193,7 @@ export interface TimestreaminfluxdbDbInstanceLogDeliveryConfiguration {
     /**
     * s3_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#s3_configuration TimestreaminfluxdbDbInstance#s3_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#s3_configuration TimestreaminfluxdbDbInstance#s3_configuration}
     */
     readonly s3Configuration?: TimestreaminfluxdbDbInstanceLogDeliveryConfigurationS3Configuration[] | cdktf.IResolvable;
 }
@@ -223,19 +237,19 @@ export interface TimestreaminfluxdbDbInstanceTimeouts {
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#create TimestreaminfluxdbDbInstance#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#create TimestreaminfluxdbDbInstance#create}
     */
     readonly create?: string;
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#delete TimestreaminfluxdbDbInstance#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#delete TimestreaminfluxdbDbInstance#delete}
     */
     readonly delete?: string;
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#update TimestreaminfluxdbDbInstance#update}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#update TimestreaminfluxdbDbInstance#update}
     */
     readonly update?: string;
 }
@@ -268,7 +282,7 @@ export declare class TimestreaminfluxdbDbInstanceTimeoutsOutputReference extends
     get updateInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance aws_timestreaminfluxdb_db_instance}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance aws_timestreaminfluxdb_db_instance}
 */
 export declare class TimestreaminfluxdbDbInstance extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_timestreaminfluxdb_db_instance";
@@ -276,12 +290,12 @@ export declare class TimestreaminfluxdbDbInstance extends cdktf.TerraformResourc
     * Generates CDKTF code for importing a TimestreaminfluxdbDbInstance resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the TimestreaminfluxdbDbInstance to import
-    * @param importFromId The id of the existing TimestreaminfluxdbDbInstance that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing TimestreaminfluxdbDbInstance that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the TimestreaminfluxdbDbInstance to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/timestreaminfluxdb_db_instance aws_timestreaminfluxdb_db_instance} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/timestreaminfluxdb_db_instance aws_timestreaminfluxdb_db_instance} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
@@ -324,6 +338,11 @@ export declare class TimestreaminfluxdbDbInstance extends cdktf.TerraformResourc
     get name(): string;
     set name(value: string);
     get nameInput(): string | undefined;
+    private _networkType?;
+    get networkType(): string;
+    set networkType(value: string);
+    resetNetworkType(): void;
+    get networkTypeInput(): string | undefined;
     private _organization?;
     get organization(): string;
     set organization(value: string);
@@ -332,6 +351,11 @@ export declare class TimestreaminfluxdbDbInstance extends cdktf.TerraformResourc
     get password(): string;
     set password(value: string);
     get passwordInput(): string | undefined;
+    private _port?;
+    get port(): number;
+    set port(value: number);
+    resetPort(): void;
+    get portInput(): number | undefined;
     private _publiclyAccessible?;
     get publiclyAccessible(): boolean | cdktf.IResolvable;
     set publiclyAccessible(value: boolean | cdktf.IResolvable);

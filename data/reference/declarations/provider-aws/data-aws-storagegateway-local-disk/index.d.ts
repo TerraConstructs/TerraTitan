@@ -6,19 +6,19 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsStoragegatewayLocalDiskConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/storagegateway_local_disk#disk_node DataAwsStoragegatewayLocalDisk#disk_node}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/storagegateway_local_disk#disk_node DataAwsStoragegatewayLocalDisk#disk_node}
     */
     readonly diskNode?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/storagegateway_local_disk#disk_path DataAwsStoragegatewayLocalDisk#disk_path}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/storagegateway_local_disk#disk_path DataAwsStoragegatewayLocalDisk#disk_path}
     */
     readonly diskPath?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/storagegateway_local_disk#gateway_arn DataAwsStoragegatewayLocalDisk#gateway_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/storagegateway_local_disk#gateway_arn DataAwsStoragegatewayLocalDisk#gateway_arn}
     */
     readonly gatewayArn: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/storagegateway_local_disk#id DataAwsStoragegatewayLocalDisk#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/storagegateway_local_disk#id DataAwsStoragegatewayLocalDisk#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -26,7 +26,7 @@ export interface DataAwsStoragegatewayLocalDiskConfig extends cdktf.TerraformMet
     readonly id?: string;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/storagegateway_local_disk aws_storagegateway_local_disk}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/storagegateway_local_disk aws_storagegateway_local_disk}
 */
 export declare class DataAwsStoragegatewayLocalDisk extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_storagegateway_local_disk";
@@ -34,12 +34,12 @@ export declare class DataAwsStoragegatewayLocalDisk extends cdktf.TerraformDataS
     * Generates CDKTF code for importing a DataAwsStoragegatewayLocalDisk resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsStoragegatewayLocalDisk to import
-    * @param importFromId The id of the existing DataAwsStoragegatewayLocalDisk that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/storagegateway_local_disk#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsStoragegatewayLocalDisk that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/storagegateway_local_disk#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsStoragegatewayLocalDisk to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/storagegateway_local_disk aws_storagegateway_local_disk} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/storagegateway_local_disk aws_storagegateway_local_disk} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

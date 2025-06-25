@@ -6,30 +6,30 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface WafIpsetConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_ipset#id WafIpset#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_ipset#id WafIpset#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_ipset#name WafIpset#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_ipset#name WafIpset#name}
     */
     readonly name: string;
     /**
     * ip_set_descriptors block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_ipset#ip_set_descriptors WafIpset#ip_set_descriptors}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_ipset#ip_set_descriptors WafIpset#ip_set_descriptors}
     */
     readonly ipSetDescriptors?: WafIpsetIpSetDescriptors[] | cdktf.IResolvable;
 }
 export interface WafIpsetIpSetDescriptors {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_ipset#type WafIpset#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_ipset#type WafIpset#type}
     */
     readonly type: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_ipset#value WafIpset#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_ipset#value WafIpset#value}
     */
     readonly value: string;
 }
@@ -73,7 +73,7 @@ export declare class WafIpsetIpSetDescriptorsList extends cdktf.ComplexList {
     get(index: number): WafIpsetIpSetDescriptorsOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_ipset aws_waf_ipset}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_ipset aws_waf_ipset}
 */
 export declare class WafIpset extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_waf_ipset";
@@ -81,12 +81,12 @@ export declare class WafIpset extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a WafIpset resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the WafIpset to import
-    * @param importFromId The id of the existing WafIpset that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_ipset#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing WafIpset that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_ipset#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the WafIpset to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_ipset aws_waf_ipset} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_ipset aws_waf_ipset} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

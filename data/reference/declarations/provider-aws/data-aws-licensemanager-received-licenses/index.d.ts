@@ -6,7 +6,7 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsLicensemanagerReceivedLicensesConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_received_licenses#id DataAwsLicensemanagerReceivedLicenses#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_received_licenses#id DataAwsLicensemanagerReceivedLicenses#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -15,17 +15,17 @@ export interface DataAwsLicensemanagerReceivedLicensesConfig extends cdktf.Terra
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_received_licenses#filter DataAwsLicensemanagerReceivedLicenses#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_received_licenses#filter DataAwsLicensemanagerReceivedLicenses#filter}
     */
     readonly filter?: DataAwsLicensemanagerReceivedLicensesFilter[] | cdktf.IResolvable;
 }
 export interface DataAwsLicensemanagerReceivedLicensesFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_received_licenses#name DataAwsLicensemanagerReceivedLicenses#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_received_licenses#name DataAwsLicensemanagerReceivedLicenses#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_received_licenses#values DataAwsLicensemanagerReceivedLicenses#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_received_licenses#values DataAwsLicensemanagerReceivedLicenses#values}
     */
     readonly values: string[];
 }
@@ -69,7 +69,7 @@ export declare class DataAwsLicensemanagerReceivedLicensesFilterList extends cdk
     get(index: number): DataAwsLicensemanagerReceivedLicensesFilterOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_received_licenses aws_licensemanager_received_licenses}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_received_licenses aws_licensemanager_received_licenses}
 */
 export declare class DataAwsLicensemanagerReceivedLicenses extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_licensemanager_received_licenses";
@@ -77,12 +77,12 @@ export declare class DataAwsLicensemanagerReceivedLicenses extends cdktf.Terrafo
     * Generates CDKTF code for importing a DataAwsLicensemanagerReceivedLicenses resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsLicensemanagerReceivedLicenses to import
-    * @param importFromId The id of the existing DataAwsLicensemanagerReceivedLicenses that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_received_licenses#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsLicensemanagerReceivedLicenses that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_received_licenses#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsLicensemanagerReceivedLicenses to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_received_licenses aws_licensemanager_received_licenses} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_received_licenses aws_licensemanager_received_licenses} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

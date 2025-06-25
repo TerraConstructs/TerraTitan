@@ -6,11 +6,11 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsTimestreamwriteTableConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/timestreamwrite_table#database_name DataAwsTimestreamwriteTable#database_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/timestreamwrite_table#database_name DataAwsTimestreamwriteTable#database_name}
     */
     readonly databaseName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/timestreamwrite_table#name DataAwsTimestreamwriteTable#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/timestreamwrite_table#name DataAwsTimestreamwriteTable#name}
     */
     readonly name: string;
 }
@@ -217,7 +217,7 @@ export declare class DataAwsTimestreamwriteTableSchemaList extends cdktf.Complex
     get(index: number): DataAwsTimestreamwriteTableSchemaOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/timestreamwrite_table aws_timestreamwrite_table}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/timestreamwrite_table aws_timestreamwrite_table}
 */
 export declare class DataAwsTimestreamwriteTable extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_timestreamwrite_table";
@@ -225,12 +225,12 @@ export declare class DataAwsTimestreamwriteTable extends cdktf.TerraformDataSour
     * Generates CDKTF code for importing a DataAwsTimestreamwriteTable resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsTimestreamwriteTable to import
-    * @param importFromId The id of the existing DataAwsTimestreamwriteTable that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/timestreamwrite_table#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsTimestreamwriteTable that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/timestreamwrite_table#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsTimestreamwriteTable to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/timestreamwrite_table aws_timestreamwrite_table} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/timestreamwrite_table aws_timestreamwrite_table} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

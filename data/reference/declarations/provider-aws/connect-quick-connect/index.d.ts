@@ -6,32 +6,32 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface ConnectQuickConnectConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#description ConnectQuickConnect#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#description ConnectQuickConnect#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#id ConnectQuickConnect#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#id ConnectQuickConnect#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#instance_id ConnectQuickConnect#instance_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#instance_id ConnectQuickConnect#instance_id}
     */
     readonly instanceId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#name ConnectQuickConnect#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#name ConnectQuickConnect#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#tags ConnectQuickConnect#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#tags ConnectQuickConnect#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#tags_all ConnectQuickConnect#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#tags_all ConnectQuickConnect#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
@@ -39,13 +39,13 @@ export interface ConnectQuickConnectConfig extends cdktf.TerraformMetaArguments 
     /**
     * quick_connect_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#quick_connect_config ConnectQuickConnect#quick_connect_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#quick_connect_config ConnectQuickConnect#quick_connect_config}
     */
     readonly quickConnectConfig: ConnectQuickConnectQuickConnectConfig;
 }
 export interface ConnectQuickConnectQuickConnectConfigPhoneConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#phone_number ConnectQuickConnect#phone_number}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#phone_number ConnectQuickConnect#phone_number}
     */
     readonly phoneNumber: string;
 }
@@ -86,11 +86,11 @@ export declare class ConnectQuickConnectQuickConnectConfigPhoneConfigList extend
 }
 export interface ConnectQuickConnectQuickConnectConfigQueueConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#contact_flow_id ConnectQuickConnect#contact_flow_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#contact_flow_id ConnectQuickConnect#contact_flow_id}
     */
     readonly contactFlowId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#queue_id ConnectQuickConnect#queue_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#queue_id ConnectQuickConnect#queue_id}
     */
     readonly queueId: string;
 }
@@ -135,11 +135,11 @@ export declare class ConnectQuickConnectQuickConnectConfigQueueConfigList extend
 }
 export interface ConnectQuickConnectQuickConnectConfigUserConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#contact_flow_id ConnectQuickConnect#contact_flow_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#contact_flow_id ConnectQuickConnect#contact_flow_id}
     */
     readonly contactFlowId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#user_id ConnectQuickConnect#user_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#user_id ConnectQuickConnect#user_id}
     */
     readonly userId: string;
 }
@@ -184,25 +184,25 @@ export declare class ConnectQuickConnectQuickConnectConfigUserConfigList extends
 }
 export interface ConnectQuickConnectQuickConnectConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#quick_connect_type ConnectQuickConnect#quick_connect_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#quick_connect_type ConnectQuickConnect#quick_connect_type}
     */
     readonly quickConnectType: string;
     /**
     * phone_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#phone_config ConnectQuickConnect#phone_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#phone_config ConnectQuickConnect#phone_config}
     */
     readonly phoneConfig?: ConnectQuickConnectQuickConnectConfigPhoneConfig[] | cdktf.IResolvable;
     /**
     * queue_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#queue_config ConnectQuickConnect#queue_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#queue_config ConnectQuickConnect#queue_config}
     */
     readonly queueConfig?: ConnectQuickConnectQuickConnectConfigQueueConfig[] | cdktf.IResolvable;
     /**
     * user_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#user_config ConnectQuickConnect#user_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#user_config ConnectQuickConnect#user_config}
     */
     readonly userConfig?: ConnectQuickConnectQuickConnectConfigUserConfig[] | cdktf.IResolvable;
 }
@@ -238,7 +238,7 @@ export declare class ConnectQuickConnectQuickConnectConfigOutputReference extend
     get userConfigInput(): cdktf.IResolvable | ConnectQuickConnectQuickConnectConfigUserConfig[] | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect aws_connect_quick_connect}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect aws_connect_quick_connect}
 */
 export declare class ConnectQuickConnect extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_connect_quick_connect";
@@ -246,12 +246,12 @@ export declare class ConnectQuickConnect extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a ConnectQuickConnect resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the ConnectQuickConnect to import
-    * @param importFromId The id of the existing ConnectQuickConnect that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing ConnectQuickConnect that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the ConnectQuickConnect to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/connect_quick_connect aws_connect_quick_connect} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/connect_quick_connect aws_connect_quick_connect} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

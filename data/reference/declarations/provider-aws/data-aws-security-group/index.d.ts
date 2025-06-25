@@ -6,46 +6,46 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsSecurityGroupConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/security_group#id DataAwsSecurityGroup#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/security_group#id DataAwsSecurityGroup#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/security_group#name DataAwsSecurityGroup#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/security_group#name DataAwsSecurityGroup#name}
     */
     readonly name?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/security_group#tags DataAwsSecurityGroup#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/security_group#tags DataAwsSecurityGroup#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/security_group#vpc_id DataAwsSecurityGroup#vpc_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/security_group#vpc_id DataAwsSecurityGroup#vpc_id}
     */
     readonly vpcId?: string;
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/security_group#filter DataAwsSecurityGroup#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/security_group#filter DataAwsSecurityGroup#filter}
     */
     readonly filter?: DataAwsSecurityGroupFilter[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/security_group#timeouts DataAwsSecurityGroup#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/security_group#timeouts DataAwsSecurityGroup#timeouts}
     */
     readonly timeouts?: DataAwsSecurityGroupTimeouts;
 }
 export interface DataAwsSecurityGroupFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/security_group#name DataAwsSecurityGroup#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/security_group#name DataAwsSecurityGroup#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/security_group#values DataAwsSecurityGroup#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/security_group#values DataAwsSecurityGroup#values}
     */
     readonly values: string[];
 }
@@ -90,7 +90,7 @@ export declare class DataAwsSecurityGroupFilterList extends cdktf.ComplexList {
 }
 export interface DataAwsSecurityGroupTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/security_group#read DataAwsSecurityGroup#read}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/security_group#read DataAwsSecurityGroup#read}
     */
     readonly read?: string;
 }
@@ -113,7 +113,7 @@ export declare class DataAwsSecurityGroupTimeoutsOutputReference extends cdktf.C
     get readInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/security_group aws_security_group}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/security_group aws_security_group}
 */
 export declare class DataAwsSecurityGroup extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_security_group";
@@ -121,12 +121,12 @@ export declare class DataAwsSecurityGroup extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsSecurityGroup resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsSecurityGroup to import
-    * @param importFromId The id of the existing DataAwsSecurityGroup that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/security_group#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsSecurityGroup that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/security_group#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsSecurityGroup to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/security_group aws_security_group} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/security_group aws_security_group} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

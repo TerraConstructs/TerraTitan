@@ -6,13 +6,13 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsBedrockagentAgentVersionsConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/bedrockagent_agent_versions#agent_id DataAwsBedrockagentAgentVersions#agent_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/bedrockagent_agent_versions#agent_id DataAwsBedrockagentAgentVersions#agent_id}
     */
     readonly agentId: string;
     /**
     * agent_version_summaries block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/bedrockagent_agent_versions#agent_version_summaries DataAwsBedrockagentAgentVersions#agent_version_summaries}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/bedrockagent_agent_versions#agent_version_summaries DataAwsBedrockagentAgentVersions#agent_version_summaries}
     */
     readonly agentVersionSummaries?: DataAwsBedrockagentAgentVersionsAgentVersionSummaries[] | cdktf.IResolvable;
 }
@@ -55,7 +55,7 @@ export interface DataAwsBedrockagentAgentVersionsAgentVersionSummaries {
     /**
     * guardrail_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/bedrockagent_agent_versions#guardrail_configuration DataAwsBedrockagentAgentVersions#guardrail_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/bedrockagent_agent_versions#guardrail_configuration DataAwsBedrockagentAgentVersions#guardrail_configuration}
     */
     readonly guardrailConfiguration?: DataAwsBedrockagentAgentVersionsAgentVersionSummariesGuardrailConfiguration[] | cdktf.IResolvable;
 }
@@ -102,7 +102,7 @@ export declare class DataAwsBedrockagentAgentVersionsAgentVersionSummariesList e
     get(index: number): DataAwsBedrockagentAgentVersionsAgentVersionSummariesOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/bedrockagent_agent_versions aws_bedrockagent_agent_versions}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/bedrockagent_agent_versions aws_bedrockagent_agent_versions}
 */
 export declare class DataAwsBedrockagentAgentVersions extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_bedrockagent_agent_versions";
@@ -110,12 +110,12 @@ export declare class DataAwsBedrockagentAgentVersions extends cdktf.TerraformDat
     * Generates CDKTF code for importing a DataAwsBedrockagentAgentVersions resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsBedrockagentAgentVersions to import
-    * @param importFromId The id of the existing DataAwsBedrockagentAgentVersions that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/bedrockagent_agent_versions#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsBedrockagentAgentVersions that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/bedrockagent_agent_versions#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsBedrockagentAgentVersions to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/bedrockagent_agent_versions aws_bedrockagent_agent_versions} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/bedrockagent_agent_versions aws_bedrockagent_agent_versions} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

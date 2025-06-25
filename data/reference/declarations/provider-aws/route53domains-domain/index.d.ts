@@ -6,83 +6,83 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface Route53DomainsDomainConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#admin_privacy Route53DomainsDomain#admin_privacy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#admin_privacy Route53DomainsDomain#admin_privacy}
     */
     readonly adminPrivacy?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#auto_renew Route53DomainsDomain#auto_renew}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#auto_renew Route53DomainsDomain#auto_renew}
     */
     readonly autoRenew?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#billing_contact Route53DomainsDomain#billing_contact}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#billing_contact Route53DomainsDomain#billing_contact}
     */
     readonly billingContact?: Route53DomainsDomainBillingContact[] | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#billing_privacy Route53DomainsDomain#billing_privacy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#billing_privacy Route53DomainsDomain#billing_privacy}
     */
     readonly billingPrivacy?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#domain_name Route53DomainsDomain#domain_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#domain_name Route53DomainsDomain#domain_name}
     */
     readonly domainName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#duration_in_years Route53DomainsDomain#duration_in_years}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#duration_in_years Route53DomainsDomain#duration_in_years}
     */
     readonly durationInYears?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#name_server Route53DomainsDomain#name_server}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#name_server Route53DomainsDomain#name_server}
     */
     readonly nameServer?: Route53DomainsDomainNameServer[] | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#registrant_privacy Route53DomainsDomain#registrant_privacy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#registrant_privacy Route53DomainsDomain#registrant_privacy}
     */
     readonly registrantPrivacy?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#tags Route53DomainsDomain#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#tags Route53DomainsDomain#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#tech_privacy Route53DomainsDomain#tech_privacy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#tech_privacy Route53DomainsDomain#tech_privacy}
     */
     readonly techPrivacy?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#transfer_lock Route53DomainsDomain#transfer_lock}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#transfer_lock Route53DomainsDomain#transfer_lock}
     */
     readonly transferLock?: boolean | cdktf.IResolvable;
     /**
     * admin_contact block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#admin_contact Route53DomainsDomain#admin_contact}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#admin_contact Route53DomainsDomain#admin_contact}
     */
     readonly adminContact?: Route53DomainsDomainAdminContact[] | cdktf.IResolvable;
     /**
     * registrant_contact block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#registrant_contact Route53DomainsDomain#registrant_contact}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#registrant_contact Route53DomainsDomain#registrant_contact}
     */
     readonly registrantContact?: Route53DomainsDomainRegistrantContact[] | cdktf.IResolvable;
     /**
     * tech_contact block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#tech_contact Route53DomainsDomain#tech_contact}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#tech_contact Route53DomainsDomain#tech_contact}
     */
     readonly techContact?: Route53DomainsDomainTechContact[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#timeouts Route53DomainsDomain#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#timeouts Route53DomainsDomain#timeouts}
     */
     readonly timeouts?: Route53DomainsDomainTimeouts;
 }
 export interface Route53DomainsDomainBillingContactExtraParam {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#name Route53DomainsDomain#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#name Route53DomainsDomain#name}
     */
     readonly name?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#value Route53DomainsDomain#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#value Route53DomainsDomain#value}
     */
     readonly value?: string;
 }
@@ -129,59 +129,59 @@ export declare class Route53DomainsDomainBillingContactExtraParamList extends cd
 }
 export interface Route53DomainsDomainBillingContact {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#address_line_1 Route53DomainsDomain#address_line_1}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#address_line_1 Route53DomainsDomain#address_line_1}
     */
     readonly addressLine1?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#address_line_2 Route53DomainsDomain#address_line_2}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#address_line_2 Route53DomainsDomain#address_line_2}
     */
     readonly addressLine2?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#city Route53DomainsDomain#city}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#city Route53DomainsDomain#city}
     */
     readonly city?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#contact_type Route53DomainsDomain#contact_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#contact_type Route53DomainsDomain#contact_type}
     */
     readonly contactType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#country_code Route53DomainsDomain#country_code}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#country_code Route53DomainsDomain#country_code}
     */
     readonly countryCode?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#email Route53DomainsDomain#email}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#email Route53DomainsDomain#email}
     */
     readonly email?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#extra_param Route53DomainsDomain#extra_param}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#extra_param Route53DomainsDomain#extra_param}
     */
     readonly extraParam?: Route53DomainsDomainBillingContactExtraParam[] | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#fax Route53DomainsDomain#fax}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#fax Route53DomainsDomain#fax}
     */
     readonly fax?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#first_name Route53DomainsDomain#first_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#first_name Route53DomainsDomain#first_name}
     */
     readonly firstName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#last_name Route53DomainsDomain#last_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#last_name Route53DomainsDomain#last_name}
     */
     readonly lastName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#organization_name Route53DomainsDomain#organization_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#organization_name Route53DomainsDomain#organization_name}
     */
     readonly organizationName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#phone_number Route53DomainsDomain#phone_number}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#phone_number Route53DomainsDomain#phone_number}
     */
     readonly phoneNumber?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#state Route53DomainsDomain#state}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#state Route53DomainsDomain#state}
     */
     readonly state?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#zip_code Route53DomainsDomain#zip_code}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#zip_code Route53DomainsDomain#zip_code}
     */
     readonly zipCode?: string;
 }
@@ -288,11 +288,11 @@ export declare class Route53DomainsDomainBillingContactList extends cdktf.Comple
 }
 export interface Route53DomainsDomainNameServer {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#glue_ips Route53DomainsDomain#glue_ips}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#glue_ips Route53DomainsDomain#glue_ips}
     */
     readonly glueIps?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#name Route53DomainsDomain#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#name Route53DomainsDomain#name}
     */
     readonly name?: string;
 }
@@ -339,11 +339,11 @@ export declare class Route53DomainsDomainNameServerList extends cdktf.ComplexLis
 }
 export interface Route53DomainsDomainAdminContactExtraParam {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#name Route53DomainsDomain#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#name Route53DomainsDomain#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#value Route53DomainsDomain#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#value Route53DomainsDomain#value}
     */
     readonly value: string;
 }
@@ -388,61 +388,61 @@ export declare class Route53DomainsDomainAdminContactExtraParamList extends cdkt
 }
 export interface Route53DomainsDomainAdminContact {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#address_line_1 Route53DomainsDomain#address_line_1}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#address_line_1 Route53DomainsDomain#address_line_1}
     */
     readonly addressLine1?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#address_line_2 Route53DomainsDomain#address_line_2}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#address_line_2 Route53DomainsDomain#address_line_2}
     */
     readonly addressLine2?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#city Route53DomainsDomain#city}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#city Route53DomainsDomain#city}
     */
     readonly city?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#contact_type Route53DomainsDomain#contact_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#contact_type Route53DomainsDomain#contact_type}
     */
     readonly contactType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#country_code Route53DomainsDomain#country_code}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#country_code Route53DomainsDomain#country_code}
     */
     readonly countryCode?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#email Route53DomainsDomain#email}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#email Route53DomainsDomain#email}
     */
     readonly email?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#fax Route53DomainsDomain#fax}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#fax Route53DomainsDomain#fax}
     */
     readonly fax?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#first_name Route53DomainsDomain#first_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#first_name Route53DomainsDomain#first_name}
     */
     readonly firstName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#last_name Route53DomainsDomain#last_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#last_name Route53DomainsDomain#last_name}
     */
     readonly lastName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#organization_name Route53DomainsDomain#organization_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#organization_name Route53DomainsDomain#organization_name}
     */
     readonly organizationName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#phone_number Route53DomainsDomain#phone_number}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#phone_number Route53DomainsDomain#phone_number}
     */
     readonly phoneNumber?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#state Route53DomainsDomain#state}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#state Route53DomainsDomain#state}
     */
     readonly state?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#zip_code Route53DomainsDomain#zip_code}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#zip_code Route53DomainsDomain#zip_code}
     */
     readonly zipCode?: string;
     /**
     * extra_param block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#extra_param Route53DomainsDomain#extra_param}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#extra_param Route53DomainsDomain#extra_param}
     */
     readonly extraParam?: Route53DomainsDomainAdminContactExtraParam[] | cdktf.IResolvable;
 }
@@ -549,11 +549,11 @@ export declare class Route53DomainsDomainAdminContactList extends cdktf.ComplexL
 }
 export interface Route53DomainsDomainRegistrantContactExtraParam {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#name Route53DomainsDomain#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#name Route53DomainsDomain#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#value Route53DomainsDomain#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#value Route53DomainsDomain#value}
     */
     readonly value: string;
 }
@@ -598,61 +598,61 @@ export declare class Route53DomainsDomainRegistrantContactExtraParamList extends
 }
 export interface Route53DomainsDomainRegistrantContact {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#address_line_1 Route53DomainsDomain#address_line_1}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#address_line_1 Route53DomainsDomain#address_line_1}
     */
     readonly addressLine1?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#address_line_2 Route53DomainsDomain#address_line_2}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#address_line_2 Route53DomainsDomain#address_line_2}
     */
     readonly addressLine2?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#city Route53DomainsDomain#city}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#city Route53DomainsDomain#city}
     */
     readonly city?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#contact_type Route53DomainsDomain#contact_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#contact_type Route53DomainsDomain#contact_type}
     */
     readonly contactType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#country_code Route53DomainsDomain#country_code}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#country_code Route53DomainsDomain#country_code}
     */
     readonly countryCode?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#email Route53DomainsDomain#email}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#email Route53DomainsDomain#email}
     */
     readonly email?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#fax Route53DomainsDomain#fax}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#fax Route53DomainsDomain#fax}
     */
     readonly fax?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#first_name Route53DomainsDomain#first_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#first_name Route53DomainsDomain#first_name}
     */
     readonly firstName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#last_name Route53DomainsDomain#last_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#last_name Route53DomainsDomain#last_name}
     */
     readonly lastName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#organization_name Route53DomainsDomain#organization_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#organization_name Route53DomainsDomain#organization_name}
     */
     readonly organizationName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#phone_number Route53DomainsDomain#phone_number}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#phone_number Route53DomainsDomain#phone_number}
     */
     readonly phoneNumber?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#state Route53DomainsDomain#state}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#state Route53DomainsDomain#state}
     */
     readonly state?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#zip_code Route53DomainsDomain#zip_code}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#zip_code Route53DomainsDomain#zip_code}
     */
     readonly zipCode?: string;
     /**
     * extra_param block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#extra_param Route53DomainsDomain#extra_param}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#extra_param Route53DomainsDomain#extra_param}
     */
     readonly extraParam?: Route53DomainsDomainRegistrantContactExtraParam[] | cdktf.IResolvable;
 }
@@ -759,11 +759,11 @@ export declare class Route53DomainsDomainRegistrantContactList extends cdktf.Com
 }
 export interface Route53DomainsDomainTechContactExtraParam {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#name Route53DomainsDomain#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#name Route53DomainsDomain#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#value Route53DomainsDomain#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#value Route53DomainsDomain#value}
     */
     readonly value: string;
 }
@@ -808,61 +808,61 @@ export declare class Route53DomainsDomainTechContactExtraParamList extends cdktf
 }
 export interface Route53DomainsDomainTechContact {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#address_line_1 Route53DomainsDomain#address_line_1}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#address_line_1 Route53DomainsDomain#address_line_1}
     */
     readonly addressLine1?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#address_line_2 Route53DomainsDomain#address_line_2}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#address_line_2 Route53DomainsDomain#address_line_2}
     */
     readonly addressLine2?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#city Route53DomainsDomain#city}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#city Route53DomainsDomain#city}
     */
     readonly city?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#contact_type Route53DomainsDomain#contact_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#contact_type Route53DomainsDomain#contact_type}
     */
     readonly contactType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#country_code Route53DomainsDomain#country_code}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#country_code Route53DomainsDomain#country_code}
     */
     readonly countryCode?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#email Route53DomainsDomain#email}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#email Route53DomainsDomain#email}
     */
     readonly email?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#fax Route53DomainsDomain#fax}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#fax Route53DomainsDomain#fax}
     */
     readonly fax?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#first_name Route53DomainsDomain#first_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#first_name Route53DomainsDomain#first_name}
     */
     readonly firstName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#last_name Route53DomainsDomain#last_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#last_name Route53DomainsDomain#last_name}
     */
     readonly lastName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#organization_name Route53DomainsDomain#organization_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#organization_name Route53DomainsDomain#organization_name}
     */
     readonly organizationName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#phone_number Route53DomainsDomain#phone_number}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#phone_number Route53DomainsDomain#phone_number}
     */
     readonly phoneNumber?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#state Route53DomainsDomain#state}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#state Route53DomainsDomain#state}
     */
     readonly state?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#zip_code Route53DomainsDomain#zip_code}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#zip_code Route53DomainsDomain#zip_code}
     */
     readonly zipCode?: string;
     /**
     * extra_param block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#extra_param Route53DomainsDomain#extra_param}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#extra_param Route53DomainsDomain#extra_param}
     */
     readonly extraParam?: Route53DomainsDomainTechContactExtraParam[] | cdktf.IResolvable;
 }
@@ -971,19 +971,19 @@ export interface Route53DomainsDomainTimeouts {
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#create Route53DomainsDomain#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#create Route53DomainsDomain#create}
     */
     readonly create?: string;
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#delete Route53DomainsDomain#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#delete Route53DomainsDomain#delete}
     */
     readonly delete?: string;
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#update Route53DomainsDomain#update}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#update Route53DomainsDomain#update}
     */
     readonly update?: string;
 }
@@ -1016,7 +1016,7 @@ export declare class Route53DomainsDomainTimeoutsOutputReference extends cdktf.C
     get updateInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain aws_route53domains_domain}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain aws_route53domains_domain}
 */
 export declare class Route53DomainsDomain extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_route53domains_domain";
@@ -1024,12 +1024,12 @@ export declare class Route53DomainsDomain extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a Route53DomainsDomain resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the Route53DomainsDomain to import
-    * @param importFromId The id of the existing Route53DomainsDomain that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing Route53DomainsDomain that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the Route53DomainsDomain to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53domains_domain aws_route53domains_domain} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53domains_domain aws_route53domains_domain} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

@@ -6,102 +6,108 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface Route53RecordConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#allow_overwrite Route53Record#allow_overwrite}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#allow_overwrite Route53Record#allow_overwrite}
     */
     readonly allowOverwrite?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#health_check_id Route53Record#health_check_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#health_check_id Route53Record#health_check_id}
     */
     readonly healthCheckId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#id Route53Record#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#id Route53Record#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#multivalue_answer_routing_policy Route53Record#multivalue_answer_routing_policy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#multivalue_answer_routing_policy Route53Record#multivalue_answer_routing_policy}
     */
     readonly multivalueAnswerRoutingPolicy?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#name Route53Record#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#name Route53Record#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#records Route53Record#records}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#records Route53Record#records}
     */
     readonly records?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#set_identifier Route53Record#set_identifier}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#set_identifier Route53Record#set_identifier}
     */
     readonly setIdentifier?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#ttl Route53Record#ttl}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#ttl Route53Record#ttl}
     */
     readonly ttl?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#type Route53Record#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#type Route53Record#type}
     */
     readonly type: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#zone_id Route53Record#zone_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#zone_id Route53Record#zone_id}
     */
     readonly zoneId: string;
     /**
     * alias block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#alias Route53Record#alias}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#alias Route53Record#alias}
     */
     readonly alias?: Route53RecordAlias;
     /**
     * cidr_routing_policy block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#cidr_routing_policy Route53Record#cidr_routing_policy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#cidr_routing_policy Route53Record#cidr_routing_policy}
     */
     readonly cidrRoutingPolicy?: Route53RecordCidrRoutingPolicy;
     /**
     * failover_routing_policy block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#failover_routing_policy Route53Record#failover_routing_policy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#failover_routing_policy Route53Record#failover_routing_policy}
     */
     readonly failoverRoutingPolicy?: Route53RecordFailoverRoutingPolicy;
     /**
     * geolocation_routing_policy block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#geolocation_routing_policy Route53Record#geolocation_routing_policy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#geolocation_routing_policy Route53Record#geolocation_routing_policy}
     */
     readonly geolocationRoutingPolicy?: Route53RecordGeolocationRoutingPolicy;
     /**
     * geoproximity_routing_policy block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#geoproximity_routing_policy Route53Record#geoproximity_routing_policy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#geoproximity_routing_policy Route53Record#geoproximity_routing_policy}
     */
     readonly geoproximityRoutingPolicy?: Route53RecordGeoproximityRoutingPolicy;
     /**
     * latency_routing_policy block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#latency_routing_policy Route53Record#latency_routing_policy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#latency_routing_policy Route53Record#latency_routing_policy}
     */
     readonly latencyRoutingPolicy?: Route53RecordLatencyRoutingPolicy;
     /**
+    * timeouts block
+    *
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#timeouts Route53Record#timeouts}
+    */
+    readonly timeouts?: Route53RecordTimeouts;
+    /**
     * weighted_routing_policy block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#weighted_routing_policy Route53Record#weighted_routing_policy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#weighted_routing_policy Route53Record#weighted_routing_policy}
     */
     readonly weightedRoutingPolicy?: Route53RecordWeightedRoutingPolicy;
 }
 export interface Route53RecordAlias {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#evaluate_target_health Route53Record#evaluate_target_health}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#evaluate_target_health Route53Record#evaluate_target_health}
     */
     readonly evaluateTargetHealth: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#name Route53Record#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#name Route53Record#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#zone_id Route53Record#zone_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#zone_id Route53Record#zone_id}
     */
     readonly zoneId: string;
 }
@@ -131,11 +137,11 @@ export declare class Route53RecordAliasOutputReference extends cdktf.ComplexObje
 }
 export interface Route53RecordCidrRoutingPolicy {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#collection_id Route53Record#collection_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#collection_id Route53Record#collection_id}
     */
     readonly collectionId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#location_name Route53Record#location_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#location_name Route53Record#location_name}
     */
     readonly locationName: string;
 }
@@ -161,7 +167,7 @@ export declare class Route53RecordCidrRoutingPolicyOutputReference extends cdktf
 }
 export interface Route53RecordFailoverRoutingPolicy {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#type Route53Record#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#type Route53Record#type}
     */
     readonly type: string;
 }
@@ -183,15 +189,15 @@ export declare class Route53RecordFailoverRoutingPolicyOutputReference extends c
 }
 export interface Route53RecordGeolocationRoutingPolicy {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#continent Route53Record#continent}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#continent Route53Record#continent}
     */
     readonly continent?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#country Route53Record#country}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#country Route53Record#country}
     */
     readonly country?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#subdivision Route53Record#subdivision}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#subdivision Route53Record#subdivision}
     */
     readonly subdivision?: string;
 }
@@ -224,11 +230,11 @@ export declare class Route53RecordGeolocationRoutingPolicyOutputReference extend
 }
 export interface Route53RecordGeoproximityRoutingPolicyCoordinates {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#latitude Route53Record#latitude}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#latitude Route53Record#latitude}
     */
     readonly latitude: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#longitude Route53Record#longitude}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#longitude Route53Record#longitude}
     */
     readonly longitude: string;
 }
@@ -273,21 +279,21 @@ export declare class Route53RecordGeoproximityRoutingPolicyCoordinatesList exten
 }
 export interface Route53RecordGeoproximityRoutingPolicy {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#aws_region Route53Record#aws_region}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#aws_region Route53Record#aws_region}
     */
     readonly awsRegion?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#bias Route53Record#bias}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#bias Route53Record#bias}
     */
     readonly bias?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#local_zone_group Route53Record#local_zone_group}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#local_zone_group Route53Record#local_zone_group}
     */
     readonly localZoneGroup?: string;
     /**
     * coordinates block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#coordinates Route53Record#coordinates}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#coordinates Route53Record#coordinates}
     */
     readonly coordinates?: Route53RecordGeoproximityRoutingPolicyCoordinates[] | cdktf.IResolvable;
 }
@@ -325,7 +331,7 @@ export declare class Route53RecordGeoproximityRoutingPolicyOutputReference exten
 }
 export interface Route53RecordLatencyRoutingPolicy {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#region Route53Record#region}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#region Route53Record#region}
     */
     readonly region: string;
 }
@@ -345,9 +351,51 @@ export declare class Route53RecordLatencyRoutingPolicyOutputReference extends cd
     set region(value: string);
     get regionInput(): string | undefined;
 }
+export interface Route53RecordTimeouts {
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#create Route53Record#create}
+    */
+    readonly create?: string;
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#delete Route53Record#delete}
+    */
+    readonly delete?: string;
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#update Route53Record#update}
+    */
+    readonly update?: string;
+}
+export declare function route53RecordTimeoutsToTerraform(struct?: Route53RecordTimeouts | cdktf.IResolvable): any;
+export declare function route53RecordTimeoutsToHclTerraform(struct?: Route53RecordTimeouts | cdktf.IResolvable): any;
+export declare class Route53RecordTimeoutsOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    private resolvableValue?;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string);
+    get internalValue(): Route53RecordTimeouts | cdktf.IResolvable | undefined;
+    set internalValue(value: Route53RecordTimeouts | cdktf.IResolvable | undefined);
+    private _create?;
+    get create(): string;
+    set create(value: string);
+    resetCreate(): void;
+    get createInput(): string | undefined;
+    private _delete?;
+    get delete(): string;
+    set delete(value: string);
+    resetDelete(): void;
+    get deleteInput(): string | undefined;
+    private _update?;
+    get update(): string;
+    set update(value: string);
+    resetUpdate(): void;
+    get updateInput(): string | undefined;
+}
 export interface Route53RecordWeightedRoutingPolicy {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#weight Route53Record#weight}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#weight Route53Record#weight}
     */
     readonly weight: number;
 }
@@ -368,7 +416,7 @@ export declare class Route53RecordWeightedRoutingPolicyOutputReference extends c
     get weightInput(): number | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record aws_route53_record}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record aws_route53_record}
 */
 export declare class Route53Record extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_route53_record";
@@ -376,12 +424,12 @@ export declare class Route53Record extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a Route53Record resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the Route53Record to import
-    * @param importFromId The id of the existing Route53Record that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing Route53Record that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the Route53Record to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/route53_record aws_route53_record} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/route53_record aws_route53_record} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
@@ -466,6 +514,11 @@ export declare class Route53Record extends cdktf.TerraformResource {
     putLatencyRoutingPolicy(value: Route53RecordLatencyRoutingPolicy): void;
     resetLatencyRoutingPolicy(): void;
     get latencyRoutingPolicyInput(): Route53RecordLatencyRoutingPolicy | undefined;
+    private _timeouts;
+    get timeouts(): Route53RecordTimeoutsOutputReference;
+    putTimeouts(value: Route53RecordTimeouts): void;
+    resetTimeouts(): void;
+    get timeoutsInput(): cdktf.IResolvable | Route53RecordTimeouts | undefined;
     private _weightedRoutingPolicy;
     get weightedRoutingPolicy(): Route53RecordWeightedRoutingPolicyOutputReference;
     putWeightedRoutingPolicy(value: Route53RecordWeightedRoutingPolicy): void;

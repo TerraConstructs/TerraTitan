@@ -6,28 +6,28 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface XrayGroupConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/xray_group#filter_expression XrayGroup#filter_expression}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/xray_group#filter_expression XrayGroup#filter_expression}
     */
     readonly filterExpression: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/xray_group#group_name XrayGroup#group_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/xray_group#group_name XrayGroup#group_name}
     */
     readonly groupName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/xray_group#id XrayGroup#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/xray_group#id XrayGroup#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/xray_group#tags XrayGroup#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/xray_group#tags XrayGroup#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/xray_group#tags_all XrayGroup#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/xray_group#tags_all XrayGroup#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
@@ -35,17 +35,17 @@ export interface XrayGroupConfig extends cdktf.TerraformMetaArguments {
     /**
     * insights_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/xray_group#insights_configuration XrayGroup#insights_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/xray_group#insights_configuration XrayGroup#insights_configuration}
     */
     readonly insightsConfiguration?: XrayGroupInsightsConfiguration;
 }
 export interface XrayGroupInsightsConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/xray_group#insights_enabled XrayGroup#insights_enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/xray_group#insights_enabled XrayGroup#insights_enabled}
     */
     readonly insightsEnabled: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/xray_group#notifications_enabled XrayGroup#notifications_enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/xray_group#notifications_enabled XrayGroup#notifications_enabled}
     */
     readonly notificationsEnabled?: boolean | cdktf.IResolvable;
 }
@@ -71,7 +71,7 @@ export declare class XrayGroupInsightsConfigurationOutputReference extends cdktf
     get notificationsEnabledInput(): boolean | cdktf.IResolvable | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/xray_group aws_xray_group}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/xray_group aws_xray_group}
 */
 export declare class XrayGroup extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_xray_group";
@@ -79,12 +79,12 @@ export declare class XrayGroup extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a XrayGroup resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the XrayGroup to import
-    * @param importFromId The id of the existing XrayGroup that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/xray_group#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing XrayGroup that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/xray_group#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the XrayGroup to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/xray_group aws_xray_group} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/xray_group aws_xray_group} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

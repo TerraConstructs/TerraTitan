@@ -6,34 +6,114 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#description DataAwsCloudwatchLogDataProtectionPolicyDocument#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#description DataAwsCloudwatchLogDataProtectionPolicyDocument#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#id DataAwsCloudwatchLogDataProtectionPolicyDocument#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#id DataAwsCloudwatchLogDataProtectionPolicyDocument#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#name DataAwsCloudwatchLogDataProtectionPolicyDocument#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#name DataAwsCloudwatchLogDataProtectionPolicyDocument#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#version DataAwsCloudwatchLogDataProtectionPolicyDocument#version}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#version DataAwsCloudwatchLogDataProtectionPolicyDocument#version}
     */
     readonly version?: string;
     /**
+    * configuration block
+    *
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#configuration DataAwsCloudwatchLogDataProtectionPolicyDocument#configuration}
+    */
+    readonly configuration?: DataAwsCloudwatchLogDataProtectionPolicyDocumentConfiguration;
+    /**
     * statement block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#statement DataAwsCloudwatchLogDataProtectionPolicyDocument#statement}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#statement DataAwsCloudwatchLogDataProtectionPolicyDocument#statement}
     */
     readonly statement: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatement[] | cdktf.IResolvable;
 }
+export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier {
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#name DataAwsCloudwatchLogDataProtectionPolicyDocument#name}
+    */
+    readonly name: string;
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#regex DataAwsCloudwatchLogDataProtectionPolicyDocument#regex}
+    */
+    readonly regex: string;
+}
+export declare function dataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierToTerraform(struct?: DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier | cdktf.IResolvable): any;
+export declare function dataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierToHclTerraform(struct?: DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier | cdktf.IResolvable): any;
+export declare class DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    private resolvableValue?;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param complexObjectIndex the index of this item in the list
+    * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean);
+    get internalValue(): DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier | cdktf.IResolvable | undefined;
+    set internalValue(value: DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier | cdktf.IResolvable | undefined);
+    private _name?;
+    get name(): string;
+    set name(value: string);
+    get nameInput(): string | undefined;
+    private _regex?;
+    get regex(): string;
+    set regex(value: string);
+    get regexInput(): string | undefined;
+}
+export declare class DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierList extends cdktf.ComplexList {
+    protected terraformResource: cdktf.IInterpolatingParent;
+    protected terraformAttribute: string;
+    protected wrapsSet: boolean;
+    internalValue?: DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier[] | cdktf.IResolvable;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, wrapsSet: boolean);
+    /**
+    * @param index the index of the item to return
+    */
+    get(index: number): DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutputReference;
+}
+export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentConfiguration {
+    /**
+    * custom_data_identifier block
+    *
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#custom_data_identifier DataAwsCloudwatchLogDataProtectionPolicyDocument#custom_data_identifier}
+    */
+    readonly customDataIdentifier?: DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier[] | cdktf.IResolvable;
+}
+export declare function dataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationToTerraform(struct?: DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationOutputReference | DataAwsCloudwatchLogDataProtectionPolicyDocumentConfiguration): any;
+export declare function dataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationToHclTerraform(struct?: DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationOutputReference | DataAwsCloudwatchLogDataProtectionPolicyDocumentConfiguration): any;
+export declare class DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string);
+    get internalValue(): DataAwsCloudwatchLogDataProtectionPolicyDocumentConfiguration | undefined;
+    set internalValue(value: DataAwsCloudwatchLogDataProtectionPolicyDocumentConfiguration | undefined);
+    private _customDataIdentifier;
+    get customDataIdentifier(): DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierList;
+    putCustomDataIdentifier(value: DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier[] | cdktf.IResolvable): void;
+    resetCustomDataIdentifier(): void;
+    get customDataIdentifierInput(): cdktf.IResolvable | DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier[] | undefined;
+}
 export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#log_group DataAwsCloudwatchLogDataProtectionPolicyDocument#log_group}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#log_group DataAwsCloudwatchLogDataProtectionPolicyDocument#log_group}
     */
     readonly logGroup: string;
 }
@@ -55,7 +135,7 @@ export declare class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOp
 }
 export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#delivery_stream DataAwsCloudwatchLogDataProtectionPolicyDocument#delivery_stream}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#delivery_stream DataAwsCloudwatchLogDataProtectionPolicyDocument#delivery_stream}
     */
     readonly deliveryStream: string;
 }
@@ -77,7 +157,7 @@ export declare class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOp
 }
 export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#bucket DataAwsCloudwatchLogDataProtectionPolicyDocument#bucket}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#bucket DataAwsCloudwatchLogDataProtectionPolicyDocument#bucket}
     */
     readonly bucket: string;
 }
@@ -101,19 +181,19 @@ export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperat
     /**
     * cloudwatch_logs block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#cloudwatch_logs DataAwsCloudwatchLogDataProtectionPolicyDocument#cloudwatch_logs}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#cloudwatch_logs DataAwsCloudwatchLogDataProtectionPolicyDocument#cloudwatch_logs}
     */
     readonly cloudwatchLogs?: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs;
     /**
     * firehose block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#firehose DataAwsCloudwatchLogDataProtectionPolicyDocument#firehose}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#firehose DataAwsCloudwatchLogDataProtectionPolicyDocument#firehose}
     */
     readonly firehose?: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose;
     /**
     * s3 block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#s3 DataAwsCloudwatchLogDataProtectionPolicyDocument#s3}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#s3 DataAwsCloudwatchLogDataProtectionPolicyDocument#s3}
     */
     readonly s3?: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3;
 }
@@ -148,7 +228,7 @@ export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperat
     /**
     * findings_destination block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#findings_destination DataAwsCloudwatchLogDataProtectionPolicyDocument#findings_destination}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#findings_destination DataAwsCloudwatchLogDataProtectionPolicyDocument#findings_destination}
     */
     readonly findingsDestination: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination;
 }
@@ -186,7 +266,7 @@ export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperat
     /**
     * mask_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#mask_config DataAwsCloudwatchLogDataProtectionPolicyDocument#mask_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#mask_config DataAwsCloudwatchLogDataProtectionPolicyDocument#mask_config}
     */
     readonly maskConfig: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig;
 }
@@ -210,13 +290,13 @@ export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperat
     /**
     * audit block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#audit DataAwsCloudwatchLogDataProtectionPolicyDocument#audit}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#audit DataAwsCloudwatchLogDataProtectionPolicyDocument#audit}
     */
     readonly audit?: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationAudit;
     /**
     * deidentify block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#deidentify DataAwsCloudwatchLogDataProtectionPolicyDocument#deidentify}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#deidentify DataAwsCloudwatchLogDataProtectionPolicyDocument#deidentify}
     */
     readonly deidentify?: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperationDeidentify;
 }
@@ -244,17 +324,17 @@ export declare class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOp
 }
 export interface DataAwsCloudwatchLogDataProtectionPolicyDocumentStatement {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#data_identifiers DataAwsCloudwatchLogDataProtectionPolicyDocument#data_identifiers}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#data_identifiers DataAwsCloudwatchLogDataProtectionPolicyDocument#data_identifiers}
     */
     readonly dataIdentifiers: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#sid DataAwsCloudwatchLogDataProtectionPolicyDocument#sid}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#sid DataAwsCloudwatchLogDataProtectionPolicyDocument#sid}
     */
     readonly sid?: string;
     /**
     * operation block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#operation DataAwsCloudwatchLogDataProtectionPolicyDocument#operation}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#operation DataAwsCloudwatchLogDataProtectionPolicyDocument#operation}
     */
     readonly operation: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOperation;
 }
@@ -303,7 +383,7 @@ export declare class DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementLi
     get(index: number): DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document aws_cloudwatch_log_data_protection_policy_document}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document aws_cloudwatch_log_data_protection_policy_document}
 */
 export declare class DataAwsCloudwatchLogDataProtectionPolicyDocument extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_cloudwatch_log_data_protection_policy_document";
@@ -311,12 +391,12 @@ export declare class DataAwsCloudwatchLogDataProtectionPolicyDocument extends cd
     * Generates CDKTF code for importing a DataAwsCloudwatchLogDataProtectionPolicyDocument resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsCloudwatchLogDataProtectionPolicyDocument to import
-    * @param importFromId The id of the existing DataAwsCloudwatchLogDataProtectionPolicyDocument that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsCloudwatchLogDataProtectionPolicyDocument that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsCloudwatchLogDataProtectionPolicyDocument to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/cloudwatch_log_data_protection_policy_document aws_cloudwatch_log_data_protection_policy_document} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/cloudwatch_log_data_protection_policy_document aws_cloudwatch_log_data_protection_policy_document} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
@@ -343,6 +423,11 @@ export declare class DataAwsCloudwatchLogDataProtectionPolicyDocument extends cd
     set version(value: string);
     resetVersion(): void;
     get versionInput(): string | undefined;
+    private _configuration;
+    get configuration(): DataAwsCloudwatchLogDataProtectionPolicyDocumentConfigurationOutputReference;
+    putConfiguration(value: DataAwsCloudwatchLogDataProtectionPolicyDocumentConfiguration): void;
+    resetConfiguration(): void;
+    get configurationInput(): DataAwsCloudwatchLogDataProtectionPolicyDocumentConfiguration | undefined;
     private _statement;
     get statement(): DataAwsCloudwatchLogDataProtectionPolicyDocumentStatementList;
     putStatement(value: DataAwsCloudwatchLogDataProtectionPolicyDocumentStatement[] | cdktf.IResolvable): void;

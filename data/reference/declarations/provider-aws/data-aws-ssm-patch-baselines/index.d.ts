@@ -6,13 +6,13 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsSsmPatchBaselinesConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssm_patch_baselines#default_baselines DataAwsSsmPatchBaselines#default_baselines}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssm_patch_baselines#default_baselines DataAwsSsmPatchBaselines#default_baselines}
     */
     readonly defaultBaselines?: boolean | cdktf.IResolvable;
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssm_patch_baselines#filter DataAwsSsmPatchBaselines#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssm_patch_baselines#filter DataAwsSsmPatchBaselines#filter}
     */
     readonly filter?: DataAwsSsmPatchBaselinesFilter[] | cdktf.IResolvable;
 }
@@ -54,11 +54,11 @@ export declare class DataAwsSsmPatchBaselinesBaselineIdentitiesList extends cdkt
 }
 export interface DataAwsSsmPatchBaselinesFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssm_patch_baselines#key DataAwsSsmPatchBaselines#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssm_patch_baselines#key DataAwsSsmPatchBaselines#key}
     */
     readonly key: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssm_patch_baselines#values DataAwsSsmPatchBaselines#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssm_patch_baselines#values DataAwsSsmPatchBaselines#values}
     */
     readonly values: string[];
 }
@@ -102,7 +102,7 @@ export declare class DataAwsSsmPatchBaselinesFilterList extends cdktf.ComplexLis
     get(index: number): DataAwsSsmPatchBaselinesFilterOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssm_patch_baselines aws_ssm_patch_baselines}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssm_patch_baselines aws_ssm_patch_baselines}
 */
 export declare class DataAwsSsmPatchBaselines extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ssm_patch_baselines";
@@ -110,12 +110,12 @@ export declare class DataAwsSsmPatchBaselines extends cdktf.TerraformDataSource 
     * Generates CDKTF code for importing a DataAwsSsmPatchBaselines resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsSsmPatchBaselines to import
-    * @param importFromId The id of the existing DataAwsSsmPatchBaselines that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssm_patch_baselines#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsSsmPatchBaselines that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssm_patch_baselines#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsSsmPatchBaselines to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssm_patch_baselines aws_ssm_patch_baselines} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssm_patch_baselines aws_ssm_patch_baselines} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

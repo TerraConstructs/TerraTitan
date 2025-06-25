@@ -40,12 +40,12 @@ Next, update TerraTitan to use the latest AWS Terraform provider. TerraTitan rel
   }
 ```
 
-*Update this version string* to the latest release of the CDKTF AWS provider. To find the latest version:
+_Update this version string_ to the latest release of the CDKTF AWS provider. To find the latest version:
 
-* Review release notes from https://github.com/cdktf/cdktf-provider-aws/releases
-  * Versions `~19.0.0` track terraform-provider-aws v5 (up to v5.99.1) - TerraConstructs currently restricted to v5
-  * Versions `~20.0.0` track terraform-provider-aws v5.100.0 (last compatible version for TerraConstructs at moment of writing)
-  * Versions `>21.0.0` track terraform-provider-aws v6.x (incompatible with TerraConstructs for now)
+- Review release notes from https://github.com/cdktf/cdktf-provider-aws/releases
+  - Versions `~19.0.0` track terraform-provider-aws v5 (up to v5.99.1) - TerraConstructs currently restricted to v5
+  - Versions `~20.0.0` track terraform-provider-aws v5.100.0 (last compatible version for TerraConstructs at moment of writing)
+  - Versions `>21.0.0` track terraform-provider-aws v6.x (incompatible with TerraConstructs for now)
 
 After editing `package.json`, run `pnpm install` again to fetch the new provider library. This ensures the updated AWS provider bindings (classes, JSII data, etc.) are now in `node_modules`. Verify that the update was successful by checking the lockfile or running `pnpm why @cdktf/provider-aws` to see the resolved version.
 
@@ -65,15 +65,23 @@ TerraTitan uses the official Terraform AWS provider documentation in its workflo
 
    This will download the Terraform AWS provider source at that tag and extract the Markdown docs for all **data sources** and **resources.** The script outputs them into `data/reference/docs/provider-aws` (for HCL docs) and `data/reference/docs/typescript/provider-aws` (CDKTF TypeScript usage docs). After running, you should see updated markdown files under `data/reference/docs/provider-aws/d/` (data sources) and `.../r/` (resources), as well as the TypeScript-specific docs in the parallel folders (if provided by HashiCorp).
 
-   *This ensures you have the latest official descriptions, arguments, and attributes for every AWS resource and data source, which will be used in the next steps.*
+   _This ensures you have the latest official descriptions, arguments, and attributes for every AWS resource and data source, which will be used in the next steps._
 
-## 4. Extracting AWS Resources and Data Sources from the New Provider
+## 4. Update the committed declaration files used by the merge-docs script
+
+```bash
+echo repo_dir=${PWD}
+cd apps/core/node_modules/@cdktf/provider-aws/lib/
+find . -name "*.d.ts" -exec cp --parents {} ${repo_dir}/data/reference/declarations/provider-aws \;
+```
+
+## 5. Extracting AWS Resources and Data Sources from the New Provider
 
 Now that the new provider is installed and documentation is updated, you need to extract a comprehensive list of all AWS **resources** and **data sources** (with their schemas and docs) for TerraTitan to use. TerraTitan provides a script (internally referred to as `parse-jsii.ts`) to generate a JSON catalog of all provider entities:
 
-1. **Use CDKTF's JSII to load the provider schema**: TerraTitan leverages the JSII metadata included in `@cdktf/provider-aws` to introspect all resources. The `parse-jsii.ts` script uses *jsii-reflect* to load the AWS provider library and enumerate all resource and data source classes. It combines the information from the JSII assembly (which includes class definitions and any inline docs) with the Markdown documentation you fetched in the previous step. This yields a rich JSON representation of every resource type.
+1. **Use CDKTF's JSII to load the provider schema**: TerraTitan leverages the JSII metadata included in `@cdktf/provider-aws` to introspect all resources. The `parse-jsii.ts` script uses _jsii-reflect_ to load the AWS provider library and enumerate all resource and data source classes. It combines the information from the JSII assembly (which includes class definitions and any inline docs) with the Markdown documentation you fetched in the previous step. This yields a rich JSON representation of every resource type.
 
-   > **Note:** As an alternative, one could use the Terraform CLI to output provider schemas (e.g. running `terraform providers schema -json` after an init) to get a machine-readable schema. However, the Terraform CLI’s JSON schema output does *not* include documentation content, so the TerraTitan approach of merging with Markdown docs is preferred for full context.
+   > **Note:** As an alternative, one could use the Terraform CLI to output provider schemas (e.g. running `terraform providers schema -json` after an init) to get a machine-readable schema. However, the Terraform CLI’s JSON schema output does _not_ include documentation content, so the TerraTitan approach of merging with Markdown docs is preferred for full context.
 
 2. **Run the parsing script to generate the resource list**: Execute the JSII parse script. If TerraTitan does not have a pre-defined package script for this, you can run it via the TypeScript executor. For example, using `tsx`:
 
@@ -83,28 +91,28 @@ Now that the new provider is installed and documentation is updated, you need to
 
    This will produce an output file (e.g., `output/aws-resources.json`) containing an array of all AWS resource and data source definitions with their metadata. Each entry typically includes:
 
-   * The fully qualified name (`fqn`) and class name of the resource,
-   * Documentation summary and category (from the provider docs),
-   * The URL to the official doc page (for reference),
-   * Properties/arguments (possibly aggregated as text),
-   * Source file references.
+   - The fully qualified name (`fqn`) and class name of the resource,
+   - Documentation summary and category (from the provider docs),
+   - The URL to the official doc page (for reference),
+   - Properties/arguments (possibly aggregated as text),
+   - Source file references.
 
    Ensure that this JSON includes new resources/data sources introduced in the latest provider version. (For example, if the new provider added `aws_new_service_xyz`, it should appear in the JSON now.)
 
-   *If the TerraTitan `parse-jsii` script is not readily available or you prefer a manual approach, you could script a similar extraction using the Terraform JSON schema:* for each resource in `all.json` from `terraform providers schema`, match it with the docs. However, since TerraTitan’s tooling is built for this, using the provided script is the most straightforward route.
+   _If the TerraTitan `parse-jsii` script is not readily available or you prefer a manual approach, you could script a similar extraction using the Terraform JSON schema:_ for each resource in `all.json` from `terraform providers schema`, match it with the docs. However, since TerraTitan’s tooling is built for this, using the provided script is the most straightforward route.
 
-## 5. Re-indexing the Updated Resources into the Vector Database
+## 6. Re-indexing the Updated Resources into the Vector Database
 
 After extracting the resource list and documentation, the final step is to **embed these docs and index them** so that TerraTitan’s LLM workflows can retrieve relevant info via vector search. TerraTitan supports storing embeddings in a vector database – originally using a SaaS service (Upstash Vector), but you may also use a local Postgres database with pgvector. We’ll cover both.
 
-### 5.1 Embedding Resource Data and Updating the Index
+### 6.1 Embedding Resource Data and Updating the Index
 
 First, generate embeddings for the updated resource set and index them:
 
 1. **Prepare the embedding script**: TerraTitan provides scripts like `embed.ts` / `embed-summary.ts` to handle embedding. These read the `aws-resources.json` generated earlier, chunk the content, call the OpenAI API for embeddings, and upsert them into the vector store. The difference is:
 
-   * `embed.ts` – embeds both the **Summary** and **Arguments** sections of each resource’s docs (more comprehensive, but larger embeddings per resource).
-   * `embed-summary.ts` – embeds only the **Summary** section for each resource (lighter and was the “final iteration” approach).
+   - `embed.ts` – embeds both the **Summary** and **Arguments** sections of each resource’s docs (more comprehensive, but larger embeddings per resource).
+   - `embed-summary.ts` – embeds only the **Summary** section for each resource (lighter and was the “final iteration” approach).
 
    For updating to a new provider, using the summary-only approach might be sufficient and faster (and was considered the final iteration in TerraTitan). Ensure your `.env` has the OpenAI API key set, since the script will call OpenAI’s embedding model.
 

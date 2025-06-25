@@ -6,7 +6,7 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsLicensemanagerGrantsConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_grants#id DataAwsLicensemanagerGrants#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_grants#id DataAwsLicensemanagerGrants#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -15,17 +15,17 @@ export interface DataAwsLicensemanagerGrantsConfig extends cdktf.TerraformMetaAr
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_grants#filter DataAwsLicensemanagerGrants#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_grants#filter DataAwsLicensemanagerGrants#filter}
     */
     readonly filter?: DataAwsLicensemanagerGrantsFilter[] | cdktf.IResolvable;
 }
 export interface DataAwsLicensemanagerGrantsFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_grants#name DataAwsLicensemanagerGrants#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_grants#name DataAwsLicensemanagerGrants#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_grants#values DataAwsLicensemanagerGrants#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_grants#values DataAwsLicensemanagerGrants#values}
     */
     readonly values: string[];
 }
@@ -69,7 +69,7 @@ export declare class DataAwsLicensemanagerGrantsFilterList extends cdktf.Complex
     get(index: number): DataAwsLicensemanagerGrantsFilterOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_grants aws_licensemanager_grants}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_grants aws_licensemanager_grants}
 */
 export declare class DataAwsLicensemanagerGrants extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_licensemanager_grants";
@@ -77,12 +77,12 @@ export declare class DataAwsLicensemanagerGrants extends cdktf.TerraformDataSour
     * Generates CDKTF code for importing a DataAwsLicensemanagerGrants resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsLicensemanagerGrants to import
-    * @param importFromId The id of the existing DataAwsLicensemanagerGrants that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_grants#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsLicensemanagerGrants that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_grants#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsLicensemanagerGrants to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/licensemanager_grants aws_licensemanager_grants} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/licensemanager_grants aws_licensemanager_grants} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

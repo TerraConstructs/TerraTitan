@@ -6,40 +6,40 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface SfnAliasConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias#description SfnAlias#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias#description SfnAlias#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias#id SfnAlias#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias#id SfnAlias#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias#name SfnAlias#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias#name SfnAlias#name}
     */
     readonly name: string;
     /**
     * routing_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias#routing_configuration SfnAlias#routing_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias#routing_configuration SfnAlias#routing_configuration}
     */
     readonly routingConfiguration: SfnAliasRoutingConfiguration[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias#timeouts SfnAlias#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias#timeouts SfnAlias#timeouts}
     */
     readonly timeouts?: SfnAliasTimeouts;
 }
 export interface SfnAliasRoutingConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias#state_machine_version_arn SfnAlias#state_machine_version_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias#state_machine_version_arn SfnAlias#state_machine_version_arn}
     */
     readonly stateMachineVersionArn: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias#weight SfnAlias#weight}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias#weight SfnAlias#weight}
     */
     readonly weight: number;
 }
@@ -84,15 +84,15 @@ export declare class SfnAliasRoutingConfigurationList extends cdktf.ComplexList 
 }
 export interface SfnAliasTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias#create SfnAlias#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias#create SfnAlias#create}
     */
     readonly create?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias#delete SfnAlias#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias#delete SfnAlias#delete}
     */
     readonly delete?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias#update SfnAlias#update}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias#update SfnAlias#update}
     */
     readonly update?: string;
 }
@@ -125,7 +125,7 @@ export declare class SfnAliasTimeoutsOutputReference extends cdktf.ComplexObject
     get updateInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias aws_sfn_alias}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias aws_sfn_alias}
 */
 export declare class SfnAlias extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_sfn_alias";
@@ -133,12 +133,12 @@ export declare class SfnAlias extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a SfnAlias resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the SfnAlias to import
-    * @param importFromId The id of the existing SfnAlias that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing SfnAlias that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the SfnAlias to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/sfn_alias aws_sfn_alias} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/sfn_alias aws_sfn_alias} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

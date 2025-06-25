@@ -6,13 +6,13 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsSsoadminApplicationConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application#application_arn DataAwsSsoadminApplication#application_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application#application_arn DataAwsSsoadminApplication#application_arn}
     */
     readonly applicationArn: string;
     /**
     * portal_options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application#portal_options DataAwsSsoadminApplication#portal_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application#portal_options DataAwsSsoadminApplication#portal_options}
     */
     readonly portalOptions?: DataAwsSsoadminApplicationPortalOptions[] | cdktf.IResolvable;
 }
@@ -55,7 +55,7 @@ export interface DataAwsSsoadminApplicationPortalOptions {
     /**
     * sign_in_options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application#sign_in_options DataAwsSsoadminApplication#sign_in_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application#sign_in_options DataAwsSsoadminApplication#sign_in_options}
     */
     readonly signInOptions?: DataAwsSsoadminApplicationPortalOptionsSignInOptions[] | cdktf.IResolvable;
 }
@@ -97,7 +97,7 @@ export declare class DataAwsSsoadminApplicationPortalOptionsList extends cdktf.C
     get(index: number): DataAwsSsoadminApplicationPortalOptionsOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application aws_ssoadmin_application}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application aws_ssoadmin_application}
 */
 export declare class DataAwsSsoadminApplication extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ssoadmin_application";
@@ -105,12 +105,12 @@ export declare class DataAwsSsoadminApplication extends cdktf.TerraformDataSourc
     * Generates CDKTF code for importing a DataAwsSsoadminApplication resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsSsoadminApplication to import
-    * @param importFromId The id of the existing DataAwsSsoadminApplication that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsSsoadminApplication that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsSsoadminApplication to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application aws_ssoadmin_application} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application aws_ssoadmin_application} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

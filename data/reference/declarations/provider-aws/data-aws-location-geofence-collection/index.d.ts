@@ -6,29 +6,29 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsLocationGeofenceCollectionConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/location_geofence_collection#collection_name DataAwsLocationGeofenceCollection#collection_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/location_geofence_collection#collection_name DataAwsLocationGeofenceCollection#collection_name}
     */
     readonly collectionName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/location_geofence_collection#id DataAwsLocationGeofenceCollection#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/location_geofence_collection#id DataAwsLocationGeofenceCollection#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/location_geofence_collection#kms_key_id DataAwsLocationGeofenceCollection#kms_key_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/location_geofence_collection#kms_key_id DataAwsLocationGeofenceCollection#kms_key_id}
     */
     readonly kmsKeyId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/location_geofence_collection#tags DataAwsLocationGeofenceCollection#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/location_geofence_collection#tags DataAwsLocationGeofenceCollection#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/location_geofence_collection aws_location_geofence_collection}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/location_geofence_collection aws_location_geofence_collection}
 */
 export declare class DataAwsLocationGeofenceCollection extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_location_geofence_collection";
@@ -36,12 +36,12 @@ export declare class DataAwsLocationGeofenceCollection extends cdktf.TerraformDa
     * Generates CDKTF code for importing a DataAwsLocationGeofenceCollection resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsLocationGeofenceCollection to import
-    * @param importFromId The id of the existing DataAwsLocationGeofenceCollection that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/location_geofence_collection#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsLocationGeofenceCollection that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/location_geofence_collection#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsLocationGeofenceCollection to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/location_geofence_collection aws_location_geofence_collection} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/location_geofence_collection aws_location_geofence_collection} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

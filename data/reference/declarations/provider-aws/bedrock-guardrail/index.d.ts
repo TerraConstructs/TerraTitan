@@ -6,27 +6,27 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface BedrockGuardrailConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#blocked_input_messaging BedrockGuardrail#blocked_input_messaging}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#blocked_input_messaging BedrockGuardrail#blocked_input_messaging}
     */
     readonly blockedInputMessaging: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#blocked_outputs_messaging BedrockGuardrail#blocked_outputs_messaging}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#blocked_outputs_messaging BedrockGuardrail#blocked_outputs_messaging}
     */
     readonly blockedOutputsMessaging: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#description BedrockGuardrail#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#description BedrockGuardrail#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#kms_key_arn BedrockGuardrail#kms_key_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#kms_key_arn BedrockGuardrail#kms_key_arn}
     */
     readonly kmsKeyArn?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#name BedrockGuardrail#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#name BedrockGuardrail#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#tags BedrockGuardrail#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#tags BedrockGuardrail#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -34,51 +34,51 @@ export interface BedrockGuardrailConfig extends cdktf.TerraformMetaArguments {
     /**
     * content_policy_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#content_policy_config BedrockGuardrail#content_policy_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#content_policy_config BedrockGuardrail#content_policy_config}
     */
     readonly contentPolicyConfig?: BedrockGuardrailContentPolicyConfig[] | cdktf.IResolvable;
     /**
     * contextual_grounding_policy_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#contextual_grounding_policy_config BedrockGuardrail#contextual_grounding_policy_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#contextual_grounding_policy_config BedrockGuardrail#contextual_grounding_policy_config}
     */
     readonly contextualGroundingPolicyConfig?: BedrockGuardrailContextualGroundingPolicyConfig[] | cdktf.IResolvable;
     /**
     * sensitive_information_policy_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#sensitive_information_policy_config BedrockGuardrail#sensitive_information_policy_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#sensitive_information_policy_config BedrockGuardrail#sensitive_information_policy_config}
     */
     readonly sensitiveInformationPolicyConfig?: BedrockGuardrailSensitiveInformationPolicyConfig[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#timeouts BedrockGuardrail#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#timeouts BedrockGuardrail#timeouts}
     */
     readonly timeouts?: BedrockGuardrailTimeouts;
     /**
     * topic_policy_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#topic_policy_config BedrockGuardrail#topic_policy_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#topic_policy_config BedrockGuardrail#topic_policy_config}
     */
     readonly topicPolicyConfig?: BedrockGuardrailTopicPolicyConfig[] | cdktf.IResolvable;
     /**
     * word_policy_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#word_policy_config BedrockGuardrail#word_policy_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#word_policy_config BedrockGuardrail#word_policy_config}
     */
     readonly wordPolicyConfig?: BedrockGuardrailWordPolicyConfig[] | cdktf.IResolvable;
 }
 export interface BedrockGuardrailContentPolicyConfigFiltersConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#input_strength BedrockGuardrail#input_strength}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#input_strength BedrockGuardrail#input_strength}
     */
     readonly inputStrength: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#output_strength BedrockGuardrail#output_strength}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#output_strength BedrockGuardrail#output_strength}
     */
     readonly outputStrength: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#type BedrockGuardrail#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#type BedrockGuardrail#type}
     */
     readonly type: string;
 }
@@ -129,7 +129,7 @@ export interface BedrockGuardrailContentPolicyConfig {
     /**
     * filters_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#filters_config BedrockGuardrail#filters_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#filters_config BedrockGuardrail#filters_config}
     */
     readonly filtersConfig?: BedrockGuardrailContentPolicyConfigFiltersConfig[] | cdktf.IResolvable;
 }
@@ -171,11 +171,11 @@ export declare class BedrockGuardrailContentPolicyConfigList extends cdktf.Compl
 }
 export interface BedrockGuardrailContextualGroundingPolicyConfigFiltersConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#threshold BedrockGuardrail#threshold}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#threshold BedrockGuardrail#threshold}
     */
     readonly threshold: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#type BedrockGuardrail#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#type BedrockGuardrail#type}
     */
     readonly type: string;
 }
@@ -222,7 +222,7 @@ export interface BedrockGuardrailContextualGroundingPolicyConfig {
     /**
     * filters_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#filters_config BedrockGuardrail#filters_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#filters_config BedrockGuardrail#filters_config}
     */
     readonly filtersConfig?: BedrockGuardrailContextualGroundingPolicyConfigFiltersConfig[] | cdktf.IResolvable;
 }
@@ -264,11 +264,11 @@ export declare class BedrockGuardrailContextualGroundingPolicyConfigList extends
 }
 export interface BedrockGuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#action BedrockGuardrail#action}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#action BedrockGuardrail#action}
     */
     readonly action: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#type BedrockGuardrail#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#type BedrockGuardrail#type}
     */
     readonly type: string;
 }
@@ -313,19 +313,19 @@ export declare class BedrockGuardrailSensitiveInformationPolicyConfigPiiEntities
 }
 export interface BedrockGuardrailSensitiveInformationPolicyConfigRegexesConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#action BedrockGuardrail#action}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#action BedrockGuardrail#action}
     */
     readonly action: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#description BedrockGuardrail#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#description BedrockGuardrail#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#name BedrockGuardrail#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#name BedrockGuardrail#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#pattern BedrockGuardrail#pattern}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#pattern BedrockGuardrail#pattern}
     */
     readonly pattern: string;
 }
@@ -381,13 +381,13 @@ export interface BedrockGuardrailSensitiveInformationPolicyConfig {
     /**
     * pii_entities_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#pii_entities_config BedrockGuardrail#pii_entities_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#pii_entities_config BedrockGuardrail#pii_entities_config}
     */
     readonly piiEntitiesConfig?: BedrockGuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig[] | cdktf.IResolvable;
     /**
     * regexes_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#regexes_config BedrockGuardrail#regexes_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#regexes_config BedrockGuardrail#regexes_config}
     */
     readonly regexesConfig?: BedrockGuardrailSensitiveInformationPolicyConfigRegexesConfig[] | cdktf.IResolvable;
 }
@@ -436,19 +436,19 @@ export interface BedrockGuardrailTimeouts {
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#create BedrockGuardrail#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#create BedrockGuardrail#create}
     */
     readonly create?: string;
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#delete BedrockGuardrail#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#delete BedrockGuardrail#delete}
     */
     readonly delete?: string;
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#update BedrockGuardrail#update}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#update BedrockGuardrail#update}
     */
     readonly update?: string;
 }
@@ -482,19 +482,19 @@ export declare class BedrockGuardrailTimeoutsOutputReference extends cdktf.Compl
 }
 export interface BedrockGuardrailTopicPolicyConfigTopicsConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#definition BedrockGuardrail#definition}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#definition BedrockGuardrail#definition}
     */
     readonly definition: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#examples BedrockGuardrail#examples}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#examples BedrockGuardrail#examples}
     */
     readonly examples?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#name BedrockGuardrail#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#name BedrockGuardrail#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#type BedrockGuardrail#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#type BedrockGuardrail#type}
     */
     readonly type: string;
 }
@@ -550,7 +550,7 @@ export interface BedrockGuardrailTopicPolicyConfig {
     /**
     * topics_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#topics_config BedrockGuardrail#topics_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#topics_config BedrockGuardrail#topics_config}
     */
     readonly topicsConfig?: BedrockGuardrailTopicPolicyConfigTopicsConfig[] | cdktf.IResolvable;
 }
@@ -592,7 +592,7 @@ export declare class BedrockGuardrailTopicPolicyConfigList extends cdktf.Complex
 }
 export interface BedrockGuardrailWordPolicyConfigManagedWordListsConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#type BedrockGuardrail#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#type BedrockGuardrail#type}
     */
     readonly type: string;
 }
@@ -633,7 +633,7 @@ export declare class BedrockGuardrailWordPolicyConfigManagedWordListsConfigList 
 }
 export interface BedrockGuardrailWordPolicyConfigWordsConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#text BedrockGuardrail#text}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#text BedrockGuardrail#text}
     */
     readonly text: string;
 }
@@ -676,13 +676,13 @@ export interface BedrockGuardrailWordPolicyConfig {
     /**
     * managed_word_lists_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#managed_word_lists_config BedrockGuardrail#managed_word_lists_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#managed_word_lists_config BedrockGuardrail#managed_word_lists_config}
     */
     readonly managedWordListsConfig?: BedrockGuardrailWordPolicyConfigManagedWordListsConfig[] | cdktf.IResolvable;
     /**
     * words_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#words_config BedrockGuardrail#words_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#words_config BedrockGuardrail#words_config}
     */
     readonly wordsConfig?: BedrockGuardrailWordPolicyConfigWordsConfig[] | cdktf.IResolvable;
 }
@@ -728,7 +728,7 @@ export declare class BedrockGuardrailWordPolicyConfigList extends cdktf.ComplexL
     get(index: number): BedrockGuardrailWordPolicyConfigOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail aws_bedrock_guardrail}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail aws_bedrock_guardrail}
 */
 export declare class BedrockGuardrail extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_bedrock_guardrail";
@@ -736,12 +736,12 @@ export declare class BedrockGuardrail extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a BedrockGuardrail resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the BedrockGuardrail to import
-    * @param importFromId The id of the existing BedrockGuardrail that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing BedrockGuardrail that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the BedrockGuardrail to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/bedrock_guardrail aws_bedrock_guardrail} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/bedrock_guardrail aws_bedrock_guardrail} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

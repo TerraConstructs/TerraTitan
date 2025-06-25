@@ -6,50 +6,50 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsCeTagsConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#id DataAwsCeTags#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#id DataAwsCeTags#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#search_string DataAwsCeTags#search_string}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#search_string DataAwsCeTags#search_string}
     */
     readonly searchString?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#tag_key DataAwsCeTags#tag_key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#tag_key DataAwsCeTags#tag_key}
     */
     readonly tagKey?: string;
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#filter DataAwsCeTags#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#filter DataAwsCeTags#filter}
     */
     readonly filter?: DataAwsCeTagsFilter;
     /**
     * sort_by block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#sort_by DataAwsCeTags#sort_by}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#sort_by DataAwsCeTags#sort_by}
     */
     readonly sortBy?: DataAwsCeTagsSortBy[] | cdktf.IResolvable;
     /**
     * time_period block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#time_period DataAwsCeTags#time_period}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#time_period DataAwsCeTags#time_period}
     */
     readonly timePeriod: DataAwsCeTagsTimePeriod;
 }
 export interface DataAwsCeTagsFilterAndCostCategory {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
     */
     readonly matchOptions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
     */
     readonly values?: string[];
 }
@@ -82,15 +82,15 @@ export declare class DataAwsCeTagsFilterAndCostCategoryOutputReference extends c
 }
 export interface DataAwsCeTagsFilterAndDimension {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
     */
     readonly matchOptions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
     */
     readonly values?: string[];
 }
@@ -123,15 +123,15 @@ export declare class DataAwsCeTagsFilterAndDimensionOutputReference extends cdkt
 }
 export interface DataAwsCeTagsFilterAndTags {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
     */
     readonly matchOptions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
     */
     readonly values?: string[];
 }
@@ -166,19 +166,19 @@ export interface DataAwsCeTagsFilterAnd {
     /**
     * cost_category block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#cost_category DataAwsCeTags#cost_category}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#cost_category DataAwsCeTags#cost_category}
     */
     readonly costCategory?: DataAwsCeTagsFilterAndCostCategory;
     /**
     * dimension block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#dimension DataAwsCeTags#dimension}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#dimension DataAwsCeTags#dimension}
     */
     readonly dimension?: DataAwsCeTagsFilterAndDimension;
     /**
     * tags block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#tags DataAwsCeTags#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#tags DataAwsCeTags#tags}
     */
     readonly tags?: DataAwsCeTagsFilterAndTags;
 }
@@ -230,15 +230,15 @@ export declare class DataAwsCeTagsFilterAndList extends cdktf.ComplexList {
 }
 export interface DataAwsCeTagsFilterCostCategory {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
     */
     readonly matchOptions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
     */
     readonly values?: string[];
 }
@@ -271,15 +271,15 @@ export declare class DataAwsCeTagsFilterCostCategoryOutputReference extends cdkt
 }
 export interface DataAwsCeTagsFilterDimension {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
     */
     readonly matchOptions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
     */
     readonly values?: string[];
 }
@@ -312,15 +312,15 @@ export declare class DataAwsCeTagsFilterDimensionOutputReference extends cdktf.C
 }
 export interface DataAwsCeTagsFilterNotCostCategory {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
     */
     readonly matchOptions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
     */
     readonly values?: string[];
 }
@@ -353,15 +353,15 @@ export declare class DataAwsCeTagsFilterNotCostCategoryOutputReference extends c
 }
 export interface DataAwsCeTagsFilterNotDimension {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
     */
     readonly matchOptions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
     */
     readonly values?: string[];
 }
@@ -394,15 +394,15 @@ export declare class DataAwsCeTagsFilterNotDimensionOutputReference extends cdkt
 }
 export interface DataAwsCeTagsFilterNotTags {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
     */
     readonly matchOptions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
     */
     readonly values?: string[];
 }
@@ -437,19 +437,19 @@ export interface DataAwsCeTagsFilterNot {
     /**
     * cost_category block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#cost_category DataAwsCeTags#cost_category}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#cost_category DataAwsCeTags#cost_category}
     */
     readonly costCategory?: DataAwsCeTagsFilterNotCostCategory;
     /**
     * dimension block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#dimension DataAwsCeTags#dimension}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#dimension DataAwsCeTags#dimension}
     */
     readonly dimension?: DataAwsCeTagsFilterNotDimension;
     /**
     * tags block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#tags DataAwsCeTags#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#tags DataAwsCeTags#tags}
     */
     readonly tags?: DataAwsCeTagsFilterNotTags;
 }
@@ -482,15 +482,15 @@ export declare class DataAwsCeTagsFilterNotOutputReference extends cdktf.Complex
 }
 export interface DataAwsCeTagsFilterOrCostCategory {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
     */
     readonly matchOptions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
     */
     readonly values?: string[];
 }
@@ -523,15 +523,15 @@ export declare class DataAwsCeTagsFilterOrCostCategoryOutputReference extends cd
 }
 export interface DataAwsCeTagsFilterOrDimension {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
     */
     readonly matchOptions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
     */
     readonly values?: string[];
 }
@@ -564,15 +564,15 @@ export declare class DataAwsCeTagsFilterOrDimensionOutputReference extends cdktf
 }
 export interface DataAwsCeTagsFilterOrTags {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
     */
     readonly matchOptions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
     */
     readonly values?: string[];
 }
@@ -607,19 +607,19 @@ export interface DataAwsCeTagsFilterOr {
     /**
     * cost_category block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#cost_category DataAwsCeTags#cost_category}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#cost_category DataAwsCeTags#cost_category}
     */
     readonly costCategory?: DataAwsCeTagsFilterOrCostCategory;
     /**
     * dimension block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#dimension DataAwsCeTags#dimension}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#dimension DataAwsCeTags#dimension}
     */
     readonly dimension?: DataAwsCeTagsFilterOrDimension;
     /**
     * tags block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#tags DataAwsCeTags#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#tags DataAwsCeTags#tags}
     */
     readonly tags?: DataAwsCeTagsFilterOrTags;
 }
@@ -671,15 +671,15 @@ export declare class DataAwsCeTagsFilterOrList extends cdktf.ComplexList {
 }
 export interface DataAwsCeTagsFilterTags {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#match_options DataAwsCeTags#match_options}
     */
     readonly matchOptions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#values DataAwsCeTags#values}
     */
     readonly values?: string[];
 }
@@ -714,37 +714,37 @@ export interface DataAwsCeTagsFilter {
     /**
     * and block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#and DataAwsCeTags#and}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#and DataAwsCeTags#and}
     */
     readonly and?: DataAwsCeTagsFilterAnd[] | cdktf.IResolvable;
     /**
     * cost_category block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#cost_category DataAwsCeTags#cost_category}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#cost_category DataAwsCeTags#cost_category}
     */
     readonly costCategory?: DataAwsCeTagsFilterCostCategory;
     /**
     * dimension block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#dimension DataAwsCeTags#dimension}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#dimension DataAwsCeTags#dimension}
     */
     readonly dimension?: DataAwsCeTagsFilterDimension;
     /**
     * not block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#not DataAwsCeTags#not}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#not DataAwsCeTags#not}
     */
     readonly not?: DataAwsCeTagsFilterNot;
     /**
     * or block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#or DataAwsCeTags#or}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#or DataAwsCeTags#or}
     */
     readonly or?: DataAwsCeTagsFilterOr[] | cdktf.IResolvable;
     /**
     * tags block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#tags DataAwsCeTags#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#tags DataAwsCeTags#tags}
     */
     readonly tags?: DataAwsCeTagsFilterTags;
 }
@@ -792,11 +792,11 @@ export declare class DataAwsCeTagsFilterOutputReference extends cdktf.ComplexObj
 }
 export interface DataAwsCeTagsSortBy {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#key DataAwsCeTags#key}
     */
     readonly key?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#sort_order DataAwsCeTags#sort_order}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#sort_order DataAwsCeTags#sort_order}
     */
     readonly sortOrder?: string;
 }
@@ -843,11 +843,11 @@ export declare class DataAwsCeTagsSortByList extends cdktf.ComplexList {
 }
 export interface DataAwsCeTagsTimePeriod {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#end DataAwsCeTags#end}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#end DataAwsCeTags#end}
     */
     readonly end: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#start DataAwsCeTags#start}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#start DataAwsCeTags#start}
     */
     readonly start: string;
 }
@@ -872,7 +872,7 @@ export declare class DataAwsCeTagsTimePeriodOutputReference extends cdktf.Comple
     get startInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags aws_ce_tags}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags aws_ce_tags}
 */
 export declare class DataAwsCeTags extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ce_tags";
@@ -880,12 +880,12 @@ export declare class DataAwsCeTags extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsCeTags resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsCeTags to import
-    * @param importFromId The id of the existing DataAwsCeTags that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsCeTags that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsCeTags to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ce_tags aws_ce_tags} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ce_tags aws_ce_tags} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

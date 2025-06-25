@@ -6,24 +6,24 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsImagebuilderInfrastructureConfigurationConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/imagebuilder_infrastructure_configuration#arn DataAwsImagebuilderInfrastructureConfiguration#arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/imagebuilder_infrastructure_configuration#arn DataAwsImagebuilderInfrastructureConfiguration#arn}
     */
     readonly arn: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/imagebuilder_infrastructure_configuration#id DataAwsImagebuilderInfrastructureConfiguration#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/imagebuilder_infrastructure_configuration#id DataAwsImagebuilderInfrastructureConfiguration#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/imagebuilder_infrastructure_configuration#resource_tags DataAwsImagebuilderInfrastructureConfiguration#resource_tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/imagebuilder_infrastructure_configuration#resource_tags DataAwsImagebuilderInfrastructureConfiguration#resource_tags}
     */
     readonly resourceTags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/imagebuilder_infrastructure_configuration#tags DataAwsImagebuilderInfrastructureConfiguration#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/imagebuilder_infrastructure_configuration#tags DataAwsImagebuilderInfrastructureConfiguration#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -128,8 +128,43 @@ export declare class DataAwsImagebuilderInfrastructureConfigurationLoggingList e
     */
     get(index: number): DataAwsImagebuilderInfrastructureConfigurationLoggingOutputReference;
 }
+export interface DataAwsImagebuilderInfrastructureConfigurationPlacement {
+}
+export declare function dataAwsImagebuilderInfrastructureConfigurationPlacementToTerraform(struct?: DataAwsImagebuilderInfrastructureConfigurationPlacement): any;
+export declare function dataAwsImagebuilderInfrastructureConfigurationPlacementToHclTerraform(struct?: DataAwsImagebuilderInfrastructureConfigurationPlacement): any;
+export declare class DataAwsImagebuilderInfrastructureConfigurationPlacementOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param complexObjectIndex the index of this item in the list
+    * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean);
+    get internalValue(): DataAwsImagebuilderInfrastructureConfigurationPlacement | undefined;
+    set internalValue(value: DataAwsImagebuilderInfrastructureConfigurationPlacement | undefined);
+    get availabilityZone(): string;
+    get hostId(): string;
+    get hostResourceGroupArn(): string;
+    get tenancy(): string;
+}
+export declare class DataAwsImagebuilderInfrastructureConfigurationPlacementList extends cdktf.ComplexList {
+    protected terraformResource: cdktf.IInterpolatingParent;
+    protected terraformAttribute: string;
+    protected wrapsSet: boolean;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, wrapsSet: boolean);
+    /**
+    * @param index the index of the item to return
+    */
+    get(index: number): DataAwsImagebuilderInfrastructureConfigurationPlacementOutputReference;
+}
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/imagebuilder_infrastructure_configuration aws_imagebuilder_infrastructure_configuration}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/imagebuilder_infrastructure_configuration aws_imagebuilder_infrastructure_configuration}
 */
 export declare class DataAwsImagebuilderInfrastructureConfiguration extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_imagebuilder_infrastructure_configuration";
@@ -137,12 +172,12 @@ export declare class DataAwsImagebuilderInfrastructureConfiguration extends cdkt
     * Generates CDKTF code for importing a DataAwsImagebuilderInfrastructureConfiguration resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsImagebuilderInfrastructureConfiguration to import
-    * @param importFromId The id of the existing DataAwsImagebuilderInfrastructureConfiguration that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/imagebuilder_infrastructure_configuration#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsImagebuilderInfrastructureConfiguration that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/imagebuilder_infrastructure_configuration#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsImagebuilderInfrastructureConfiguration to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/imagebuilder_infrastructure_configuration aws_imagebuilder_infrastructure_configuration} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/imagebuilder_infrastructure_configuration aws_imagebuilder_infrastructure_configuration} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
@@ -169,6 +204,8 @@ export declare class DataAwsImagebuilderInfrastructureConfiguration extends cdkt
     private _logging;
     get logging(): DataAwsImagebuilderInfrastructureConfigurationLoggingList;
     get name(): string;
+    private _placement;
+    get placement(): DataAwsImagebuilderInfrastructureConfigurationPlacementList;
     private _resourceTags?;
     get resourceTags(): {
         [key: string]: string;

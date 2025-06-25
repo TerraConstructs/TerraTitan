@@ -6,13 +6,13 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsSsoadminApplicationAssignmentsConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application_assignments#application_arn DataAwsSsoadminApplicationAssignments#application_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application_assignments#application_arn DataAwsSsoadminApplicationAssignments#application_arn}
     */
     readonly applicationArn: string;
     /**
     * application_assignments block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application_assignments#application_assignments DataAwsSsoadminApplicationAssignments#application_assignments}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application_assignments#application_assignments DataAwsSsoadminApplicationAssignments#application_assignments}
     */
     readonly applicationAssignments?: DataAwsSsoadminApplicationAssignmentsApplicationAssignments[] | cdktf.IResolvable;
 }
@@ -53,7 +53,7 @@ export declare class DataAwsSsoadminApplicationAssignmentsApplicationAssignments
     get(index: number): DataAwsSsoadminApplicationAssignmentsApplicationAssignmentsOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application_assignments aws_ssoadmin_application_assignments}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application_assignments aws_ssoadmin_application_assignments}
 */
 export declare class DataAwsSsoadminApplicationAssignments extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ssoadmin_application_assignments";
@@ -61,12 +61,12 @@ export declare class DataAwsSsoadminApplicationAssignments extends cdktf.Terrafo
     * Generates CDKTF code for importing a DataAwsSsoadminApplicationAssignments resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsSsoadminApplicationAssignments to import
-    * @param importFromId The id of the existing DataAwsSsoadminApplicationAssignments that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application_assignments#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsSsoadminApplicationAssignments that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application_assignments#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsSsoadminApplicationAssignments to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application_assignments aws_ssoadmin_application_assignments} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application_assignments aws_ssoadmin_application_assignments} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

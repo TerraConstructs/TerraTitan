@@ -6,7 +6,7 @@ import * as cdktf from 'cdktf';
 import { Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupMessage, Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupMessageList, Lexv2ModelsIntentInitialResponseSettingCodeHook, Lexv2ModelsIntentInitialResponseSettingCodeHookList, Lexv2ModelsIntentInitialResponseSettingConditional, Lexv2ModelsIntentInitialResponseSettingConditionalList } from './structs3200';
 export interface Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayload {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#value Lexv2ModelsIntent#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#value Lexv2ModelsIntent#value}
     */
     readonly value: string;
 }
@@ -47,11 +47,11 @@ export declare class Lexv2ModelsIntentInitialResponseSettingInitialResponseMessa
 }
 export interface Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardButton {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#text Lexv2ModelsIntent#text}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#text Lexv2ModelsIntent#text}
     */
     readonly text: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#value Lexv2ModelsIntent#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#value Lexv2ModelsIntent#value}
     */
     readonly value: string;
 }
@@ -96,21 +96,21 @@ export declare class Lexv2ModelsIntentInitialResponseSettingInitialResponseMessa
 }
 export interface Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCard {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#image_url Lexv2ModelsIntent#image_url}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#image_url Lexv2ModelsIntent#image_url}
     */
     readonly imageUrl?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#subtitle Lexv2ModelsIntent#subtitle}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#subtitle Lexv2ModelsIntent#subtitle}
     */
     readonly subtitle?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#title Lexv2ModelsIntent#title}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#title Lexv2ModelsIntent#title}
     */
     readonly title: string;
     /**
     * button block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#button Lexv2ModelsIntent#button}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#button Lexv2ModelsIntent#button}
     */
     readonly button?: Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardButton[] | cdktf.IResolvable;
 }
@@ -166,7 +166,7 @@ export declare class Lexv2ModelsIntentInitialResponseSettingInitialResponseMessa
 }
 export interface Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessage {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#value Lexv2ModelsIntent#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#value Lexv2ModelsIntent#value}
     */
     readonly value: string;
 }
@@ -207,7 +207,7 @@ export declare class Lexv2ModelsIntentInitialResponseSettingInitialResponseMessa
 }
 export interface Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessage {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#value Lexv2ModelsIntent#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#value Lexv2ModelsIntent#value}
     */
     readonly value: string;
 }
@@ -250,25 +250,25 @@ export interface Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGr
     /**
     * custom_payload block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#custom_payload Lexv2ModelsIntent#custom_payload}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#custom_payload Lexv2ModelsIntent#custom_payload}
     */
     readonly customPayload?: Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayload[] | cdktf.IResolvable;
     /**
     * image_response_card block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#image_response_card Lexv2ModelsIntent#image_response_card}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#image_response_card Lexv2ModelsIntent#image_response_card}
     */
     readonly imageResponseCard?: Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCard[] | cdktf.IResolvable;
     /**
     * plain_text_message block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#plain_text_message Lexv2ModelsIntent#plain_text_message}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#plain_text_message Lexv2ModelsIntent#plain_text_message}
     */
     readonly plainTextMessage?: Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessage[] | cdktf.IResolvable;
     /**
     * ssml_message block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#ssml_message Lexv2ModelsIntent#ssml_message}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#ssml_message Lexv2ModelsIntent#ssml_message}
     */
     readonly ssmlMessage?: Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessage[] | cdktf.IResolvable;
 }
@@ -327,13 +327,13 @@ export interface Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGr
     /**
     * message block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#message Lexv2ModelsIntent#message}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#message Lexv2ModelsIntent#message}
     */
     readonly message?: Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupMessage[] | cdktf.IResolvable;
     /**
     * variation block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#variation Lexv2ModelsIntent#variation}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#variation Lexv2ModelsIntent#variation}
     */
     readonly variation?: Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroupVariation[] | cdktf.IResolvable;
 }
@@ -380,13 +380,13 @@ export declare class Lexv2ModelsIntentInitialResponseSettingInitialResponseMessa
 }
 export interface Lexv2ModelsIntentInitialResponseSettingInitialResponse {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#allow_interrupt Lexv2ModelsIntent#allow_interrupt}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#allow_interrupt Lexv2ModelsIntent#allow_interrupt}
     */
     readonly allowInterrupt?: boolean | cdktf.IResolvable;
     /**
     * message_group block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#message_group Lexv2ModelsIntent#message_group}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#message_group Lexv2ModelsIntent#message_group}
     */
     readonly messageGroup?: Lexv2ModelsIntentInitialResponseSettingInitialResponseMessageGroup[] | cdktf.IResolvable;
 }
@@ -433,15 +433,15 @@ export declare class Lexv2ModelsIntentInitialResponseSettingInitialResponseList 
 }
 export interface Lexv2ModelsIntentInitialResponseSettingNextStepDialogAction {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#slot_to_elicit Lexv2ModelsIntent#slot_to_elicit}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#slot_to_elicit Lexv2ModelsIntent#slot_to_elicit}
     */
     readonly slotToElicit?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#suppress_next_message Lexv2ModelsIntent#suppress_next_message}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#suppress_next_message Lexv2ModelsIntent#suppress_next_message}
     */
     readonly suppressNextMessage?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#type Lexv2ModelsIntent#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#type Lexv2ModelsIntent#type}
     */
     readonly type: string;
 }
@@ -492,7 +492,7 @@ export declare class Lexv2ModelsIntentInitialResponseSettingNextStepDialogAction
 }
 export interface Lexv2ModelsIntentInitialResponseSettingNextStepIntentSlotValue {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#interpreted_value Lexv2ModelsIntent#interpreted_value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#interpreted_value Lexv2ModelsIntent#interpreted_value}
     */
     readonly interpretedValue?: string;
 }
@@ -534,17 +534,17 @@ export declare class Lexv2ModelsIntentInitialResponseSettingNextStepIntentSlotVa
 }
 export interface Lexv2ModelsIntentInitialResponseSettingNextStepIntentSlot {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#map_block_key Lexv2ModelsIntent#map_block_key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#map_block_key Lexv2ModelsIntent#map_block_key}
     */
     readonly mapBlockKey: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#shape Lexv2ModelsIntent#shape}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#shape Lexv2ModelsIntent#shape}
     */
     readonly shape?: string;
     /**
     * value block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#value Lexv2ModelsIntent#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#value Lexv2ModelsIntent#value}
     */
     readonly value?: Lexv2ModelsIntentInitialResponseSettingNextStepIntentSlotValue[] | cdktf.IResolvable;
 }
@@ -595,13 +595,13 @@ export declare class Lexv2ModelsIntentInitialResponseSettingNextStepIntentSlotLi
 }
 export interface Lexv2ModelsIntentInitialResponseSettingNextStepIntent {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#name Lexv2ModelsIntent#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#name Lexv2ModelsIntent#name}
     */
     readonly name?: string;
     /**
     * slot block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#slot Lexv2ModelsIntent#slot}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#slot Lexv2ModelsIntent#slot}
     */
     readonly slot?: Lexv2ModelsIntentInitialResponseSettingNextStepIntentSlot[] | cdktf.IResolvable;
 }
@@ -648,7 +648,7 @@ export declare class Lexv2ModelsIntentInitialResponseSettingNextStepIntentList e
 }
 export interface Lexv2ModelsIntentInitialResponseSettingNextStep {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#session_attributes Lexv2ModelsIntent#session_attributes}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#session_attributes Lexv2ModelsIntent#session_attributes}
     */
     readonly sessionAttributes?: {
         [key: string]: string;
@@ -656,13 +656,13 @@ export interface Lexv2ModelsIntentInitialResponseSettingNextStep {
     /**
     * dialog_action block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#dialog_action Lexv2ModelsIntent#dialog_action}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#dialog_action Lexv2ModelsIntent#dialog_action}
     */
     readonly dialogAction?: Lexv2ModelsIntentInitialResponseSettingNextStepDialogAction[] | cdktf.IResolvable;
     /**
     * intent block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#intent Lexv2ModelsIntent#intent}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#intent Lexv2ModelsIntent#intent}
     */
     readonly intent?: Lexv2ModelsIntentInitialResponseSettingNextStepIntent[] | cdktf.IResolvable;
 }
@@ -722,25 +722,25 @@ export interface Lexv2ModelsIntentInitialResponseSetting {
     /**
     * code_hook block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#code_hook Lexv2ModelsIntent#code_hook}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#code_hook Lexv2ModelsIntent#code_hook}
     */
     readonly codeHook?: Lexv2ModelsIntentInitialResponseSettingCodeHook[] | cdktf.IResolvable;
     /**
     * conditional block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#conditional Lexv2ModelsIntent#conditional}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#conditional Lexv2ModelsIntent#conditional}
     */
     readonly conditional?: Lexv2ModelsIntentInitialResponseSettingConditional[] | cdktf.IResolvable;
     /**
     * initial_response block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#initial_response Lexv2ModelsIntent#initial_response}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#initial_response Lexv2ModelsIntent#initial_response}
     */
     readonly initialResponse?: Lexv2ModelsIntentInitialResponseSettingInitialResponse[] | cdktf.IResolvable;
     /**
     * next_step block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#next_step Lexv2ModelsIntent#next_step}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#next_step Lexv2ModelsIntent#next_step}
     */
     readonly nextStep?: Lexv2ModelsIntentInitialResponseSettingNextStep[] | cdktf.IResolvable;
 }
@@ -797,7 +797,7 @@ export declare class Lexv2ModelsIntentInitialResponseSettingList extends cdktf.C
 }
 export interface Lexv2ModelsIntentInputContext {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#name Lexv2ModelsIntent#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#name Lexv2ModelsIntent#name}
     */
     readonly name: string;
 }
@@ -838,15 +838,15 @@ export declare class Lexv2ModelsIntentInputContextList extends cdktf.ComplexList
 }
 export interface Lexv2ModelsIntentKendraConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#kendra_index Lexv2ModelsIntent#kendra_index}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#kendra_index Lexv2ModelsIntent#kendra_index}
     */
     readonly kendraIndex: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#query_filter_string Lexv2ModelsIntent#query_filter_string}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#query_filter_string Lexv2ModelsIntent#query_filter_string}
     */
     readonly queryFilterString?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#query_filter_string_enabled Lexv2ModelsIntent#query_filter_string_enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#query_filter_string_enabled Lexv2ModelsIntent#query_filter_string_enabled}
     */
     readonly queryFilterStringEnabled?: boolean | cdktf.IResolvable;
 }
@@ -897,15 +897,15 @@ export declare class Lexv2ModelsIntentKendraConfigurationList extends cdktf.Comp
 }
 export interface Lexv2ModelsIntentOutputContext {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#name Lexv2ModelsIntent#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#name Lexv2ModelsIntent#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#time_to_live_in_seconds Lexv2ModelsIntent#time_to_live_in_seconds}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#time_to_live_in_seconds Lexv2ModelsIntent#time_to_live_in_seconds}
     */
     readonly timeToLiveInSeconds: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#turns_to_live Lexv2ModelsIntent#turns_to_live}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#turns_to_live Lexv2ModelsIntent#turns_to_live}
     */
     readonly turnsToLive: number;
 }
@@ -954,7 +954,7 @@ export declare class Lexv2ModelsIntentOutputContextList extends cdktf.ComplexLis
 }
 export interface Lexv2ModelsIntentSampleUtterance {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#utterance Lexv2ModelsIntent#utterance}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#utterance Lexv2ModelsIntent#utterance}
     */
     readonly utterance: string;
 }
@@ -995,11 +995,11 @@ export declare class Lexv2ModelsIntentSampleUtteranceList extends cdktf.ComplexL
 }
 export interface Lexv2ModelsIntentSlotPriority {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#priority Lexv2ModelsIntent#priority}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#priority Lexv2ModelsIntent#priority}
     */
     readonly priority: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#slot_id Lexv2ModelsIntent#slot_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#slot_id Lexv2ModelsIntent#slot_id}
     */
     readonly slotId: string;
 }
@@ -1046,19 +1046,19 @@ export interface Lexv2ModelsIntentTimeouts {
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#create Lexv2ModelsIntent#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#create Lexv2ModelsIntent#create}
     */
     readonly create?: string;
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#delete Lexv2ModelsIntent#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#delete Lexv2ModelsIntent#delete}
     */
     readonly delete?: string;
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_intent#update Lexv2ModelsIntent#update}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_intent#update Lexv2ModelsIntent#update}
     */
     readonly update?: string;
 }

@@ -6,18 +6,18 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsLaunchTemplateConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/launch_template#id DataAwsLaunchTemplate#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/launch_template#id DataAwsLaunchTemplate#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/launch_template#name DataAwsLaunchTemplate#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/launch_template#name DataAwsLaunchTemplate#name}
     */
     readonly name?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/launch_template#tags DataAwsLaunchTemplate#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/launch_template#tags DataAwsLaunchTemplate#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -25,13 +25,13 @@ export interface DataAwsLaunchTemplateConfig extends cdktf.TerraformMetaArgument
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/launch_template#filter DataAwsLaunchTemplate#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/launch_template#filter DataAwsLaunchTemplate#filter}
     */
     readonly filter?: DataAwsLaunchTemplateFilter[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/launch_template#timeouts DataAwsLaunchTemplate#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/launch_template#timeouts DataAwsLaunchTemplate#timeouts}
     */
     readonly timeouts?: DataAwsLaunchTemplateTimeouts;
 }
@@ -56,6 +56,7 @@ export declare class DataAwsLaunchTemplateBlockDeviceMappingsEbsOutputReference 
     get kmsKeyId(): string;
     get snapshotId(): string;
     get throughput(): number;
+    get volumeInitializationRate(): number;
     get volumeSize(): number;
     get volumeType(): string;
 }
@@ -1163,11 +1164,11 @@ export declare class DataAwsLaunchTemplateTagSpecificationsList extends cdktf.Co
 }
 export interface DataAwsLaunchTemplateFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/launch_template#name DataAwsLaunchTemplate#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/launch_template#name DataAwsLaunchTemplate#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/launch_template#values DataAwsLaunchTemplate#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/launch_template#values DataAwsLaunchTemplate#values}
     */
     readonly values: string[];
 }
@@ -1212,7 +1213,7 @@ export declare class DataAwsLaunchTemplateFilterList extends cdktf.ComplexList {
 }
 export interface DataAwsLaunchTemplateTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/launch_template#read DataAwsLaunchTemplate#read}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/launch_template#read DataAwsLaunchTemplate#read}
     */
     readonly read?: string;
 }
@@ -1235,7 +1236,7 @@ export declare class DataAwsLaunchTemplateTimeoutsOutputReference extends cdktf.
     get readInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/launch_template aws_launch_template}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/launch_template aws_launch_template}
 */
 export declare class DataAwsLaunchTemplate extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_launch_template";
@@ -1243,12 +1244,12 @@ export declare class DataAwsLaunchTemplate extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsLaunchTemplate resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsLaunchTemplate to import
-    * @param importFromId The id of the existing DataAwsLaunchTemplate that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/launch_template#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsLaunchTemplate that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/launch_template#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsLaunchTemplate to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/launch_template aws_launch_template} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/launch_template aws_launch_template} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

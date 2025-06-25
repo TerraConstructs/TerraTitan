@@ -6,12 +6,12 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsSsoadminPermissionSetsConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_permission_sets#instance_arn DataAwsSsoadminPermissionSets#instance_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_permission_sets#instance_arn DataAwsSsoadminPermissionSets#instance_arn}
     */
     readonly instanceArn: string;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_permission_sets aws_ssoadmin_permission_sets}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_permission_sets aws_ssoadmin_permission_sets}
 */
 export declare class DataAwsSsoadminPermissionSets extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ssoadmin_permission_sets";
@@ -19,12 +19,12 @@ export declare class DataAwsSsoadminPermissionSets extends cdktf.TerraformDataSo
     * Generates CDKTF code for importing a DataAwsSsoadminPermissionSets resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsSsoadminPermissionSets to import
-    * @param importFromId The id of the existing DataAwsSsoadminPermissionSets that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_permission_sets#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsSsoadminPermissionSets that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_permission_sets#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsSsoadminPermissionSets to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_permission_sets aws_ssoadmin_permission_sets} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_permission_sets aws_ssoadmin_permission_sets} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

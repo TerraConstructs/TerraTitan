@@ -6,11 +6,11 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface IamSecurityTokenServicePreferencesConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iam_security_token_service_preferences#global_endpoint_token_version IamSecurityTokenServicePreferences#global_endpoint_token_version}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iam_security_token_service_preferences#global_endpoint_token_version IamSecurityTokenServicePreferences#global_endpoint_token_version}
     */
     readonly globalEndpointTokenVersion: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iam_security_token_service_preferences#id IamSecurityTokenServicePreferences#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iam_security_token_service_preferences#id IamSecurityTokenServicePreferences#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -18,7 +18,7 @@ export interface IamSecurityTokenServicePreferencesConfig extends cdktf.Terrafor
     readonly id?: string;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iam_security_token_service_preferences aws_iam_security_token_service_preferences}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iam_security_token_service_preferences aws_iam_security_token_service_preferences}
 */
 export declare class IamSecurityTokenServicePreferences extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_iam_security_token_service_preferences";
@@ -26,12 +26,12 @@ export declare class IamSecurityTokenServicePreferences extends cdktf.TerraformR
     * Generates CDKTF code for importing a IamSecurityTokenServicePreferences resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the IamSecurityTokenServicePreferences to import
-    * @param importFromId The id of the existing IamSecurityTokenServicePreferences that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iam_security_token_service_preferences#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing IamSecurityTokenServicePreferences that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iam_security_token_service_preferences#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the IamSecurityTokenServicePreferences to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/iam_security_token_service_preferences aws_iam_security_token_service_preferences} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/iam_security_token_service_preferences aws_iam_security_token_service_preferences} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

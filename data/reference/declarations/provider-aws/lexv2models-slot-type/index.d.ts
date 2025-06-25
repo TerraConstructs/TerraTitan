@@ -6,67 +6,67 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface Lexv2ModelsSlotTypeConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#bot_id Lexv2ModelsSlotType#bot_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#bot_id Lexv2ModelsSlotType#bot_id}
     */
     readonly botId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#bot_version Lexv2ModelsSlotType#bot_version}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#bot_version Lexv2ModelsSlotType#bot_version}
     */
     readonly botVersion: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#description Lexv2ModelsSlotType#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#description Lexv2ModelsSlotType#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#locale_id Lexv2ModelsSlotType#locale_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#locale_id Lexv2ModelsSlotType#locale_id}
     */
     readonly localeId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#name Lexv2ModelsSlotType#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#name Lexv2ModelsSlotType#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#parent_slot_type_signature Lexv2ModelsSlotType#parent_slot_type_signature}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#parent_slot_type_signature Lexv2ModelsSlotType#parent_slot_type_signature}
     */
     readonly parentSlotTypeSignature?: string;
     /**
     * composite_slot_type_setting block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#composite_slot_type_setting Lexv2ModelsSlotType#composite_slot_type_setting}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#composite_slot_type_setting Lexv2ModelsSlotType#composite_slot_type_setting}
     */
     readonly compositeSlotTypeSetting?: Lexv2ModelsSlotTypeCompositeSlotTypeSetting[] | cdktf.IResolvable;
     /**
     * external_source_setting block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#external_source_setting Lexv2ModelsSlotType#external_source_setting}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#external_source_setting Lexv2ModelsSlotType#external_source_setting}
     */
     readonly externalSourceSetting?: Lexv2ModelsSlotTypeExternalSourceSetting[] | cdktf.IResolvable;
     /**
     * slot_type_values block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#slot_type_values Lexv2ModelsSlotType#slot_type_values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#slot_type_values Lexv2ModelsSlotType#slot_type_values}
     */
     readonly slotTypeValues?: Lexv2ModelsSlotTypeSlotTypeValues[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#timeouts Lexv2ModelsSlotType#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#timeouts Lexv2ModelsSlotType#timeouts}
     */
     readonly timeouts?: Lexv2ModelsSlotTypeTimeouts;
     /**
     * value_selection_setting block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#value_selection_setting Lexv2ModelsSlotType#value_selection_setting}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#value_selection_setting Lexv2ModelsSlotType#value_selection_setting}
     */
     readonly valueSelectionSetting?: Lexv2ModelsSlotTypeValueSelectionSetting[] | cdktf.IResolvable;
 }
 export interface Lexv2ModelsSlotTypeCompositeSlotTypeSettingSubSlots {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#name Lexv2ModelsSlotType#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#name Lexv2ModelsSlotType#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#slot_type_id Lexv2ModelsSlotType#slot_type_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#slot_type_id Lexv2ModelsSlotType#slot_type_id}
     */
     readonly slotTypeId: string;
 }
@@ -113,7 +113,7 @@ export interface Lexv2ModelsSlotTypeCompositeSlotTypeSetting {
     /**
     * sub_slots block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#sub_slots Lexv2ModelsSlotType#sub_slots}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#sub_slots Lexv2ModelsSlotType#sub_slots}
     */
     readonly subSlots?: Lexv2ModelsSlotTypeCompositeSlotTypeSettingSubSlots[] | cdktf.IResolvable;
 }
@@ -155,15 +155,15 @@ export declare class Lexv2ModelsSlotTypeCompositeSlotTypeSettingList extends cdk
 }
 export interface Lexv2ModelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#kms_key_arn Lexv2ModelsSlotType#kms_key_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#kms_key_arn Lexv2ModelsSlotType#kms_key_arn}
     */
     readonly kmsKeyArn: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#s3_bucket_name Lexv2ModelsSlotType#s3_bucket_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#s3_bucket_name Lexv2ModelsSlotType#s3_bucket_name}
     */
     readonly s3BucketName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#s3_object_key Lexv2ModelsSlotType#s3_object_key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#s3_object_key Lexv2ModelsSlotType#s3_object_key}
     */
     readonly s3ObjectKey: string;
 }
@@ -214,7 +214,7 @@ export interface Lexv2ModelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting 
     /**
     * source block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#source Lexv2ModelsSlotType#source}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#source Lexv2ModelsSlotType#source}
     */
     readonly source?: Lexv2ModelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource[] | cdktf.IResolvable;
 }
@@ -258,7 +258,7 @@ export interface Lexv2ModelsSlotTypeExternalSourceSetting {
     /**
     * grammar_slot_type_setting block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#grammar_slot_type_setting Lexv2ModelsSlotType#grammar_slot_type_setting}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#grammar_slot_type_setting Lexv2ModelsSlotType#grammar_slot_type_setting}
     */
     readonly grammarSlotTypeSetting?: Lexv2ModelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting[] | cdktf.IResolvable;
 }
@@ -300,7 +300,7 @@ export declare class Lexv2ModelsSlotTypeExternalSourceSettingList extends cdktf.
 }
 export interface Lexv2ModelsSlotTypeSlotTypeValuesSampleValue {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#value Lexv2ModelsSlotType#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#value Lexv2ModelsSlotType#value}
     */
     readonly value: string;
 }
@@ -341,7 +341,7 @@ export declare class Lexv2ModelsSlotTypeSlotTypeValuesSampleValueList extends cd
 }
 export interface Lexv2ModelsSlotTypeSlotTypeValuesSynonyms {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#value Lexv2ModelsSlotType#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#value Lexv2ModelsSlotType#value}
     */
     readonly value: string;
 }
@@ -384,13 +384,13 @@ export interface Lexv2ModelsSlotTypeSlotTypeValues {
     /**
     * sample_value block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#sample_value Lexv2ModelsSlotType#sample_value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#sample_value Lexv2ModelsSlotType#sample_value}
     */
     readonly sampleValue?: Lexv2ModelsSlotTypeSlotTypeValuesSampleValue[] | cdktf.IResolvable;
     /**
     * synonyms block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#synonyms Lexv2ModelsSlotType#synonyms}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#synonyms Lexv2ModelsSlotType#synonyms}
     */
     readonly synonyms?: Lexv2ModelsSlotTypeSlotTypeValuesSynonyms[] | cdktf.IResolvable;
 }
@@ -439,19 +439,19 @@ export interface Lexv2ModelsSlotTypeTimeouts {
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#create Lexv2ModelsSlotType#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#create Lexv2ModelsSlotType#create}
     */
     readonly create?: string;
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#delete Lexv2ModelsSlotType#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#delete Lexv2ModelsSlotType#delete}
     */
     readonly delete?: string;
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#update Lexv2ModelsSlotType#update}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#update Lexv2ModelsSlotType#update}
     */
     readonly update?: string;
 }
@@ -485,7 +485,7 @@ export declare class Lexv2ModelsSlotTypeTimeoutsOutputReference extends cdktf.Co
 }
 export interface Lexv2ModelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#audio_recognition_strategy Lexv2ModelsSlotType#audio_recognition_strategy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#audio_recognition_strategy Lexv2ModelsSlotType#audio_recognition_strategy}
     */
     readonly audioRecognitionStrategy?: string;
 }
@@ -527,7 +527,7 @@ export declare class Lexv2ModelsSlotTypeValueSelectionSettingAdvancedRecognition
 }
 export interface Lexv2ModelsSlotTypeValueSelectionSettingRegexFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#pattern Lexv2ModelsSlotType#pattern}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#pattern Lexv2ModelsSlotType#pattern}
     */
     readonly pattern: string;
 }
@@ -568,19 +568,19 @@ export declare class Lexv2ModelsSlotTypeValueSelectionSettingRegexFilterList ext
 }
 export interface Lexv2ModelsSlotTypeValueSelectionSetting {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#resolution_strategy Lexv2ModelsSlotType#resolution_strategy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#resolution_strategy Lexv2ModelsSlotType#resolution_strategy}
     */
     readonly resolutionStrategy: string;
     /**
     * advanced_recognition_setting block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#advanced_recognition_setting Lexv2ModelsSlotType#advanced_recognition_setting}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#advanced_recognition_setting Lexv2ModelsSlotType#advanced_recognition_setting}
     */
     readonly advancedRecognitionSetting?: Lexv2ModelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting[] | cdktf.IResolvable;
     /**
     * regex_filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#regex_filter Lexv2ModelsSlotType#regex_filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#regex_filter Lexv2ModelsSlotType#regex_filter}
     */
     readonly regexFilter?: Lexv2ModelsSlotTypeValueSelectionSettingRegexFilter[] | cdktf.IResolvable;
 }
@@ -630,7 +630,7 @@ export declare class Lexv2ModelsSlotTypeValueSelectionSettingList extends cdktf.
     get(index: number): Lexv2ModelsSlotTypeValueSelectionSettingOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type aws_lexv2models_slot_type}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type aws_lexv2models_slot_type}
 */
 export declare class Lexv2ModelsSlotType extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_lexv2models_slot_type";
@@ -638,12 +638,12 @@ export declare class Lexv2ModelsSlotType extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a Lexv2ModelsSlotType resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the Lexv2ModelsSlotType to import
-    * @param importFromId The id of the existing Lexv2ModelsSlotType that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing Lexv2ModelsSlotType that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the Lexv2ModelsSlotType to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lexv2models_slot_type aws_lexv2models_slot_type} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lexv2models_slot_type aws_lexv2models_slot_type} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

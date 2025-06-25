@@ -6,84 +6,88 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DatasyncTaskConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#cloudwatch_log_group_arn DatasyncTask#cloudwatch_log_group_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#cloudwatch_log_group_arn DatasyncTask#cloudwatch_log_group_arn}
     */
     readonly cloudwatchLogGroupArn?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#destination_location_arn DatasyncTask#destination_location_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#destination_location_arn DatasyncTask#destination_location_arn}
     */
     readonly destinationLocationArn: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#id DatasyncTask#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#id DatasyncTask#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#name DatasyncTask#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#name DatasyncTask#name}
     */
     readonly name?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#source_location_arn DatasyncTask#source_location_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#source_location_arn DatasyncTask#source_location_arn}
     */
     readonly sourceLocationArn: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#tags DatasyncTask#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#tags DatasyncTask#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#tags_all DatasyncTask#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#tags_all DatasyncTask#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
     };
     /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#task_mode DatasyncTask#task_mode}
+    */
+    readonly taskMode?: string;
+    /**
     * excludes block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#excludes DatasyncTask#excludes}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#excludes DatasyncTask#excludes}
     */
     readonly excludes?: DatasyncTaskExcludes;
     /**
     * includes block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#includes DatasyncTask#includes}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#includes DatasyncTask#includes}
     */
     readonly includes?: DatasyncTaskIncludes;
     /**
     * options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#options DatasyncTask#options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#options DatasyncTask#options}
     */
     readonly options?: DatasyncTaskOptions;
     /**
     * schedule block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#schedule DatasyncTask#schedule}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#schedule DatasyncTask#schedule}
     */
     readonly schedule?: DatasyncTaskSchedule;
     /**
     * task_report_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#task_report_config DatasyncTask#task_report_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#task_report_config DatasyncTask#task_report_config}
     */
     readonly taskReportConfig?: DatasyncTaskTaskReportConfig;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#timeouts DatasyncTask#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#timeouts DatasyncTask#timeouts}
     */
     readonly timeouts?: DatasyncTaskTimeouts;
 }
 export interface DatasyncTaskExcludes {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#filter_type DatasyncTask#filter_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#filter_type DatasyncTask#filter_type}
     */
     readonly filterType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#value DatasyncTask#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#value DatasyncTask#value}
     */
     readonly value?: string;
 }
@@ -111,11 +115,11 @@ export declare class DatasyncTaskExcludesOutputReference extends cdktf.ComplexOb
 }
 export interface DatasyncTaskIncludes {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#filter_type DatasyncTask#filter_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#filter_type DatasyncTask#filter_type}
     */
     readonly filterType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#value DatasyncTask#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#value DatasyncTask#value}
     */
     readonly value?: string;
 }
@@ -143,63 +147,63 @@ export declare class DatasyncTaskIncludesOutputReference extends cdktf.ComplexOb
 }
 export interface DatasyncTaskOptions {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#atime DatasyncTask#atime}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#atime DatasyncTask#atime}
     */
     readonly atime?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#bytes_per_second DatasyncTask#bytes_per_second}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#bytes_per_second DatasyncTask#bytes_per_second}
     */
     readonly bytesPerSecond?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#gid DatasyncTask#gid}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#gid DatasyncTask#gid}
     */
     readonly gid?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#log_level DatasyncTask#log_level}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#log_level DatasyncTask#log_level}
     */
     readonly logLevel?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#mtime DatasyncTask#mtime}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#mtime DatasyncTask#mtime}
     */
     readonly mtime?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#object_tags DatasyncTask#object_tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#object_tags DatasyncTask#object_tags}
     */
     readonly objectTags?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#overwrite_mode DatasyncTask#overwrite_mode}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#overwrite_mode DatasyncTask#overwrite_mode}
     */
     readonly overwriteMode?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#posix_permissions DatasyncTask#posix_permissions}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#posix_permissions DatasyncTask#posix_permissions}
     */
     readonly posixPermissions?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#preserve_deleted_files DatasyncTask#preserve_deleted_files}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#preserve_deleted_files DatasyncTask#preserve_deleted_files}
     */
     readonly preserveDeletedFiles?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#preserve_devices DatasyncTask#preserve_devices}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#preserve_devices DatasyncTask#preserve_devices}
     */
     readonly preserveDevices?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#security_descriptor_copy_flags DatasyncTask#security_descriptor_copy_flags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#security_descriptor_copy_flags DatasyncTask#security_descriptor_copy_flags}
     */
     readonly securityDescriptorCopyFlags?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#task_queueing DatasyncTask#task_queueing}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#task_queueing DatasyncTask#task_queueing}
     */
     readonly taskQueueing?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#transfer_mode DatasyncTask#transfer_mode}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#transfer_mode DatasyncTask#transfer_mode}
     */
     readonly transferMode?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#uid DatasyncTask#uid}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#uid DatasyncTask#uid}
     */
     readonly uid?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#verify_mode DatasyncTask#verify_mode}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#verify_mode DatasyncTask#verify_mode}
     */
     readonly verifyMode?: string;
 }
@@ -292,7 +296,7 @@ export declare class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObj
 }
 export interface DatasyncTaskSchedule {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#schedule_expression DatasyncTask#schedule_expression}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#schedule_expression DatasyncTask#schedule_expression}
     */
     readonly scheduleExpression: string;
 }
@@ -314,19 +318,19 @@ export declare class DatasyncTaskScheduleOutputReference extends cdktf.ComplexOb
 }
 export interface DatasyncTaskTaskReportConfigReportOverrides {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#deleted_override DatasyncTask#deleted_override}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#deleted_override DatasyncTask#deleted_override}
     */
     readonly deletedOverride?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#skipped_override DatasyncTask#skipped_override}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#skipped_override DatasyncTask#skipped_override}
     */
     readonly skippedOverride?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#transferred_override DatasyncTask#transferred_override}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#transferred_override DatasyncTask#transferred_override}
     */
     readonly transferredOverride?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#verified_override DatasyncTask#verified_override}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#verified_override DatasyncTask#verified_override}
     */
     readonly verifiedOverride?: string;
 }
@@ -364,15 +368,15 @@ export declare class DatasyncTaskTaskReportConfigReportOverridesOutputReference 
 }
 export interface DatasyncTaskTaskReportConfigS3Destination {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#bucket_access_role_arn DatasyncTask#bucket_access_role_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#bucket_access_role_arn DatasyncTask#bucket_access_role_arn}
     */
     readonly bucketAccessRoleArn: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#s3_bucket_arn DatasyncTask#s3_bucket_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#s3_bucket_arn DatasyncTask#s3_bucket_arn}
     */
     readonly s3BucketArn: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#subdirectory DatasyncTask#subdirectory}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#subdirectory DatasyncTask#subdirectory}
     */
     readonly subdirectory?: string;
 }
@@ -403,27 +407,27 @@ export declare class DatasyncTaskTaskReportConfigS3DestinationOutputReference ex
 }
 export interface DatasyncTaskTaskReportConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#output_type DatasyncTask#output_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#output_type DatasyncTask#output_type}
     */
     readonly outputType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#report_level DatasyncTask#report_level}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#report_level DatasyncTask#report_level}
     */
     readonly reportLevel?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#s3_object_versioning DatasyncTask#s3_object_versioning}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#s3_object_versioning DatasyncTask#s3_object_versioning}
     */
     readonly s3ObjectVersioning?: string;
     /**
     * report_overrides block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#report_overrides DatasyncTask#report_overrides}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#report_overrides DatasyncTask#report_overrides}
     */
     readonly reportOverrides?: DatasyncTaskTaskReportConfigReportOverrides;
     /**
     * s3_destination block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#s3_destination DatasyncTask#s3_destination}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#s3_destination DatasyncTask#s3_destination}
     */
     readonly s3Destination: DatasyncTaskTaskReportConfigS3Destination;
 }
@@ -465,7 +469,7 @@ export declare class DatasyncTaskTaskReportConfigOutputReference extends cdktf.C
 }
 export interface DatasyncTaskTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#create DatasyncTask#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#create DatasyncTask#create}
     */
     readonly create?: string;
 }
@@ -488,7 +492,7 @@ export declare class DatasyncTaskTimeoutsOutputReference extends cdktf.ComplexOb
     get createInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task aws_datasync_task}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task aws_datasync_task}
 */
 export declare class DatasyncTask extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_datasync_task";
@@ -496,12 +500,12 @@ export declare class DatasyncTask extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a DatasyncTask resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DatasyncTask to import
-    * @param importFromId The id of the existing DatasyncTask that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DatasyncTask that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DatasyncTask to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/datasync_task aws_datasync_task} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/datasync_task aws_datasync_task} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
@@ -554,6 +558,11 @@ export declare class DatasyncTask extends cdktf.TerraformResource {
     get tagsAllInput(): {
         [key: string]: string;
     } | undefined;
+    private _taskMode?;
+    get taskMode(): string;
+    set taskMode(value: string);
+    resetTaskMode(): void;
+    get taskModeInput(): string | undefined;
     private _excludes;
     get excludes(): DatasyncTaskExcludesOutputReference;
     putExcludes(value: DatasyncTaskExcludes): void;

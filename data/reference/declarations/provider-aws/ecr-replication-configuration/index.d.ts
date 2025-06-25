@@ -6,7 +6,7 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface EcrReplicationConfigurationConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ecr_replication_configuration#id EcrReplicationConfiguration#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ecr_replication_configuration#id EcrReplicationConfiguration#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -15,17 +15,17 @@ export interface EcrReplicationConfigurationConfig extends cdktf.TerraformMetaAr
     /**
     * replication_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ecr_replication_configuration#replication_configuration EcrReplicationConfiguration#replication_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ecr_replication_configuration#replication_configuration EcrReplicationConfiguration#replication_configuration}
     */
     readonly replicationConfiguration?: EcrReplicationConfigurationReplicationConfiguration;
 }
 export interface EcrReplicationConfigurationReplicationConfigurationRuleDestination {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ecr_replication_configuration#region EcrReplicationConfiguration#region}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ecr_replication_configuration#region EcrReplicationConfiguration#region}
     */
     readonly region: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ecr_replication_configuration#registry_id EcrReplicationConfiguration#registry_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ecr_replication_configuration#registry_id EcrReplicationConfiguration#registry_id}
     */
     readonly registryId: string;
 }
@@ -70,11 +70,11 @@ export declare class EcrReplicationConfigurationReplicationConfigurationRuleDest
 }
 export interface EcrReplicationConfigurationReplicationConfigurationRuleRepositoryFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ecr_replication_configuration#filter EcrReplicationConfiguration#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ecr_replication_configuration#filter EcrReplicationConfiguration#filter}
     */
     readonly filter: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ecr_replication_configuration#filter_type EcrReplicationConfiguration#filter_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ecr_replication_configuration#filter_type EcrReplicationConfiguration#filter_type}
     */
     readonly filterType: string;
 }
@@ -121,13 +121,13 @@ export interface EcrReplicationConfigurationReplicationConfigurationRule {
     /**
     * destination block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ecr_replication_configuration#destination EcrReplicationConfiguration#destination}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ecr_replication_configuration#destination EcrReplicationConfiguration#destination}
     */
     readonly destination: EcrReplicationConfigurationReplicationConfigurationRuleDestination[] | cdktf.IResolvable;
     /**
     * repository_filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ecr_replication_configuration#repository_filter EcrReplicationConfiguration#repository_filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ecr_replication_configuration#repository_filter EcrReplicationConfiguration#repository_filter}
     */
     readonly repositoryFilter?: EcrReplicationConfigurationReplicationConfigurationRuleRepositoryFilter[] | cdktf.IResolvable;
 }
@@ -175,7 +175,7 @@ export interface EcrReplicationConfigurationReplicationConfiguration {
     /**
     * rule block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ecr_replication_configuration#rule EcrReplicationConfiguration#rule}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ecr_replication_configuration#rule EcrReplicationConfiguration#rule}
     */
     readonly rule: EcrReplicationConfigurationReplicationConfigurationRule[] | cdktf.IResolvable;
 }
@@ -196,7 +196,7 @@ export declare class EcrReplicationConfigurationReplicationConfigurationOutputRe
     get ruleInput(): cdktf.IResolvable | EcrReplicationConfigurationReplicationConfigurationRule[] | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ecr_replication_configuration aws_ecr_replication_configuration}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ecr_replication_configuration aws_ecr_replication_configuration}
 */
 export declare class EcrReplicationConfiguration extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_ecr_replication_configuration";
@@ -204,12 +204,12 @@ export declare class EcrReplicationConfiguration extends cdktf.TerraformResource
     * Generates CDKTF code for importing a EcrReplicationConfiguration resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the EcrReplicationConfiguration to import
-    * @param importFromId The id of the existing EcrReplicationConfiguration that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ecr_replication_configuration#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing EcrReplicationConfiguration that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ecr_replication_configuration#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the EcrReplicationConfiguration to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ecr_replication_configuration aws_ecr_replication_configuration} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ecr_replication_configuration aws_ecr_replication_configuration} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

@@ -6,18 +6,18 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsEbsVolumeConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_volume#id DataAwsEbsVolume#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_volume#id DataAwsEbsVolume#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_volume#most_recent DataAwsEbsVolume#most_recent}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_volume#most_recent DataAwsEbsVolume#most_recent}
     */
     readonly mostRecent?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_volume#tags DataAwsEbsVolume#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_volume#tags DataAwsEbsVolume#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -25,23 +25,23 @@ export interface DataAwsEbsVolumeConfig extends cdktf.TerraformMetaArguments {
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_volume#filter DataAwsEbsVolume#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_volume#filter DataAwsEbsVolume#filter}
     */
     readonly filter?: DataAwsEbsVolumeFilter[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_volume#timeouts DataAwsEbsVolume#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_volume#timeouts DataAwsEbsVolume#timeouts}
     */
     readonly timeouts?: DataAwsEbsVolumeTimeouts;
 }
 export interface DataAwsEbsVolumeFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_volume#name DataAwsEbsVolume#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_volume#name DataAwsEbsVolume#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_volume#values DataAwsEbsVolume#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_volume#values DataAwsEbsVolume#values}
     */
     readonly values: string[];
 }
@@ -86,7 +86,7 @@ export declare class DataAwsEbsVolumeFilterList extends cdktf.ComplexList {
 }
 export interface DataAwsEbsVolumeTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_volume#read DataAwsEbsVolume#read}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_volume#read DataAwsEbsVolume#read}
     */
     readonly read?: string;
 }
@@ -109,7 +109,7 @@ export declare class DataAwsEbsVolumeTimeoutsOutputReference extends cdktf.Compl
     get readInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_volume aws_ebs_volume}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_volume aws_ebs_volume}
 */
 export declare class DataAwsEbsVolume extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ebs_volume";
@@ -117,12 +117,12 @@ export declare class DataAwsEbsVolume extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsEbsVolume resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsEbsVolume to import
-    * @param importFromId The id of the existing DataAwsEbsVolume that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_volume#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsEbsVolume that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_volume#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsEbsVolume to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ebs_volume aws_ebs_volume} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ebs_volume aws_ebs_volume} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
@@ -131,6 +131,7 @@ export declare class DataAwsEbsVolume extends cdktf.TerraformDataSource {
     constructor(scope: Construct, id: string, config?: DataAwsEbsVolumeConfig);
     get arn(): string;
     get availabilityZone(): string;
+    get createTime(): string;
     get encrypted(): cdktf.IResolvable;
     private _id?;
     get id(): string;

@@ -6,20 +6,20 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsEc2InstanceTypeConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_instance_type#id DataAwsEc2InstanceType#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_instance_type#id DataAwsEc2InstanceType#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_instance_type#instance_type DataAwsEc2InstanceType#instance_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_instance_type#instance_type DataAwsEc2InstanceType#instance_type}
     */
     readonly instanceType: string;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_instance_type#timeouts DataAwsEc2InstanceType#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_instance_type#timeouts DataAwsEc2InstanceType#timeouts}
     */
     readonly timeouts?: DataAwsEc2InstanceTypeTimeouts;
 }
@@ -271,7 +271,7 @@ export declare class DataAwsEc2InstanceTypeNeuronDevicesList extends cdktf.Compl
 }
 export interface DataAwsEc2InstanceTypeTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_instance_type#read DataAwsEc2InstanceType#read}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_instance_type#read DataAwsEc2InstanceType#read}
     */
     readonly read?: string;
 }
@@ -294,7 +294,7 @@ export declare class DataAwsEc2InstanceTypeTimeoutsOutputReference extends cdktf
     get readInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_instance_type aws_ec2_instance_type}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_instance_type aws_ec2_instance_type}
 */
 export declare class DataAwsEc2InstanceType extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ec2_instance_type";
@@ -302,12 +302,12 @@ export declare class DataAwsEc2InstanceType extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsEc2InstanceType resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsEc2InstanceType to import
-    * @param importFromId The id of the existing DataAwsEc2InstanceType that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_instance_type#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsEc2InstanceType that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_instance_type#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsEc2InstanceType to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_instance_type aws_ec2_instance_type} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_instance_type aws_ec2_instance_type} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

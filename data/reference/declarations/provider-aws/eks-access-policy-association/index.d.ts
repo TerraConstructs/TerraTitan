@@ -6,44 +6,44 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface EksAccessPolicyAssociationConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association#cluster_name EksAccessPolicyAssociation#cluster_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association#cluster_name EksAccessPolicyAssociation#cluster_name}
     */
     readonly clusterName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association#id EksAccessPolicyAssociation#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association#id EksAccessPolicyAssociation#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association#policy_arn EksAccessPolicyAssociation#policy_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association#policy_arn EksAccessPolicyAssociation#policy_arn}
     */
     readonly policyArn: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association#principal_arn EksAccessPolicyAssociation#principal_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association#principal_arn EksAccessPolicyAssociation#principal_arn}
     */
     readonly principalArn: string;
     /**
     * access_scope block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association#access_scope EksAccessPolicyAssociation#access_scope}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association#access_scope EksAccessPolicyAssociation#access_scope}
     */
     readonly accessScope: EksAccessPolicyAssociationAccessScope;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association#timeouts EksAccessPolicyAssociation#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association#timeouts EksAccessPolicyAssociation#timeouts}
     */
     readonly timeouts?: EksAccessPolicyAssociationTimeouts;
 }
 export interface EksAccessPolicyAssociationAccessScope {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association#namespaces EksAccessPolicyAssociation#namespaces}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association#namespaces EksAccessPolicyAssociation#namespaces}
     */
     readonly namespaces?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association#type EksAccessPolicyAssociation#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association#type EksAccessPolicyAssociation#type}
     */
     readonly type: string;
 }
@@ -70,11 +70,11 @@ export declare class EksAccessPolicyAssociationAccessScopeOutputReference extend
 }
 export interface EksAccessPolicyAssociationTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association#create EksAccessPolicyAssociation#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association#create EksAccessPolicyAssociation#create}
     */
     readonly create?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association#delete EksAccessPolicyAssociation#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association#delete EksAccessPolicyAssociation#delete}
     */
     readonly delete?: string;
 }
@@ -102,7 +102,7 @@ export declare class EksAccessPolicyAssociationTimeoutsOutputReference extends c
     get deleteInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association aws_eks_access_policy_association}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association aws_eks_access_policy_association}
 */
 export declare class EksAccessPolicyAssociation extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_eks_access_policy_association";
@@ -110,12 +110,12 @@ export declare class EksAccessPolicyAssociation extends cdktf.TerraformResource 
     * Generates CDKTF code for importing a EksAccessPolicyAssociation resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the EksAccessPolicyAssociation to import
-    * @param importFromId The id of the existing EksAccessPolicyAssociation that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing EksAccessPolicyAssociation that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the EksAccessPolicyAssociation to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/eks_access_policy_association aws_eks_access_policy_association} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/eks_access_policy_association aws_eks_access_policy_association} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

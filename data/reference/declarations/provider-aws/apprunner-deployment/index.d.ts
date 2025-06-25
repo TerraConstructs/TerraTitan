@@ -6,13 +6,13 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface ApprunnerDeploymentConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_deployment#service_arn ApprunnerDeployment#service_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_deployment#service_arn ApprunnerDeployment#service_arn}
     */
     readonly serviceArn: string;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_deployment#timeouts ApprunnerDeployment#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_deployment#timeouts ApprunnerDeployment#timeouts}
     */
     readonly timeouts?: ApprunnerDeploymentTimeouts;
 }
@@ -20,7 +20,7 @@ export interface ApprunnerDeploymentTimeouts {
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_deployment#create ApprunnerDeployment#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_deployment#create ApprunnerDeployment#create}
     */
     readonly create?: string;
 }
@@ -43,7 +43,7 @@ export declare class ApprunnerDeploymentTimeoutsOutputReference extends cdktf.Co
     get createInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_deployment aws_apprunner_deployment}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_deployment aws_apprunner_deployment}
 */
 export declare class ApprunnerDeployment extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_apprunner_deployment";
@@ -51,12 +51,12 @@ export declare class ApprunnerDeployment extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a ApprunnerDeployment resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the ApprunnerDeployment to import
-    * @param importFromId The id of the existing ApprunnerDeployment that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_deployment#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing ApprunnerDeployment that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_deployment#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the ApprunnerDeployment to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_deployment aws_apprunner_deployment} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_deployment aws_apprunner_deployment} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

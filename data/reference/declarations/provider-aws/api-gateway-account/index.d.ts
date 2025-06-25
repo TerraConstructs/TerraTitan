@@ -6,11 +6,11 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface ApiGatewayAccountConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/api_gateway_account#cloudwatch_role_arn ApiGatewayAccount#cloudwatch_role_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/api_gateway_account#cloudwatch_role_arn ApiGatewayAccount#cloudwatch_role_arn}
     */
     readonly cloudwatchRoleArn?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/api_gateway_account#reset_on_delete ApiGatewayAccount#reset_on_delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/api_gateway_account#reset_on_delete ApiGatewayAccount#reset_on_delete}
     */
     readonly resetOnDelete?: boolean | cdktf.IResolvable;
 }
@@ -48,7 +48,7 @@ export declare class ApiGatewayAccountThrottleSettingsList extends cdktf.Complex
     get(index: number): ApiGatewayAccountThrottleSettingsOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/api_gateway_account aws_api_gateway_account}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/api_gateway_account aws_api_gateway_account}
 */
 export declare class ApiGatewayAccount extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_api_gateway_account";
@@ -56,12 +56,12 @@ export declare class ApiGatewayAccount extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a ApiGatewayAccount resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the ApiGatewayAccount to import
-    * @param importFromId The id of the existing ApiGatewayAccount that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/api_gateway_account#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing ApiGatewayAccount that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/api_gateway_account#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the ApiGatewayAccount to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/api_gateway_account aws_api_gateway_account} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/api_gateway_account aws_api_gateway_account} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

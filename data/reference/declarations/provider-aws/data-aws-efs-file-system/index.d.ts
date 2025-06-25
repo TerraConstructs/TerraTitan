@@ -6,22 +6,22 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsEfsFileSystemConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/efs_file_system#creation_token DataAwsEfsFileSystem#creation_token}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/efs_file_system#creation_token DataAwsEfsFileSystem#creation_token}
     */
     readonly creationToken?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/efs_file_system#file_system_id DataAwsEfsFileSystem#file_system_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/efs_file_system#file_system_id DataAwsEfsFileSystem#file_system_id}
     */
     readonly fileSystemId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/efs_file_system#id DataAwsEfsFileSystem#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/efs_file_system#id DataAwsEfsFileSystem#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/efs_file_system#tags DataAwsEfsFileSystem#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/efs_file_system#tags DataAwsEfsFileSystem#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -94,7 +94,7 @@ export declare class DataAwsEfsFileSystemProtectionList extends cdktf.ComplexLis
     get(index: number): DataAwsEfsFileSystemProtectionOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/efs_file_system aws_efs_file_system}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/efs_file_system aws_efs_file_system}
 */
 export declare class DataAwsEfsFileSystem extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_efs_file_system";
@@ -102,12 +102,12 @@ export declare class DataAwsEfsFileSystem extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsEfsFileSystem resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsEfsFileSystem to import
-    * @param importFromId The id of the existing DataAwsEfsFileSystem that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/efs_file_system#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsEfsFileSystem that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/efs_file_system#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsEfsFileSystem to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/efs_file_system aws_efs_file_system} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/efs_file_system aws_efs_file_system} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

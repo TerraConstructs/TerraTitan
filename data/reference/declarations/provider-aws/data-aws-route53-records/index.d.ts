@@ -6,11 +6,11 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsRoute53RecordsConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/route53_records#name_regex DataAwsRoute53Records#name_regex}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/route53_records#name_regex DataAwsRoute53Records#name_regex}
     */
     readonly nameRegex?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/route53_records#zone_id DataAwsRoute53Records#zone_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/route53_records#zone_id DataAwsRoute53Records#zone_id}
     */
     readonly zoneId: string;
 }
@@ -183,7 +183,7 @@ export declare class DataAwsRoute53RecordsResourceRecordSetsList extends cdktf.C
     get(index: number): DataAwsRoute53RecordsResourceRecordSetsOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/route53_records aws_route53_records}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/route53_records aws_route53_records}
 */
 export declare class DataAwsRoute53Records extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_route53_records";
@@ -191,12 +191,12 @@ export declare class DataAwsRoute53Records extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsRoute53Records resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsRoute53Records to import
-    * @param importFromId The id of the existing DataAwsRoute53Records that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/route53_records#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsRoute53Records that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/route53_records#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsRoute53Records to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/route53_records aws_route53_records} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/route53_records aws_route53_records} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

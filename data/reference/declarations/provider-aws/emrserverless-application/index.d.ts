@@ -6,86 +6,86 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface EmrserverlessApplicationConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#architecture EmrserverlessApplication#architecture}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#architecture EmrserverlessApplication#architecture}
     */
     readonly architecture?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#id EmrserverlessApplication#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#id EmrserverlessApplication#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#name EmrserverlessApplication#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#name EmrserverlessApplication#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#release_label EmrserverlessApplication#release_label}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#release_label EmrserverlessApplication#release_label}
     */
     readonly releaseLabel: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#tags EmrserverlessApplication#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#tags EmrserverlessApplication#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#tags_all EmrserverlessApplication#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#tags_all EmrserverlessApplication#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#type EmrserverlessApplication#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#type EmrserverlessApplication#type}
     */
     readonly type: string;
     /**
     * auto_start_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#auto_start_configuration EmrserverlessApplication#auto_start_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#auto_start_configuration EmrserverlessApplication#auto_start_configuration}
     */
     readonly autoStartConfiguration?: EmrserverlessApplicationAutoStartConfiguration;
     /**
     * auto_stop_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#auto_stop_configuration EmrserverlessApplication#auto_stop_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#auto_stop_configuration EmrserverlessApplication#auto_stop_configuration}
     */
     readonly autoStopConfiguration?: EmrserverlessApplicationAutoStopConfiguration;
     /**
     * image_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#image_configuration EmrserverlessApplication#image_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#image_configuration EmrserverlessApplication#image_configuration}
     */
     readonly imageConfiguration?: EmrserverlessApplicationImageConfiguration;
     /**
     * initial_capacity block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#initial_capacity EmrserverlessApplication#initial_capacity}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#initial_capacity EmrserverlessApplication#initial_capacity}
     */
     readonly initialCapacity?: EmrserverlessApplicationInitialCapacity[] | cdktf.IResolvable;
     /**
     * interactive_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#interactive_configuration EmrserverlessApplication#interactive_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#interactive_configuration EmrserverlessApplication#interactive_configuration}
     */
     readonly interactiveConfiguration?: EmrserverlessApplicationInteractiveConfiguration;
     /**
     * maximum_capacity block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#maximum_capacity EmrserverlessApplication#maximum_capacity}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#maximum_capacity EmrserverlessApplication#maximum_capacity}
     */
     readonly maximumCapacity?: EmrserverlessApplicationMaximumCapacity;
     /**
     * network_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#network_configuration EmrserverlessApplication#network_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#network_configuration EmrserverlessApplication#network_configuration}
     */
     readonly networkConfiguration?: EmrserverlessApplicationNetworkConfiguration;
 }
 export interface EmrserverlessApplicationAutoStartConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#enabled EmrserverlessApplication#enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#enabled EmrserverlessApplication#enabled}
     */
     readonly enabled?: boolean | cdktf.IResolvable;
 }
@@ -108,11 +108,11 @@ export declare class EmrserverlessApplicationAutoStartConfigurationOutputReferen
 }
 export interface EmrserverlessApplicationAutoStopConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#enabled EmrserverlessApplication#enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#enabled EmrserverlessApplication#enabled}
     */
     readonly enabled?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#idle_timeout_minutes EmrserverlessApplication#idle_timeout_minutes}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#idle_timeout_minutes EmrserverlessApplication#idle_timeout_minutes}
     */
     readonly idleTimeoutMinutes?: number;
 }
@@ -140,7 +140,7 @@ export declare class EmrserverlessApplicationAutoStopConfigurationOutputReferenc
 }
 export interface EmrserverlessApplicationImageConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#image_uri EmrserverlessApplication#image_uri}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#image_uri EmrserverlessApplication#image_uri}
     */
     readonly imageUri: string;
 }
@@ -162,15 +162,15 @@ export declare class EmrserverlessApplicationImageConfigurationOutputReference e
 }
 export interface EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#cpu EmrserverlessApplication#cpu}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#cpu EmrserverlessApplication#cpu}
     */
     readonly cpu: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#disk EmrserverlessApplication#disk}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#disk EmrserverlessApplication#disk}
     */
     readonly disk?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#memory EmrserverlessApplication#memory}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#memory EmrserverlessApplication#memory}
     */
     readonly memory: string;
 }
@@ -201,13 +201,13 @@ export declare class EmrserverlessApplicationInitialCapacityInitialCapacityConfi
 }
 export interface EmrserverlessApplicationInitialCapacityInitialCapacityConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#worker_count EmrserverlessApplication#worker_count}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#worker_count EmrserverlessApplication#worker_count}
     */
     readonly workerCount: number;
     /**
     * worker_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#worker_configuration EmrserverlessApplication#worker_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#worker_configuration EmrserverlessApplication#worker_configuration}
     */
     readonly workerConfiguration?: EmrserverlessApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration;
 }
@@ -234,13 +234,13 @@ export declare class EmrserverlessApplicationInitialCapacityInitialCapacityConfi
 }
 export interface EmrserverlessApplicationInitialCapacity {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#initial_capacity_type EmrserverlessApplication#initial_capacity_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#initial_capacity_type EmrserverlessApplication#initial_capacity_type}
     */
     readonly initialCapacityType: string;
     /**
     * initial_capacity_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#initial_capacity_config EmrserverlessApplication#initial_capacity_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#initial_capacity_config EmrserverlessApplication#initial_capacity_config}
     */
     readonly initialCapacityConfig?: EmrserverlessApplicationInitialCapacityInitialCapacityConfig;
 }
@@ -286,11 +286,11 @@ export declare class EmrserverlessApplicationInitialCapacityList extends cdktf.C
 }
 export interface EmrserverlessApplicationInteractiveConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#livy_endpoint_enabled EmrserverlessApplication#livy_endpoint_enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#livy_endpoint_enabled EmrserverlessApplication#livy_endpoint_enabled}
     */
     readonly livyEndpointEnabled?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#studio_enabled EmrserverlessApplication#studio_enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#studio_enabled EmrserverlessApplication#studio_enabled}
     */
     readonly studioEnabled?: boolean | cdktf.IResolvable;
 }
@@ -318,15 +318,15 @@ export declare class EmrserverlessApplicationInteractiveConfigurationOutputRefer
 }
 export interface EmrserverlessApplicationMaximumCapacity {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#cpu EmrserverlessApplication#cpu}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#cpu EmrserverlessApplication#cpu}
     */
     readonly cpu: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#disk EmrserverlessApplication#disk}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#disk EmrserverlessApplication#disk}
     */
     readonly disk?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#memory EmrserverlessApplication#memory}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#memory EmrserverlessApplication#memory}
     */
     readonly memory: string;
 }
@@ -357,11 +357,11 @@ export declare class EmrserverlessApplicationMaximumCapacityOutputReference exte
 }
 export interface EmrserverlessApplicationNetworkConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#security_group_ids EmrserverlessApplication#security_group_ids}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#security_group_ids EmrserverlessApplication#security_group_ids}
     */
     readonly securityGroupIds?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#subnet_ids EmrserverlessApplication#subnet_ids}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#subnet_ids EmrserverlessApplication#subnet_ids}
     */
     readonly subnetIds?: string[];
 }
@@ -388,7 +388,7 @@ export declare class EmrserverlessApplicationNetworkConfigurationOutputReference
     get subnetIdsInput(): string[] | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application aws_emrserverless_application}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application aws_emrserverless_application}
 */
 export declare class EmrserverlessApplication extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_emrserverless_application";
@@ -396,12 +396,12 @@ export declare class EmrserverlessApplication extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a EmrserverlessApplication resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the EmrserverlessApplication to import
-    * @param importFromId The id of the existing EmrserverlessApplication that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing EmrserverlessApplication that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the EmrserverlessApplication to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/emrserverless_application aws_emrserverless_application} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/emrserverless_application aws_emrserverless_application} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

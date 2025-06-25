@@ -6,7 +6,7 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsIdentitystoreGroupsConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/identitystore_groups#identity_store_id DataAwsIdentitystoreGroups#identity_store_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/identitystore_groups#identity_store_id DataAwsIdentitystoreGroups#identity_store_id}
     */
     readonly identityStoreId: string;
 }
@@ -81,7 +81,7 @@ export declare class DataAwsIdentitystoreGroupsGroupsList extends cdktf.ComplexL
     get(index: number): DataAwsIdentitystoreGroupsGroupsOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/identitystore_groups aws_identitystore_groups}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/identitystore_groups aws_identitystore_groups}
 */
 export declare class DataAwsIdentitystoreGroups extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_identitystore_groups";
@@ -89,12 +89,12 @@ export declare class DataAwsIdentitystoreGroups extends cdktf.TerraformDataSourc
     * Generates CDKTF code for importing a DataAwsIdentitystoreGroups resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsIdentitystoreGroups to import
-    * @param importFromId The id of the existing DataAwsIdentitystoreGroups that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/identitystore_groups#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsIdentitystoreGroups that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/identitystore_groups#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsIdentitystoreGroups to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/identitystore_groups aws_identitystore_groups} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/identitystore_groups aws_identitystore_groups} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

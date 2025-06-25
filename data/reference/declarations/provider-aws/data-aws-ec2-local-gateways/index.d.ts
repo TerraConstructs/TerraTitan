@@ -6,14 +6,14 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsEc2LocalGatewaysConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_local_gateways#id DataAwsEc2LocalGateways#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_local_gateways#id DataAwsEc2LocalGateways#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_local_gateways#tags DataAwsEc2LocalGateways#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_local_gateways#tags DataAwsEc2LocalGateways#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -21,23 +21,23 @@ export interface DataAwsEc2LocalGatewaysConfig extends cdktf.TerraformMetaArgume
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_local_gateways#filter DataAwsEc2LocalGateways#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_local_gateways#filter DataAwsEc2LocalGateways#filter}
     */
     readonly filter?: DataAwsEc2LocalGatewaysFilter[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_local_gateways#timeouts DataAwsEc2LocalGateways#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_local_gateways#timeouts DataAwsEc2LocalGateways#timeouts}
     */
     readonly timeouts?: DataAwsEc2LocalGatewaysTimeouts;
 }
 export interface DataAwsEc2LocalGatewaysFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_local_gateways#name DataAwsEc2LocalGateways#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_local_gateways#name DataAwsEc2LocalGateways#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_local_gateways#values DataAwsEc2LocalGateways#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_local_gateways#values DataAwsEc2LocalGateways#values}
     */
     readonly values: string[];
 }
@@ -82,7 +82,7 @@ export declare class DataAwsEc2LocalGatewaysFilterList extends cdktf.ComplexList
 }
 export interface DataAwsEc2LocalGatewaysTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_local_gateways#read DataAwsEc2LocalGateways#read}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_local_gateways#read DataAwsEc2LocalGateways#read}
     */
     readonly read?: string;
 }
@@ -105,7 +105,7 @@ export declare class DataAwsEc2LocalGatewaysTimeoutsOutputReference extends cdkt
     get readInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_local_gateways aws_ec2_local_gateways}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_local_gateways aws_ec2_local_gateways}
 */
 export declare class DataAwsEc2LocalGateways extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ec2_local_gateways";
@@ -113,12 +113,12 @@ export declare class DataAwsEc2LocalGateways extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsEc2LocalGateways resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsEc2LocalGateways to import
-    * @param importFromId The id of the existing DataAwsEc2LocalGateways that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_local_gateways#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsEc2LocalGateways that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_local_gateways#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsEc2LocalGateways to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_local_gateways aws_ec2_local_gateways} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_local_gateways aws_ec2_local_gateways} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

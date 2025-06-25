@@ -8,7 +8,7 @@ export interface DataAwsSsoadminApplicationProvidersConfig extends cdktf.Terrafo
     /**
     * application_providers block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application_providers#application_providers DataAwsSsoadminApplicationProviders#application_providers}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application_providers#application_providers DataAwsSsoadminApplicationProviders#application_providers}
     */
     readonly applicationProviders?: DataAwsSsoadminApplicationProvidersApplicationProviders[] | cdktf.IResolvable;
 }
@@ -52,7 +52,7 @@ export interface DataAwsSsoadminApplicationProvidersApplicationProviders {
     /**
     * display_data block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application_providers#display_data DataAwsSsoadminApplicationProviders#display_data}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application_providers#display_data DataAwsSsoadminApplicationProviders#display_data}
     */
     readonly displayData?: DataAwsSsoadminApplicationProvidersApplicationProvidersDisplayData[] | cdktf.IResolvable;
 }
@@ -95,7 +95,7 @@ export declare class DataAwsSsoadminApplicationProvidersApplicationProvidersList
     get(index: number): DataAwsSsoadminApplicationProvidersApplicationProvidersOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application_providers aws_ssoadmin_application_providers}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application_providers aws_ssoadmin_application_providers}
 */
 export declare class DataAwsSsoadminApplicationProviders extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ssoadmin_application_providers";
@@ -103,12 +103,12 @@ export declare class DataAwsSsoadminApplicationProviders extends cdktf.Terraform
     * Generates CDKTF code for importing a DataAwsSsoadminApplicationProviders resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsSsoadminApplicationProviders to import
-    * @param importFromId The id of the existing DataAwsSsoadminApplicationProviders that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application_providers#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsSsoadminApplicationProviders that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application_providers#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsSsoadminApplicationProviders to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ssoadmin_application_providers aws_ssoadmin_application_providers} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ssoadmin_application_providers aws_ssoadmin_application_providers} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

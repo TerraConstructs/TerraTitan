@@ -6,24 +6,24 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface LambdaCodeSigningConfigConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lambda_code_signing_config#description LambdaCodeSigningConfig#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lambda_code_signing_config#description LambdaCodeSigningConfig#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lambda_code_signing_config#id LambdaCodeSigningConfig#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lambda_code_signing_config#id LambdaCodeSigningConfig#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lambda_code_signing_config#tags LambdaCodeSigningConfig#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lambda_code_signing_config#tags LambdaCodeSigningConfig#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lambda_code_signing_config#tags_all LambdaCodeSigningConfig#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lambda_code_signing_config#tags_all LambdaCodeSigningConfig#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
@@ -31,19 +31,19 @@ export interface LambdaCodeSigningConfigConfig extends cdktf.TerraformMetaArgume
     /**
     * allowed_publishers block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lambda_code_signing_config#allowed_publishers LambdaCodeSigningConfig#allowed_publishers}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lambda_code_signing_config#allowed_publishers LambdaCodeSigningConfig#allowed_publishers}
     */
     readonly allowedPublishers: LambdaCodeSigningConfigAllowedPublishers;
     /**
     * policies block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lambda_code_signing_config#policies LambdaCodeSigningConfig#policies}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lambda_code_signing_config#policies LambdaCodeSigningConfig#policies}
     */
     readonly policies?: LambdaCodeSigningConfigPolicies;
 }
 export interface LambdaCodeSigningConfigAllowedPublishers {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lambda_code_signing_config#signing_profile_version_arns LambdaCodeSigningConfig#signing_profile_version_arns}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lambda_code_signing_config#signing_profile_version_arns LambdaCodeSigningConfig#signing_profile_version_arns}
     */
     readonly signingProfileVersionArns: string[];
 }
@@ -65,7 +65,7 @@ export declare class LambdaCodeSigningConfigAllowedPublishersOutputReference ext
 }
 export interface LambdaCodeSigningConfigPolicies {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lambda_code_signing_config#untrusted_artifact_on_deployment LambdaCodeSigningConfig#untrusted_artifact_on_deployment}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lambda_code_signing_config#untrusted_artifact_on_deployment LambdaCodeSigningConfig#untrusted_artifact_on_deployment}
     */
     readonly untrustedArtifactOnDeployment: string;
 }
@@ -86,7 +86,7 @@ export declare class LambdaCodeSigningConfigPoliciesOutputReference extends cdkt
     get untrustedArtifactOnDeploymentInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lambda_code_signing_config aws_lambda_code_signing_config}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lambda_code_signing_config aws_lambda_code_signing_config}
 */
 export declare class LambdaCodeSigningConfig extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_lambda_code_signing_config";
@@ -94,12 +94,12 @@ export declare class LambdaCodeSigningConfig extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a LambdaCodeSigningConfig resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the LambdaCodeSigningConfig to import
-    * @param importFromId The id of the existing LambdaCodeSigningConfig that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lambda_code_signing_config#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing LambdaCodeSigningConfig that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lambda_code_signing_config#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the LambdaCodeSigningConfig to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/lambda_code_signing_config aws_lambda_code_signing_config} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/lambda_code_signing_config aws_lambda_code_signing_config} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

@@ -6,34 +6,34 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface ResourcegroupsResourceConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/resourcegroups_resource#group_arn ResourcegroupsResource#group_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/resourcegroups_resource#group_arn ResourcegroupsResource#group_arn}
     */
     readonly groupArn: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/resourcegroups_resource#id ResourcegroupsResource#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/resourcegroups_resource#id ResourcegroupsResource#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/resourcegroups_resource#resource_arn ResourcegroupsResource#resource_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/resourcegroups_resource#resource_arn ResourcegroupsResource#resource_arn}
     */
     readonly resourceArn: string;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/resourcegroups_resource#timeouts ResourcegroupsResource#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/resourcegroups_resource#timeouts ResourcegroupsResource#timeouts}
     */
     readonly timeouts?: ResourcegroupsResourceTimeouts;
 }
 export interface ResourcegroupsResourceTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/resourcegroups_resource#create ResourcegroupsResource#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/resourcegroups_resource#create ResourcegroupsResource#create}
     */
     readonly create?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/resourcegroups_resource#delete ResourcegroupsResource#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/resourcegroups_resource#delete ResourcegroupsResource#delete}
     */
     readonly delete?: string;
 }
@@ -61,7 +61,7 @@ export declare class ResourcegroupsResourceTimeoutsOutputReference extends cdktf
     get deleteInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/resourcegroups_resource aws_resourcegroups_resource}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/resourcegroups_resource aws_resourcegroups_resource}
 */
 export declare class ResourcegroupsResource extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_resourcegroups_resource";
@@ -69,12 +69,12 @@ export declare class ResourcegroupsResource extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a ResourcegroupsResource resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the ResourcegroupsResource to import
-    * @param importFromId The id of the existing ResourcegroupsResource that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/resourcegroups_resource#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing ResourcegroupsResource that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/resourcegroups_resource#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the ResourcegroupsResource to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/resourcegroups_resource aws_resourcegroups_resource} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/resourcegroups_resource aws_resourcegroups_resource} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

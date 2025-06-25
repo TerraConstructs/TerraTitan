@@ -6,15 +6,15 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface CleanroomsMembershipConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#collaboration_id CleanroomsMembership#collaboration_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#collaboration_id CleanroomsMembership#collaboration_id}
     */
     readonly collaborationId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#query_log_status CleanroomsMembership#query_log_status}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#query_log_status CleanroomsMembership#query_log_status}
     */
     readonly queryLogStatus: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#tags CleanroomsMembership#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#tags CleanroomsMembership#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -22,27 +22,27 @@ export interface CleanroomsMembershipConfig extends cdktf.TerraformMetaArguments
     /**
     * default_result_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#default_result_configuration CleanroomsMembership#default_result_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#default_result_configuration CleanroomsMembership#default_result_configuration}
     */
     readonly defaultResultConfiguration?: CleanroomsMembershipDefaultResultConfiguration[] | cdktf.IResolvable;
     /**
     * payment_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#payment_configuration CleanroomsMembership#payment_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#payment_configuration CleanroomsMembership#payment_configuration}
     */
     readonly paymentConfiguration?: CleanroomsMembershipPaymentConfiguration[] | cdktf.IResolvable;
 }
 export interface CleanroomsMembershipDefaultResultConfigurationOutputConfigurationS3 {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#bucket CleanroomsMembership#bucket}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#bucket CleanroomsMembership#bucket}
     */
     readonly bucket: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#key_prefix CleanroomsMembership#key_prefix}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#key_prefix CleanroomsMembership#key_prefix}
     */
     readonly keyPrefix?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#result_format CleanroomsMembership#result_format}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#result_format CleanroomsMembership#result_format}
     */
     readonly resultFormat: string;
 }
@@ -94,7 +94,7 @@ export interface CleanroomsMembershipDefaultResultConfigurationOutputConfigurati
     /**
     * s3 block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#s3 CleanroomsMembership#s3}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#s3 CleanroomsMembership#s3}
     */
     readonly s3?: CleanroomsMembershipDefaultResultConfigurationOutputConfigurationS3[] | cdktf.IResolvable;
 }
@@ -136,13 +136,13 @@ export declare class CleanroomsMembershipDefaultResultConfigurationOutputConfigu
 }
 export interface CleanroomsMembershipDefaultResultConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#role_arn CleanroomsMembership#role_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#role_arn CleanroomsMembership#role_arn}
     */
     readonly roleArn?: string;
     /**
     * output_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#output_configuration CleanroomsMembership#output_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#output_configuration CleanroomsMembership#output_configuration}
     */
     readonly outputConfiguration?: CleanroomsMembershipDefaultResultConfigurationOutputConfiguration[] | cdktf.IResolvable;
 }
@@ -189,7 +189,7 @@ export declare class CleanroomsMembershipDefaultResultConfigurationList extends 
 }
 export interface CleanroomsMembershipPaymentConfigurationQueryCompute {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#is_responsible CleanroomsMembership#is_responsible}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#is_responsible CleanroomsMembership#is_responsible}
     */
     readonly isResponsible: boolean | cdktf.IResolvable;
 }
@@ -232,7 +232,7 @@ export interface CleanroomsMembershipPaymentConfiguration {
     /**
     * query_compute block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#query_compute CleanroomsMembership#query_compute}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#query_compute CleanroomsMembership#query_compute}
     */
     readonly queryCompute?: CleanroomsMembershipPaymentConfigurationQueryCompute[] | cdktf.IResolvable;
 }
@@ -273,7 +273,7 @@ export declare class CleanroomsMembershipPaymentConfigurationList extends cdktf.
     get(index: number): CleanroomsMembershipPaymentConfigurationOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership aws_cleanrooms_membership}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership aws_cleanrooms_membership}
 */
 export declare class CleanroomsMembership extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_cleanrooms_membership";
@@ -281,12 +281,12 @@ export declare class CleanroomsMembership extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a CleanroomsMembership resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the CleanroomsMembership to import
-    * @param importFromId The id of the existing CleanroomsMembership that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing CleanroomsMembership that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the CleanroomsMembership to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/cleanrooms_membership aws_cleanrooms_membership} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/cleanrooms_membership aws_cleanrooms_membership} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

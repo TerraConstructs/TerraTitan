@@ -6,18 +6,18 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsDmsEndpointConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/dms_endpoint#endpoint_id DataAwsDmsEndpoint#endpoint_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/dms_endpoint#endpoint_id DataAwsDmsEndpoint#endpoint_id}
     */
     readonly endpointId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/dms_endpoint#id DataAwsDmsEndpoint#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/dms_endpoint#id DataAwsDmsEndpoint#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/dms_endpoint#tags DataAwsDmsEndpoint#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/dms_endpoint#tags DataAwsDmsEndpoint#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -132,6 +132,7 @@ export declare class DataAwsDmsEndpointKinesisSettingsOutputReference extends cd
     get partitionIncludeSchemaTable(): cdktf.IResolvable;
     get serviceAccessRoleArn(): string;
     get streamArn(): string;
+    get useLargeIntegerValue(): cdktf.IResolvable;
 }
 export declare class DataAwsDmsEndpointKinesisSettingsList extends cdktf.ComplexList {
     protected terraformResource: cdktf.IInterpolatingParent;
@@ -377,7 +378,7 @@ export declare class DataAwsDmsEndpointS3SettingsList extends cdktf.ComplexList 
     get(index: number): DataAwsDmsEndpointS3SettingsOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/dms_endpoint aws_dms_endpoint}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/dms_endpoint aws_dms_endpoint}
 */
 export declare class DataAwsDmsEndpoint extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_dms_endpoint";
@@ -385,12 +386,12 @@ export declare class DataAwsDmsEndpoint extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsDmsEndpoint resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsDmsEndpoint to import
-    * @param importFromId The id of the existing DataAwsDmsEndpoint that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/dms_endpoint#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsDmsEndpoint that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/dms_endpoint#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsDmsEndpoint to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/dms_endpoint aws_dms_endpoint} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/dms_endpoint aws_dms_endpoint} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

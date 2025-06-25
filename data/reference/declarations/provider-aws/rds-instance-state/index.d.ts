@@ -6,17 +6,17 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface RdsInstanceStateConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/rds_instance_state#identifier RdsInstanceState#identifier}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_instance_state#identifier RdsInstanceState#identifier}
     */
     readonly identifier: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/rds_instance_state#state RdsInstanceState#state}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_instance_state#state RdsInstanceState#state}
     */
     readonly state: string;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/rds_instance_state#timeouts RdsInstanceState#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_instance_state#timeouts RdsInstanceState#timeouts}
     */
     readonly timeouts?: RdsInstanceStateTimeouts;
 }
@@ -24,13 +24,13 @@ export interface RdsInstanceStateTimeouts {
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/rds_instance_state#create RdsInstanceState#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_instance_state#create RdsInstanceState#create}
     */
     readonly create?: string;
     /**
     * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/rds_instance_state#update RdsInstanceState#update}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_instance_state#update RdsInstanceState#update}
     */
     readonly update?: string;
 }
@@ -58,7 +58,7 @@ export declare class RdsInstanceStateTimeoutsOutputReference extends cdktf.Compl
     get updateInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/rds_instance_state aws_rds_instance_state}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_instance_state aws_rds_instance_state}
 */
 export declare class RdsInstanceState extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_rds_instance_state";
@@ -66,12 +66,12 @@ export declare class RdsInstanceState extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a RdsInstanceState resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the RdsInstanceState to import
-    * @param importFromId The id of the existing RdsInstanceState that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/rds_instance_state#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing RdsInstanceState that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_instance_state#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the RdsInstanceState to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/rds_instance_state aws_rds_instance_state} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_instance_state aws_rds_instance_state} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

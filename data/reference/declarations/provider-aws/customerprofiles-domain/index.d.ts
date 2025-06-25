@@ -6,36 +6,36 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface CustomerprofilesDomainConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#dead_letter_queue_url CustomerprofilesDomain#dead_letter_queue_url}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#dead_letter_queue_url CustomerprofilesDomain#dead_letter_queue_url}
     */
     readonly deadLetterQueueUrl?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#default_encryption_key CustomerprofilesDomain#default_encryption_key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#default_encryption_key CustomerprofilesDomain#default_encryption_key}
     */
     readonly defaultEncryptionKey?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#default_expiration_days CustomerprofilesDomain#default_expiration_days}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#default_expiration_days CustomerprofilesDomain#default_expiration_days}
     */
     readonly defaultExpirationDays: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#domain_name CustomerprofilesDomain#domain_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#domain_name CustomerprofilesDomain#domain_name}
     */
     readonly domainName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#id CustomerprofilesDomain#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#id CustomerprofilesDomain#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#tags CustomerprofilesDomain#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#tags CustomerprofilesDomain#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#tags_all CustomerprofilesDomain#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#tags_all CustomerprofilesDomain#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
@@ -43,23 +43,23 @@ export interface CustomerprofilesDomainConfig extends cdktf.TerraformMetaArgumen
     /**
     * matching block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#matching CustomerprofilesDomain#matching}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#matching CustomerprofilesDomain#matching}
     */
     readonly matching?: CustomerprofilesDomainMatching;
     /**
     * rule_based_matching block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#rule_based_matching CustomerprofilesDomain#rule_based_matching}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#rule_based_matching CustomerprofilesDomain#rule_based_matching}
     */
     readonly ruleBasedMatching?: CustomerprofilesDomainRuleBasedMatching;
 }
 export interface CustomerprofilesDomainMatchingAutoMergingConflictResolution {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#conflict_resolving_model CustomerprofilesDomain#conflict_resolving_model}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#conflict_resolving_model CustomerprofilesDomain#conflict_resolving_model}
     */
     readonly conflictResolvingModel: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#source_name CustomerprofilesDomain#source_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#source_name CustomerprofilesDomain#source_name}
     */
     readonly sourceName?: string;
 }
@@ -86,7 +86,7 @@ export declare class CustomerprofilesDomainMatchingAutoMergingConflictResolution
 }
 export interface CustomerprofilesDomainMatchingAutoMergingConsolidation {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#matching_attributes_list CustomerprofilesDomain#matching_attributes_list}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#matching_attributes_list CustomerprofilesDomain#matching_attributes_list}
     */
     readonly matchingAttributesList: string[][] | cdktf.IResolvable;
 }
@@ -108,23 +108,23 @@ export declare class CustomerprofilesDomainMatchingAutoMergingConsolidationOutpu
 }
 export interface CustomerprofilesDomainMatchingAutoMerging {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#enabled CustomerprofilesDomain#enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#enabled CustomerprofilesDomain#enabled}
     */
     readonly enabled: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#min_allowed_confidence_score_for_merging CustomerprofilesDomain#min_allowed_confidence_score_for_merging}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#min_allowed_confidence_score_for_merging CustomerprofilesDomain#min_allowed_confidence_score_for_merging}
     */
     readonly minAllowedConfidenceScoreForMerging?: number;
     /**
     * conflict_resolution block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#conflict_resolution CustomerprofilesDomain#conflict_resolution}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#conflict_resolution CustomerprofilesDomain#conflict_resolution}
     */
     readonly conflictResolution?: CustomerprofilesDomainMatchingAutoMergingConflictResolution;
     /**
     * consolidation block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#consolidation CustomerprofilesDomain#consolidation}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#consolidation CustomerprofilesDomain#consolidation}
     */
     readonly consolidation?: CustomerprofilesDomainMatchingAutoMergingConsolidation;
 }
@@ -161,11 +161,11 @@ export declare class CustomerprofilesDomainMatchingAutoMergingOutputReference ex
 }
 export interface CustomerprofilesDomainMatchingExportingConfigS3Exporting {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#s3_bucket_name CustomerprofilesDomain#s3_bucket_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#s3_bucket_name CustomerprofilesDomain#s3_bucket_name}
     */
     readonly s3BucketName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#s3_key_name CustomerprofilesDomain#s3_key_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#s3_key_name CustomerprofilesDomain#s3_key_name}
     */
     readonly s3KeyName?: string;
 }
@@ -194,7 +194,7 @@ export interface CustomerprofilesDomainMatchingExportingConfig {
     /**
     * s3_exporting block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#s3_exporting CustomerprofilesDomain#s3_exporting}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#s3_exporting CustomerprofilesDomain#s3_exporting}
     */
     readonly s3Exporting?: CustomerprofilesDomainMatchingExportingConfigS3Exporting;
 }
@@ -217,11 +217,11 @@ export declare class CustomerprofilesDomainMatchingExportingConfigOutputReferenc
 }
 export interface CustomerprofilesDomainMatchingJobSchedule {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#day_of_the_week CustomerprofilesDomain#day_of_the_week}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#day_of_the_week CustomerprofilesDomain#day_of_the_week}
     */
     readonly dayOfTheWeek: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#time CustomerprofilesDomain#time}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#time CustomerprofilesDomain#time}
     */
     readonly time: string;
 }
@@ -247,25 +247,25 @@ export declare class CustomerprofilesDomainMatchingJobScheduleOutputReference ex
 }
 export interface CustomerprofilesDomainMatching {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#enabled CustomerprofilesDomain#enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#enabled CustomerprofilesDomain#enabled}
     */
     readonly enabled: boolean | cdktf.IResolvable;
     /**
     * auto_merging block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#auto_merging CustomerprofilesDomain#auto_merging}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#auto_merging CustomerprofilesDomain#auto_merging}
     */
     readonly autoMerging?: CustomerprofilesDomainMatchingAutoMerging;
     /**
     * exporting_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#exporting_config CustomerprofilesDomain#exporting_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#exporting_config CustomerprofilesDomain#exporting_config}
     */
     readonly exportingConfig?: CustomerprofilesDomainMatchingExportingConfig;
     /**
     * job_schedule block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#job_schedule CustomerprofilesDomain#job_schedule}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#job_schedule CustomerprofilesDomain#job_schedule}
     */
     readonly jobSchedule?: CustomerprofilesDomainMatchingJobSchedule;
 }
@@ -302,19 +302,19 @@ export declare class CustomerprofilesDomainMatchingOutputReference extends cdktf
 }
 export interface CustomerprofilesDomainRuleBasedMatchingAttributeTypesSelector {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#address CustomerprofilesDomain#address}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#address CustomerprofilesDomain#address}
     */
     readonly address?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#attribute_matching_model CustomerprofilesDomain#attribute_matching_model}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#attribute_matching_model CustomerprofilesDomain#attribute_matching_model}
     */
     readonly attributeMatchingModel: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#email_address CustomerprofilesDomain#email_address}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#email_address CustomerprofilesDomain#email_address}
     */
     readonly emailAddress?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#phone_number CustomerprofilesDomain#phone_number}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#phone_number CustomerprofilesDomain#phone_number}
     */
     readonly phoneNumber?: string[];
 }
@@ -351,11 +351,11 @@ export declare class CustomerprofilesDomainRuleBasedMatchingAttributeTypesSelect
 }
 export interface CustomerprofilesDomainRuleBasedMatchingConflictResolution {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#conflict_resolving_model CustomerprofilesDomain#conflict_resolving_model}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#conflict_resolving_model CustomerprofilesDomain#conflict_resolving_model}
     */
     readonly conflictResolvingModel: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#source_name CustomerprofilesDomain#source_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#source_name CustomerprofilesDomain#source_name}
     */
     readonly sourceName?: string;
 }
@@ -382,11 +382,11 @@ export declare class CustomerprofilesDomainRuleBasedMatchingConflictResolutionOu
 }
 export interface CustomerprofilesDomainRuleBasedMatchingExportingConfigS3Exporting {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#s3_bucket_name CustomerprofilesDomain#s3_bucket_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#s3_bucket_name CustomerprofilesDomain#s3_bucket_name}
     */
     readonly s3BucketName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#s3_key_name CustomerprofilesDomain#s3_key_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#s3_key_name CustomerprofilesDomain#s3_key_name}
     */
     readonly s3KeyName?: string;
 }
@@ -415,7 +415,7 @@ export interface CustomerprofilesDomainRuleBasedMatchingExportingConfig {
     /**
     * s3_exporting block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#s3_exporting CustomerprofilesDomain#s3_exporting}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#s3_exporting CustomerprofilesDomain#s3_exporting}
     */
     readonly s3Exporting?: CustomerprofilesDomainRuleBasedMatchingExportingConfigS3Exporting;
 }
@@ -438,7 +438,7 @@ export declare class CustomerprofilesDomainRuleBasedMatchingExportingConfigOutpu
 }
 export interface CustomerprofilesDomainRuleBasedMatchingMatchingRules {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#rule CustomerprofilesDomain#rule}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#rule CustomerprofilesDomain#rule}
     */
     readonly rule: string[];
 }
@@ -479,43 +479,43 @@ export declare class CustomerprofilesDomainRuleBasedMatchingMatchingRulesList ex
 }
 export interface CustomerprofilesDomainRuleBasedMatching {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#enabled CustomerprofilesDomain#enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#enabled CustomerprofilesDomain#enabled}
     */
     readonly enabled: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#max_allowed_rule_level_for_matching CustomerprofilesDomain#max_allowed_rule_level_for_matching}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#max_allowed_rule_level_for_matching CustomerprofilesDomain#max_allowed_rule_level_for_matching}
     */
     readonly maxAllowedRuleLevelForMatching?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#max_allowed_rule_level_for_merging CustomerprofilesDomain#max_allowed_rule_level_for_merging}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#max_allowed_rule_level_for_merging CustomerprofilesDomain#max_allowed_rule_level_for_merging}
     */
     readonly maxAllowedRuleLevelForMerging?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#status CustomerprofilesDomain#status}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#status CustomerprofilesDomain#status}
     */
     readonly status?: string;
     /**
     * attribute_types_selector block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#attribute_types_selector CustomerprofilesDomain#attribute_types_selector}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#attribute_types_selector CustomerprofilesDomain#attribute_types_selector}
     */
     readonly attributeTypesSelector?: CustomerprofilesDomainRuleBasedMatchingAttributeTypesSelector;
     /**
     * conflict_resolution block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#conflict_resolution CustomerprofilesDomain#conflict_resolution}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#conflict_resolution CustomerprofilesDomain#conflict_resolution}
     */
     readonly conflictResolution?: CustomerprofilesDomainRuleBasedMatchingConflictResolution;
     /**
     * exporting_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#exporting_config CustomerprofilesDomain#exporting_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#exporting_config CustomerprofilesDomain#exporting_config}
     */
     readonly exportingConfig?: CustomerprofilesDomainRuleBasedMatchingExportingConfig;
     /**
     * matching_rules block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#matching_rules CustomerprofilesDomain#matching_rules}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#matching_rules CustomerprofilesDomain#matching_rules}
     */
     readonly matchingRules?: CustomerprofilesDomainRuleBasedMatchingMatchingRules[] | cdktf.IResolvable;
 }
@@ -571,7 +571,7 @@ export declare class CustomerprofilesDomainRuleBasedMatchingOutputReference exte
     get matchingRulesInput(): cdktf.IResolvable | CustomerprofilesDomainRuleBasedMatchingMatchingRules[] | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain aws_customerprofiles_domain}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain aws_customerprofiles_domain}
 */
 export declare class CustomerprofilesDomain extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_customerprofiles_domain";
@@ -579,12 +579,12 @@ export declare class CustomerprofilesDomain extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a CustomerprofilesDomain resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the CustomerprofilesDomain to import
-    * @param importFromId The id of the existing CustomerprofilesDomain that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing CustomerprofilesDomain that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the CustomerprofilesDomain to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/customerprofiles_domain aws_customerprofiles_domain} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/customerprofiles_domain aws_customerprofiles_domain} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

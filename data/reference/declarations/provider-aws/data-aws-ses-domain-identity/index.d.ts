@@ -6,11 +6,11 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsSesDomainIdentityConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ses_domain_identity#domain DataAwsSesDomainIdentity#domain}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ses_domain_identity#domain DataAwsSesDomainIdentity#domain}
     */
     readonly domain: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ses_domain_identity#id DataAwsSesDomainIdentity#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ses_domain_identity#id DataAwsSesDomainIdentity#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -18,7 +18,7 @@ export interface DataAwsSesDomainIdentityConfig extends cdktf.TerraformMetaArgum
     readonly id?: string;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ses_domain_identity aws_ses_domain_identity}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ses_domain_identity aws_ses_domain_identity}
 */
 export declare class DataAwsSesDomainIdentity extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ses_domain_identity";
@@ -26,12 +26,12 @@ export declare class DataAwsSesDomainIdentity extends cdktf.TerraformDataSource 
     * Generates CDKTF code for importing a DataAwsSesDomainIdentity resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsSesDomainIdentity to import
-    * @param importFromId The id of the existing DataAwsSesDomainIdentity that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ses_domain_identity#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsSesDomainIdentity that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ses_domain_identity#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsSesDomainIdentity to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ses_domain_identity aws_ses_domain_identity} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ses_domain_identity aws_ses_domain_identity} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

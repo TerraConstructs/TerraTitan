@@ -6,28 +6,28 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface BackupReportPlanConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#description BackupReportPlan#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#description BackupReportPlan#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#id BackupReportPlan#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#id BackupReportPlan#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#name BackupReportPlan#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#name BackupReportPlan#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#tags BackupReportPlan#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#tags BackupReportPlan#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#tags_all BackupReportPlan#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#tags_all BackupReportPlan#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
@@ -35,27 +35,27 @@ export interface BackupReportPlanConfig extends cdktf.TerraformMetaArguments {
     /**
     * report_delivery_channel block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#report_delivery_channel BackupReportPlan#report_delivery_channel}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#report_delivery_channel BackupReportPlan#report_delivery_channel}
     */
     readonly reportDeliveryChannel: BackupReportPlanReportDeliveryChannel;
     /**
     * report_setting block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#report_setting BackupReportPlan#report_setting}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#report_setting BackupReportPlan#report_setting}
     */
     readonly reportSetting: BackupReportPlanReportSetting;
 }
 export interface BackupReportPlanReportDeliveryChannel {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#formats BackupReportPlan#formats}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#formats BackupReportPlan#formats}
     */
     readonly formats?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#s3_bucket_name BackupReportPlan#s3_bucket_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#s3_bucket_name BackupReportPlan#s3_bucket_name}
     */
     readonly s3BucketName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#s3_key_prefix BackupReportPlan#s3_key_prefix}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#s3_key_prefix BackupReportPlan#s3_key_prefix}
     */
     readonly s3KeyPrefix?: string;
 }
@@ -87,27 +87,27 @@ export declare class BackupReportPlanReportDeliveryChannelOutputReference extend
 }
 export interface BackupReportPlanReportSetting {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#accounts BackupReportPlan#accounts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#accounts BackupReportPlan#accounts}
     */
     readonly accounts?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#framework_arns BackupReportPlan#framework_arns}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#framework_arns BackupReportPlan#framework_arns}
     */
     readonly frameworkArns?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#number_of_frameworks BackupReportPlan#number_of_frameworks}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#number_of_frameworks BackupReportPlan#number_of_frameworks}
     */
     readonly numberOfFrameworks?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#organization_units BackupReportPlan#organization_units}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#organization_units BackupReportPlan#organization_units}
     */
     readonly organizationUnits?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#regions BackupReportPlan#regions}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#regions BackupReportPlan#regions}
     */
     readonly regions?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#report_template BackupReportPlan#report_template}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#report_template BackupReportPlan#report_template}
     */
     readonly reportTemplate: string;
 }
@@ -153,7 +153,7 @@ export declare class BackupReportPlanReportSettingOutputReference extends cdktf.
     get reportTemplateInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan aws_backup_report_plan}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan aws_backup_report_plan}
 */
 export declare class BackupReportPlan extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_backup_report_plan";
@@ -161,12 +161,12 @@ export declare class BackupReportPlan extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a BackupReportPlan resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the BackupReportPlan to import
-    * @param importFromId The id of the existing BackupReportPlan that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing BackupReportPlan that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the BackupReportPlan to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/backup_report_plan aws_backup_report_plan} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/backup_report_plan aws_backup_report_plan} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

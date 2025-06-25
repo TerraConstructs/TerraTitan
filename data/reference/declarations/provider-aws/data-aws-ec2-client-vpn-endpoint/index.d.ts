@@ -6,18 +6,18 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsEc2ClientVpnEndpointConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_client_vpn_endpoint#client_vpn_endpoint_id DataAwsEc2ClientVpnEndpoint#client_vpn_endpoint_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_client_vpn_endpoint#client_vpn_endpoint_id DataAwsEc2ClientVpnEndpoint#client_vpn_endpoint_id}
     */
     readonly clientVpnEndpointId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_client_vpn_endpoint#id DataAwsEc2ClientVpnEndpoint#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_client_vpn_endpoint#id DataAwsEc2ClientVpnEndpoint#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_client_vpn_endpoint#tags DataAwsEc2ClientVpnEndpoint#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_client_vpn_endpoint#tags DataAwsEc2ClientVpnEndpoint#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -25,13 +25,13 @@ export interface DataAwsEc2ClientVpnEndpointConfig extends cdktf.TerraformMetaAr
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_client_vpn_endpoint#filter DataAwsEc2ClientVpnEndpoint#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_client_vpn_endpoint#filter DataAwsEc2ClientVpnEndpoint#filter}
     */
     readonly filter?: DataAwsEc2ClientVpnEndpointFilter[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_client_vpn_endpoint#timeouts DataAwsEc2ClientVpnEndpoint#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_client_vpn_endpoint#timeouts DataAwsEc2ClientVpnEndpoint#timeouts}
     */
     readonly timeouts?: DataAwsEc2ClientVpnEndpointTimeouts;
 }
@@ -137,6 +137,38 @@ export declare class DataAwsEc2ClientVpnEndpointClientLoginBannerOptionsList ext
     */
     get(index: number): DataAwsEc2ClientVpnEndpointClientLoginBannerOptionsOutputReference;
 }
+export interface DataAwsEc2ClientVpnEndpointClientRouteEnforcementOptions {
+}
+export declare function dataAwsEc2ClientVpnEndpointClientRouteEnforcementOptionsToTerraform(struct?: DataAwsEc2ClientVpnEndpointClientRouteEnforcementOptions): any;
+export declare function dataAwsEc2ClientVpnEndpointClientRouteEnforcementOptionsToHclTerraform(struct?: DataAwsEc2ClientVpnEndpointClientRouteEnforcementOptions): any;
+export declare class DataAwsEc2ClientVpnEndpointClientRouteEnforcementOptionsOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param complexObjectIndex the index of this item in the list
+    * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean);
+    get internalValue(): DataAwsEc2ClientVpnEndpointClientRouteEnforcementOptions | undefined;
+    set internalValue(value: DataAwsEc2ClientVpnEndpointClientRouteEnforcementOptions | undefined);
+    get enforced(): cdktf.IResolvable;
+}
+export declare class DataAwsEc2ClientVpnEndpointClientRouteEnforcementOptionsList extends cdktf.ComplexList {
+    protected terraformResource: cdktf.IInterpolatingParent;
+    protected terraformAttribute: string;
+    protected wrapsSet: boolean;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, wrapsSet: boolean);
+    /**
+    * @param index the index of the item to return
+    */
+    get(index: number): DataAwsEc2ClientVpnEndpointClientRouteEnforcementOptionsOutputReference;
+}
 export interface DataAwsEc2ClientVpnEndpointConnectionLogOptions {
 }
 export declare function dataAwsEc2ClientVpnEndpointConnectionLogOptionsToTerraform(struct?: DataAwsEc2ClientVpnEndpointConnectionLogOptions): any;
@@ -173,11 +205,11 @@ export declare class DataAwsEc2ClientVpnEndpointConnectionLogOptionsList extends
 }
 export interface DataAwsEc2ClientVpnEndpointFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_client_vpn_endpoint#name DataAwsEc2ClientVpnEndpoint#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_client_vpn_endpoint#name DataAwsEc2ClientVpnEndpoint#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_client_vpn_endpoint#values DataAwsEc2ClientVpnEndpoint#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_client_vpn_endpoint#values DataAwsEc2ClientVpnEndpoint#values}
     */
     readonly values: string[];
 }
@@ -222,7 +254,7 @@ export declare class DataAwsEc2ClientVpnEndpointFilterList extends cdktf.Complex
 }
 export interface DataAwsEc2ClientVpnEndpointTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_client_vpn_endpoint#read DataAwsEc2ClientVpnEndpoint#read}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_client_vpn_endpoint#read DataAwsEc2ClientVpnEndpoint#read}
     */
     readonly read?: string;
 }
@@ -245,7 +277,7 @@ export declare class DataAwsEc2ClientVpnEndpointTimeoutsOutputReference extends 
     get readInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_client_vpn_endpoint aws_ec2_client_vpn_endpoint}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_client_vpn_endpoint aws_ec2_client_vpn_endpoint}
 */
 export declare class DataAwsEc2ClientVpnEndpoint extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ec2_client_vpn_endpoint";
@@ -253,12 +285,12 @@ export declare class DataAwsEc2ClientVpnEndpoint extends cdktf.TerraformDataSour
     * Generates CDKTF code for importing a DataAwsEc2ClientVpnEndpoint resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsEc2ClientVpnEndpoint to import
-    * @param importFromId The id of the existing DataAwsEc2ClientVpnEndpoint that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_client_vpn_endpoint#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsEc2ClientVpnEndpoint that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_client_vpn_endpoint#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsEc2ClientVpnEndpoint to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_client_vpn_endpoint aws_ec2_client_vpn_endpoint} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_client_vpn_endpoint aws_ec2_client_vpn_endpoint} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
@@ -273,6 +305,8 @@ export declare class DataAwsEc2ClientVpnEndpoint extends cdktf.TerraformDataSour
     get clientConnectOptions(): DataAwsEc2ClientVpnEndpointClientConnectOptionsList;
     private _clientLoginBannerOptions;
     get clientLoginBannerOptions(): DataAwsEc2ClientVpnEndpointClientLoginBannerOptionsList;
+    private _clientRouteEnforcementOptions;
+    get clientRouteEnforcementOptions(): DataAwsEc2ClientVpnEndpointClientRouteEnforcementOptionsList;
     private _clientVpnEndpointId?;
     get clientVpnEndpointId(): string;
     set clientVpnEndpointId(value: string);

@@ -6,14 +6,14 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsEipsConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/eips#id DataAwsEips#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/eips#id DataAwsEips#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/eips#tags DataAwsEips#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/eips#tags DataAwsEips#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -21,23 +21,23 @@ export interface DataAwsEipsConfig extends cdktf.TerraformMetaArguments {
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/eips#filter DataAwsEips#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/eips#filter DataAwsEips#filter}
     */
     readonly filter?: DataAwsEipsFilter[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/eips#timeouts DataAwsEips#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/eips#timeouts DataAwsEips#timeouts}
     */
     readonly timeouts?: DataAwsEipsTimeouts;
 }
 export interface DataAwsEipsFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/eips#name DataAwsEips#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/eips#name DataAwsEips#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/eips#values DataAwsEips#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/eips#values DataAwsEips#values}
     */
     readonly values: string[];
 }
@@ -82,7 +82,7 @@ export declare class DataAwsEipsFilterList extends cdktf.ComplexList {
 }
 export interface DataAwsEipsTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/eips#read DataAwsEips#read}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/eips#read DataAwsEips#read}
     */
     readonly read?: string;
 }
@@ -105,7 +105,7 @@ export declare class DataAwsEipsTimeoutsOutputReference extends cdktf.ComplexObj
     get readInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/eips aws_eips}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/eips aws_eips}
 */
 export declare class DataAwsEips extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_eips";
@@ -113,12 +113,12 @@ export declare class DataAwsEips extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsEips resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsEips to import
-    * @param importFromId The id of the existing DataAwsEips that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/eips#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsEips that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/eips#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsEips to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/eips aws_eips} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/eips aws_eips} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

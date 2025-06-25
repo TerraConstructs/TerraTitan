@@ -6,11 +6,11 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface SsmcontactsPlanConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan#contact_id SsmcontactsPlan#contact_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan#contact_id SsmcontactsPlan#contact_id}
     */
     readonly contactId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan#id SsmcontactsPlan#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan#id SsmcontactsPlan#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -19,17 +19,17 @@ export interface SsmcontactsPlanConfig extends cdktf.TerraformMetaArguments {
     /**
     * stage block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan#stage SsmcontactsPlan#stage}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan#stage SsmcontactsPlan#stage}
     */
     readonly stage: SsmcontactsPlanStage[] | cdktf.IResolvable;
 }
 export interface SsmcontactsPlanStageTargetChannelTargetInfo {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan#contact_channel_id SsmcontactsPlan#contact_channel_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan#contact_channel_id SsmcontactsPlan#contact_channel_id}
     */
     readonly contactChannelId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan#retry_interval_in_minutes SsmcontactsPlan#retry_interval_in_minutes}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan#retry_interval_in_minutes SsmcontactsPlan#retry_interval_in_minutes}
     */
     readonly retryIntervalInMinutes?: number;
 }
@@ -56,11 +56,11 @@ export declare class SsmcontactsPlanStageTargetChannelTargetInfoOutputReference 
 }
 export interface SsmcontactsPlanStageTargetContactTargetInfo {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan#contact_id SsmcontactsPlan#contact_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan#contact_id SsmcontactsPlan#contact_id}
     */
     readonly contactId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan#is_essential SsmcontactsPlan#is_essential}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan#is_essential SsmcontactsPlan#is_essential}
     */
     readonly isEssential: boolean | cdktf.IResolvable;
 }
@@ -89,13 +89,13 @@ export interface SsmcontactsPlanStageTarget {
     /**
     * channel_target_info block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan#channel_target_info SsmcontactsPlan#channel_target_info}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan#channel_target_info SsmcontactsPlan#channel_target_info}
     */
     readonly channelTargetInfo?: SsmcontactsPlanStageTargetChannelTargetInfo;
     /**
     * contact_target_info block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan#contact_target_info SsmcontactsPlan#contact_target_info}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan#contact_target_info SsmcontactsPlan#contact_target_info}
     */
     readonly contactTargetInfo?: SsmcontactsPlanStageTargetContactTargetInfo;
 }
@@ -142,13 +142,13 @@ export declare class SsmcontactsPlanStageTargetList extends cdktf.ComplexList {
 }
 export interface SsmcontactsPlanStage {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan#duration_in_minutes SsmcontactsPlan#duration_in_minutes}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan#duration_in_minutes SsmcontactsPlan#duration_in_minutes}
     */
     readonly durationInMinutes: number;
     /**
     * target block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan#target SsmcontactsPlan#target}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan#target SsmcontactsPlan#target}
     */
     readonly target?: SsmcontactsPlanStageTarget[] | cdktf.IResolvable;
 }
@@ -193,7 +193,7 @@ export declare class SsmcontactsPlanStageList extends cdktf.ComplexList {
     get(index: number): SsmcontactsPlanStageOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan aws_ssmcontacts_plan}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan aws_ssmcontacts_plan}
 */
 export declare class SsmcontactsPlan extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_ssmcontacts_plan";
@@ -201,12 +201,12 @@ export declare class SsmcontactsPlan extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a SsmcontactsPlan resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the SsmcontactsPlan to import
-    * @param importFromId The id of the existing SsmcontactsPlan that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing SsmcontactsPlan that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the SsmcontactsPlan to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/ssmcontacts_plan aws_ssmcontacts_plan} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/ssmcontacts_plan aws_ssmcontacts_plan} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

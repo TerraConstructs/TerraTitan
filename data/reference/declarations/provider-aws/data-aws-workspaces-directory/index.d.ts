@@ -6,22 +6,88 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsWorkspacesDirectoryConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/workspaces_directory#directory_id DataAwsWorkspacesDirectory#directory_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/workspaces_directory#directory_id DataAwsWorkspacesDirectory#directory_id}
     */
     readonly directoryId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/workspaces_directory#id DataAwsWorkspacesDirectory#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/workspaces_directory#id DataAwsWorkspacesDirectory#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/workspaces_directory#tags DataAwsWorkspacesDirectory#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/workspaces_directory#tags DataAwsWorkspacesDirectory#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
+}
+export interface DataAwsWorkspacesDirectoryActiveDirectoryConfig {
+}
+export declare function dataAwsWorkspacesDirectoryActiveDirectoryConfigToTerraform(struct?: DataAwsWorkspacesDirectoryActiveDirectoryConfig): any;
+export declare function dataAwsWorkspacesDirectoryActiveDirectoryConfigToHclTerraform(struct?: DataAwsWorkspacesDirectoryActiveDirectoryConfig): any;
+export declare class DataAwsWorkspacesDirectoryActiveDirectoryConfigOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param complexObjectIndex the index of this item in the list
+    * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean);
+    get internalValue(): DataAwsWorkspacesDirectoryActiveDirectoryConfig | undefined;
+    set internalValue(value: DataAwsWorkspacesDirectoryActiveDirectoryConfig | undefined);
+    get domainName(): string;
+    get serviceAccountSecretArn(): string;
+}
+export declare class DataAwsWorkspacesDirectoryActiveDirectoryConfigList extends cdktf.ComplexList {
+    protected terraformResource: cdktf.IInterpolatingParent;
+    protected terraformAttribute: string;
+    protected wrapsSet: boolean;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, wrapsSet: boolean);
+    /**
+    * @param index the index of the item to return
+    */
+    get(index: number): DataAwsWorkspacesDirectoryActiveDirectoryConfigOutputReference;
+}
+export interface DataAwsWorkspacesDirectoryCertificateBasedAuthProperties {
+}
+export declare function dataAwsWorkspacesDirectoryCertificateBasedAuthPropertiesToTerraform(struct?: DataAwsWorkspacesDirectoryCertificateBasedAuthProperties): any;
+export declare function dataAwsWorkspacesDirectoryCertificateBasedAuthPropertiesToHclTerraform(struct?: DataAwsWorkspacesDirectoryCertificateBasedAuthProperties): any;
+export declare class DataAwsWorkspacesDirectoryCertificateBasedAuthPropertiesOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param complexObjectIndex the index of this item in the list
+    * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean);
+    get internalValue(): DataAwsWorkspacesDirectoryCertificateBasedAuthProperties | undefined;
+    set internalValue(value: DataAwsWorkspacesDirectoryCertificateBasedAuthProperties | undefined);
+    get certificateAuthorityArn(): string;
+    get status(): string;
+}
+export declare class DataAwsWorkspacesDirectoryCertificateBasedAuthPropertiesList extends cdktf.ComplexList {
+    protected terraformResource: cdktf.IInterpolatingParent;
+    protected terraformAttribute: string;
+    protected wrapsSet: boolean;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, wrapsSet: boolean);
+    /**
+    * @param index the index of the item to return
+    */
+    get(index: number): DataAwsWorkspacesDirectoryCertificateBasedAuthPropertiesOutputReference;
 }
 export interface DataAwsWorkspacesDirectorySamlProperties {
 }
@@ -169,7 +235,7 @@ export declare class DataAwsWorkspacesDirectoryWorkspaceCreationPropertiesList e
     get(index: number): DataAwsWorkspacesDirectoryWorkspaceCreationPropertiesOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/workspaces_directory aws_workspaces_directory}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/workspaces_directory aws_workspaces_directory}
 */
 export declare class DataAwsWorkspacesDirectory extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_workspaces_directory";
@@ -177,19 +243,23 @@ export declare class DataAwsWorkspacesDirectory extends cdktf.TerraformDataSourc
     * Generates CDKTF code for importing a DataAwsWorkspacesDirectory resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsWorkspacesDirectory to import
-    * @param importFromId The id of the existing DataAwsWorkspacesDirectory that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/workspaces_directory#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsWorkspacesDirectory that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/workspaces_directory#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsWorkspacesDirectory to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/workspaces_directory aws_workspaces_directory} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/workspaces_directory aws_workspaces_directory} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
     * @param options DataAwsWorkspacesDirectoryConfig
     */
     constructor(scope: Construct, id: string, config: DataAwsWorkspacesDirectoryConfig);
+    private _activeDirectoryConfig;
+    get activeDirectoryConfig(): DataAwsWorkspacesDirectoryActiveDirectoryConfigList;
     get alias(): string;
+    private _certificateBasedAuthProperties;
+    get certificateBasedAuthProperties(): DataAwsWorkspacesDirectoryCertificateBasedAuthPropertiesList;
     get customerUserName(): string;
     private _directoryId?;
     get directoryId(): string;
@@ -222,11 +292,15 @@ export declare class DataAwsWorkspacesDirectory extends cdktf.TerraformDataSourc
     get tagsInput(): {
         [key: string]: string;
     } | undefined;
+    get userIdentityType(): string;
     private _workspaceAccessProperties;
     get workspaceAccessProperties(): DataAwsWorkspacesDirectoryWorkspaceAccessPropertiesList;
     private _workspaceCreationProperties;
     get workspaceCreationProperties(): DataAwsWorkspacesDirectoryWorkspaceCreationPropertiesList;
+    get workspaceDirectoryDescription(): string;
+    get workspaceDirectoryName(): string;
     get workspaceSecurityGroupId(): string;
+    get workspaceType(): string;
     protected synthesizeAttributes(): {
         [name: string]: any;
     };

@@ -6,27 +6,39 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface PrometheusRuleGroupNamespaceConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/prometheus_rule_group_namespace#data PrometheusRuleGroupNamespace#data}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/prometheus_rule_group_namespace#data PrometheusRuleGroupNamespace#data}
     */
     readonly data: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/prometheus_rule_group_namespace#id PrometheusRuleGroupNamespace#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/prometheus_rule_group_namespace#id PrometheusRuleGroupNamespace#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/prometheus_rule_group_namespace#name PrometheusRuleGroupNamespace#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/prometheus_rule_group_namespace#name PrometheusRuleGroupNamespace#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/prometheus_rule_group_namespace#workspace_id PrometheusRuleGroupNamespace#workspace_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/prometheus_rule_group_namespace#tags PrometheusRuleGroupNamespace#tags}
+    */
+    readonly tags?: {
+        [key: string]: string;
+    };
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/prometheus_rule_group_namespace#tags_all PrometheusRuleGroupNamespace#tags_all}
+    */
+    readonly tagsAll?: {
+        [key: string]: string;
+    };
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/prometheus_rule_group_namespace#workspace_id PrometheusRuleGroupNamespace#workspace_id}
     */
     readonly workspaceId: string;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/prometheus_rule_group_namespace aws_prometheus_rule_group_namespace}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/prometheus_rule_group_namespace aws_prometheus_rule_group_namespace}
 */
 export declare class PrometheusRuleGroupNamespace extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_prometheus_rule_group_namespace";
@@ -34,18 +46,19 @@ export declare class PrometheusRuleGroupNamespace extends cdktf.TerraformResourc
     * Generates CDKTF code for importing a PrometheusRuleGroupNamespace resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the PrometheusRuleGroupNamespace to import
-    * @param importFromId The id of the existing PrometheusRuleGroupNamespace that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/prometheus_rule_group_namespace#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing PrometheusRuleGroupNamespace that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/prometheus_rule_group_namespace#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the PrometheusRuleGroupNamespace to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/prometheus_rule_group_namespace aws_prometheus_rule_group_namespace} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/prometheus_rule_group_namespace aws_prometheus_rule_group_namespace} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
     * @param options PrometheusRuleGroupNamespaceConfig
     */
     constructor(scope: Construct, id: string, config: PrometheusRuleGroupNamespaceConfig);
+    get arn(): string;
     private _data?;
     get data(): string;
     set data(value: string);
@@ -59,6 +72,28 @@ export declare class PrometheusRuleGroupNamespace extends cdktf.TerraformResourc
     get name(): string;
     set name(value: string);
     get nameInput(): string | undefined;
+    private _tags?;
+    get tags(): {
+        [key: string]: string;
+    };
+    set tags(value: {
+        [key: string]: string;
+    });
+    resetTags(): void;
+    get tagsInput(): {
+        [key: string]: string;
+    } | undefined;
+    private _tagsAll?;
+    get tagsAll(): {
+        [key: string]: string;
+    };
+    set tagsAll(value: {
+        [key: string]: string;
+    });
+    resetTagsAll(): void;
+    get tagsAllInput(): {
+        [key: string]: string;
+    } | undefined;
     private _workspaceId?;
     get workspaceId(): string;
     set workspaceId(value: string);

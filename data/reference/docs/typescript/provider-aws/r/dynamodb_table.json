@@ -222,6 +222,13 @@
           "description": "(Required) Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.",
           "required": true,
           "optional": false
+        },
+        {
+          "name": "recoveryPeriodInDays",
+          "type": "number",
+          "description": "(Optional) Number of preceding days for which continuous backups are taken and maintained. Default is 35.",
+          "required": false,
+          "optional": true
         }
       ]
     },
@@ -239,7 +246,7 @@
         {
           "name": "kmsKeyArn",
           "type": "string",
-          "description": "(Optional, Forces new resource) ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.",
+          "description": "(Optional) ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.",
           "required": false,
           "optional": true
         }
@@ -402,7 +409,7 @@
         {
           "name": "propagateTags",
           "type": "bool",
-          "description": "(Optional) Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.",
+          "description": "(Optional) Whether to propagate the global table's tags to a replica.",
           "required": false,
           "optional": true
         },
@@ -488,18 +495,18 @@
           "optional": false
         },
         {
-          "name": "inputFormatOptions",
-          "type": "block",
-          "description": "",
-          "required": false,
-          "optional": true
-        },
-        {
           "name": "s3BucketSource",
           "type": "block",
           "description": "",
           "required": true,
           "optional": false
+        },
+        {
+          "name": "inputFormatOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
         }
       ]
     },

@@ -6,38 +6,38 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DbInstanceRoleAssociationConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_instance_role_association#db_instance_identifier DbInstanceRoleAssociation#db_instance_identifier}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance_role_association#db_instance_identifier DbInstanceRoleAssociation#db_instance_identifier}
     */
     readonly dbInstanceIdentifier: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_instance_role_association#feature_name DbInstanceRoleAssociation#feature_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance_role_association#feature_name DbInstanceRoleAssociation#feature_name}
     */
     readonly featureName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_instance_role_association#id DbInstanceRoleAssociation#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance_role_association#id DbInstanceRoleAssociation#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_instance_role_association#role_arn DbInstanceRoleAssociation#role_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance_role_association#role_arn DbInstanceRoleAssociation#role_arn}
     */
     readonly roleArn: string;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_instance_role_association#timeouts DbInstanceRoleAssociation#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance_role_association#timeouts DbInstanceRoleAssociation#timeouts}
     */
     readonly timeouts?: DbInstanceRoleAssociationTimeouts;
 }
 export interface DbInstanceRoleAssociationTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_instance_role_association#create DbInstanceRoleAssociation#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance_role_association#create DbInstanceRoleAssociation#create}
     */
     readonly create?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_instance_role_association#delete DbInstanceRoleAssociation#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance_role_association#delete DbInstanceRoleAssociation#delete}
     */
     readonly delete?: string;
 }
@@ -65,7 +65,7 @@ export declare class DbInstanceRoleAssociationTimeoutsOutputReference extends cd
     get deleteInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_instance_role_association aws_db_instance_role_association}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance_role_association aws_db_instance_role_association}
 */
 export declare class DbInstanceRoleAssociation extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_db_instance_role_association";
@@ -73,12 +73,12 @@ export declare class DbInstanceRoleAssociation extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a DbInstanceRoleAssociation resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DbInstanceRoleAssociation to import
-    * @param importFromId The id of the existing DbInstanceRoleAssociation that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_instance_role_association#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DbInstanceRoleAssociation that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance_role_association#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DbInstanceRoleAssociation to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_instance_role_association aws_db_instance_role_association} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance_role_association aws_db_instance_role_association} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

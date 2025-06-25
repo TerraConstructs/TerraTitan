@@ -6,7 +6,7 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsSecurityhubStandardsControlAssociationsConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/securityhub_standards_control_associations#security_control_id DataAwsSecurityhubStandardsControlAssociations#security_control_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/securityhub_standards_control_associations#security_control_id DataAwsSecurityhubStandardsControlAssociations#security_control_id}
     */
     readonly securityControlId: string;
 }
@@ -51,7 +51,7 @@ export declare class DataAwsSecurityhubStandardsControlAssociationsStandardsCont
     get(index: number): DataAwsSecurityhubStandardsControlAssociationsStandardsControlAssociationsOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/securityhub_standards_control_associations aws_securityhub_standards_control_associations}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/securityhub_standards_control_associations aws_securityhub_standards_control_associations}
 */
 export declare class DataAwsSecurityhubStandardsControlAssociations extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_securityhub_standards_control_associations";
@@ -59,12 +59,12 @@ export declare class DataAwsSecurityhubStandardsControlAssociations extends cdkt
     * Generates CDKTF code for importing a DataAwsSecurityhubStandardsControlAssociations resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsSecurityhubStandardsControlAssociations to import
-    * @param importFromId The id of the existing DataAwsSecurityhubStandardsControlAssociations that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/securityhub_standards_control_associations#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsSecurityhubStandardsControlAssociations that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/securityhub_standards_control_associations#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsSecurityhubStandardsControlAssociations to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/securityhub_standards_control_associations aws_securityhub_standards_control_associations} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/securityhub_standards_control_associations aws_securityhub_standards_control_associations} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

@@ -6,44 +6,134 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface AccessanalyzerAnalyzerConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/accessanalyzer_analyzer#analyzer_name AccessanalyzerAnalyzer#analyzer_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#analyzer_name AccessanalyzerAnalyzer#analyzer_name}
     */
     readonly analyzerName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/accessanalyzer_analyzer#id AccessanalyzerAnalyzer#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#id AccessanalyzerAnalyzer#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/accessanalyzer_analyzer#tags AccessanalyzerAnalyzer#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#tags AccessanalyzerAnalyzer#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/accessanalyzer_analyzer#tags_all AccessanalyzerAnalyzer#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#tags_all AccessanalyzerAnalyzer#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/accessanalyzer_analyzer#type AccessanalyzerAnalyzer#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#type AccessanalyzerAnalyzer#type}
     */
     readonly type?: string;
     /**
     * configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/accessanalyzer_analyzer#configuration AccessanalyzerAnalyzer#configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#configuration AccessanalyzerAnalyzer#configuration}
     */
     readonly configuration?: AccessanalyzerAnalyzerConfiguration;
 }
+export interface AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusion {
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#account_ids AccessanalyzerAnalyzer#account_ids}
+    */
+    readonly accountIds?: string[];
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#resource_tags AccessanalyzerAnalyzer#resource_tags}
+    */
+    readonly resourceTags?: {
+        [key: string]: string;
+    }[] | cdktf.IResolvable;
+}
+export declare function accessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionToTerraform(struct?: AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusion | cdktf.IResolvable): any;
+export declare function accessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionToHclTerraform(struct?: AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusion | cdktf.IResolvable): any;
+export declare class AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    private resolvableValue?;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param complexObjectIndex the index of this item in the list
+    * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean);
+    get internalValue(): AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusion | cdktf.IResolvable | undefined;
+    set internalValue(value: AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusion | cdktf.IResolvable | undefined);
+    private _accountIds?;
+    get accountIds(): string[];
+    set accountIds(value: string[]);
+    resetAccountIds(): void;
+    get accountIdsInput(): string[] | undefined;
+    private _resourceTags?;
+    get resourceTags(): {
+        [key: string]: string;
+    }[] | cdktf.IResolvable;
+    set resourceTags(value: {
+        [key: string]: string;
+    }[] | cdktf.IResolvable);
+    resetResourceTags(): void;
+    get resourceTagsInput(): cdktf.IResolvable | {
+        [key: string]: string;
+    }[] | undefined;
+}
+export declare class AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionList extends cdktf.ComplexList {
+    protected terraformResource: cdktf.IInterpolatingParent;
+    protected terraformAttribute: string;
+    protected wrapsSet: boolean;
+    internalValue?: AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusion[] | cdktf.IResolvable;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, wrapsSet: boolean);
+    /**
+    * @param index the index of the item to return
+    */
+    get(index: number): AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutputReference;
+}
+export interface AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRule {
+    /**
+    * exclusion block
+    *
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#exclusion AccessanalyzerAnalyzer#exclusion}
+    */
+    readonly exclusion?: AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusion[] | cdktf.IResolvable;
+}
+export declare function accessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleToTerraform(struct?: AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleOutputReference | AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRule): any;
+export declare function accessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleToHclTerraform(struct?: AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleOutputReference | AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRule): any;
+export declare class AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string);
+    get internalValue(): AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRule | undefined;
+    set internalValue(value: AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRule | undefined);
+    private _exclusion;
+    get exclusion(): AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusionList;
+    putExclusion(value: AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusion[] | cdktf.IResolvable): void;
+    resetExclusion(): void;
+    get exclusionInput(): cdktf.IResolvable | AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleExclusion[] | undefined;
+}
 export interface AccessanalyzerAnalyzerConfigurationUnusedAccess {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/accessanalyzer_analyzer#unused_access_age AccessanalyzerAnalyzer#unused_access_age}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#unused_access_age AccessanalyzerAnalyzer#unused_access_age}
     */
     readonly unusedAccessAge?: number;
+    /**
+    * analysis_rule block
+    *
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#analysis_rule AccessanalyzerAnalyzer#analysis_rule}
+    */
+    readonly analysisRule?: AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRule;
 }
 export declare function accessanalyzerAnalyzerConfigurationUnusedAccessToTerraform(struct?: AccessanalyzerAnalyzerConfigurationUnusedAccessOutputReference | AccessanalyzerAnalyzerConfigurationUnusedAccess): any;
 export declare function accessanalyzerAnalyzerConfigurationUnusedAccessToHclTerraform(struct?: AccessanalyzerAnalyzerConfigurationUnusedAccessOutputReference | AccessanalyzerAnalyzerConfigurationUnusedAccess): any;
@@ -61,12 +151,17 @@ export declare class AccessanalyzerAnalyzerConfigurationUnusedAccessOutputRefere
     set unusedAccessAge(value: number);
     resetUnusedAccessAge(): void;
     get unusedAccessAgeInput(): number | undefined;
+    private _analysisRule;
+    get analysisRule(): AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRuleOutputReference;
+    putAnalysisRule(value: AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRule): void;
+    resetAnalysisRule(): void;
+    get analysisRuleInput(): AccessanalyzerAnalyzerConfigurationUnusedAccessAnalysisRule | undefined;
 }
 export interface AccessanalyzerAnalyzerConfiguration {
     /**
     * unused_access block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/accessanalyzer_analyzer#unused_access AccessanalyzerAnalyzer#unused_access}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#unused_access AccessanalyzerAnalyzer#unused_access}
     */
     readonly unusedAccess?: AccessanalyzerAnalyzerConfigurationUnusedAccess;
 }
@@ -88,7 +183,7 @@ export declare class AccessanalyzerAnalyzerConfigurationOutputReference extends 
     get unusedAccessInput(): AccessanalyzerAnalyzerConfigurationUnusedAccess | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/accessanalyzer_analyzer aws_accessanalyzer_analyzer}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer aws_accessanalyzer_analyzer}
 */
 export declare class AccessanalyzerAnalyzer extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_accessanalyzer_analyzer";
@@ -96,12 +191,12 @@ export declare class AccessanalyzerAnalyzer extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a AccessanalyzerAnalyzer resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the AccessanalyzerAnalyzer to import
-    * @param importFromId The id of the existing AccessanalyzerAnalyzer that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/accessanalyzer_analyzer#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing AccessanalyzerAnalyzer that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the AccessanalyzerAnalyzer to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/accessanalyzer_analyzer aws_accessanalyzer_analyzer} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/accessanalyzer_analyzer aws_accessanalyzer_analyzer} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

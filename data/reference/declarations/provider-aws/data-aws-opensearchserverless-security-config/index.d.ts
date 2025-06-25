@@ -6,7 +6,9 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsOpensearchserverlessSecurityConfigConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/opensearchserverless_security_config#id DataAwsOpensearchserverlessSecurityConfig#id}
+    * The unique identifier of the security configuration.
+    *
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/opensearchserverless_security_config#id DataAwsOpensearchserverlessSecurityConfig#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -33,7 +35,7 @@ export declare class DataAwsOpensearchserverlessSecurityConfigSamlOptionsOutputR
     get userAttribute(): string;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/opensearchserverless_security_config aws_opensearchserverless_security_config}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/opensearchserverless_security_config aws_opensearchserverless_security_config}
 */
 export declare class DataAwsOpensearchserverlessSecurityConfig extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_opensearchserverless_security_config";
@@ -41,12 +43,12 @@ export declare class DataAwsOpensearchserverlessSecurityConfig extends cdktf.Ter
     * Generates CDKTF code for importing a DataAwsOpensearchserverlessSecurityConfig resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsOpensearchserverlessSecurityConfig to import
-    * @param importFromId The id of the existing DataAwsOpensearchserverlessSecurityConfig that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/opensearchserverless_security_config#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsOpensearchserverlessSecurityConfig that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/opensearchserverless_security_config#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsOpensearchserverlessSecurityConfig to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/opensearchserverless_security_config aws_opensearchserverless_security_config} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/opensearchserverless_security_config aws_opensearchserverless_security_config} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

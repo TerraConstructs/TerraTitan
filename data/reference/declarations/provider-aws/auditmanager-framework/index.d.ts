@@ -6,19 +6,19 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface AuditmanagerFrameworkConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/auditmanager_framework#compliance_type AuditmanagerFramework#compliance_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/auditmanager_framework#compliance_type AuditmanagerFramework#compliance_type}
     */
     readonly complianceType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/auditmanager_framework#description AuditmanagerFramework#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/auditmanager_framework#description AuditmanagerFramework#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/auditmanager_framework#name AuditmanagerFramework#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/auditmanager_framework#name AuditmanagerFramework#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/auditmanager_framework#tags AuditmanagerFramework#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/auditmanager_framework#tags AuditmanagerFramework#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -26,13 +26,13 @@ export interface AuditmanagerFrameworkConfig extends cdktf.TerraformMetaArgument
     /**
     * control_sets block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/auditmanager_framework#control_sets AuditmanagerFramework#control_sets}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/auditmanager_framework#control_sets AuditmanagerFramework#control_sets}
     */
     readonly controlSets?: AuditmanagerFrameworkControlSets[] | cdktf.IResolvable;
 }
 export interface AuditmanagerFrameworkControlSetsControls {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/auditmanager_framework#id AuditmanagerFramework#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/auditmanager_framework#id AuditmanagerFramework#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -76,13 +76,13 @@ export declare class AuditmanagerFrameworkControlSetsControlsList extends cdktf.
 }
 export interface AuditmanagerFrameworkControlSets {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/auditmanager_framework#name AuditmanagerFramework#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/auditmanager_framework#name AuditmanagerFramework#name}
     */
     readonly name: string;
     /**
     * controls block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/auditmanager_framework#controls AuditmanagerFramework#controls}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/auditmanager_framework#controls AuditmanagerFramework#controls}
     */
     readonly controls?: AuditmanagerFrameworkControlSetsControls[] | cdktf.IResolvable;
 }
@@ -128,7 +128,7 @@ export declare class AuditmanagerFrameworkControlSetsList extends cdktf.ComplexL
     get(index: number): AuditmanagerFrameworkControlSetsOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/auditmanager_framework aws_auditmanager_framework}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/auditmanager_framework aws_auditmanager_framework}
 */
 export declare class AuditmanagerFramework extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_auditmanager_framework";
@@ -136,12 +136,12 @@ export declare class AuditmanagerFramework extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a AuditmanagerFramework resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the AuditmanagerFramework to import
-    * @param importFromId The id of the existing AuditmanagerFramework that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/auditmanager_framework#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing AuditmanagerFramework that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/auditmanager_framework#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the AuditmanagerFramework to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/auditmanager_framework aws_auditmanager_framework} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/auditmanager_framework aws_auditmanager_framework} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

@@ -6,17 +6,17 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsAuditmanagerControlConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/auditmanager_control#name DataAwsAuditmanagerControl#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/auditmanager_control#name DataAwsAuditmanagerControl#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/auditmanager_control#type DataAwsAuditmanagerControl#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/auditmanager_control#type DataAwsAuditmanagerControl#type}
     */
     readonly type: string;
     /**
     * control_mapping_sources block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/auditmanager_control#control_mapping_sources DataAwsAuditmanagerControl#control_mapping_sources}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/auditmanager_control#control_mapping_sources DataAwsAuditmanagerControl#control_mapping_sources}
     */
     readonly controlMappingSources?: DataAwsAuditmanagerControlControlMappingSources[] | cdktf.IResolvable;
 }
@@ -59,7 +59,7 @@ export interface DataAwsAuditmanagerControlControlMappingSources {
     /**
     * source_keyword block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/auditmanager_control#source_keyword DataAwsAuditmanagerControl#source_keyword}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/auditmanager_control#source_keyword DataAwsAuditmanagerControl#source_keyword}
     */
     readonly sourceKeyword?: DataAwsAuditmanagerControlControlMappingSourcesSourceKeyword[] | cdktf.IResolvable;
 }
@@ -107,7 +107,7 @@ export declare class DataAwsAuditmanagerControlControlMappingSourcesList extends
     get(index: number): DataAwsAuditmanagerControlControlMappingSourcesOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/auditmanager_control aws_auditmanager_control}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/auditmanager_control aws_auditmanager_control}
 */
 export declare class DataAwsAuditmanagerControl extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_auditmanager_control";
@@ -115,12 +115,12 @@ export declare class DataAwsAuditmanagerControl extends cdktf.TerraformDataSourc
     * Generates CDKTF code for importing a DataAwsAuditmanagerControl resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsAuditmanagerControl to import
-    * @param importFromId The id of the existing DataAwsAuditmanagerControl that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/auditmanager_control#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsAuditmanagerControl that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/auditmanager_control#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsAuditmanagerControl to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/auditmanager_control aws_auditmanager_control} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/auditmanager_control aws_auditmanager_control} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

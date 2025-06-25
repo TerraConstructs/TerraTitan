@@ -6,19 +6,25 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface VerifiedpermissionsPolicyStoreConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedpermissions_policy_store#description VerifiedpermissionsPolicyStore#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedpermissions_policy_store#description VerifiedpermissionsPolicyStore#description}
     */
     readonly description?: string;
     /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedpermissions_policy_store#tags VerifiedpermissionsPolicyStore#tags}
+    */
+    readonly tags?: {
+        [key: string]: string;
+    };
+    /**
     * validation_settings block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedpermissions_policy_store#validation_settings VerifiedpermissionsPolicyStore#validation_settings}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedpermissions_policy_store#validation_settings VerifiedpermissionsPolicyStore#validation_settings}
     */
     readonly validationSettings?: VerifiedpermissionsPolicyStoreValidationSettings[] | cdktf.IResolvable;
 }
 export interface VerifiedpermissionsPolicyStoreValidationSettings {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedpermissions_policy_store#mode VerifiedpermissionsPolicyStore#mode}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedpermissions_policy_store#mode VerifiedpermissionsPolicyStore#mode}
     */
     readonly mode: string;
 }
@@ -58,7 +64,7 @@ export declare class VerifiedpermissionsPolicyStoreValidationSettingsList extend
     get(index: number): VerifiedpermissionsPolicyStoreValidationSettingsOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedpermissions_policy_store aws_verifiedpermissions_policy_store}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedpermissions_policy_store aws_verifiedpermissions_policy_store}
 */
 export declare class VerifiedpermissionsPolicyStore extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_verifiedpermissions_policy_store";
@@ -66,12 +72,12 @@ export declare class VerifiedpermissionsPolicyStore extends cdktf.TerraformResou
     * Generates CDKTF code for importing a VerifiedpermissionsPolicyStore resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the VerifiedpermissionsPolicyStore to import
-    * @param importFromId The id of the existing VerifiedpermissionsPolicyStore that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedpermissions_policy_store#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing VerifiedpermissionsPolicyStore that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedpermissions_policy_store#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the VerifiedpermissionsPolicyStore to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedpermissions_policy_store aws_verifiedpermissions_policy_store} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedpermissions_policy_store aws_verifiedpermissions_policy_store} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
@@ -86,6 +92,19 @@ export declare class VerifiedpermissionsPolicyStore extends cdktf.TerraformResou
     get descriptionInput(): string | undefined;
     get id(): string;
     get policyStoreId(): string;
+    private _tags?;
+    get tags(): {
+        [key: string]: string;
+    };
+    set tags(value: {
+        [key: string]: string;
+    });
+    resetTags(): void;
+    get tagsInput(): {
+        [key: string]: string;
+    } | undefined;
+    private _tagsAll;
+    get tagsAll(): cdktf.StringMap;
     private _validationSettings;
     get validationSettings(): VerifiedpermissionsPolicyStoreValidationSettingsList;
     putValidationSettings(value: VerifiedpermissionsPolicyStoreValidationSettings[] | cdktf.IResolvable): void;

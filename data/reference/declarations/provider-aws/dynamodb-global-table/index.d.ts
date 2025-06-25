@@ -6,32 +6,32 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DynamodbGlobalTableConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/dynamodb_global_table#id DynamodbGlobalTable#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/dynamodb_global_table#id DynamodbGlobalTable#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/dynamodb_global_table#name DynamodbGlobalTable#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/dynamodb_global_table#name DynamodbGlobalTable#name}
     */
     readonly name: string;
     /**
     * replica block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/dynamodb_global_table#replica DynamodbGlobalTable#replica}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/dynamodb_global_table#replica DynamodbGlobalTable#replica}
     */
     readonly replica: DynamodbGlobalTableReplica[] | cdktf.IResolvable;
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/dynamodb_global_table#timeouts DynamodbGlobalTable#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/dynamodb_global_table#timeouts DynamodbGlobalTable#timeouts}
     */
     readonly timeouts?: DynamodbGlobalTableTimeouts;
 }
 export interface DynamodbGlobalTableReplica {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/dynamodb_global_table#region_name DynamodbGlobalTable#region_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/dynamodb_global_table#region_name DynamodbGlobalTable#region_name}
     */
     readonly regionName: string;
 }
@@ -72,15 +72,15 @@ export declare class DynamodbGlobalTableReplicaList extends cdktf.ComplexList {
 }
 export interface DynamodbGlobalTableTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/dynamodb_global_table#create DynamodbGlobalTable#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/dynamodb_global_table#create DynamodbGlobalTable#create}
     */
     readonly create?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/dynamodb_global_table#delete DynamodbGlobalTable#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/dynamodb_global_table#delete DynamodbGlobalTable#delete}
     */
     readonly delete?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/dynamodb_global_table#update DynamodbGlobalTable#update}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/dynamodb_global_table#update DynamodbGlobalTable#update}
     */
     readonly update?: string;
 }
@@ -113,7 +113,7 @@ export declare class DynamodbGlobalTableTimeoutsOutputReference extends cdktf.Co
     get updateInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/dynamodb_global_table aws_dynamodb_global_table}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/dynamodb_global_table aws_dynamodb_global_table}
 */
 export declare class DynamodbGlobalTable extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_dynamodb_global_table";
@@ -121,12 +121,12 @@ export declare class DynamodbGlobalTable extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a DynamodbGlobalTable resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DynamodbGlobalTable to import
-    * @param importFromId The id of the existing DynamodbGlobalTable that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/dynamodb_global_table#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DynamodbGlobalTable that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/dynamodb_global_table#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DynamodbGlobalTable to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/dynamodb_global_table aws_dynamodb_global_table} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/dynamodb_global_table aws_dynamodb_global_table} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

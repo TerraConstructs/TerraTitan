@@ -6,238 +6,242 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface LaunchTemplateConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#default_version LaunchTemplate#default_version}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#default_version LaunchTemplate#default_version}
     */
     readonly defaultVersion?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#description LaunchTemplate#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#description LaunchTemplate#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#disable_api_stop LaunchTemplate#disable_api_stop}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#disable_api_stop LaunchTemplate#disable_api_stop}
     */
     readonly disableApiStop?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#disable_api_termination LaunchTemplate#disable_api_termination}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#disable_api_termination LaunchTemplate#disable_api_termination}
     */
     readonly disableApiTermination?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#ebs_optimized LaunchTemplate#ebs_optimized}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ebs_optimized LaunchTemplate#ebs_optimized}
     */
     readonly ebsOptimized?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#id LaunchTemplate#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#id LaunchTemplate#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#image_id LaunchTemplate#image_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#image_id LaunchTemplate#image_id}
     */
     readonly imageId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#instance_initiated_shutdown_behavior LaunchTemplate#instance_initiated_shutdown_behavior}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#instance_initiated_shutdown_behavior LaunchTemplate#instance_initiated_shutdown_behavior}
     */
     readonly instanceInitiatedShutdownBehavior?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#instance_type LaunchTemplate#instance_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#instance_type LaunchTemplate#instance_type}
     */
     readonly instanceType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#kernel_id LaunchTemplate#kernel_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#kernel_id LaunchTemplate#kernel_id}
     */
     readonly kernelId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#key_name LaunchTemplate#key_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#key_name LaunchTemplate#key_name}
     */
     readonly keyName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#name LaunchTemplate#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#name LaunchTemplate#name}
     */
     readonly name?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#name_prefix LaunchTemplate#name_prefix}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#name_prefix LaunchTemplate#name_prefix}
     */
     readonly namePrefix?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#ram_disk_id LaunchTemplate#ram_disk_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ram_disk_id LaunchTemplate#ram_disk_id}
     */
     readonly ramDiskId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#security_group_names LaunchTemplate#security_group_names}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#security_group_names LaunchTemplate#security_group_names}
     */
     readonly securityGroupNames?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#tags LaunchTemplate#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#tags LaunchTemplate#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#tags_all LaunchTemplate#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#tags_all LaunchTemplate#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#update_default_version LaunchTemplate#update_default_version}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#update_default_version LaunchTemplate#update_default_version}
     */
     readonly updateDefaultVersion?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#user_data LaunchTemplate#user_data}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#user_data LaunchTemplate#user_data}
     */
     readonly userData?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#vpc_security_group_ids LaunchTemplate#vpc_security_group_ids}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#vpc_security_group_ids LaunchTemplate#vpc_security_group_ids}
     */
     readonly vpcSecurityGroupIds?: string[];
     /**
     * block_device_mappings block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#block_device_mappings LaunchTemplate#block_device_mappings}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#block_device_mappings LaunchTemplate#block_device_mappings}
     */
     readonly blockDeviceMappings?: LaunchTemplateBlockDeviceMappings[] | cdktf.IResolvable;
     /**
     * capacity_reservation_specification block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#capacity_reservation_specification LaunchTemplate#capacity_reservation_specification}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#capacity_reservation_specification LaunchTemplate#capacity_reservation_specification}
     */
     readonly capacityReservationSpecification?: LaunchTemplateCapacityReservationSpecification;
     /**
     * cpu_options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#cpu_options LaunchTemplate#cpu_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#cpu_options LaunchTemplate#cpu_options}
     */
     readonly cpuOptions?: LaunchTemplateCpuOptions;
     /**
     * credit_specification block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#credit_specification LaunchTemplate#credit_specification}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#credit_specification LaunchTemplate#credit_specification}
     */
     readonly creditSpecification?: LaunchTemplateCreditSpecification;
     /**
     * elastic_gpu_specifications block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#elastic_gpu_specifications LaunchTemplate#elastic_gpu_specifications}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#elastic_gpu_specifications LaunchTemplate#elastic_gpu_specifications}
     */
     readonly elasticGpuSpecifications?: LaunchTemplateElasticGpuSpecifications[] | cdktf.IResolvable;
     /**
     * elastic_inference_accelerator block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#elastic_inference_accelerator LaunchTemplate#elastic_inference_accelerator}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#elastic_inference_accelerator LaunchTemplate#elastic_inference_accelerator}
     */
     readonly elasticInferenceAccelerator?: LaunchTemplateElasticInferenceAccelerator;
     /**
     * enclave_options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#enclave_options LaunchTemplate#enclave_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#enclave_options LaunchTemplate#enclave_options}
     */
     readonly enclaveOptions?: LaunchTemplateEnclaveOptions;
     /**
     * hibernation_options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#hibernation_options LaunchTemplate#hibernation_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#hibernation_options LaunchTemplate#hibernation_options}
     */
     readonly hibernationOptions?: LaunchTemplateHibernationOptions;
     /**
     * iam_instance_profile block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#iam_instance_profile LaunchTemplate#iam_instance_profile}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#iam_instance_profile LaunchTemplate#iam_instance_profile}
     */
     readonly iamInstanceProfile?: LaunchTemplateIamInstanceProfile;
     /**
     * instance_market_options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#instance_market_options LaunchTemplate#instance_market_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#instance_market_options LaunchTemplate#instance_market_options}
     */
     readonly instanceMarketOptions?: LaunchTemplateInstanceMarketOptions;
     /**
     * instance_requirements block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#instance_requirements LaunchTemplate#instance_requirements}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#instance_requirements LaunchTemplate#instance_requirements}
     */
     readonly instanceRequirements?: LaunchTemplateInstanceRequirements;
     /**
     * license_specification block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#license_specification LaunchTemplate#license_specification}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#license_specification LaunchTemplate#license_specification}
     */
     readonly licenseSpecification?: LaunchTemplateLicenseSpecification[] | cdktf.IResolvable;
     /**
     * maintenance_options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#maintenance_options LaunchTemplate#maintenance_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#maintenance_options LaunchTemplate#maintenance_options}
     */
     readonly maintenanceOptions?: LaunchTemplateMaintenanceOptions;
     /**
     * metadata_options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#metadata_options LaunchTemplate#metadata_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#metadata_options LaunchTemplate#metadata_options}
     */
     readonly metadataOptions?: LaunchTemplateMetadataOptions;
     /**
     * monitoring block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#monitoring LaunchTemplate#monitoring}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#monitoring LaunchTemplate#monitoring}
     */
     readonly monitoring?: LaunchTemplateMonitoring;
     /**
     * network_interfaces block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#network_interfaces LaunchTemplate#network_interfaces}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#network_interfaces LaunchTemplate#network_interfaces}
     */
     readonly networkInterfaces?: LaunchTemplateNetworkInterfaces[] | cdktf.IResolvable;
     /**
     * placement block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#placement LaunchTemplate#placement}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#placement LaunchTemplate#placement}
     */
     readonly placement?: LaunchTemplatePlacement;
     /**
     * private_dns_name_options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#private_dns_name_options LaunchTemplate#private_dns_name_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#private_dns_name_options LaunchTemplate#private_dns_name_options}
     */
     readonly privateDnsNameOptions?: LaunchTemplatePrivateDnsNameOptions;
     /**
     * tag_specifications block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#tag_specifications LaunchTemplate#tag_specifications}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#tag_specifications LaunchTemplate#tag_specifications}
     */
     readonly tagSpecifications?: LaunchTemplateTagSpecifications[] | cdktf.IResolvable;
 }
 export interface LaunchTemplateBlockDeviceMappingsEbs {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#delete_on_termination LaunchTemplate#delete_on_termination}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#delete_on_termination LaunchTemplate#delete_on_termination}
     */
     readonly deleteOnTermination?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#encrypted LaunchTemplate#encrypted}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#encrypted LaunchTemplate#encrypted}
     */
     readonly encrypted?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#iops LaunchTemplate#iops}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#iops LaunchTemplate#iops}
     */
     readonly iops?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#kms_key_id LaunchTemplate#kms_key_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#kms_key_id LaunchTemplate#kms_key_id}
     */
     readonly kmsKeyId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#snapshot_id LaunchTemplate#snapshot_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#snapshot_id LaunchTemplate#snapshot_id}
     */
     readonly snapshotId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#throughput LaunchTemplate#throughput}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#throughput LaunchTemplate#throughput}
     */
     readonly throughput?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#volume_size LaunchTemplate#volume_size}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#volume_initialization_rate LaunchTemplate#volume_initialization_rate}
+    */
+    readonly volumeInitializationRate?: number;
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#volume_size LaunchTemplate#volume_size}
     */
     readonly volumeSize?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#volume_type LaunchTemplate#volume_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#volume_type LaunchTemplate#volume_type}
     */
     readonly volumeType?: string;
 }
@@ -282,6 +286,11 @@ export declare class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends
     set throughput(value: number);
     resetThroughput(): void;
     get throughputInput(): number | undefined;
+    private _volumeInitializationRate?;
+    get volumeInitializationRate(): number;
+    set volumeInitializationRate(value: number);
+    resetVolumeInitializationRate(): void;
+    get volumeInitializationRateInput(): number | undefined;
     private _volumeSize?;
     get volumeSize(): number;
     set volumeSize(value: number);
@@ -295,21 +304,21 @@ export declare class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends
 }
 export interface LaunchTemplateBlockDeviceMappings {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#device_name LaunchTemplate#device_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#device_name LaunchTemplate#device_name}
     */
     readonly deviceName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#no_device LaunchTemplate#no_device}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#no_device LaunchTemplate#no_device}
     */
     readonly noDevice?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#virtual_name LaunchTemplate#virtual_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#virtual_name LaunchTemplate#virtual_name}
     */
     readonly virtualName?: string;
     /**
     * ebs block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#ebs LaunchTemplate#ebs}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ebs LaunchTemplate#ebs}
     */
     readonly ebs?: LaunchTemplateBlockDeviceMappingsEbs;
 }
@@ -366,11 +375,11 @@ export declare class LaunchTemplateBlockDeviceMappingsList extends cdktf.Complex
 }
 export interface LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#capacity_reservation_id LaunchTemplate#capacity_reservation_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#capacity_reservation_id LaunchTemplate#capacity_reservation_id}
     */
     readonly capacityReservationId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#capacity_reservation_resource_group_arn LaunchTemplate#capacity_reservation_resource_group_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#capacity_reservation_resource_group_arn LaunchTemplate#capacity_reservation_resource_group_arn}
     */
     readonly capacityReservationResourceGroupArn?: string;
 }
@@ -398,13 +407,13 @@ export declare class LaunchTemplateCapacityReservationSpecificationCapacityReser
 }
 export interface LaunchTemplateCapacityReservationSpecification {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#capacity_reservation_preference LaunchTemplate#capacity_reservation_preference}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#capacity_reservation_preference LaunchTemplate#capacity_reservation_preference}
     */
     readonly capacityReservationPreference?: string;
     /**
     * capacity_reservation_target block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#capacity_reservation_target LaunchTemplate#capacity_reservation_target}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#capacity_reservation_target LaunchTemplate#capacity_reservation_target}
     */
     readonly capacityReservationTarget?: LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget;
 }
@@ -432,15 +441,15 @@ export declare class LaunchTemplateCapacityReservationSpecificationOutputReferen
 }
 export interface LaunchTemplateCpuOptions {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#amd_sev_snp LaunchTemplate#amd_sev_snp}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#amd_sev_snp LaunchTemplate#amd_sev_snp}
     */
     readonly amdSevSnp?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#core_count LaunchTemplate#core_count}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#core_count LaunchTemplate#core_count}
     */
     readonly coreCount?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#threads_per_core LaunchTemplate#threads_per_core}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#threads_per_core LaunchTemplate#threads_per_core}
     */
     readonly threadsPerCore?: number;
 }
@@ -473,7 +482,7 @@ export declare class LaunchTemplateCpuOptionsOutputReference extends cdktf.Compl
 }
 export interface LaunchTemplateCreditSpecification {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#cpu_credits LaunchTemplate#cpu_credits}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#cpu_credits LaunchTemplate#cpu_credits}
     */
     readonly cpuCredits?: string;
 }
@@ -496,7 +505,7 @@ export declare class LaunchTemplateCreditSpecificationOutputReference extends cd
 }
 export interface LaunchTemplateElasticGpuSpecifications {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#type LaunchTemplate#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#type LaunchTemplate#type}
     */
     readonly type: string;
 }
@@ -537,7 +546,7 @@ export declare class LaunchTemplateElasticGpuSpecificationsList extends cdktf.Co
 }
 export interface LaunchTemplateElasticInferenceAccelerator {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#type LaunchTemplate#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#type LaunchTemplate#type}
     */
     readonly type: string;
 }
@@ -559,7 +568,7 @@ export declare class LaunchTemplateElasticInferenceAcceleratorOutputReference ex
 }
 export interface LaunchTemplateEnclaveOptions {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#enabled LaunchTemplate#enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#enabled LaunchTemplate#enabled}
     */
     readonly enabled?: boolean | cdktf.IResolvable;
 }
@@ -582,7 +591,7 @@ export declare class LaunchTemplateEnclaveOptionsOutputReference extends cdktf.C
 }
 export interface LaunchTemplateHibernationOptions {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#configured LaunchTemplate#configured}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#configured LaunchTemplate#configured}
     */
     readonly configured: boolean | cdktf.IResolvable;
 }
@@ -604,11 +613,11 @@ export declare class LaunchTemplateHibernationOptionsOutputReference extends cdk
 }
 export interface LaunchTemplateIamInstanceProfile {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#arn LaunchTemplate#arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#arn LaunchTemplate#arn}
     */
     readonly arn?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#name LaunchTemplate#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#name LaunchTemplate#name}
     */
     readonly name?: string;
 }
@@ -636,23 +645,23 @@ export declare class LaunchTemplateIamInstanceProfileOutputReference extends cdk
 }
 export interface LaunchTemplateInstanceMarketOptionsSpotOptions {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#block_duration_minutes LaunchTemplate#block_duration_minutes}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#block_duration_minutes LaunchTemplate#block_duration_minutes}
     */
     readonly blockDurationMinutes?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#instance_interruption_behavior LaunchTemplate#instance_interruption_behavior}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#instance_interruption_behavior LaunchTemplate#instance_interruption_behavior}
     */
     readonly instanceInterruptionBehavior?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#max_price LaunchTemplate#max_price}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#max_price LaunchTemplate#max_price}
     */
     readonly maxPrice?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#spot_instance_type LaunchTemplate#spot_instance_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#spot_instance_type LaunchTemplate#spot_instance_type}
     */
     readonly spotInstanceType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#valid_until LaunchTemplate#valid_until}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#valid_until LaunchTemplate#valid_until}
     */
     readonly validUntil?: string;
 }
@@ -695,13 +704,13 @@ export declare class LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReferen
 }
 export interface LaunchTemplateInstanceMarketOptions {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#market_type LaunchTemplate#market_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#market_type LaunchTemplate#market_type}
     */
     readonly marketType?: string;
     /**
     * spot_options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#spot_options LaunchTemplate#spot_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#spot_options LaunchTemplate#spot_options}
     */
     readonly spotOptions?: LaunchTemplateInstanceMarketOptionsSpotOptions;
 }
@@ -729,11 +738,11 @@ export declare class LaunchTemplateInstanceMarketOptionsOutputReference extends 
 }
 export interface LaunchTemplateInstanceRequirementsAcceleratorCount {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#max LaunchTemplate#max}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#max LaunchTemplate#max}
     */
     readonly max?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#min LaunchTemplate#min}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#min LaunchTemplate#min}
     */
     readonly min?: number;
 }
@@ -761,11 +770,11 @@ export declare class LaunchTemplateInstanceRequirementsAcceleratorCountOutputRef
 }
 export interface LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#max LaunchTemplate#max}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#max LaunchTemplate#max}
     */
     readonly max?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#min LaunchTemplate#min}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#min LaunchTemplate#min}
     */
     readonly min?: number;
 }
@@ -793,11 +802,11 @@ export declare class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib
 }
 export interface LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#max LaunchTemplate#max}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#max LaunchTemplate#max}
     */
     readonly max?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#min LaunchTemplate#min}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#min LaunchTemplate#min}
     */
     readonly min?: number;
 }
@@ -825,11 +834,11 @@ export declare class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsO
 }
 export interface LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#max LaunchTemplate#max}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#max LaunchTemplate#max}
     */
     readonly max?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#min LaunchTemplate#min}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#min LaunchTemplate#min}
     */
     readonly min?: number;
 }
@@ -857,11 +866,11 @@ export declare class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputRef
 }
 export interface LaunchTemplateInstanceRequirementsMemoryMib {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#max LaunchTemplate#max}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#max LaunchTemplate#max}
     */
     readonly max?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#min LaunchTemplate#min}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#min LaunchTemplate#min}
     */
     readonly min: number;
 }
@@ -888,11 +897,11 @@ export declare class LaunchTemplateInstanceRequirementsMemoryMibOutputReference 
 }
 export interface LaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#max LaunchTemplate#max}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#max LaunchTemplate#max}
     */
     readonly max?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#min LaunchTemplate#min}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#min LaunchTemplate#min}
     */
     readonly min?: number;
 }
@@ -920,11 +929,11 @@ export declare class LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutpu
 }
 export interface LaunchTemplateInstanceRequirementsNetworkInterfaceCount {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#max LaunchTemplate#max}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#max LaunchTemplate#max}
     */
     readonly max?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#min LaunchTemplate#min}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#min LaunchTemplate#min}
     */
     readonly min?: number;
 }
@@ -952,11 +961,11 @@ export declare class LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutp
 }
 export interface LaunchTemplateInstanceRequirementsTotalLocalStorageGb {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#max LaunchTemplate#max}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#max LaunchTemplate#max}
     */
     readonly max?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#min LaunchTemplate#min}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#min LaunchTemplate#min}
     */
     readonly min?: number;
 }
@@ -984,11 +993,11 @@ export declare class LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput
 }
 export interface LaunchTemplateInstanceRequirementsVcpuCount {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#max LaunchTemplate#max}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#max LaunchTemplate#max}
     */
     readonly max?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#min LaunchTemplate#min}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#min LaunchTemplate#min}
     */
     readonly min: number;
 }
@@ -1015,117 +1024,117 @@ export declare class LaunchTemplateInstanceRequirementsVcpuCountOutputReference 
 }
 export interface LaunchTemplateInstanceRequirements {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#accelerator_manufacturers LaunchTemplate#accelerator_manufacturers}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#accelerator_manufacturers LaunchTemplate#accelerator_manufacturers}
     */
     readonly acceleratorManufacturers?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#accelerator_names LaunchTemplate#accelerator_names}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#accelerator_names LaunchTemplate#accelerator_names}
     */
     readonly acceleratorNames?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#accelerator_types LaunchTemplate#accelerator_types}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#accelerator_types LaunchTemplate#accelerator_types}
     */
     readonly acceleratorTypes?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#allowed_instance_types LaunchTemplate#allowed_instance_types}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#allowed_instance_types LaunchTemplate#allowed_instance_types}
     */
     readonly allowedInstanceTypes?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#bare_metal LaunchTemplate#bare_metal}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#bare_metal LaunchTemplate#bare_metal}
     */
     readonly bareMetal?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#burstable_performance LaunchTemplate#burstable_performance}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#burstable_performance LaunchTemplate#burstable_performance}
     */
     readonly burstablePerformance?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#cpu_manufacturers LaunchTemplate#cpu_manufacturers}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#cpu_manufacturers LaunchTemplate#cpu_manufacturers}
     */
     readonly cpuManufacturers?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#excluded_instance_types LaunchTemplate#excluded_instance_types}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#excluded_instance_types LaunchTemplate#excluded_instance_types}
     */
     readonly excludedInstanceTypes?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#instance_generations LaunchTemplate#instance_generations}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#instance_generations LaunchTemplate#instance_generations}
     */
     readonly instanceGenerations?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#local_storage LaunchTemplate#local_storage}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#local_storage LaunchTemplate#local_storage}
     */
     readonly localStorage?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#local_storage_types LaunchTemplate#local_storage_types}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#local_storage_types LaunchTemplate#local_storage_types}
     */
     readonly localStorageTypes?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#max_spot_price_as_percentage_of_optimal_on_demand_price LaunchTemplate#max_spot_price_as_percentage_of_optimal_on_demand_price}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#max_spot_price_as_percentage_of_optimal_on_demand_price LaunchTemplate#max_spot_price_as_percentage_of_optimal_on_demand_price}
     */
     readonly maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#on_demand_max_price_percentage_over_lowest_price LaunchTemplate#on_demand_max_price_percentage_over_lowest_price}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#on_demand_max_price_percentage_over_lowest_price LaunchTemplate#on_demand_max_price_percentage_over_lowest_price}
     */
     readonly onDemandMaxPricePercentageOverLowestPrice?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#require_hibernate_support LaunchTemplate#require_hibernate_support}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#require_hibernate_support LaunchTemplate#require_hibernate_support}
     */
     readonly requireHibernateSupport?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#spot_max_price_percentage_over_lowest_price LaunchTemplate#spot_max_price_percentage_over_lowest_price}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#spot_max_price_percentage_over_lowest_price LaunchTemplate#spot_max_price_percentage_over_lowest_price}
     */
     readonly spotMaxPricePercentageOverLowestPrice?: number;
     /**
     * accelerator_count block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#accelerator_count LaunchTemplate#accelerator_count}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#accelerator_count LaunchTemplate#accelerator_count}
     */
     readonly acceleratorCount?: LaunchTemplateInstanceRequirementsAcceleratorCount;
     /**
     * accelerator_total_memory_mib block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#accelerator_total_memory_mib LaunchTemplate#accelerator_total_memory_mib}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#accelerator_total_memory_mib LaunchTemplate#accelerator_total_memory_mib}
     */
     readonly acceleratorTotalMemoryMib?: LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib;
     /**
     * baseline_ebs_bandwidth_mbps block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#baseline_ebs_bandwidth_mbps LaunchTemplate#baseline_ebs_bandwidth_mbps}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#baseline_ebs_bandwidth_mbps LaunchTemplate#baseline_ebs_bandwidth_mbps}
     */
     readonly baselineEbsBandwidthMbps?: LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps;
     /**
     * memory_gib_per_vcpu block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#memory_gib_per_vcpu LaunchTemplate#memory_gib_per_vcpu}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#memory_gib_per_vcpu LaunchTemplate#memory_gib_per_vcpu}
     */
     readonly memoryGibPerVcpu?: LaunchTemplateInstanceRequirementsMemoryGibPerVcpu;
     /**
     * memory_mib block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#memory_mib LaunchTemplate#memory_mib}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#memory_mib LaunchTemplate#memory_mib}
     */
     readonly memoryMib: LaunchTemplateInstanceRequirementsMemoryMib;
     /**
     * network_bandwidth_gbps block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#network_bandwidth_gbps LaunchTemplate#network_bandwidth_gbps}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#network_bandwidth_gbps LaunchTemplate#network_bandwidth_gbps}
     */
     readonly networkBandwidthGbps?: LaunchTemplateInstanceRequirementsNetworkBandwidthGbps;
     /**
     * network_interface_count block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#network_interface_count LaunchTemplate#network_interface_count}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#network_interface_count LaunchTemplate#network_interface_count}
     */
     readonly networkInterfaceCount?: LaunchTemplateInstanceRequirementsNetworkInterfaceCount;
     /**
     * total_local_storage_gb block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#total_local_storage_gb LaunchTemplate#total_local_storage_gb}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#total_local_storage_gb LaunchTemplate#total_local_storage_gb}
     */
     readonly totalLocalStorageGb?: LaunchTemplateInstanceRequirementsTotalLocalStorageGb;
     /**
     * vcpu_count block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#vcpu_count LaunchTemplate#vcpu_count}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#vcpu_count LaunchTemplate#vcpu_count}
     */
     readonly vcpuCount: LaunchTemplateInstanceRequirementsVcpuCount;
 }
@@ -1261,7 +1270,7 @@ export declare class LaunchTemplateInstanceRequirementsOutputReference extends c
 }
 export interface LaunchTemplateLicenseSpecification {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#license_configuration_arn LaunchTemplate#license_configuration_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#license_configuration_arn LaunchTemplate#license_configuration_arn}
     */
     readonly licenseConfigurationArn: string;
 }
@@ -1302,7 +1311,7 @@ export declare class LaunchTemplateLicenseSpecificationList extends cdktf.Comple
 }
 export interface LaunchTemplateMaintenanceOptions {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#auto_recovery LaunchTemplate#auto_recovery}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#auto_recovery LaunchTemplate#auto_recovery}
     */
     readonly autoRecovery?: string;
 }
@@ -1325,23 +1334,23 @@ export declare class LaunchTemplateMaintenanceOptionsOutputReference extends cdk
 }
 export interface LaunchTemplateMetadataOptions {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#http_endpoint LaunchTemplate#http_endpoint}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#http_endpoint LaunchTemplate#http_endpoint}
     */
     readonly httpEndpoint?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#http_protocol_ipv6 LaunchTemplate#http_protocol_ipv6}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#http_protocol_ipv6 LaunchTemplate#http_protocol_ipv6}
     */
     readonly httpProtocolIpv6?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#http_put_response_hop_limit LaunchTemplate#http_put_response_hop_limit}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#http_put_response_hop_limit LaunchTemplate#http_put_response_hop_limit}
     */
     readonly httpPutResponseHopLimit?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#http_tokens LaunchTemplate#http_tokens}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#http_tokens LaunchTemplate#http_tokens}
     */
     readonly httpTokens?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#instance_metadata_tags LaunchTemplate#instance_metadata_tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#instance_metadata_tags LaunchTemplate#instance_metadata_tags}
     */
     readonly instanceMetadataTags?: string;
 }
@@ -1384,7 +1393,7 @@ export declare class LaunchTemplateMetadataOptionsOutputReference extends cdktf.
 }
 export interface LaunchTemplateMonitoring {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#enabled LaunchTemplate#enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#enabled LaunchTemplate#enabled}
     */
     readonly enabled?: boolean | cdktf.IResolvable;
 }
@@ -1407,15 +1416,15 @@ export declare class LaunchTemplateMonitoringOutputReference extends cdktf.Compl
 }
 export interface LaunchTemplateNetworkInterfacesConnectionTrackingSpecification {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#tcp_established_timeout LaunchTemplate#tcp_established_timeout}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#tcp_established_timeout LaunchTemplate#tcp_established_timeout}
     */
     readonly tcpEstablishedTimeout?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#udp_stream_timeout LaunchTemplate#udp_stream_timeout}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#udp_stream_timeout LaunchTemplate#udp_stream_timeout}
     */
     readonly udpStreamTimeout?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#udp_timeout LaunchTemplate#udp_timeout}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#udp_timeout LaunchTemplate#udp_timeout}
     */
     readonly udpTimeout?: number;
 }
@@ -1446,93 +1455,156 @@ export declare class LaunchTemplateNetworkInterfacesConnectionTrackingSpecificat
     resetUdpTimeout(): void;
     get udpTimeoutInput(): number | undefined;
 }
+export interface LaunchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecification {
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ena_srd_udp_enabled LaunchTemplate#ena_srd_udp_enabled}
+    */
+    readonly enaSrdUdpEnabled?: boolean | cdktf.IResolvable;
+}
+export declare function launchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecificationToTerraform(struct?: LaunchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecificationOutputReference | LaunchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecification): any;
+export declare function launchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecificationToHclTerraform(struct?: LaunchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecificationOutputReference | LaunchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecification): any;
+export declare class LaunchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecificationOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string);
+    get internalValue(): LaunchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecification | undefined;
+    set internalValue(value: LaunchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecification | undefined);
+    private _enaSrdUdpEnabled?;
+    get enaSrdUdpEnabled(): boolean | cdktf.IResolvable;
+    set enaSrdUdpEnabled(value: boolean | cdktf.IResolvable);
+    resetEnaSrdUdpEnabled(): void;
+    get enaSrdUdpEnabledInput(): boolean | cdktf.IResolvable | undefined;
+}
+export interface LaunchTemplateNetworkInterfacesEnaSrdSpecification {
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ena_srd_enabled LaunchTemplate#ena_srd_enabled}
+    */
+    readonly enaSrdEnabled?: boolean | cdktf.IResolvable;
+    /**
+    * ena_srd_udp_specification block
+    *
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ena_srd_udp_specification LaunchTemplate#ena_srd_udp_specification}
+    */
+    readonly enaSrdUdpSpecification?: LaunchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecification;
+}
+export declare function launchTemplateNetworkInterfacesEnaSrdSpecificationToTerraform(struct?: LaunchTemplateNetworkInterfacesEnaSrdSpecificationOutputReference | LaunchTemplateNetworkInterfacesEnaSrdSpecification): any;
+export declare function launchTemplateNetworkInterfacesEnaSrdSpecificationToHclTerraform(struct?: LaunchTemplateNetworkInterfacesEnaSrdSpecificationOutputReference | LaunchTemplateNetworkInterfacesEnaSrdSpecification): any;
+export declare class LaunchTemplateNetworkInterfacesEnaSrdSpecificationOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string);
+    get internalValue(): LaunchTemplateNetworkInterfacesEnaSrdSpecification | undefined;
+    set internalValue(value: LaunchTemplateNetworkInterfacesEnaSrdSpecification | undefined);
+    private _enaSrdEnabled?;
+    get enaSrdEnabled(): boolean | cdktf.IResolvable;
+    set enaSrdEnabled(value: boolean | cdktf.IResolvable);
+    resetEnaSrdEnabled(): void;
+    get enaSrdEnabledInput(): boolean | cdktf.IResolvable | undefined;
+    private _enaSrdUdpSpecification;
+    get enaSrdUdpSpecification(): LaunchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecificationOutputReference;
+    putEnaSrdUdpSpecification(value: LaunchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecification): void;
+    resetEnaSrdUdpSpecification(): void;
+    get enaSrdUdpSpecificationInput(): LaunchTemplateNetworkInterfacesEnaSrdSpecificationEnaSrdUdpSpecification | undefined;
+}
 export interface LaunchTemplateNetworkInterfaces {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#associate_carrier_ip_address LaunchTemplate#associate_carrier_ip_address}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#associate_carrier_ip_address LaunchTemplate#associate_carrier_ip_address}
     */
     readonly associateCarrierIpAddress?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#associate_public_ip_address LaunchTemplate#associate_public_ip_address}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#associate_public_ip_address LaunchTemplate#associate_public_ip_address}
     */
     readonly associatePublicIpAddress?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#delete_on_termination LaunchTemplate#delete_on_termination}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#delete_on_termination LaunchTemplate#delete_on_termination}
     */
     readonly deleteOnTermination?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#description LaunchTemplate#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#description LaunchTemplate#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#device_index LaunchTemplate#device_index}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#device_index LaunchTemplate#device_index}
     */
     readonly deviceIndex?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#interface_type LaunchTemplate#interface_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#interface_type LaunchTemplate#interface_type}
     */
     readonly interfaceType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#ipv4_address_count LaunchTemplate#ipv4_address_count}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ipv4_address_count LaunchTemplate#ipv4_address_count}
     */
     readonly ipv4AddressCount?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#ipv4_addresses LaunchTemplate#ipv4_addresses}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ipv4_addresses LaunchTemplate#ipv4_addresses}
     */
     readonly ipv4Addresses?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#ipv4_prefix_count LaunchTemplate#ipv4_prefix_count}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ipv4_prefix_count LaunchTemplate#ipv4_prefix_count}
     */
     readonly ipv4PrefixCount?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#ipv4_prefixes LaunchTemplate#ipv4_prefixes}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ipv4_prefixes LaunchTemplate#ipv4_prefixes}
     */
     readonly ipv4Prefixes?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#ipv6_address_count LaunchTemplate#ipv6_address_count}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ipv6_address_count LaunchTemplate#ipv6_address_count}
     */
     readonly ipv6AddressCount?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#ipv6_addresses LaunchTemplate#ipv6_addresses}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ipv6_addresses LaunchTemplate#ipv6_addresses}
     */
     readonly ipv6Addresses?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#ipv6_prefix_count LaunchTemplate#ipv6_prefix_count}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ipv6_prefix_count LaunchTemplate#ipv6_prefix_count}
     */
     readonly ipv6PrefixCount?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#ipv6_prefixes LaunchTemplate#ipv6_prefixes}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ipv6_prefixes LaunchTemplate#ipv6_prefixes}
     */
     readonly ipv6Prefixes?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#network_card_index LaunchTemplate#network_card_index}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#network_card_index LaunchTemplate#network_card_index}
     */
     readonly networkCardIndex?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#network_interface_id LaunchTemplate#network_interface_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#network_interface_id LaunchTemplate#network_interface_id}
     */
     readonly networkInterfaceId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#primary_ipv6 LaunchTemplate#primary_ipv6}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#primary_ipv6 LaunchTemplate#primary_ipv6}
     */
     readonly primaryIpv6?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#private_ip_address LaunchTemplate#private_ip_address}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#private_ip_address LaunchTemplate#private_ip_address}
     */
     readonly privateIpAddress?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#security_groups LaunchTemplate#security_groups}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#security_groups LaunchTemplate#security_groups}
     */
     readonly securityGroups?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#subnet_id LaunchTemplate#subnet_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#subnet_id LaunchTemplate#subnet_id}
     */
     readonly subnetId?: string;
     /**
     * connection_tracking_specification block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#connection_tracking_specification LaunchTemplate#connection_tracking_specification}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#connection_tracking_specification LaunchTemplate#connection_tracking_specification}
     */
     readonly connectionTrackingSpecification?: LaunchTemplateNetworkInterfacesConnectionTrackingSpecification;
+    /**
+    * ena_srd_specification block
+    *
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#ena_srd_specification LaunchTemplate#ena_srd_specification}
+    */
+    readonly enaSrdSpecification?: LaunchTemplateNetworkInterfacesEnaSrdSpecification;
 }
 export declare function launchTemplateNetworkInterfacesToTerraform(struct?: LaunchTemplateNetworkInterfaces | cdktf.IResolvable): any;
 export declare function launchTemplateNetworkInterfacesToHclTerraform(struct?: LaunchTemplateNetworkInterfaces | cdktf.IResolvable): any;
@@ -1653,6 +1725,11 @@ export declare class LaunchTemplateNetworkInterfacesOutputReference extends cdkt
     putConnectionTrackingSpecification(value: LaunchTemplateNetworkInterfacesConnectionTrackingSpecification): void;
     resetConnectionTrackingSpecification(): void;
     get connectionTrackingSpecificationInput(): LaunchTemplateNetworkInterfacesConnectionTrackingSpecification | undefined;
+    private _enaSrdSpecification;
+    get enaSrdSpecification(): LaunchTemplateNetworkInterfacesEnaSrdSpecificationOutputReference;
+    putEnaSrdSpecification(value: LaunchTemplateNetworkInterfacesEnaSrdSpecification): void;
+    resetEnaSrdSpecification(): void;
+    get enaSrdSpecificationInput(): LaunchTemplateNetworkInterfacesEnaSrdSpecification | undefined;
 }
 export declare class LaunchTemplateNetworkInterfacesList extends cdktf.ComplexList {
     protected terraformResource: cdktf.IInterpolatingParent;
@@ -1672,35 +1749,35 @@ export declare class LaunchTemplateNetworkInterfacesList extends cdktf.ComplexLi
 }
 export interface LaunchTemplatePlacement {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#affinity LaunchTemplate#affinity}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#affinity LaunchTemplate#affinity}
     */
     readonly affinity?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#availability_zone LaunchTemplate#availability_zone}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#availability_zone LaunchTemplate#availability_zone}
     */
     readonly availabilityZone?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#group_name LaunchTemplate#group_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#group_name LaunchTemplate#group_name}
     */
     readonly groupName?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#host_id LaunchTemplate#host_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#host_id LaunchTemplate#host_id}
     */
     readonly hostId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#host_resource_group_arn LaunchTemplate#host_resource_group_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#host_resource_group_arn LaunchTemplate#host_resource_group_arn}
     */
     readonly hostResourceGroupArn?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#partition_number LaunchTemplate#partition_number}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#partition_number LaunchTemplate#partition_number}
     */
     readonly partitionNumber?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#spread_domain LaunchTemplate#spread_domain}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#spread_domain LaunchTemplate#spread_domain}
     */
     readonly spreadDomain?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#tenancy LaunchTemplate#tenancy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#tenancy LaunchTemplate#tenancy}
     */
     readonly tenancy?: string;
 }
@@ -1758,15 +1835,15 @@ export declare class LaunchTemplatePlacementOutputReference extends cdktf.Comple
 }
 export interface LaunchTemplatePrivateDnsNameOptions {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#enable_resource_name_dns_a_record LaunchTemplate#enable_resource_name_dns_a_record}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#enable_resource_name_dns_a_record LaunchTemplate#enable_resource_name_dns_a_record}
     */
     readonly enableResourceNameDnsARecord?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#enable_resource_name_dns_aaaa_record LaunchTemplate#enable_resource_name_dns_aaaa_record}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#enable_resource_name_dns_aaaa_record LaunchTemplate#enable_resource_name_dns_aaaa_record}
     */
     readonly enableResourceNameDnsAaaaRecord?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#hostname_type LaunchTemplate#hostname_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#hostname_type LaunchTemplate#hostname_type}
     */
     readonly hostnameType?: string;
 }
@@ -1799,11 +1876,11 @@ export declare class LaunchTemplatePrivateDnsNameOptionsOutputReference extends 
 }
 export interface LaunchTemplateTagSpecifications {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#resource_type LaunchTemplate#resource_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#resource_type LaunchTemplate#resource_type}
     */
     readonly resourceType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#tags LaunchTemplate#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#tags LaunchTemplate#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -1857,7 +1934,7 @@ export declare class LaunchTemplateTagSpecificationsList extends cdktf.ComplexLi
     get(index: number): LaunchTemplateTagSpecificationsOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template aws_launch_template}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template aws_launch_template}
 */
 export declare class LaunchTemplate extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_launch_template";
@@ -1865,12 +1942,12 @@ export declare class LaunchTemplate extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a LaunchTemplate resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the LaunchTemplate to import
-    * @param importFromId The id of the existing LaunchTemplate that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing LaunchTemplate that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the LaunchTemplate to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/launch_template aws_launch_template} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/launch_template aws_launch_template} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

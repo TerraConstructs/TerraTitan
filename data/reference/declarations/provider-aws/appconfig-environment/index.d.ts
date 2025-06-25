@@ -6,19 +6,19 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface AppconfigEnvironmentConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appconfig_environment#application_id AppconfigEnvironment#application_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appconfig_environment#application_id AppconfigEnvironment#application_id}
     */
     readonly applicationId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appconfig_environment#description AppconfigEnvironment#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appconfig_environment#description AppconfigEnvironment#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appconfig_environment#name AppconfigEnvironment#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appconfig_environment#name AppconfigEnvironment#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appconfig_environment#tags AppconfigEnvironment#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appconfig_environment#tags AppconfigEnvironment#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -26,17 +26,17 @@ export interface AppconfigEnvironmentConfig extends cdktf.TerraformMetaArguments
     /**
     * monitor block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appconfig_environment#monitor AppconfigEnvironment#monitor}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appconfig_environment#monitor AppconfigEnvironment#monitor}
     */
     readonly monitor?: AppconfigEnvironmentMonitor[] | cdktf.IResolvable;
 }
 export interface AppconfigEnvironmentMonitor {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appconfig_environment#alarm_arn AppconfigEnvironment#alarm_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appconfig_environment#alarm_arn AppconfigEnvironment#alarm_arn}
     */
     readonly alarmArn: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appconfig_environment#alarm_role_arn AppconfigEnvironment#alarm_role_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appconfig_environment#alarm_role_arn AppconfigEnvironment#alarm_role_arn}
     */
     readonly alarmRoleArn?: string;
 }
@@ -81,7 +81,7 @@ export declare class AppconfigEnvironmentMonitorList extends cdktf.ComplexList {
     get(index: number): AppconfigEnvironmentMonitorOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appconfig_environment aws_appconfig_environment}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appconfig_environment aws_appconfig_environment}
 */
 export declare class AppconfigEnvironment extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_appconfig_environment";
@@ -89,12 +89,12 @@ export declare class AppconfigEnvironment extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a AppconfigEnvironment resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the AppconfigEnvironment to import
-    * @param importFromId The id of the existing AppconfigEnvironment that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appconfig_environment#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing AppconfigEnvironment that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appconfig_environment#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the AppconfigEnvironment to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appconfig_environment aws_appconfig_environment} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appconfig_environment aws_appconfig_environment} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

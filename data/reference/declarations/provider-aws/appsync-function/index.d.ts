@@ -6,68 +6,68 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface AppsyncFunctionConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#api_id AppsyncFunction#api_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#api_id AppsyncFunction#api_id}
     */
     readonly apiId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#code AppsyncFunction#code}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#code AppsyncFunction#code}
     */
     readonly code?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#data_source AppsyncFunction#data_source}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#data_source AppsyncFunction#data_source}
     */
     readonly dataSource: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#description AppsyncFunction#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#description AppsyncFunction#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#function_version AppsyncFunction#function_version}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#function_version AppsyncFunction#function_version}
     */
     readonly functionVersion?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#id AppsyncFunction#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#id AppsyncFunction#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#max_batch_size AppsyncFunction#max_batch_size}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#max_batch_size AppsyncFunction#max_batch_size}
     */
     readonly maxBatchSize?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#name AppsyncFunction#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#name AppsyncFunction#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#request_mapping_template AppsyncFunction#request_mapping_template}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#request_mapping_template AppsyncFunction#request_mapping_template}
     */
     readonly requestMappingTemplate?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#response_mapping_template AppsyncFunction#response_mapping_template}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#response_mapping_template AppsyncFunction#response_mapping_template}
     */
     readonly responseMappingTemplate?: string;
     /**
     * runtime block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#runtime AppsyncFunction#runtime}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#runtime AppsyncFunction#runtime}
     */
     readonly runtime?: AppsyncFunctionRuntime;
     /**
     * sync_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#sync_config AppsyncFunction#sync_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#sync_config AppsyncFunction#sync_config}
     */
     readonly syncConfig?: AppsyncFunctionSyncConfig;
 }
 export interface AppsyncFunctionRuntime {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#name AppsyncFunction#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#name AppsyncFunction#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#runtime_version AppsyncFunction#runtime_version}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#runtime_version AppsyncFunction#runtime_version}
     */
     readonly runtimeVersion: string;
 }
@@ -93,7 +93,7 @@ export declare class AppsyncFunctionRuntimeOutputReference extends cdktf.Complex
 }
 export interface AppsyncFunctionSyncConfigLambdaConflictHandlerConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#lambda_conflict_handler_arn AppsyncFunction#lambda_conflict_handler_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#lambda_conflict_handler_arn AppsyncFunction#lambda_conflict_handler_arn}
     */
     readonly lambdaConflictHandlerArn?: string;
 }
@@ -116,17 +116,17 @@ export declare class AppsyncFunctionSyncConfigLambdaConflictHandlerConfigOutputR
 }
 export interface AppsyncFunctionSyncConfig {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#conflict_detection AppsyncFunction#conflict_detection}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#conflict_detection AppsyncFunction#conflict_detection}
     */
     readonly conflictDetection?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#conflict_handler AppsyncFunction#conflict_handler}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#conflict_handler AppsyncFunction#conflict_handler}
     */
     readonly conflictHandler?: string;
     /**
     * lambda_conflict_handler_config block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#lambda_conflict_handler_config AppsyncFunction#lambda_conflict_handler_config}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#lambda_conflict_handler_config AppsyncFunction#lambda_conflict_handler_config}
     */
     readonly lambdaConflictHandlerConfig?: AppsyncFunctionSyncConfigLambdaConflictHandlerConfig;
 }
@@ -158,7 +158,7 @@ export declare class AppsyncFunctionSyncConfigOutputReference extends cdktf.Comp
     get lambdaConflictHandlerConfigInput(): AppsyncFunctionSyncConfigLambdaConflictHandlerConfig | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function aws_appsync_function}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function aws_appsync_function}
 */
 export declare class AppsyncFunction extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_appsync_function";
@@ -166,12 +166,12 @@ export declare class AppsyncFunction extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a AppsyncFunction resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the AppsyncFunction to import
-    * @param importFromId The id of the existing AppsyncFunction that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing AppsyncFunction that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the AppsyncFunction to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appsync_function aws_appsync_function} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appsync_function aws_appsync_function} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

@@ -36,8 +36,9 @@ func main() {
 	var (
 		mdPath      = flag.String("md", "", "Path to Terraform resource Markdown file")
 		provider    = flag.String("provider", "aws", "Provider name (e.g. \"aws\"); optional")
-		version     = flag.String("version", "5.93.0", "Provider version constraint")
+		version     = flag.String("version", "5.100.0", "Provider version constraint")
 		source      = flag.String("source", "hashicorp/aws", "Provider source")
+		outputFile  = flag.String("output", "", "Output file path (default stdout)")
 		interactive = flag.Bool("interactive", false, "Enable interactive mode for selecting descriptions when multiple matches found")
 	)
 	flag.Parse()
@@ -85,7 +86,20 @@ func main() {
 	out := ParseResourceSchema(resourceSchema, string(doc.Source), *interactive)
 
 	// JSON-encode with indentation
-	enc := json.NewEncoder(os.Stdout)
+	var enc *json.Encoder
+	if *outputFile != "" {
+		file, err := os.Create(*outputFile)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error creating output file: %v\n", err)
+			os.Exit(1)
+		}
+		defer file.Close()
+		enc = json.NewEncoder(file)
+	} else {
+		// Default to stdout if no output file specified}
+		enc = json.NewEncoder(os.Stdout)
+	}
+
 	enc.SetIndent("", "  ")
 	if err := enc.Encode(out); err != nil {
 		fmt.Fprintf(os.Stderr, "Error writing JSON: %v\n", err)

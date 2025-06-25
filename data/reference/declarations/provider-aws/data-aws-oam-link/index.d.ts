@@ -6,18 +6,18 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsOamLinkConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/oam_link#id DataAwsOamLink#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/oam_link#id DataAwsOamLink#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/oam_link#link_identifier DataAwsOamLink#link_identifier}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/oam_link#link_identifier DataAwsOamLink#link_identifier}
     */
     readonly linkIdentifier: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/oam_link#tags DataAwsOamLink#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/oam_link#tags DataAwsOamLink#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -123,7 +123,7 @@ export declare class DataAwsOamLinkLinkConfigurationList extends cdktf.ComplexLi
     get(index: number): DataAwsOamLinkLinkConfigurationOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/oam_link aws_oam_link}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/oam_link aws_oam_link}
 */
 export declare class DataAwsOamLink extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_oam_link";
@@ -131,12 +131,12 @@ export declare class DataAwsOamLink extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsOamLink resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsOamLink to import
-    * @param importFromId The id of the existing DataAwsOamLink that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/oam_link#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsOamLink that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/oam_link#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsOamLink to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/oam_link aws_oam_link} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/oam_link aws_oam_link} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

@@ -115,7 +115,16 @@ func collectBlocks(
 ) []ArgumentBlock {
 	var out []ArgumentBlock
 
-	for key, bt := range blockTypes {
+	// Sort keys for deterministic ordering
+	var keys []string
+	for key := range blockTypes {
+		keys = append(keys, key)
+	}
+	sort.Strings(keys)
+
+	// Process in sorted order
+	for _, key := range keys {
+		bt := blockTypes[key]
 		camel := util.ToCamelCase(key)
 		thisPath := append(parentPath, camel)
 

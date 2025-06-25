@@ -8,33 +8,33 @@ export interface DevopsguruServiceIntegrationConfig extends cdktf.TerraformMetaA
     /**
     * kms_server_side_encryption block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_service_integration#kms_server_side_encryption DevopsguruServiceIntegration#kms_server_side_encryption}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_service_integration#kms_server_side_encryption DevopsguruServiceIntegration#kms_server_side_encryption}
     */
     readonly kmsServerSideEncryption?: DevopsguruServiceIntegrationKmsServerSideEncryption[] | cdktf.IResolvable;
     /**
     * logs_anomaly_detection block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_service_integration#logs_anomaly_detection DevopsguruServiceIntegration#logs_anomaly_detection}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_service_integration#logs_anomaly_detection DevopsguruServiceIntegration#logs_anomaly_detection}
     */
     readonly logsAnomalyDetection?: DevopsguruServiceIntegrationLogsAnomalyDetection[] | cdktf.IResolvable;
     /**
     * ops_center block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_service_integration#ops_center DevopsguruServiceIntegration#ops_center}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_service_integration#ops_center DevopsguruServiceIntegration#ops_center}
     */
     readonly opsCenter?: DevopsguruServiceIntegrationOpsCenter[] | cdktf.IResolvable;
 }
 export interface DevopsguruServiceIntegrationKmsServerSideEncryption {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_service_integration#kms_key_id DevopsguruServiceIntegration#kms_key_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_service_integration#kms_key_id DevopsguruServiceIntegration#kms_key_id}
     */
     readonly kmsKeyId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_service_integration#opt_in_status DevopsguruServiceIntegration#opt_in_status}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_service_integration#opt_in_status DevopsguruServiceIntegration#opt_in_status}
     */
     readonly optInStatus?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_service_integration#type DevopsguruServiceIntegration#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_service_integration#type DevopsguruServiceIntegration#type}
     */
     readonly type?: string;
 }
@@ -86,7 +86,7 @@ export declare class DevopsguruServiceIntegrationKmsServerSideEncryptionList ext
 }
 export interface DevopsguruServiceIntegrationLogsAnomalyDetection {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_service_integration#opt_in_status DevopsguruServiceIntegration#opt_in_status}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_service_integration#opt_in_status DevopsguruServiceIntegration#opt_in_status}
     */
     readonly optInStatus?: string;
 }
@@ -128,7 +128,7 @@ export declare class DevopsguruServiceIntegrationLogsAnomalyDetectionList extend
 }
 export interface DevopsguruServiceIntegrationOpsCenter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_service_integration#opt_in_status DevopsguruServiceIntegration#opt_in_status}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_service_integration#opt_in_status DevopsguruServiceIntegration#opt_in_status}
     */
     readonly optInStatus?: string;
 }
@@ -169,7 +169,7 @@ export declare class DevopsguruServiceIntegrationOpsCenterList extends cdktf.Com
     get(index: number): DevopsguruServiceIntegrationOpsCenterOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_service_integration aws_devopsguru_service_integration}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_service_integration aws_devopsguru_service_integration}
 */
 export declare class DevopsguruServiceIntegration extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_devopsguru_service_integration";
@@ -177,12 +177,12 @@ export declare class DevopsguruServiceIntegration extends cdktf.TerraformResourc
     * Generates CDKTF code for importing a DevopsguruServiceIntegration resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DevopsguruServiceIntegration to import
-    * @param importFromId The id of the existing DevopsguruServiceIntegration that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_service_integration#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DevopsguruServiceIntegration that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_service_integration#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DevopsguruServiceIntegration to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_service_integration aws_devopsguru_service_integration} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_service_integration aws_devopsguru_service_integration} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

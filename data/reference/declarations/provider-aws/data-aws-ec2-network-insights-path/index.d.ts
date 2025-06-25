@@ -6,18 +6,18 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsEc2NetworkInsightsPathConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_network_insights_path#id DataAwsEc2NetworkInsightsPath#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_network_insights_path#id DataAwsEc2NetworkInsightsPath#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_network_insights_path#network_insights_path_id DataAwsEc2NetworkInsightsPath#network_insights_path_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_network_insights_path#network_insights_path_id DataAwsEc2NetworkInsightsPath#network_insights_path_id}
     */
     readonly networkInsightsPathId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_network_insights_path#tags DataAwsEc2NetworkInsightsPath#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_network_insights_path#tags DataAwsEc2NetworkInsightsPath#tags}
     */
     readonly tags?: {
         [key: string]: string;
@@ -25,17 +25,223 @@ export interface DataAwsEc2NetworkInsightsPathConfig extends cdktf.TerraformMeta
     /**
     * filter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_network_insights_path#filter DataAwsEc2NetworkInsightsPath#filter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_network_insights_path#filter DataAwsEc2NetworkInsightsPath#filter}
     */
     readonly filter?: DataAwsEc2NetworkInsightsPathFilter[] | cdktf.IResolvable;
 }
+export interface DataAwsEc2NetworkInsightsPathFilterAtDestinationDestinationPortRange {
+}
+export declare function dataAwsEc2NetworkInsightsPathFilterAtDestinationDestinationPortRangeToTerraform(struct?: DataAwsEc2NetworkInsightsPathFilterAtDestinationDestinationPortRange): any;
+export declare function dataAwsEc2NetworkInsightsPathFilterAtDestinationDestinationPortRangeToHclTerraform(struct?: DataAwsEc2NetworkInsightsPathFilterAtDestinationDestinationPortRange): any;
+export declare class DataAwsEc2NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param complexObjectIndex the index of this item in the list
+    * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean);
+    get internalValue(): DataAwsEc2NetworkInsightsPathFilterAtDestinationDestinationPortRange | undefined;
+    set internalValue(value: DataAwsEc2NetworkInsightsPathFilterAtDestinationDestinationPortRange | undefined);
+    get fromPort(): number;
+    get toPort(): number;
+}
+export declare class DataAwsEc2NetworkInsightsPathFilterAtDestinationDestinationPortRangeList extends cdktf.ComplexList {
+    protected terraformResource: cdktf.IInterpolatingParent;
+    protected terraformAttribute: string;
+    protected wrapsSet: boolean;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, wrapsSet: boolean);
+    /**
+    * @param index the index of the item to return
+    */
+    get(index: number): DataAwsEc2NetworkInsightsPathFilterAtDestinationDestinationPortRangeOutputReference;
+}
+export interface DataAwsEc2NetworkInsightsPathFilterAtDestinationSourcePortRange {
+}
+export declare function dataAwsEc2NetworkInsightsPathFilterAtDestinationSourcePortRangeToTerraform(struct?: DataAwsEc2NetworkInsightsPathFilterAtDestinationSourcePortRange): any;
+export declare function dataAwsEc2NetworkInsightsPathFilterAtDestinationSourcePortRangeToHclTerraform(struct?: DataAwsEc2NetworkInsightsPathFilterAtDestinationSourcePortRange): any;
+export declare class DataAwsEc2NetworkInsightsPathFilterAtDestinationSourcePortRangeOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param complexObjectIndex the index of this item in the list
+    * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean);
+    get internalValue(): DataAwsEc2NetworkInsightsPathFilterAtDestinationSourcePortRange | undefined;
+    set internalValue(value: DataAwsEc2NetworkInsightsPathFilterAtDestinationSourcePortRange | undefined);
+    get fromPort(): number;
+    get toPort(): number;
+}
+export declare class DataAwsEc2NetworkInsightsPathFilterAtDestinationSourcePortRangeList extends cdktf.ComplexList {
+    protected terraformResource: cdktf.IInterpolatingParent;
+    protected terraformAttribute: string;
+    protected wrapsSet: boolean;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, wrapsSet: boolean);
+    /**
+    * @param index the index of the item to return
+    */
+    get(index: number): DataAwsEc2NetworkInsightsPathFilterAtDestinationSourcePortRangeOutputReference;
+}
+export interface DataAwsEc2NetworkInsightsPathFilterAtDestination {
+}
+export declare function dataAwsEc2NetworkInsightsPathFilterAtDestinationToTerraform(struct?: DataAwsEc2NetworkInsightsPathFilterAtDestination): any;
+export declare function dataAwsEc2NetworkInsightsPathFilterAtDestinationToHclTerraform(struct?: DataAwsEc2NetworkInsightsPathFilterAtDestination): any;
+export declare class DataAwsEc2NetworkInsightsPathFilterAtDestinationOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param complexObjectIndex the index of this item in the list
+    * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean);
+    get internalValue(): DataAwsEc2NetworkInsightsPathFilterAtDestination | undefined;
+    set internalValue(value: DataAwsEc2NetworkInsightsPathFilterAtDestination | undefined);
+    get destinationAddress(): string;
+    private _destinationPortRange;
+    get destinationPortRange(): DataAwsEc2NetworkInsightsPathFilterAtDestinationDestinationPortRangeList;
+    get sourceAddress(): string;
+    private _sourcePortRange;
+    get sourcePortRange(): DataAwsEc2NetworkInsightsPathFilterAtDestinationSourcePortRangeList;
+}
+export declare class DataAwsEc2NetworkInsightsPathFilterAtDestinationList extends cdktf.ComplexList {
+    protected terraformResource: cdktf.IInterpolatingParent;
+    protected terraformAttribute: string;
+    protected wrapsSet: boolean;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, wrapsSet: boolean);
+    /**
+    * @param index the index of the item to return
+    */
+    get(index: number): DataAwsEc2NetworkInsightsPathFilterAtDestinationOutputReference;
+}
+export interface DataAwsEc2NetworkInsightsPathFilterAtSourceDestinationPortRange {
+}
+export declare function dataAwsEc2NetworkInsightsPathFilterAtSourceDestinationPortRangeToTerraform(struct?: DataAwsEc2NetworkInsightsPathFilterAtSourceDestinationPortRange): any;
+export declare function dataAwsEc2NetworkInsightsPathFilterAtSourceDestinationPortRangeToHclTerraform(struct?: DataAwsEc2NetworkInsightsPathFilterAtSourceDestinationPortRange): any;
+export declare class DataAwsEc2NetworkInsightsPathFilterAtSourceDestinationPortRangeOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param complexObjectIndex the index of this item in the list
+    * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean);
+    get internalValue(): DataAwsEc2NetworkInsightsPathFilterAtSourceDestinationPortRange | undefined;
+    set internalValue(value: DataAwsEc2NetworkInsightsPathFilterAtSourceDestinationPortRange | undefined);
+    get fromPort(): number;
+    get toPort(): number;
+}
+export declare class DataAwsEc2NetworkInsightsPathFilterAtSourceDestinationPortRangeList extends cdktf.ComplexList {
+    protected terraformResource: cdktf.IInterpolatingParent;
+    protected terraformAttribute: string;
+    protected wrapsSet: boolean;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, wrapsSet: boolean);
+    /**
+    * @param index the index of the item to return
+    */
+    get(index: number): DataAwsEc2NetworkInsightsPathFilterAtSourceDestinationPortRangeOutputReference;
+}
+export interface DataAwsEc2NetworkInsightsPathFilterAtSourceSourcePortRange {
+}
+export declare function dataAwsEc2NetworkInsightsPathFilterAtSourceSourcePortRangeToTerraform(struct?: DataAwsEc2NetworkInsightsPathFilterAtSourceSourcePortRange): any;
+export declare function dataAwsEc2NetworkInsightsPathFilterAtSourceSourcePortRangeToHclTerraform(struct?: DataAwsEc2NetworkInsightsPathFilterAtSourceSourcePortRange): any;
+export declare class DataAwsEc2NetworkInsightsPathFilterAtSourceSourcePortRangeOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param complexObjectIndex the index of this item in the list
+    * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean);
+    get internalValue(): DataAwsEc2NetworkInsightsPathFilterAtSourceSourcePortRange | undefined;
+    set internalValue(value: DataAwsEc2NetworkInsightsPathFilterAtSourceSourcePortRange | undefined);
+    get fromPort(): number;
+    get toPort(): number;
+}
+export declare class DataAwsEc2NetworkInsightsPathFilterAtSourceSourcePortRangeList extends cdktf.ComplexList {
+    protected terraformResource: cdktf.IInterpolatingParent;
+    protected terraformAttribute: string;
+    protected wrapsSet: boolean;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, wrapsSet: boolean);
+    /**
+    * @param index the index of the item to return
+    */
+    get(index: number): DataAwsEc2NetworkInsightsPathFilterAtSourceSourcePortRangeOutputReference;
+}
+export interface DataAwsEc2NetworkInsightsPathFilterAtSource {
+}
+export declare function dataAwsEc2NetworkInsightsPathFilterAtSourceToTerraform(struct?: DataAwsEc2NetworkInsightsPathFilterAtSource): any;
+export declare function dataAwsEc2NetworkInsightsPathFilterAtSourceToHclTerraform(struct?: DataAwsEc2NetworkInsightsPathFilterAtSource): any;
+export declare class DataAwsEc2NetworkInsightsPathFilterAtSourceOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param complexObjectIndex the index of this item in the list
+    * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean);
+    get internalValue(): DataAwsEc2NetworkInsightsPathFilterAtSource | undefined;
+    set internalValue(value: DataAwsEc2NetworkInsightsPathFilterAtSource | undefined);
+    get destinationAddress(): string;
+    private _destinationPortRange;
+    get destinationPortRange(): DataAwsEc2NetworkInsightsPathFilterAtSourceDestinationPortRangeList;
+    get sourceAddress(): string;
+    private _sourcePortRange;
+    get sourcePortRange(): DataAwsEc2NetworkInsightsPathFilterAtSourceSourcePortRangeList;
+}
+export declare class DataAwsEc2NetworkInsightsPathFilterAtSourceList extends cdktf.ComplexList {
+    protected terraformResource: cdktf.IInterpolatingParent;
+    protected terraformAttribute: string;
+    protected wrapsSet: boolean;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, wrapsSet: boolean);
+    /**
+    * @param index the index of the item to return
+    */
+    get(index: number): DataAwsEc2NetworkInsightsPathFilterAtSourceOutputReference;
+}
 export interface DataAwsEc2NetworkInsightsPathFilter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_network_insights_path#name DataAwsEc2NetworkInsightsPath#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_network_insights_path#name DataAwsEc2NetworkInsightsPath#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_network_insights_path#values DataAwsEc2NetworkInsightsPath#values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_network_insights_path#values DataAwsEc2NetworkInsightsPath#values}
     */
     readonly values: string[];
 }
@@ -79,7 +285,7 @@ export declare class DataAwsEc2NetworkInsightsPathFilterList extends cdktf.Compl
     get(index: number): DataAwsEc2NetworkInsightsPathFilterOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_network_insights_path aws_ec2_network_insights_path}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_network_insights_path aws_ec2_network_insights_path}
 */
 export declare class DataAwsEc2NetworkInsightsPath extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_ec2_network_insights_path";
@@ -87,12 +293,12 @@ export declare class DataAwsEc2NetworkInsightsPath extends cdktf.TerraformDataSo
     * Generates CDKTF code for importing a DataAwsEc2NetworkInsightsPath resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsEc2NetworkInsightsPath to import
-    * @param importFromId The id of the existing DataAwsEc2NetworkInsightsPath that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_network_insights_path#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsEc2NetworkInsightsPath that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_network_insights_path#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsEc2NetworkInsightsPath to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/ec2_network_insights_path aws_ec2_network_insights_path} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/ec2_network_insights_path aws_ec2_network_insights_path} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
@@ -104,6 +310,10 @@ export declare class DataAwsEc2NetworkInsightsPath extends cdktf.TerraformDataSo
     get destinationArn(): string;
     get destinationIp(): string;
     get destinationPort(): number;
+    private _filterAtDestination;
+    get filterAtDestination(): DataAwsEc2NetworkInsightsPathFilterAtDestinationList;
+    private _filterAtSource;
+    get filterAtSource(): DataAwsEc2NetworkInsightsPathFilterAtSourceList;
     private _id?;
     get id(): string;
     set id(value: string);

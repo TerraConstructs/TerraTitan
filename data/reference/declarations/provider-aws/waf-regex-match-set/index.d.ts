@@ -6,30 +6,30 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface WafRegexMatchSetConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_regex_match_set#id WafRegexMatchSet#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_regex_match_set#id WafRegexMatchSet#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_regex_match_set#name WafRegexMatchSet#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_regex_match_set#name WafRegexMatchSet#name}
     */
     readonly name: string;
     /**
     * regex_match_tuple block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_regex_match_set#regex_match_tuple WafRegexMatchSet#regex_match_tuple}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_regex_match_set#regex_match_tuple WafRegexMatchSet#regex_match_tuple}
     */
     readonly regexMatchTuple?: WafRegexMatchSetRegexMatchTuple[] | cdktf.IResolvable;
 }
 export interface WafRegexMatchSetRegexMatchTupleFieldToMatch {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_regex_match_set#data WafRegexMatchSet#data}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_regex_match_set#data WafRegexMatchSet#data}
     */
     readonly data?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_regex_match_set#type WafRegexMatchSet#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_regex_match_set#type WafRegexMatchSet#type}
     */
     readonly type: string;
 }
@@ -56,17 +56,17 @@ export declare class WafRegexMatchSetRegexMatchTupleFieldToMatchOutputReference 
 }
 export interface WafRegexMatchSetRegexMatchTuple {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_regex_match_set#regex_pattern_set_id WafRegexMatchSet#regex_pattern_set_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_regex_match_set#regex_pattern_set_id WafRegexMatchSet#regex_pattern_set_id}
     */
     readonly regexPatternSetId: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_regex_match_set#text_transformation WafRegexMatchSet#text_transformation}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_regex_match_set#text_transformation WafRegexMatchSet#text_transformation}
     */
     readonly textTransformation: string;
     /**
     * field_to_match block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_regex_match_set#field_to_match WafRegexMatchSet#field_to_match}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_regex_match_set#field_to_match WafRegexMatchSet#field_to_match}
     */
     readonly fieldToMatch: WafRegexMatchSetRegexMatchTupleFieldToMatch;
 }
@@ -114,7 +114,7 @@ export declare class WafRegexMatchSetRegexMatchTupleList extends cdktf.ComplexLi
     get(index: number): WafRegexMatchSetRegexMatchTupleOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_regex_match_set aws_waf_regex_match_set}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_regex_match_set aws_waf_regex_match_set}
 */
 export declare class WafRegexMatchSet extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_waf_regex_match_set";
@@ -122,12 +122,12 @@ export declare class WafRegexMatchSet extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a WafRegexMatchSet resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the WafRegexMatchSet to import
-    * @param importFromId The id of the existing WafRegexMatchSet that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_regex_match_set#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing WafRegexMatchSet that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_regex_match_set#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the WafRegexMatchSet to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/waf_regex_match_set aws_waf_regex_match_set} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/waf_regex_match_set aws_waf_regex_match_set} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

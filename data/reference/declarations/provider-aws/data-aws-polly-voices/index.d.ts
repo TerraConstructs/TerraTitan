@@ -6,21 +6,21 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DataAwsPollyVoicesConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/polly_voices#engine DataAwsPollyVoices#engine}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/polly_voices#engine DataAwsPollyVoices#engine}
     */
     readonly engine?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/polly_voices#include_additional_language_codes DataAwsPollyVoices#include_additional_language_codes}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/polly_voices#include_additional_language_codes DataAwsPollyVoices#include_additional_language_codes}
     */
     readonly includeAdditionalLanguageCodes?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/polly_voices#language_code DataAwsPollyVoices#language_code}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/polly_voices#language_code DataAwsPollyVoices#language_code}
     */
     readonly languageCode?: string;
     /**
     * voices block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/polly_voices#voices DataAwsPollyVoices#voices}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/polly_voices#voices DataAwsPollyVoices#voices}
     */
     readonly voices?: DataAwsPollyVoicesVoices[] | cdktf.IResolvable;
 }
@@ -65,7 +65,7 @@ export declare class DataAwsPollyVoicesVoicesList extends cdktf.ComplexList {
     get(index: number): DataAwsPollyVoicesVoicesOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/polly_voices aws_polly_voices}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/polly_voices aws_polly_voices}
 */
 export declare class DataAwsPollyVoices extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_polly_voices";
@@ -73,12 +73,12 @@ export declare class DataAwsPollyVoices extends cdktf.TerraformDataSource {
     * Generates CDKTF code for importing a DataAwsPollyVoices resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsPollyVoices to import
-    * @param importFromId The id of the existing DataAwsPollyVoices that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/polly_voices#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsPollyVoices that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/polly_voices#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsPollyVoices to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/polly_voices aws_polly_voices} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/polly_voices aws_polly_voices} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

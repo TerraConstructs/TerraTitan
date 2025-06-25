@@ -6,66 +6,78 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface VerifiedaccessTrustProviderConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#description VerifiedaccessTrustProvider#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#description VerifiedaccessTrustProvider#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#device_trust_provider_type VerifiedaccessTrustProvider#device_trust_provider_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#device_trust_provider_type VerifiedaccessTrustProvider#device_trust_provider_type}
     */
     readonly deviceTrustProviderType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#id VerifiedaccessTrustProvider#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#id VerifiedaccessTrustProvider#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#policy_reference_name VerifiedaccessTrustProvider#policy_reference_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#policy_reference_name VerifiedaccessTrustProvider#policy_reference_name}
     */
     readonly policyReferenceName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#tags VerifiedaccessTrustProvider#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#tags VerifiedaccessTrustProvider#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#tags_all VerifiedaccessTrustProvider#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#tags_all VerifiedaccessTrustProvider#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#trust_provider_type VerifiedaccessTrustProvider#trust_provider_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#trust_provider_type VerifiedaccessTrustProvider#trust_provider_type}
     */
     readonly trustProviderType: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#user_trust_provider_type VerifiedaccessTrustProvider#user_trust_provider_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#user_trust_provider_type VerifiedaccessTrustProvider#user_trust_provider_type}
     */
     readonly userTrustProviderType?: string;
     /**
     * device_options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#device_options VerifiedaccessTrustProvider#device_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#device_options VerifiedaccessTrustProvider#device_options}
     */
     readonly deviceOptions?: VerifiedaccessTrustProviderDeviceOptions;
     /**
+    * native_application_oidc_options block
+    *
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#native_application_oidc_options VerifiedaccessTrustProvider#native_application_oidc_options}
+    */
+    readonly nativeApplicationOidcOptions?: VerifiedaccessTrustProviderNativeApplicationOidcOptions;
+    /**
     * oidc_options block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#oidc_options VerifiedaccessTrustProvider#oidc_options}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#oidc_options VerifiedaccessTrustProvider#oidc_options}
     */
     readonly oidcOptions?: VerifiedaccessTrustProviderOidcOptions;
     /**
+    * sse_specification block
+    *
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#sse_specification VerifiedaccessTrustProvider#sse_specification}
+    */
+    readonly sseSpecification?: VerifiedaccessTrustProviderSseSpecification;
+    /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#timeouts VerifiedaccessTrustProvider#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#timeouts VerifiedaccessTrustProvider#timeouts}
     */
     readonly timeouts?: VerifiedaccessTrustProviderTimeouts;
 }
 export interface VerifiedaccessTrustProviderDeviceOptions {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#tenant_id VerifiedaccessTrustProvider#tenant_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#tenant_id VerifiedaccessTrustProvider#tenant_id}
     */
     readonly tenantId?: string;
 }
@@ -86,33 +98,118 @@ export declare class VerifiedaccessTrustProviderDeviceOptionsOutputReference ext
     resetTenantId(): void;
     get tenantIdInput(): string | undefined;
 }
-export interface VerifiedaccessTrustProviderOidcOptions {
+export interface VerifiedaccessTrustProviderNativeApplicationOidcOptions {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#authorization_endpoint VerifiedaccessTrustProvider#authorization_endpoint}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#authorization_endpoint VerifiedaccessTrustProvider#authorization_endpoint}
     */
     readonly authorizationEndpoint?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#client_id VerifiedaccessTrustProvider#client_id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#client_id VerifiedaccessTrustProvider#client_id}
     */
     readonly clientId?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#client_secret VerifiedaccessTrustProvider#client_secret}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#client_secret VerifiedaccessTrustProvider#client_secret}
     */
     readonly clientSecret: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#issuer VerifiedaccessTrustProvider#issuer}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#issuer VerifiedaccessTrustProvider#issuer}
     */
     readonly issuer?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#scope VerifiedaccessTrustProvider#scope}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#public_signing_key_endpoint VerifiedaccessTrustProvider#public_signing_key_endpoint}
+    */
+    readonly publicSigningKeyEndpoint?: string;
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#scope VerifiedaccessTrustProvider#scope}
     */
     readonly scope?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#token_endpoint VerifiedaccessTrustProvider#token_endpoint}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#token_endpoint VerifiedaccessTrustProvider#token_endpoint}
     */
     readonly tokenEndpoint?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#user_info_endpoint VerifiedaccessTrustProvider#user_info_endpoint}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#user_info_endpoint VerifiedaccessTrustProvider#user_info_endpoint}
+    */
+    readonly userInfoEndpoint?: string;
+}
+export declare function verifiedaccessTrustProviderNativeApplicationOidcOptionsToTerraform(struct?: VerifiedaccessTrustProviderNativeApplicationOidcOptionsOutputReference | VerifiedaccessTrustProviderNativeApplicationOidcOptions): any;
+export declare function verifiedaccessTrustProviderNativeApplicationOidcOptionsToHclTerraform(struct?: VerifiedaccessTrustProviderNativeApplicationOidcOptionsOutputReference | VerifiedaccessTrustProviderNativeApplicationOidcOptions): any;
+export declare class VerifiedaccessTrustProviderNativeApplicationOidcOptionsOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string);
+    get internalValue(): VerifiedaccessTrustProviderNativeApplicationOidcOptions | undefined;
+    set internalValue(value: VerifiedaccessTrustProviderNativeApplicationOidcOptions | undefined);
+    private _authorizationEndpoint?;
+    get authorizationEndpoint(): string;
+    set authorizationEndpoint(value: string);
+    resetAuthorizationEndpoint(): void;
+    get authorizationEndpointInput(): string | undefined;
+    private _clientId?;
+    get clientId(): string;
+    set clientId(value: string);
+    resetClientId(): void;
+    get clientIdInput(): string | undefined;
+    private _clientSecret?;
+    get clientSecret(): string;
+    set clientSecret(value: string);
+    get clientSecretInput(): string | undefined;
+    private _issuer?;
+    get issuer(): string;
+    set issuer(value: string);
+    resetIssuer(): void;
+    get issuerInput(): string | undefined;
+    private _publicSigningKeyEndpoint?;
+    get publicSigningKeyEndpoint(): string;
+    set publicSigningKeyEndpoint(value: string);
+    resetPublicSigningKeyEndpoint(): void;
+    get publicSigningKeyEndpointInput(): string | undefined;
+    private _scope?;
+    get scope(): string;
+    set scope(value: string);
+    resetScope(): void;
+    get scopeInput(): string | undefined;
+    private _tokenEndpoint?;
+    get tokenEndpoint(): string;
+    set tokenEndpoint(value: string);
+    resetTokenEndpoint(): void;
+    get tokenEndpointInput(): string | undefined;
+    private _userInfoEndpoint?;
+    get userInfoEndpoint(): string;
+    set userInfoEndpoint(value: string);
+    resetUserInfoEndpoint(): void;
+    get userInfoEndpointInput(): string | undefined;
+}
+export interface VerifiedaccessTrustProviderOidcOptions {
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#authorization_endpoint VerifiedaccessTrustProvider#authorization_endpoint}
+    */
+    readonly authorizationEndpoint?: string;
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#client_id VerifiedaccessTrustProvider#client_id}
+    */
+    readonly clientId?: string;
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#client_secret VerifiedaccessTrustProvider#client_secret}
+    */
+    readonly clientSecret: string;
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#issuer VerifiedaccessTrustProvider#issuer}
+    */
+    readonly issuer?: string;
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#scope VerifiedaccessTrustProvider#scope}
+    */
+    readonly scope?: string;
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#token_endpoint VerifiedaccessTrustProvider#token_endpoint}
+    */
+    readonly tokenEndpoint?: string;
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#user_info_endpoint VerifiedaccessTrustProvider#user_info_endpoint}
     */
     readonly userInfoEndpoint?: string;
 }
@@ -162,17 +259,49 @@ export declare class VerifiedaccessTrustProviderOidcOptionsOutputReference exten
     resetUserInfoEndpoint(): void;
     get userInfoEndpointInput(): string | undefined;
 }
+export interface VerifiedaccessTrustProviderSseSpecification {
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#customer_managed_key_enabled VerifiedaccessTrustProvider#customer_managed_key_enabled}
+    */
+    readonly customerManagedKeyEnabled?: boolean | cdktf.IResolvable;
+    /**
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#kms_key_arn VerifiedaccessTrustProvider#kms_key_arn}
+    */
+    readonly kmsKeyArn?: string;
+}
+export declare function verifiedaccessTrustProviderSseSpecificationToTerraform(struct?: VerifiedaccessTrustProviderSseSpecificationOutputReference | VerifiedaccessTrustProviderSseSpecification): any;
+export declare function verifiedaccessTrustProviderSseSpecificationToHclTerraform(struct?: VerifiedaccessTrustProviderSseSpecificationOutputReference | VerifiedaccessTrustProviderSseSpecification): any;
+export declare class VerifiedaccessTrustProviderSseSpecificationOutputReference extends cdktf.ComplexObject {
+    private isEmptyObject;
+    /**
+    * @param terraformResource The parent resource
+    * @param terraformAttribute The attribute on the parent resource this class is referencing
+    */
+    constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string);
+    get internalValue(): VerifiedaccessTrustProviderSseSpecification | undefined;
+    set internalValue(value: VerifiedaccessTrustProviderSseSpecification | undefined);
+    private _customerManagedKeyEnabled?;
+    get customerManagedKeyEnabled(): boolean | cdktf.IResolvable;
+    set customerManagedKeyEnabled(value: boolean | cdktf.IResolvable);
+    resetCustomerManagedKeyEnabled(): void;
+    get customerManagedKeyEnabledInput(): boolean | cdktf.IResolvable | undefined;
+    private _kmsKeyArn?;
+    get kmsKeyArn(): string;
+    set kmsKeyArn(value: string);
+    resetKmsKeyArn(): void;
+    get kmsKeyArnInput(): string | undefined;
+}
 export interface VerifiedaccessTrustProviderTimeouts {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#create VerifiedaccessTrustProvider#create}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#create VerifiedaccessTrustProvider#create}
     */
     readonly create?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#delete VerifiedaccessTrustProvider#delete}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#delete VerifiedaccessTrustProvider#delete}
     */
     readonly delete?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#update VerifiedaccessTrustProvider#update}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#update VerifiedaccessTrustProvider#update}
     */
     readonly update?: string;
 }
@@ -205,7 +334,7 @@ export declare class VerifiedaccessTrustProviderTimeoutsOutputReference extends 
     get updateInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider aws_verifiedaccess_trust_provider}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider aws_verifiedaccess_trust_provider}
 */
 export declare class VerifiedaccessTrustProvider extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_verifiedaccess_trust_provider";
@@ -213,12 +342,12 @@ export declare class VerifiedaccessTrustProvider extends cdktf.TerraformResource
     * Generates CDKTF code for importing a VerifiedaccessTrustProvider resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the VerifiedaccessTrustProvider to import
-    * @param importFromId The id of the existing VerifiedaccessTrustProvider that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing VerifiedaccessTrustProvider that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the VerifiedaccessTrustProvider to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/verifiedaccess_trust_provider aws_verifiedaccess_trust_provider} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/verifiedaccess_trust_provider aws_verifiedaccess_trust_provider} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
@@ -280,11 +409,21 @@ export declare class VerifiedaccessTrustProvider extends cdktf.TerraformResource
     putDeviceOptions(value: VerifiedaccessTrustProviderDeviceOptions): void;
     resetDeviceOptions(): void;
     get deviceOptionsInput(): VerifiedaccessTrustProviderDeviceOptions | undefined;
+    private _nativeApplicationOidcOptions;
+    get nativeApplicationOidcOptions(): VerifiedaccessTrustProviderNativeApplicationOidcOptionsOutputReference;
+    putNativeApplicationOidcOptions(value: VerifiedaccessTrustProviderNativeApplicationOidcOptions): void;
+    resetNativeApplicationOidcOptions(): void;
+    get nativeApplicationOidcOptionsInput(): VerifiedaccessTrustProviderNativeApplicationOidcOptions | undefined;
     private _oidcOptions;
     get oidcOptions(): VerifiedaccessTrustProviderOidcOptionsOutputReference;
     putOidcOptions(value: VerifiedaccessTrustProviderOidcOptions): void;
     resetOidcOptions(): void;
     get oidcOptionsInput(): VerifiedaccessTrustProviderOidcOptions | undefined;
+    private _sseSpecification;
+    get sseSpecification(): VerifiedaccessTrustProviderSseSpecificationOutputReference;
+    putSseSpecification(value: VerifiedaccessTrustProviderSseSpecification): void;
+    resetSseSpecification(): void;
+    get sseSpecificationInput(): VerifiedaccessTrustProviderSseSpecification | undefined;
     private _timeouts;
     get timeouts(): VerifiedaccessTrustProviderTimeoutsOutputReference;
     putTimeouts(value: VerifiedaccessTrustProviderTimeouts): void;

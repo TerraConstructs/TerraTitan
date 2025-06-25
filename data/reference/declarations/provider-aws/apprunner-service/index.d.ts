@@ -6,28 +6,28 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface ApprunnerServiceConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#auto_scaling_configuration_arn ApprunnerService#auto_scaling_configuration_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#auto_scaling_configuration_arn ApprunnerService#auto_scaling_configuration_arn}
     */
     readonly autoScalingConfigurationArn?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#id ApprunnerService#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#id ApprunnerService#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#service_name ApprunnerService#service_name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#service_name ApprunnerService#service_name}
     */
     readonly serviceName: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#tags ApprunnerService#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#tags ApprunnerService#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#tags_all ApprunnerService#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#tags_all ApprunnerService#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
@@ -35,43 +35,43 @@ export interface ApprunnerServiceConfig extends cdktf.TerraformMetaArguments {
     /**
     * encryption_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#encryption_configuration ApprunnerService#encryption_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#encryption_configuration ApprunnerService#encryption_configuration}
     */
     readonly encryptionConfiguration?: ApprunnerServiceEncryptionConfiguration;
     /**
     * health_check_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#health_check_configuration ApprunnerService#health_check_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#health_check_configuration ApprunnerService#health_check_configuration}
     */
     readonly healthCheckConfiguration?: ApprunnerServiceHealthCheckConfiguration;
     /**
     * instance_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#instance_configuration ApprunnerService#instance_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#instance_configuration ApprunnerService#instance_configuration}
     */
     readonly instanceConfiguration?: ApprunnerServiceInstanceConfiguration;
     /**
     * network_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#network_configuration ApprunnerService#network_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#network_configuration ApprunnerService#network_configuration}
     */
     readonly networkConfiguration?: ApprunnerServiceNetworkConfiguration;
     /**
     * observability_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#observability_configuration ApprunnerService#observability_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#observability_configuration ApprunnerService#observability_configuration}
     */
     readonly observabilityConfiguration?: ApprunnerServiceObservabilityConfiguration;
     /**
     * source_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#source_configuration ApprunnerService#source_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#source_configuration ApprunnerService#source_configuration}
     */
     readonly sourceConfiguration: ApprunnerServiceSourceConfiguration;
 }
 export interface ApprunnerServiceEncryptionConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#kms_key ApprunnerService#kms_key}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#kms_key ApprunnerService#kms_key}
     */
     readonly kmsKey: string;
 }
@@ -93,27 +93,27 @@ export declare class ApprunnerServiceEncryptionConfigurationOutputReference exte
 }
 export interface ApprunnerServiceHealthCheckConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#healthy_threshold ApprunnerService#healthy_threshold}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#healthy_threshold ApprunnerService#healthy_threshold}
     */
     readonly healthyThreshold?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#interval ApprunnerService#interval}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#interval ApprunnerService#interval}
     */
     readonly interval?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#path ApprunnerService#path}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#path ApprunnerService#path}
     */
     readonly path?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#protocol ApprunnerService#protocol}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#protocol ApprunnerService#protocol}
     */
     readonly protocol?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#timeout ApprunnerService#timeout}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#timeout ApprunnerService#timeout}
     */
     readonly timeout?: number;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#unhealthy_threshold ApprunnerService#unhealthy_threshold}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#unhealthy_threshold ApprunnerService#unhealthy_threshold}
     */
     readonly unhealthyThreshold?: number;
 }
@@ -161,15 +161,15 @@ export declare class ApprunnerServiceHealthCheckConfigurationOutputReference ext
 }
 export interface ApprunnerServiceInstanceConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#cpu ApprunnerService#cpu}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#cpu ApprunnerService#cpu}
     */
     readonly cpu?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#instance_role_arn ApprunnerService#instance_role_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#instance_role_arn ApprunnerService#instance_role_arn}
     */
     readonly instanceRoleArn?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#memory ApprunnerService#memory}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#memory ApprunnerService#memory}
     */
     readonly memory?: string;
 }
@@ -202,11 +202,11 @@ export declare class ApprunnerServiceInstanceConfigurationOutputReference extend
 }
 export interface ApprunnerServiceNetworkConfigurationEgressConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#egress_type ApprunnerService#egress_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#egress_type ApprunnerService#egress_type}
     */
     readonly egressType?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#vpc_connector_arn ApprunnerService#vpc_connector_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#vpc_connector_arn ApprunnerService#vpc_connector_arn}
     */
     readonly vpcConnectorArn?: string;
 }
@@ -234,7 +234,7 @@ export declare class ApprunnerServiceNetworkConfigurationEgressConfigurationOutp
 }
 export interface ApprunnerServiceNetworkConfigurationIngressConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#is_publicly_accessible ApprunnerService#is_publicly_accessible}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#is_publicly_accessible ApprunnerService#is_publicly_accessible}
     */
     readonly isPubliclyAccessible?: boolean | cdktf.IResolvable;
 }
@@ -257,19 +257,19 @@ export declare class ApprunnerServiceNetworkConfigurationIngressConfigurationOut
 }
 export interface ApprunnerServiceNetworkConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#ip_address_type ApprunnerService#ip_address_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#ip_address_type ApprunnerService#ip_address_type}
     */
     readonly ipAddressType?: string;
     /**
     * egress_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#egress_configuration ApprunnerService#egress_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#egress_configuration ApprunnerService#egress_configuration}
     */
     readonly egressConfiguration?: ApprunnerServiceNetworkConfigurationEgressConfiguration;
     /**
     * ingress_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#ingress_configuration ApprunnerService#ingress_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#ingress_configuration ApprunnerService#ingress_configuration}
     */
     readonly ingressConfiguration?: ApprunnerServiceNetworkConfigurationIngressConfiguration;
 }
@@ -302,11 +302,11 @@ export declare class ApprunnerServiceNetworkConfigurationOutputReference extends
 }
 export interface ApprunnerServiceObservabilityConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#observability_configuration_arn ApprunnerService#observability_configuration_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#observability_configuration_arn ApprunnerService#observability_configuration_arn}
     */
     readonly observabilityConfigurationArn?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#observability_enabled ApprunnerService#observability_enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#observability_enabled ApprunnerService#observability_enabled}
     */
     readonly observabilityEnabled: boolean | cdktf.IResolvable;
 }
@@ -333,11 +333,11 @@ export declare class ApprunnerServiceObservabilityConfigurationOutputReference e
 }
 export interface ApprunnerServiceSourceConfigurationAuthenticationConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#access_role_arn ApprunnerService#access_role_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#access_role_arn ApprunnerService#access_role_arn}
     */
     readonly accessRoleArn?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#connection_arn ApprunnerService#connection_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#connection_arn ApprunnerService#connection_arn}
     */
     readonly connectionArn?: string;
 }
@@ -365,31 +365,31 @@ export declare class ApprunnerServiceSourceConfigurationAuthenticationConfigurat
 }
 export interface ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#build_command ApprunnerService#build_command}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#build_command ApprunnerService#build_command}
     */
     readonly buildCommand?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#port ApprunnerService#port}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#port ApprunnerService#port}
     */
     readonly port?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#runtime ApprunnerService#runtime}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#runtime ApprunnerService#runtime}
     */
     readonly runtime: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#runtime_environment_secrets ApprunnerService#runtime_environment_secrets}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#runtime_environment_secrets ApprunnerService#runtime_environment_secrets}
     */
     readonly runtimeEnvironmentSecrets?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#runtime_environment_variables ApprunnerService#runtime_environment_variables}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#runtime_environment_variables ApprunnerService#runtime_environment_variables}
     */
     readonly runtimeEnvironmentVariables?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#start_command ApprunnerService#start_command}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#start_command ApprunnerService#start_command}
     */
     readonly startCommand?: string;
 }
@@ -448,13 +448,13 @@ export declare class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfig
 }
 export interface ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#configuration_source ApprunnerService#configuration_source}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#configuration_source ApprunnerService#configuration_source}
     */
     readonly configurationSource: string;
     /**
     * code_configuration_values block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#code_configuration_values ApprunnerService#code_configuration_values}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#code_configuration_values ApprunnerService#code_configuration_values}
     */
     readonly codeConfigurationValues?: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues;
 }
@@ -481,11 +481,11 @@ export declare class ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfig
 }
 export interface ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#type ApprunnerService#type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#type ApprunnerService#type}
     */
     readonly type: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#value ApprunnerService#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#value ApprunnerService#value}
     */
     readonly value: string;
 }
@@ -511,23 +511,23 @@ export declare class ApprunnerServiceSourceConfigurationCodeRepositorySourceCode
 }
 export interface ApprunnerServiceSourceConfigurationCodeRepository {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#repository_url ApprunnerService#repository_url}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#repository_url ApprunnerService#repository_url}
     */
     readonly repositoryUrl: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#source_directory ApprunnerService#source_directory}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#source_directory ApprunnerService#source_directory}
     */
     readonly sourceDirectory?: string;
     /**
     * code_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#code_configuration ApprunnerService#code_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#code_configuration ApprunnerService#code_configuration}
     */
     readonly codeConfiguration?: ApprunnerServiceSourceConfigurationCodeRepositoryCodeConfiguration;
     /**
     * source_code_version block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#source_code_version ApprunnerService#source_code_version}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#source_code_version ApprunnerService#source_code_version}
     */
     readonly sourceCodeVersion: ApprunnerServiceSourceConfigurationCodeRepositorySourceCodeVersion;
 }
@@ -563,23 +563,23 @@ export declare class ApprunnerServiceSourceConfigurationCodeRepositoryOutputRefe
 }
 export interface ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#port ApprunnerService#port}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#port ApprunnerService#port}
     */
     readonly port?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#runtime_environment_secrets ApprunnerService#runtime_environment_secrets}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#runtime_environment_secrets ApprunnerService#runtime_environment_secrets}
     */
     readonly runtimeEnvironmentSecrets?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#runtime_environment_variables ApprunnerService#runtime_environment_variables}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#runtime_environment_variables ApprunnerService#runtime_environment_variables}
     */
     readonly runtimeEnvironmentVariables?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#start_command ApprunnerService#start_command}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#start_command ApprunnerService#start_command}
     */
     readonly startCommand?: string;
 }
@@ -629,17 +629,17 @@ export declare class ApprunnerServiceSourceConfigurationImageRepositoryImageConf
 }
 export interface ApprunnerServiceSourceConfigurationImageRepository {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#image_identifier ApprunnerService#image_identifier}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#image_identifier ApprunnerService#image_identifier}
     */
     readonly imageIdentifier: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#image_repository_type ApprunnerService#image_repository_type}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#image_repository_type ApprunnerService#image_repository_type}
     */
     readonly imageRepositoryType: string;
     /**
     * image_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#image_configuration ApprunnerService#image_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#image_configuration ApprunnerService#image_configuration}
     */
     readonly imageConfiguration?: ApprunnerServiceSourceConfigurationImageRepositoryImageConfiguration;
 }
@@ -670,25 +670,25 @@ export declare class ApprunnerServiceSourceConfigurationImageRepositoryOutputRef
 }
 export interface ApprunnerServiceSourceConfiguration {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#auto_deployments_enabled ApprunnerService#auto_deployments_enabled}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#auto_deployments_enabled ApprunnerService#auto_deployments_enabled}
     */
     readonly autoDeploymentsEnabled?: boolean | cdktf.IResolvable;
     /**
     * authentication_configuration block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#authentication_configuration ApprunnerService#authentication_configuration}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#authentication_configuration ApprunnerService#authentication_configuration}
     */
     readonly authenticationConfiguration?: ApprunnerServiceSourceConfigurationAuthenticationConfiguration;
     /**
     * code_repository block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#code_repository ApprunnerService#code_repository}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#code_repository ApprunnerService#code_repository}
     */
     readonly codeRepository?: ApprunnerServiceSourceConfigurationCodeRepository;
     /**
     * image_repository block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#image_repository ApprunnerService#image_repository}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#image_repository ApprunnerService#image_repository}
     */
     readonly imageRepository?: ApprunnerServiceSourceConfigurationImageRepository;
 }
@@ -725,7 +725,7 @@ export declare class ApprunnerServiceSourceConfigurationOutputReference extends 
     get imageRepositoryInput(): ApprunnerServiceSourceConfigurationImageRepository | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service aws_apprunner_service}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service aws_apprunner_service}
 */
 export declare class ApprunnerService extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_apprunner_service";
@@ -733,12 +733,12 @@ export declare class ApprunnerService extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a ApprunnerService resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the ApprunnerService to import
-    * @param importFromId The id of the existing ApprunnerService that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing ApprunnerService that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the ApprunnerService to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/apprunner_service aws_apprunner_service} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/apprunner_service aws_apprunner_service} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

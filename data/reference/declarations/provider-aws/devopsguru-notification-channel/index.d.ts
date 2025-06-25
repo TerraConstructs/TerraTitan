@@ -8,23 +8,23 @@ export interface DevopsguruNotificationChannelConfig extends cdktf.TerraformMeta
     /**
     * filters block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_notification_channel#filters DevopsguruNotificationChannel#filters}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_notification_channel#filters DevopsguruNotificationChannel#filters}
     */
     readonly filters?: DevopsguruNotificationChannelFilters[] | cdktf.IResolvable;
     /**
     * sns block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_notification_channel#sns DevopsguruNotificationChannel#sns}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_notification_channel#sns DevopsguruNotificationChannel#sns}
     */
     readonly sns?: DevopsguruNotificationChannelSns[] | cdktf.IResolvable;
 }
 export interface DevopsguruNotificationChannelFilters {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_notification_channel#message_types DevopsguruNotificationChannel#message_types}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_notification_channel#message_types DevopsguruNotificationChannel#message_types}
     */
     readonly messageTypes?: string[];
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_notification_channel#severities DevopsguruNotificationChannel#severities}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_notification_channel#severities DevopsguruNotificationChannel#severities}
     */
     readonly severities?: string[];
 }
@@ -71,7 +71,7 @@ export declare class DevopsguruNotificationChannelFiltersList extends cdktf.Comp
 }
 export interface DevopsguruNotificationChannelSns {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_notification_channel#topic_arn DevopsguruNotificationChannel#topic_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_notification_channel#topic_arn DevopsguruNotificationChannel#topic_arn}
     */
     readonly topicArn: string;
 }
@@ -111,7 +111,7 @@ export declare class DevopsguruNotificationChannelSnsList extends cdktf.ComplexL
     get(index: number): DevopsguruNotificationChannelSnsOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_notification_channel aws_devopsguru_notification_channel}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_notification_channel aws_devopsguru_notification_channel}
 */
 export declare class DevopsguruNotificationChannel extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_devopsguru_notification_channel";
@@ -119,12 +119,12 @@ export declare class DevopsguruNotificationChannel extends cdktf.TerraformResour
     * Generates CDKTF code for importing a DevopsguruNotificationChannel resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DevopsguruNotificationChannel to import
-    * @param importFromId The id of the existing DevopsguruNotificationChannel that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_notification_channel#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DevopsguruNotificationChannel that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_notification_channel#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DevopsguruNotificationChannel to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/devopsguru_notification_channel aws_devopsguru_notification_channel} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/devopsguru_notification_channel aws_devopsguru_notification_channel} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

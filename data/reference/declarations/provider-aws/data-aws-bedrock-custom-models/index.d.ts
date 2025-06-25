@@ -41,7 +41,7 @@ export declare class DataAwsBedrockCustomModelsModelSummariesList extends cdktf.
     get(index: number): DataAwsBedrockCustomModelsModelSummariesOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/bedrock_custom_models aws_bedrock_custom_models}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/bedrock_custom_models aws_bedrock_custom_models}
 */
 export declare class DataAwsBedrockCustomModels extends cdktf.TerraformDataSource {
     static readonly tfResourceType = "aws_bedrock_custom_models";
@@ -49,12 +49,12 @@ export declare class DataAwsBedrockCustomModels extends cdktf.TerraformDataSourc
     * Generates CDKTF code for importing a DataAwsBedrockCustomModels resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DataAwsBedrockCustomModels to import
-    * @param importFromId The id of the existing DataAwsBedrockCustomModels that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/bedrock_custom_models#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DataAwsBedrockCustomModels that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/bedrock_custom_models#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DataAwsBedrockCustomModels to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/data-sources/bedrock_custom_models aws_bedrock_custom_models} Data Source
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/data-sources/bedrock_custom_models aws_bedrock_custom_models} Data Source
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

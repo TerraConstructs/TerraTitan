@@ -6,18 +6,18 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface AppfabricAppBundleConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appfabric_app_bundle#customer_managed_key_arn AppfabricAppBundle#customer_managed_key_arn}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appfabric_app_bundle#customer_managed_key_arn AppfabricAppBundle#customer_managed_key_arn}
     */
     readonly customerManagedKeyArn?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appfabric_app_bundle#tags AppfabricAppBundle#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appfabric_app_bundle#tags AppfabricAppBundle#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appfabric_app_bundle aws_appfabric_app_bundle}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appfabric_app_bundle aws_appfabric_app_bundle}
 */
 export declare class AppfabricAppBundle extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_appfabric_app_bundle";
@@ -25,12 +25,12 @@ export declare class AppfabricAppBundle extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a AppfabricAppBundle resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the AppfabricAppBundle to import
-    * @param importFromId The id of the existing AppfabricAppBundle that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appfabric_app_bundle#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing AppfabricAppBundle that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appfabric_app_bundle#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the AppfabricAppBundle to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/appfabric_app_bundle aws_appfabric_app_bundle} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/appfabric_app_bundle aws_appfabric_app_bundle} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

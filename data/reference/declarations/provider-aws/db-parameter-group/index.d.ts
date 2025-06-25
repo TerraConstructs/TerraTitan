@@ -6,40 +6,40 @@ import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
 export interface DbParameterGroupConfig extends cdktf.TerraformMetaArguments {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#description DbParameterGroup#description}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#description DbParameterGroup#description}
     */
     readonly description?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#family DbParameterGroup#family}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#family DbParameterGroup#family}
     */
     readonly family: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#id DbParameterGroup#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#id DbParameterGroup#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
     */
     readonly id?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#name DbParameterGroup#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#name DbParameterGroup#name}
     */
     readonly name?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#name_prefix DbParameterGroup#name_prefix}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#name_prefix DbParameterGroup#name_prefix}
     */
     readonly namePrefix?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#skip_destroy DbParameterGroup#skip_destroy}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#skip_destroy DbParameterGroup#skip_destroy}
     */
     readonly skipDestroy?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#tags DbParameterGroup#tags}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#tags DbParameterGroup#tags}
     */
     readonly tags?: {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#tags_all DbParameterGroup#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#tags_all DbParameterGroup#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
@@ -47,21 +47,21 @@ export interface DbParameterGroupConfig extends cdktf.TerraformMetaArguments {
     /**
     * parameter block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#parameter DbParameterGroup#parameter}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#parameter DbParameterGroup#parameter}
     */
     readonly parameter?: DbParameterGroupParameter[] | cdktf.IResolvable;
 }
 export interface DbParameterGroupParameter {
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#apply_method DbParameterGroup#apply_method}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#apply_method DbParameterGroup#apply_method}
     */
     readonly applyMethod?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#name DbParameterGroup#name}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#name DbParameterGroup#name}
     */
     readonly name: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#value DbParameterGroup#value}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#value DbParameterGroup#value}
     */
     readonly value: string;
 }
@@ -110,7 +110,7 @@ export declare class DbParameterGroupParameterList extends cdktf.ComplexList {
     get(index: number): DbParameterGroupParameterOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group aws_db_parameter_group}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group aws_db_parameter_group}
 */
 export declare class DbParameterGroup extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_db_parameter_group";
@@ -118,12 +118,12 @@ export declare class DbParameterGroup extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a DbParameterGroup resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DbParameterGroup to import
-    * @param importFromId The id of the existing DbParameterGroup that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DbParameterGroup that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DbParameterGroup to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.88.0/docs/resources/db_parameter_group aws_db_parameter_group} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_parameter_group aws_db_parameter_group} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
