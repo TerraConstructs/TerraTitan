@@ -1,0 +1,53 @@
+{
+  "arguments": [
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "(Optional) Description of the VPC link.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) Name used to label and identify the VPC link.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "tags",
+      "type": "map",
+      "description": "(Optional) Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tagsAll",
+      "type": "map",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "targetArns",
+      "type": "list",
+      "description": "(Required, ForceNew) List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.",
+      "required": true,
+      "optional": false
+    }
+  ]
+}

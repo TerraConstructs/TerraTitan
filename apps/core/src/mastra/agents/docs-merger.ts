@@ -31,7 +31,7 @@ const mergedAwsDocs = path.join(gitRoot, 'data', 'reference', 'merged', 'provide
 
 export class MergeDocSample implements DocMergeRequest {
   static fromName(name: string): MergeDocSample {
-    const markdownPath = path.join(markdownAwsDocs, `${name.replace(/-/g, '_')}.html.markdown`);
+    const markdownPath = path.join(markdownAwsDocs, `${name.replaceAll(/-/g, '_')}.html.markdown`);
     const declarationPath = path.join(declDir, `${name}`, 'index.d.ts');
     return new MergeDocSample(name, markdownPath, declarationPath);
   }

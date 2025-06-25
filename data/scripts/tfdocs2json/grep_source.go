@@ -383,6 +383,9 @@ func extractDescription(sourceStr string, attrInfo AttributeInfo, interactive bo
 	}
 
 	if len(foundDescriptions) > 0 {
+		// Deduplicate descriptions
+		foundDescriptions = deduplicateDescriptions(foundDescriptions)
+		
 		if len(foundDescriptions) == 1 {
 			// If only one description found, return it directly
 			return foundDescriptions[0]
@@ -400,6 +403,21 @@ func extractDescription(sourceStr string, attrInfo AttributeInfo, interactive bo
 	}
 
 	return ""
+}
+
+// deduplicateDescriptions removes duplicate strings from a slice while preserving order
+func deduplicateDescriptions(descriptions []string) []string {
+	seen := make(map[string]bool)
+	result := make([]string, 0, len(descriptions))
+	
+	for _, desc := range descriptions {
+		if !seen[desc] {
+			seen[desc] = true
+			result = append(result, desc)
+		}
+	}
+	
+	return result
 }
 
 // getTypeString returns a string representation of the schema type.

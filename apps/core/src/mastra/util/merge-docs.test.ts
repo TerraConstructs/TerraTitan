@@ -168,7 +168,7 @@ describe('MergeDocs', () => {
         markdownPath: path.join(fixturesDir, 'docs', markdownBaseName),
         declarationPath: path.join(fixturesDir, 'declarations', 'cloudwatch-event-bus', 'index.d.ts'),
       });
-      expect(mergeDocs.process2(mocktfDocs2Json(markdownBaseName)).fullText).toMatchSnapshot();
+      expect(mergeDocs.process2(undefined, mocktfDocs2Json(markdownBaseName)).fullText).toMatchSnapshot();
     });
     test(
       'cloudwatch_event_bus',
@@ -189,7 +189,7 @@ describe('MergeDocs', () => {
         markdownPath: path.join(fixturesDir, 'docs', markdownBaseName),
         declarationPath: path.join(fixturesDir, 'declarations', 'cloudwatch-event-bus', 'index.d.ts'),
       });
-      expect(mergeDocs.process2(mocktfDocs2Json(markdownBaseName)).fullText).toMatchSnapshot();
+      expect(mergeDocs.process2(undefined, mocktfDocs2Json(markdownBaseName)).fullText).toMatchSnapshot();
     });
     test(
       'ami',
@@ -210,7 +210,7 @@ describe('MergeDocs', () => {
         markdownPath: path.join(fixturesDir, 'docs', markdownBaseName),
         declarationPath: path.join(fixturesDir, 'declarations', 'cloudwatch-event-bus', 'index.d.ts'),
       });
-      expect(mergeDocs.process2(mocktfDocs2Json(markdownBaseName)).fullText).toMatchSnapshot();
+      expect(mergeDocs.process2(undefined, mocktfDocs2Json(markdownBaseName)).fullText).toMatchSnapshot();
     });
     test(
       'rds_cluster',
@@ -231,7 +231,7 @@ describe('MergeDocs', () => {
         markdownPath: path.join(fixturesDir, 'docs', markdownBaseName),
         declarationPath: path.join(fixturesDir, 'declarations', 'cloudwatch-event-bus', 'index.d.ts'),
       });
-      expect(mergeDocs.process2(mocktfDocs2Json(markdownBaseName)).fullText).toMatchSnapshot();
+      expect(mergeDocs.process2(undefined, mocktfDocs2Json(markdownBaseName)).fullText).toMatchSnapshot();
     });
     test(
       'appautoscaling_policy',

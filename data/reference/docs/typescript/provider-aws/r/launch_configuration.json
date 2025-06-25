@@ -1,0 +1,317 @@
+{
+  "arguments": [
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "associatePublicIpAddress",
+      "type": "bool",
+      "description": "(Optional) Associate a public ip address with an instance in a VPC.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "ebsBlockDevice",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "ebsOptimized",
+      "type": "bool",
+      "description": "(Optional) If true, the launched EC2 instance will be EBS-optimized.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "enableMonitoring",
+      "type": "bool",
+      "description": "(Optional) Enables/disables detailed monitoring. This is enabled by default.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "ephemeralBlockDevice",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "iamInstanceProfile",
+      "type": "string",
+      "description": "(Optional) The name attribute of the IAM instance profile to associate with launched instances.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "imageId",
+      "type": "string",
+      "description": "(Required) The EC2 image ID to launch.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "instanceType",
+      "type": "string",
+      "description": "(Required) The size of instance to launch.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "keyName",
+      "type": "string",
+      "description": "(Optional) The key name that should be used for the instance.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "metadataOptions",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Optional) The name of the launch configuration. If you leave this blank, Terraform will auto-generate a unique name. Conflicts with `namePrefix`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "namePrefix",
+      "type": "string",
+      "description": "(Optional) Creates a unique name beginning with the specified prefix. Conflicts with `name`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "placementTenancy",
+      "type": "string",
+      "description": "(Optional) The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "rootBlockDevice",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "securityGroups",
+      "type": "set",
+      "description": "(Optional) A list of associated security group IDS.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "spotPrice",
+      "type": "string",
+      "description": "(Optional; Default: On-demand price) The maximum price to use for reserving spot instances.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "userData",
+      "type": "string",
+      "description": "(Optional) The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "userDataBase64",
+      "type": "string",
+      "description": "(Optional) Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.",
+      "required": false,
+      "optional": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "ebsBlockDevice",
+      "full_name": "EbsBlockDevice",
+      "arguments": [
+        {
+          "name": "deleteOnTermination",
+          "type": "bool",
+          "description": "(Optional) Whether the volume should be destroyed on instance termination (Default: `true`).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "deviceName",
+          "type": "string",
+          "description": "(Required) The name of the device to mount.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "encrypted",
+          "type": "bool",
+          "description": "(Optional) Whether the volume should be encrypted or not. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "iops",
+          "type": "number",
+          "description": "(Optional) The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "noDevice",
+          "type": "bool",
+          "description": "(Optional) Whether the device in the block device mapping of the AMI is suppressed.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "snapshotId",
+          "type": "string",
+          "description": "(Optional) The Snapshot ID to mount.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "throughput",
+          "type": "number",
+          "description": "(Optional) The throughput (MiBps) to provision for a `gp3` volume.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "volumeSize",
+          "type": "number",
+          "description": "(Optional) The size of the volume in gigabytes.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "volumeType",
+          "type": "string",
+          "description": "(Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "ephemeralBlockDevice",
+      "full_name": "EphemeralBlockDevice",
+      "arguments": [
+        {
+          "name": "deviceName",
+          "type": "string",
+          "description": "(Required) The name of the block device to mount on the instance.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "noDevice",
+          "type": "bool",
+          "description": "(Optional) Whether the device in the block device mapping of the AMI is suppressed.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "virtualName",
+          "type": "string",
+          "description": "(Optional) The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "metadataOptions",
+      "full_name": "MetadataOptions",
+      "arguments": [
+        {
+          "name": "httpEndpoint",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "httpPutResponseHopLimit",
+          "type": "number",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "httpTokens",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "rootBlockDevice",
+      "full_name": "RootBlockDevice",
+      "arguments": [
+        {
+          "name": "deleteOnTermination",
+          "type": "bool",
+          "description": "(Optional) Whether the volume should be destroyed on instance termination. Defaults to `true`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "encrypted",
+          "type": "bool",
+          "description": "(Optional) Whether the volume should be encrypted or not. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "iops",
+          "type": "number",
+          "description": "(Optional) The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volumeType` of `io1`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "throughput",
+          "type": "number",
+          "description": "(Optional) The throughput (MiBps) to provision for a `gp3` volume.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "volumeSize",
+          "type": "number",
+          "description": "(Optional) The size of the volume in gigabytes.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "volumeType",
+          "type": "string",
+          "description": "(Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

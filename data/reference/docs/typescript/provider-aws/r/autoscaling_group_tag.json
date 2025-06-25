@@ -1,0 +1,54 @@
+{
+  "arguments": [
+    {
+      "name": "autoscalingGroupName",
+      "type": "string",
+      "description": "(Required) Name of the Autoscaling Group to apply the tag to.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tag",
+      "type": "block",
+      "description": "",
+      "required": true,
+      "optional": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "tag",
+      "full_name": "Tag",
+      "arguments": [
+        {
+          "name": "key",
+          "type": "string",
+          "description": "(Required) Tag name.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "propagateAtLaunch",
+          "type": "bool",
+          "description": "(Required) Whether to propagate the tags to instances launched by the ASG.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "(Required) Tag value.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

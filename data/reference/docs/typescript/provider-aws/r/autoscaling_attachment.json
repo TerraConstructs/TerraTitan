@@ -1,0 +1,32 @@
+{
+  "arguments": [
+    {
+      "name": "autoscalingGroupName",
+      "type": "string",
+      "description": "(Required) Name of ASG to associate with the ELB.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "elb",
+      "type": "string",
+      "description": "(Optional) Name of the ELB.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "lbTargetGroupArn",
+      "type": "string",
+      "description": "(Optional) ARN of a load balancer target group.",
+      "required": false,
+      "optional": true
+    }
+  ]
+}

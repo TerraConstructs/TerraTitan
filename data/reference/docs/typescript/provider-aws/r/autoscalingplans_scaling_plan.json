@@ -1,0 +1,362 @@
+{
+  "arguments": [
+    {
+      "name": "applicationSource",
+      "type": "block",
+      "description": "",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "scalingInstruction",
+      "type": "block",
+      "description": "",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "scalingPlanVersion",
+      "type": "number",
+      "description": "",
+      "required": false,
+      "optional": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "applicationSource",
+      "full_name": "ApplicationSource",
+      "arguments": [
+        {
+          "name": "cloudformationStackArn",
+          "type": "string",
+          "description": "(Optional) ARN of a AWS CloudFormation stack.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "tagFilter",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "tagFilter",
+      "full_name": "ApplicationSourceTagFilter",
+      "arguments": [
+        {
+          "name": "key",
+          "type": "string",
+          "description": "(Required) Tag key.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "values",
+          "type": "set",
+          "description": "(Optional) Tag values.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "scalingInstruction",
+      "full_name": "ScalingInstruction",
+      "arguments": [
+        {
+          "name": "disableDynamicScaling",
+          "type": "bool",
+          "description": "(Optional) Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "maxCapacity",
+          "type": "number",
+          "description": "(Required) Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictiveScalingMaxCapacityBehavior`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "minCapacity",
+          "type": "number",
+          "description": "(Required) Minimum capacity of the resource.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "predictiveScalingMaxCapacityBehavior",
+          "type": "string",
+          "description": "(Optional) Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "predictiveScalingMaxCapacityBuffer",
+          "type": "number",
+          "description": "(Optional) Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "predictiveScalingMode",
+          "type": "string",
+          "description": "(Optional) Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "resourceId",
+          "type": "string",
+          "description": "(Required) ID of the resource. This string consists of the resource type and unique identifier.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "scalableDimension",
+          "type": "string",
+          "description": "(Required) Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "scalingPolicyUpdateBehavior",
+          "type": "string",
+          "description": "(Optional) Controls whether a resource's externally created scaling policies are kept or replaced. Valid values: `KeepExternalPolicies`, `ReplaceExternalPolicies`. Defaults to `KeepExternalPolicies`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "scheduledActionBufferTime",
+          "type": "number",
+          "description": "(Optional) Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "serviceNamespace",
+          "type": "string",
+          "description": "(Required) Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "customizedLoadMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "predefinedLoadMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "targetTrackingConfiguration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "customizedLoadMetricSpecification",
+      "full_name": "ScalingInstructionCustomizedLoadMetricSpecification",
+      "arguments": [
+        {
+          "name": "dimensions",
+          "type": "map",
+          "description": "(Optional) Dimensions of the metric.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metricName",
+          "type": "string",
+          "description": "(Required) Name of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "(Required) Namespace of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "statistic",
+          "type": "string",
+          "description": "(Required) Statistic of the metric. Currently, the value must always be `Sum`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "(Optional) Unit of the metric.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "predefinedLoadMetricSpecification",
+      "full_name": "ScalingInstructionPredefinedLoadMetricSpecification",
+      "arguments": [
+        {
+          "name": "predefinedLoadMetricType",
+          "type": "string",
+          "description": "(Required) Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "resourceLabel",
+          "type": "string",
+          "description": "(Optional) Identifies the resource associated with the metric type.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "targetTrackingConfiguration",
+      "full_name": "ScalingInstructionTargetTrackingConfiguration",
+      "arguments": [
+        {
+          "name": "disableScaleIn",
+          "type": "bool",
+          "description": "(Optional) Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "estimatedInstanceWarmup",
+          "type": "number",
+          "description": "(Optional) Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "scaleInCooldown",
+          "type": "number",
+          "description": "(Optional) Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "scaleOutCooldown",
+          "type": "number",
+          "description": "(Optional) Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "targetValue",
+          "type": "number",
+          "description": "(Required) Target value for the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "customizedScalingMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "predefinedScalingMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "customizedScalingMetricSpecification",
+      "full_name": "ScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification",
+      "arguments": [
+        {
+          "name": "dimensions",
+          "type": "map",
+          "description": "(Optional) Dimensions of the metric.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metricName",
+          "type": "string",
+          "description": "(Required) Name of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "(Required) Namespace of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "statistic",
+          "type": "string",
+          "description": "(Required) Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "(Optional) Unit of the metric.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "predefinedScalingMetricSpecification",
+      "full_name": "ScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification",
+      "arguments": [
+        {
+          "name": "predefinedScalingMetricType",
+          "type": "string",
+          "description": "(Required) Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "resourceLabel",
+          "type": "string",
+          "description": "(Optional) Identifies the resource associated with the metric type.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

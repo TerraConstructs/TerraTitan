@@ -1,0 +1,1243 @@
+{
+  "arguments": [
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "availabilityZoneDistribution",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "availabilityZones",
+      "type": "set",
+      "description": "(Optional) A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "capacityRebalance",
+      "type": "bool",
+      "description": "(Optional) Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "capacityReservationSpecification",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "context",
+      "type": "string",
+      "description": "(Optional) Reserved.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "defaultCooldown",
+      "type": "number",
+      "description": "(Optional) Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "defaultInstanceWarmup",
+      "type": "number",
+      "description": "(Optional) Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html)) - `launchConfiguration` - (Optional) Name of the launch configuration to use.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "desiredCapacity",
+      "type": "number",
+      "description": "(Optional) Number of Amazon EC2 instances that should be running in the group. (See also [Waiting for Capacity](#waiting-for-capacity) below.) - `desiredCapacityType` - (Optional) The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `\"units\"`, `\"vcpu\"`, `\"memory-mib\"`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "desiredCapacityType",
+      "type": "string",
+      "description": "(Optional) The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `\"units\"`, `\"vcpu\"`, `\"memory-mib\"`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "enabledMetrics",
+      "type": "set",
+      "description": "(Optional) List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "forceDelete",
+      "type": "bool",
+      "description": "(Optional) Allows deleting the Auto Scaling Group without waiting for all instances in the pool to terminate. You can force an Auto Scaling Group to delete even if it's in the process of scaling a resource. Normally, Terraform drains all the instances before deleting the group. This bypasses that behavior and potentially leaves resources dangling.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "forceDeleteWarmPool",
+      "type": "bool",
+      "description": "(Optional) Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "healthCheckGracePeriod",
+      "type": "number",
+      "description": "(Optional, Default: 300) Time (in seconds) after instance comes into service before checking health.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "healthCheckType",
+      "type": "string",
+      "description": "(Optional) \"EC2\" or \"ELB\". Controls how health checking is done.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "(Optional) ID of the launch template. Conflicts with `name`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "ignoreFailedScalingActivities",
+      "type": "bool",
+      "description": "(Optional) Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while [waiting for capacity](#waiting-for-capacity). The default is `false` -- failed scaling activities cause errors to be returned.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "initialLifecycleHook",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "instanceMaintenancePolicy",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "instanceRefresh",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "launchConfiguration",
+      "type": "string",
+      "description": "(Optional) Name of the launch configuration to use.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "launchTemplate",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "loadBalancers",
+      "type": "set",
+      "description": "(Optional) List of elastic load balancer names to add to the autoscaling group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "maxInstanceLifetime",
+      "type": "number",
+      "description": "(Optional) Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "maxSize",
+      "type": "number",
+      "description": "(Required) Maximum size of the Auto Scaling Group.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "metricsGranularity",
+      "type": "string",
+      "description": "(Optional) Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "minElbCapacity",
+      "type": "number",
+      "description": "(Optional) Setting this causes Terraform to wait for this number of instances from this Auto Scaling Group to show up healthy in the ELB only on creation. Updates will not wait on ELB instance number changes.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "minSize",
+      "type": "number",
+      "description": "(Required) Minimum size of the Auto Scaling Group.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "mixedInstancesPolicy",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Optional) Name of the Auto Scaling Group. By default generated by Terraform. Conflicts with `namePrefix`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "namePrefix",
+      "type": "string",
+      "description": "(Optional) Creates a unique name beginning with the specified prefix. Conflicts with `name`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "placementGroup",
+      "type": "string",
+      "description": "(Optional) Name of the placement group into which you'll launch your instances, if any.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "predictedCapacity",
+      "type": "number",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "protectFromScaleIn",
+      "type": "bool",
+      "description": "(Optional) Whether newly launched instances are automatically protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html) in the Amazon EC2 Auto Scaling User Guide.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "serviceLinkedRoleArn",
+      "type": "string",
+      "description": "(Optional) ARN of the service-linked role that the ASG will use to call other AWS services - `maxInstanceLifetime` - (Optional) Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "suspendedProcesses",
+      "type": "set",
+      "description": "(Optional) List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tag",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "targetGroupArns",
+      "type": "set",
+      "description": "(Optional) Set of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "terminationPolicies",
+      "type": "list",
+      "description": "(Optional) List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "timeouts",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "trafficSource",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "vpcZoneIdentifier",
+      "type": "set",
+      "description": "(Optional) List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "waitForCapacityTimeout",
+      "type": "string",
+      "description": "(Optional, Default: \"10m\") Maximum [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should wait for ASG instances to be healthy before timing out. (See also [Waiting for Capacity](#waiting-for-capacity) below.) Setting this to \"0\" causes Terraform to skip all Capacity Waiting behavior.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "waitForElbCapacity",
+      "type": "number",
+      "description": "(Optional) Setting this will cause Terraform to wait for exactly this number of healthy instances from this Auto Scaling Group in all attached load balancers on both create and update operations. (Takes precedence over `minElbCapacity` behavior.) (See also [Waiting for Capacity](#waiting-for-capacity) below.)",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "warmPool",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "warmPoolSize",
+      "type": "number",
+      "description": "",
+      "required": false,
+      "optional": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "availabilityZoneDistribution",
+      "full_name": "AvailabilityZoneDistribution",
+      "arguments": [
+        {
+          "name": "capacityDistributionStrategy",
+          "type": "string",
+          "description": "(Required) The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "capacityReservationSpecification",
+      "full_name": "CapacityReservationSpecification",
+      "arguments": [
+        {
+          "name": "capacityReservationPreference",
+          "type": "string",
+          "description": "(Required) Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "capacityReservationTarget",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "capacityReservationTarget",
+      "full_name": "CapacityReservationSpecificationCapacityReservationTarget",
+      "arguments": [
+        {
+          "name": "capacityReservationIds",
+          "type": "list",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "capacityReservationResourceGroupArns",
+          "type": "list",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "initialLifecycleHook",
+      "full_name": "InitialLifecycleHook",
+      "arguments": [
+        {
+          "name": "defaultResult",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "heartbeatTimeout",
+          "type": "number",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "lifecycleTransition",
+          "type": "string",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Optional) Name of the Auto Scaling Group. By default generated by Terraform. Conflicts with `namePrefix`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "notificationMetadata",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "notificationTargetArn",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "instanceMaintenancePolicy",
+      "full_name": "InstanceMaintenancePolicy",
+      "arguments": [
+        {
+          "name": "maxHealthyPercentage",
+          "type": "number",
+          "description": "(Required) Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "minHealthyPercentage",
+          "type": "number",
+          "description": "(Required) Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "instanceRefresh",
+      "full_name": "InstanceRefresh",
+      "arguments": [
+        {
+          "name": "strategy",
+          "type": "string",
+          "description": "(Required) Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "triggers",
+          "type": "set",
+          "description": "(Optional) Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "preferences",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "preferences",
+      "full_name": "InstanceRefreshPreferences",
+      "arguments": [
+        {
+          "name": "autoRollback",
+          "type": "bool",
+          "description": "(Optional) Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "checkpointDelay",
+          "type": "string",
+          "description": "(Optional) Number of seconds to wait after a checkpoint. Defaults to `3600`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "checkpointPercentages",
+          "type": "list",
+          "description": "(Optional) List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "instanceWarmup",
+          "type": "string",
+          "description": "(Optional) Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "maxHealthyPercentage",
+          "type": "number",
+          "description": "(Optional) Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "minHealthyPercentage",
+          "type": "number",
+          "description": "(Optional) Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "scaleInProtectedInstances",
+          "type": "string",
+          "description": "(Optional) Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "skipMatching",
+          "type": "bool",
+          "description": "(Optional) Replace instances that already have your desired configuration. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "standbyInstances",
+          "type": "string",
+          "description": "(Optional) Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "alarmSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "alarmSpecification",
+      "full_name": "InstanceRefreshPreferencesAlarmSpecification",
+      "arguments": [
+        {
+          "name": "alarms",
+          "type": "list",
+          "description": "(Required) List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "launchTemplate",
+      "full_name": "LaunchTemplate",
+      "arguments": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "(Optional) ID of the launch template. Conflicts with `name`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Optional) Name of the launch template. Conflicts with `id`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "(Optional) Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "mixedInstancesPolicy",
+      "full_name": "MixedInstancesPolicy",
+      "arguments": [
+        {
+          "name": "instancesDistribution",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "launchTemplate",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "instancesDistribution",
+      "full_name": "MixedInstancesPolicyInstancesDistribution",
+      "arguments": [
+        {
+          "name": "onDemandAllocationStrategy",
+          "type": "string",
+          "description": "(Optional) Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "onDemandBaseCapacity",
+          "type": "number",
+          "description": "(Optional) Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "onDemandPercentageAboveBaseCapacity",
+          "type": "number",
+          "description": "(Optional) Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "spotAllocationStrategy",
+          "type": "string",
+          "description": "(Optional) How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "spotInstancePools",
+          "type": "number",
+          "description": "(Optional) Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "spotMaxPrice",
+          "type": "string",
+          "description": "(Optional) Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "launchTemplate",
+      "full_name": "MixedInstancesPolicyLaunchTemplate",
+      "arguments": [
+        {
+          "name": "launchTemplateSpecification",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "override",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "launchTemplateSpecification",
+      "full_name": "MixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification",
+      "arguments": [
+        {
+          "name": "launchTemplateId",
+          "type": "string",
+          "description": "(Optional) ID of the launch template. Conflicts with `launchTemplateName`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "launchTemplateName",
+          "type": "string",
+          "description": "(Optional) Name of the launch template. Conflicts with `launchTemplateId`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "(Optional) Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "override",
+      "full_name": "MixedInstancesPolicyLaunchTemplateOverride",
+      "arguments": [
+        {
+          "name": "instanceType",
+          "type": "string",
+          "description": "(Optional) Override the instance type in the Launch Template.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "weightedCapacity",
+          "type": "string",
+          "description": "(Optional) Number of capacity units, which gives the instance type a proportional weight to other instance types.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "instanceRequirements",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "launchTemplateSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "instanceRequirements",
+      "full_name": "MixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements",
+      "arguments": [
+        {
+          "name": "acceleratorManufacturers",
+          "type": "set",
+          "description": "(Optional) List of accelerator manufacturer names. Default is any manufacturer.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "acceleratorNames",
+          "type": "set",
+          "description": "(Optional) List of accelerator names. Default is any acclerator.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "acceleratorTypes",
+          "type": "set",
+          "description": "(Optional) List of accelerator types. Default is any accelerator type.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "allowedInstanceTypes",
+          "type": "set",
+          "description": "(Optional) List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bareMetal",
+          "type": "string",
+          "description": "(Optional) Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "burstablePerformance",
+          "type": "string",
+          "description": "(Optional) Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "cpuManufacturers",
+          "type": "set",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "excludedInstanceTypes",
+          "type": "set",
+          "description": "(Optional) List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "instanceGenerations",
+          "type": "set",
+          "description": "(Optional) List of instance generation names. Default is any generation.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "localStorage",
+          "type": "string",
+          "description": "(Optional) Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "localStorageTypes",
+          "type": "set",
+          "description": "(Optional) List of local storage type names. Default any storage type.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "maxSpotPriceAsPercentageOfOptimalOnDemandPrice",
+          "type": "number",
+          "description": "(Optional) The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice` - `memoryGibPerVcpu` - (Optional) Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "onDemandMaxPricePercentageOverLowestPrice",
+          "type": "number",
+          "description": "(Optional) Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "requireHibernateSupport",
+          "type": "bool",
+          "description": "(Optional) Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "spotMaxPricePercentageOverLowestPrice",
+          "type": "number",
+          "description": "(Optional) Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice` If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "networkBandwidthGbps",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "vcpuCount",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "acceleratorCount",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "acceleratorTotalMemoryMib",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "baselineEbsBandwidthMbps",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "memoryGibPerVcpu",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "memoryMib",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "networkInterfaceCount",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "totalLocalStorageGb",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "acceleratorCount",
+      "full_name": "MixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount",
+      "arguments": [
+        {
+          "name": "max",
+          "type": "number",
+          "description": "(Optional) Maximum. Set to `0` to exclude instance types with accelerators.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "description": "(Optional) Minimum.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "acceleratorTotalMemoryMib",
+      "full_name": "MixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib",
+      "arguments": [
+        {
+          "name": "max",
+          "type": "number",
+          "description": "(Optional) Maximum.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "description": "(Optional) Minimum.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "baselineEbsBandwidthMbps",
+      "full_name": "MixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps",
+      "arguments": [
+        {
+          "name": "max",
+          "type": "number",
+          "description": "(Optional) Maximum.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "description": "(Optional) Minimum.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "memoryGibPerVcpu",
+      "full_name": "MixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu",
+      "arguments": [
+        {
+          "name": "max",
+          "type": "number",
+          "description": "(Optional) Maximum. May be a decimal number, e.g. `0.5`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "description": "(Optional) Minimum. May be a decimal number, e.g. `0.5`.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "memoryMib",
+      "full_name": "MixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib",
+      "arguments": [
+        {
+          "name": "max",
+          "type": "number",
+          "description": "(Optional) Maximum.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "description": "(Required) Minimum.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "networkBandwidthGbps",
+      "full_name": "MixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps",
+      "arguments": [
+        {
+          "name": "max",
+          "type": "number",
+          "description": "(Optional) Maximum.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "description": "(Optional) Minimum.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "networkInterfaceCount",
+      "full_name": "MixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount",
+      "arguments": [
+        {
+          "name": "max",
+          "type": "number",
+          "description": "(Optional) Maximum.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "description": "(Optional) Minimum.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "totalLocalStorageGb",
+      "full_name": "MixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb",
+      "arguments": [
+        {
+          "name": "max",
+          "type": "number",
+          "description": "(Optional) Maximum. May be a decimal number, e.g. `0.5`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "description": "(Optional) Minimum. May be a decimal number, e.g. `0.5`.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "vcpuCount",
+      "full_name": "MixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount",
+      "arguments": [
+        {
+          "name": "max",
+          "type": "number",
+          "description": "(Optional) Maximum.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "description": "(Required) Minimum.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "launchTemplateSpecification",
+      "full_name": "MixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification",
+      "arguments": [
+        {
+          "name": "launchTemplateId",
+          "type": "string",
+          "description": "(Optional) ID of the launch template. Conflicts with `launchTemplateName`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "launchTemplateName",
+          "type": "string",
+          "description": "(Optional) Name of the launch template. Conflicts with `launchTemplateId`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "(Optional) Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "full_name": "Tag",
+      "arguments": [
+        {
+          "name": "key",
+          "type": "string",
+          "description": "(Required) Key - `value` - (Required) Value - `propagateAtLaunch` - (Required) Enables propagation of the tag to Amazon EC2 instances launched via this ASG To declare multiple tags, additional `tag` blocks can be specified.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "propagateAtLaunch",
+          "type": "bool",
+          "description": "(Required) Enables propagation of the tag to Amazon EC2 instances launched via this ASG To declare multiple tags, additional `tag` blocks can be specified.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "(Required) Value - `propagateAtLaunch` - (Required) Enables propagation of the tag to Amazon EC2 instances launched via this ASG To declare multiple tags, additional `tag` blocks can be specified.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "timeouts",
+      "full_name": "Timeouts",
+      "arguments": [
+        {
+          "name": "delete",
+          "type": "string",
+          "description": "(Default `10m`)",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "update",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "trafficSource",
+      "full_name": "TrafficSource",
+      "arguments": [
+        {
+          "name": "identifier",
+          "type": "string",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "warmPool",
+      "full_name": "WarmPool",
+      "arguments": [
+        {
+          "name": "maxGroupPreparedCapacity",
+          "type": "number",
+          "description": "(Optional) Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "minSize",
+          "type": "number",
+          "description": "(Optional) Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "poolState",
+          "type": "string",
+          "description": "(Optional) Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "instanceReusePolicy",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "instanceReusePolicy",
+      "full_name": "WarmPoolInstanceReusePolicy",
+      "arguments": [
+        {
+          "name": "reuseOnScaleIn",
+          "type": "bool",
+          "description": "(Optional) Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

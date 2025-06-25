@@ -1,0 +1,110 @@
+{
+  "arguments": [
+    {
+      "name": "canarySettings",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "createdDate",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "(Optional) Description of the deployment",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "executionArn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "invokeUrl",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "restApiId",
+      "type": "string",
+      "description": "(Required) REST API identifier.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "stageDescription",
+      "type": "string",
+      "description": "(Optional, **Deprecated** Use an explicit [`aws_api_gateway_stage` resource](api_gateway_stage.html) instead) Description to set on the stage managed by the `stageName` argument.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "stageName",
+      "type": "string",
+      "description": "(Optional, **Deprecated** Use an explicit [`aws_api_gateway_stage` resource](api_gateway_stage.html) instead) Name of the stage to create with this deployment.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "triggers",
+      "type": "map",
+      "description": "(Optional) Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the [`-replace` option](https://developer.hashicorp.com/terraform/cli/commands/plan#replace-address) with `terraform plan` or `terraform apply`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "variables",
+      "type": "map",
+      "description": "(Optional) Map to set on the stage managed by the `stageName` argument.",
+      "required": false,
+      "optional": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "canarySettings",
+      "full_name": "CanarySettings",
+      "arguments": [
+        {
+          "name": "percentTraffic",
+          "type": "number",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "stageVariableOverrides",
+          "type": "map",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "useStageCache",
+          "type": "bool",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

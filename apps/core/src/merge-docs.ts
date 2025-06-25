@@ -12,8 +12,12 @@ const mergedRoot = path.join(dataRefRoot, 'merged', 'provider-aws');
 
 // read path to json file and input markdown from process arguments
 const resourceName = process.argv[2];
+let interfaceName: string | undefined = undefined;
+if (process.argv.length > 3) {
+  interfaceName = process.argv[3] || undefined;
+}
 if (!resourceName) {
-  console.error('Please provide resource name (i.e. dynamodb_resource_policy).');
+  console.error('Please provide resource name (i.e. dynamodb_resource_policy). Optional: pass interfaceName override.');
   process.exit(1);
 }
 // kebabize resource name for paths
@@ -51,7 +55,7 @@ const mergeDocs = MergeDocs.fromProps({
   markdownPath: resourceMarkdownPath,
   declarationPath,
 });
-mergeDocs.process2(tfdocs2json);
+mergeDocs.process2(interfaceName, tfdocs2json);
 mergeDocs.writeTo(mergedDeclarationPath);
 
 console.log(`Merged declaration path: ${mergedDeclarationPath}`);

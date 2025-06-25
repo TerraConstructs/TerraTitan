@@ -1,0 +1,39 @@
+{
+  "arguments": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "parentId",
+      "type": "string",
+      "description": "(Required) ID of the parent API resource",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "path",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "pathPart",
+      "type": "string",
+      "description": "(Required) Last path segment of this API resource.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "restApiId",
+      "type": "string",
+      "description": "(Required) ID of the associated REST API",
+      "required": true,
+      "optional": false
+    }
+  ]
+}

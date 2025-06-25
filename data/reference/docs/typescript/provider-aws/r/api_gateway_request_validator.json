@@ -1,0 +1,39 @@
+{
+  "arguments": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) Name of the request validator",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "restApiId",
+      "type": "string",
+      "description": "(Required) ID of the associated Rest API",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "validateRequestBody",
+      "type": "bool",
+      "description": "(Optional) Boolean whether to validate request body. Defaults to `false`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "validateRequestParameters",
+      "type": "bool",
+      "description": "(Optional) Boolean whether to validate request parameters. Defaults to `false`.",
+      "required": false,
+      "optional": true
+    }
+  ]
+}

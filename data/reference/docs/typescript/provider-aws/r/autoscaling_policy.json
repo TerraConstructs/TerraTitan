@@ -1,0 +1,929 @@
+{
+  "arguments": [
+    {
+      "name": "adjustmentType",
+      "type": "string",
+      "description": "(Optional) Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "autoscalingGroupName",
+      "type": "string",
+      "description": "(Required) Name of the autoscaling group.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "cooldown",
+      "type": "number",
+      "description": "(Optional) Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "enabled",
+      "type": "bool",
+      "description": "(Optional) Whether the scaling policy is enabled or disabled. Default: `true`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "estimatedInstanceWarmup",
+      "type": "number",
+      "description": "(Optional) Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "(Required) Short name for the metric used in target tracking scaling policy.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "metricAggregationType",
+      "type": "string",
+      "description": "(Optional) Aggregation type for the policy's metrics. Valid values are \"Minimum\", \"Maximum\", and \"Average\". Without a value, AWS will treat the aggregation type as \"Average\".",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "minAdjustmentMagnitude",
+      "type": "number",
+      "description": "(Optional) Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) Name of the policy.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "policyType",
+      "type": "string",
+      "description": "(Optional) Policy type, either \"SimpleScaling\", \"StepScaling\", \"TargetTrackingScaling\", or \"PredictiveScaling\". If this value isn't provided, AWS will default to \"SimpleScaling.\"",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "predictiveScalingConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "scalingAdjustment",
+      "type": "number",
+      "description": "(Optional) Number of instances by which to scale. `adjustmentType` determines the interpretation of this number (e.g., as an absolute number or as a percentage of the existing Auto Scaling group size). A positive increment adds to the current capacity and a negative value removes from the current capacity.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "stepAdjustment",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "targetTrackingConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "predictiveScalingConfiguration",
+      "full_name": "PredictiveScalingConfiguration",
+      "arguments": [
+        {
+          "name": "maxCapacityBreachBehavior",
+          "type": "string",
+          "description": "(Optional) Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "maxCapacityBuffer",
+          "type": "string",
+          "description": "(Optional) Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "description": "(Optional) Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "schedulingBufferTime",
+          "type": "string",
+          "description": "(Optional) Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metricSpecification",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "metricSpecification",
+      "full_name": "PredictiveScalingConfigurationMetricSpecification",
+      "arguments": [
+        {
+          "name": "targetValue",
+          "type": "number",
+          "description": "(Required) Target value for the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "predefinedMetricPairSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "predefinedScalingMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "customizedCapacityMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "customizedLoadMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "customizedScalingMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "predefinedLoadMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "customizedCapacityMetricSpecification",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification",
+      "arguments": [
+        {
+          "name": "metricDataQueries",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "metricDataQueries",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueries",
+      "arguments": [
+        {
+          "name": "expression",
+          "type": "string",
+          "description": "(Optional) Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "(Required) Short name for the metric used in predictive scaling policy.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "(Optional) Human-readable label for this metric or expression.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "returnData",
+          "type": "bool",
+          "description": "(Optional) Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metricStat",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "metricStat",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueriesMetricStat",
+      "arguments": [
+        {
+          "name": "stat",
+          "type": "string",
+          "description": "(Required) Statistic of the metrics to return.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "(Optional) Unit of the metrics to return.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metric",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "metric",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueriesMetricStatMetric",
+      "arguments": [
+        {
+          "name": "metricName",
+          "type": "string",
+          "description": "(Required) Name of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "(Required) Namespace of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "dimensions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "dimensions",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueriesMetricStatMetricDimensions",
+      "arguments": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Required) Name of the dimension.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "(Required) Value of the dimension.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "customizedLoadMetricSpecification",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification",
+      "arguments": [
+        {
+          "name": "metricDataQueries",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "metricDataQueries",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueries",
+      "arguments": [
+        {
+          "name": "expression",
+          "type": "string",
+          "description": "(Optional) Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "(Required) Short name for the metric used in predictive scaling policy.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "(Optional) Human-readable label for this metric or expression.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "returnData",
+          "type": "bool",
+          "description": "(Optional) Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metricStat",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "metricStat",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueriesMetricStat",
+      "arguments": [
+        {
+          "name": "stat",
+          "type": "string",
+          "description": "(Required) Statistic of the metrics to return.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "(Optional) Unit of the metrics to return.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metric",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "metric",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueriesMetricStatMetric",
+      "arguments": [
+        {
+          "name": "metricName",
+          "type": "string",
+          "description": "(Required) Name of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "(Required) Namespace of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "dimensions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "dimensions",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueriesMetricStatMetricDimensions",
+      "arguments": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Required) Name of the dimension.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "(Required) Value of the dimension.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "customizedScalingMetricSpecification",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification",
+      "arguments": [
+        {
+          "name": "metricDataQueries",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "metricDataQueries",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueries",
+      "arguments": [
+        {
+          "name": "expression",
+          "type": "string",
+          "description": "(Optional) Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "(Required) Short name for the metric used in predictive scaling policy.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "(Optional) Human-readable label for this metric or expression.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "returnData",
+          "type": "bool",
+          "description": "(Optional) Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metricStat",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "metricStat",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueriesMetricStat",
+      "arguments": [
+        {
+          "name": "stat",
+          "type": "string",
+          "description": "(Required) Statistic of the metrics to return.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "(Optional) Unit of the metrics to return.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metric",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "metric",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueriesMetricStatMetric",
+      "arguments": [
+        {
+          "name": "metricName",
+          "type": "string",
+          "description": "(Required) Name of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "(Required) Namespace of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "dimensions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "dimensions",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueriesMetricStatMetricDimensions",
+      "arguments": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Required) Name of the dimension.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "(Required) Value of the dimension.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "predefinedLoadMetricSpecification",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification",
+      "arguments": [
+        {
+          "name": "predefinedMetricType",
+          "type": "string",
+          "description": "(Required) Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "resourceLabel",
+          "type": "string",
+          "description": "(Optional) Identifies the resource associated with the metric type.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "predefinedMetricPairSpecification",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification",
+      "arguments": [
+        {
+          "name": "predefinedMetricType",
+          "type": "string",
+          "description": "(Required) Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "resourceLabel",
+          "type": "string",
+          "description": "(Optional) Identifies the resource associated with the metric type.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "predefinedScalingMetricSpecification",
+      "full_name": "PredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification",
+      "arguments": [
+        {
+          "name": "predefinedMetricType",
+          "type": "string",
+          "description": "(Required) Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "resourceLabel",
+          "type": "string",
+          "description": "(Optional) Identifies the resource associated with the metric type.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "stepAdjustment",
+      "full_name": "StepAdjustment",
+      "arguments": [
+        {
+          "name": "metricIntervalLowerBound",
+          "type": "string",
+          "description": "(Optional) Lower bound for the difference between the alarm threshold and the CloudWatch metric.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metricIntervalUpperBound",
+          "type": "string",
+          "description": "(Optional) Upper bound for the difference between the alarm threshold and the CloudWatch metric.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "scalingAdjustment",
+          "type": "number",
+          "description": "(Required) Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "targetTrackingConfiguration",
+      "full_name": "TargetTrackingConfiguration",
+      "arguments": [
+        {
+          "name": "disableScaleIn",
+          "type": "bool",
+          "description": "(Optional, Default: false) Whether scale in by the target tracking policy is disabled.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "targetValue",
+          "type": "number",
+          "description": "(Required) Target value for the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "customizedMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "predefinedMetricSpecification",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "customizedMetricSpecification",
+      "full_name": "TargetTrackingConfigurationCustomizedMetricSpecification",
+      "arguments": [
+        {
+          "name": "metricName",
+          "type": "string",
+          "description": "(Required) Name of the metric.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "(Optional) Namespace of the metric.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "period",
+          "type": "number",
+          "description": "(Optional) The period of the metric in seconds.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "statistic",
+          "type": "string",
+          "description": "(Optional) Statistic of the metric.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "(Optional) Unit of the metrics to return.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metricDimension",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metrics",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "metricDimension",
+      "full_name": "TargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension",
+      "arguments": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Required) Name of the dimension.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "(Required) Value of the dimension.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "metrics",
+      "full_name": "TargetTrackingConfigurationCustomizedMetricSpecificationMetrics",
+      "arguments": [
+        {
+          "name": "expression",
+          "type": "string",
+          "description": "(Optional) Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "(Required) Short name for the metric used in target tracking scaling policy.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "(Optional) Human-readable label for this metric or expression.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "returnData",
+          "type": "bool",
+          "description": "(Optional) Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metricStat",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "metricStat",
+      "full_name": "TargetTrackingConfigurationCustomizedMetricSpecificationMetricsMetricStat",
+      "arguments": [
+        {
+          "name": "period",
+          "type": "number",
+          "description": "(Optional) The period of the metric in seconds.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "stat",
+          "type": "string",
+          "description": "(Required) Statistic of the metrics to return.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "(Optional) Unit of the metrics to return.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metric",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "metric",
+      "full_name": "TargetTrackingConfigurationCustomizedMetricSpecificationMetricsMetricStatMetric",
+      "arguments": [
+        {
+          "name": "metricName",
+          "type": "string",
+          "description": "(Required) Name of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "(Required) Namespace of the metric.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "dimensions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "dimensions",
+      "full_name": "TargetTrackingConfigurationCustomizedMetricSpecificationMetricsMetricStatMetricDimensions",
+      "arguments": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Required) Name of the dimension.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "(Required) Value of the dimension.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "predefinedMetricSpecification",
+      "full_name": "TargetTrackingConfigurationPredefinedMetricSpecification",
+      "arguments": [
+        {
+          "name": "predefinedMetricType",
+          "type": "string",
+          "description": "(Required) Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "resourceLabel",
+          "type": "string",
+          "description": "(Required) Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

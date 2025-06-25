@@ -1,0 +1,105 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
+export interface ApiGatewayAuthorizerConfig extends cdktf.TerraformMetaArguments {
+    /** (Optional) Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN. */
+    readonly authorizerCredentials?: string;
+    /** (Optional) TTL of cached authorizer results in seconds. Defaults to `300`. */
+    readonly authorizerResultTtlInSeconds?: number;
+    /** (Optional, required for type `TOKEN`/`REQUEST`) Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations` */
+    readonly authorizerUri?: string;
+    /** */
+    readonly id?: string;
+    /** (Optional) Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"` */
+    readonly identitySource?: string;
+    /** (Optional) Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response. */
+    readonly identityValidationExpression?: string;
+    /** (Required) Name of the authorizer */
+    readonly name: string;
+    /** (Optional, required for type `COGNITO_USER_POOLS`) List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`. */
+    readonly providerArns?: string[];
+    /** (Required) ID of the associated REST API */
+    readonly restApiId: string;
+    /** (Optional) Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`. */
+    readonly type?: string;
+}
+/**
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/api_gateway_authorizer aws_api_gateway_authorizer}
+*/
+export declare class ApiGatewayAuthorizer extends cdktf.TerraformResource {
+    static readonly tfResourceType = "aws_api_gateway_authorizer";
+    /**
+    * Generates CDKTF code for importing a ApiGatewayAuthorizer resource upon running "cdktf plan <stack-name>"
+    * @param scope The scope in which to define this construct
+    * @param importToId The construct id used in the generated config for the ApiGatewayAuthorizer to import
+    * @param importFromId The id of the existing ApiGatewayAuthorizer that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/api_gateway_authorizer#import import section} in the documentation of this resource for the id to use
+    * @param provider? Optional instance of the provider where the ApiGatewayAuthorizer to import is found
+    */
+    static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
+    /**
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/api_gateway_authorizer aws_api_gateway_authorizer} Resource
+    *
+    * @param scope The scope in which to define this construct
+    * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+    * @param options ApiGatewayAuthorizerConfig
+    */
+    constructor(scope: Construct, id: string, config: ApiGatewayAuthorizerConfig);
+    get arn(): string;
+    private _authorizerCredentials?;
+    get authorizerCredentials(): string;
+    set authorizerCredentials(value: string);
+    resetAuthorizerCredentials(): void;
+    get authorizerCredentialsInput(): string | undefined;
+    private _authorizerResultTtlInSeconds?;
+    get authorizerResultTtlInSeconds(): number;
+    set authorizerResultTtlInSeconds(value: number);
+    resetAuthorizerResultTtlInSeconds(): void;
+    get authorizerResultTtlInSecondsInput(): number | undefined;
+    private _authorizerUri?;
+    get authorizerUri(): string;
+    set authorizerUri(value: string);
+    resetAuthorizerUri(): void;
+    get authorizerUriInput(): string | undefined;
+    private _id?;
+    get id(): string;
+    set id(value: string);
+    resetId(): void;
+    get idInput(): string | undefined;
+    private _identitySource?;
+    get identitySource(): string;
+    set identitySource(value: string);
+    resetIdentitySource(): void;
+    get identitySourceInput(): string | undefined;
+    private _identityValidationExpression?;
+    get identityValidationExpression(): string;
+    set identityValidationExpression(value: string);
+    resetIdentityValidationExpression(): void;
+    get identityValidationExpressionInput(): string | undefined;
+    private _name?;
+    get name(): string;
+    set name(value: string);
+    get nameInput(): string | undefined;
+    private _providerArns?;
+    get providerArns(): string[];
+    set providerArns(value: string[]);
+    resetProviderArns(): void;
+    get providerArnsInput(): string[] | undefined;
+    private _restApiId?;
+    get restApiId(): string;
+    set restApiId(value: string);
+    get restApiIdInput(): string | undefined;
+    private _type?;
+    get type(): string;
+    set type(value: string);
+    resetType(): void;
+    get typeInput(): string | undefined;
+    protected synthesizeAttributes(): {
+        [name: string]: any;
+    };
+    protected synthesizeHclAttributes(): {
+        [name: string]: any;
+    };
+}

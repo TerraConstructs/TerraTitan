@@ -1,0 +1,46 @@
+{
+  "arguments": [
+    {
+      "name": "apiKeyVersion",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "cloudwatchRoleArn",
+      "type": "string",
+      "description": "(Optional) ARN of an IAM role for CloudWatch (to allow logging \u0026 monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging \u0026 monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "features",
+      "type": "set",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "resetOnDelete",
+      "type": "bool",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "throttleSettings",
+      "type": "list",
+      "description": "",
+      "required": false,
+      "optional": false
+    }
+  ]
+}

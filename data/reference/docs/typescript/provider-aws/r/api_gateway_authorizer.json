@@ -1,0 +1,81 @@
+{
+  "arguments": [
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "authorizerCredentials",
+      "type": "string",
+      "description": "(Optional) Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "authorizerResultTtlInSeconds",
+      "type": "number",
+      "description": "(Optional) TTL of cached authorizer results in seconds. Defaults to `300`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "authorizerUri",
+      "type": "string",
+      "description": "(Optional, required for type `TOKEN`/`REQUEST`) Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "identitySource",
+      "type": "string",
+      "description": "(Optional) Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `\"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName\"`",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "identityValidationExpression",
+      "type": "string",
+      "description": "(Optional) Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) Name of the authorizer",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "providerArns",
+      "type": "set",
+      "description": "(Optional, required for type `COGNITO_USER_POOLS`) List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "restApiId",
+      "type": "string",
+      "description": "(Required) ID of the associated REST API",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "(Optional) Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.",
+      "required": false,
+      "optional": true
+    }
+  ]
+}

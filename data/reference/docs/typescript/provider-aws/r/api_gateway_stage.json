@@ -1,0 +1,193 @@
+{
+  "arguments": [
+    {
+      "name": "accessLogSettings",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "cacheClusterEnabled",
+      "type": "bool",
+      "description": "(Optional) Whether a cache cluster is enabled for the stage",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "cacheClusterSize",
+      "type": "string",
+      "description": "(Optional) Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "canarySettings",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "clientCertificateId",
+      "type": "string",
+      "description": "(Optional) Identifier of a client certificate for the stage.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "deploymentId",
+      "type": "string",
+      "description": "(Required) ID of the deployment that the stage points to",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "(Optional) Description of the stage.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "documentationVersion",
+      "type": "string",
+      "description": "(Optional) Version of the associated API documentation",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "executionArn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "invokeUrl",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "restApiId",
+      "type": "string",
+      "description": "(Required) ID of the associated REST API",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "stageName",
+      "type": "string",
+      "description": "(Required) Name of the stage",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "tags",
+      "type": "map",
+      "description": "(Optional) Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tagsAll",
+      "type": "map",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "variables",
+      "type": "map",
+      "description": "(Optional) Map that defines the stage variables",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "webAclArn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "xrayTracingEnabled",
+      "type": "bool",
+      "description": "(Optional) Whether active tracing with X-ray is enabled. Defaults to `false`.",
+      "required": false,
+      "optional": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "accessLogSettings",
+      "full_name": "AccessLogSettings",
+      "arguments": [
+        {
+          "name": "destinationArn",
+          "type": "string",
+          "description": "(Required) ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "description": "(Required) Formatting and values recorded in the logs.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "canarySettings",
+      "full_name": "CanarySettings",
+      "arguments": [
+        {
+          "name": "deploymentId",
+          "type": "string",
+          "description": "(Required) ID of the deployment that the canary points to.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "percentTraffic",
+          "type": "number",
+          "description": "(Optional) Percent `0.0` - `100.0` of traffic to divert to the canary deployment.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "stageVariableOverrides",
+          "type": "map",
+          "description": "(Optional) Map of overridden stage `variables` (including new variables) for the canary deployment.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "useStageCache",
+          "type": "bool",
+          "description": "(Optional) Whether the canary deployment uses the stage cache. Defaults to false.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

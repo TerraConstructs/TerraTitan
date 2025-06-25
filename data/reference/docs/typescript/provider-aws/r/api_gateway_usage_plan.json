@@ -1,0 +1,177 @@
+{
+  "arguments": [
+    {
+      "name": "apiStages",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "(Optional) Description of a usage plan.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) Name of the usage plan.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "productCode",
+      "type": "string",
+      "description": "(Optional) AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "quotaSettings",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tags",
+      "type": "map",
+      "description": "(Optional) Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tagsAll",
+      "type": "map",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "throttleSettings",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "apiStages",
+      "full_name": "ApiStages",
+      "arguments": [
+        {
+          "name": "apiId",
+          "type": "string",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "stage",
+          "type": "string",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "throttle",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "throttle",
+      "full_name": "ApiStagesThrottle",
+      "arguments": [
+        {
+          "name": "burstLimit",
+          "type": "number",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "rateLimit",
+          "type": "number",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "quotaSettings",
+      "full_name": "QuotaSettings",
+      "arguments": [
+        {
+          "name": "limit",
+          "type": "number",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "period",
+          "type": "string",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "throttleSettings",
+      "full_name": "ThrottleSettings",
+      "arguments": [
+        {
+          "name": "burstLimit",
+          "type": "number",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "rateLimit",
+          "type": "number",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

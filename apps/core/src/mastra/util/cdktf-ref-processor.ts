@@ -61,7 +61,13 @@ export function processMergedDocsFile(
   }
 
   const resourceName = extractResourceNameFromUrl(metadata.url);
-  const mergedDocsFile = path.join(mergedAwsDocs, resourceName, 'index.d.ts');
+  const snakeResourceName = resourceName.replaceAll('_', '-'); // Convert kebab-case to snake_case for paths
+  // sanity-check sourceFile parent directory matches snakeResourceName
+  const sourceFileDir = path.dirname(metadata.sourceFile);
+  if (!sourceFileDir.endsWith(snakeResourceName)) {
+    throw new Error(`Source file directory ${sourceFileDir} does not match resource name ${snakeResourceName}`);
+  }
+  const mergedDocsFile = path.join(mergedAwsDocs, snakeResourceName, 'index.d.ts');
 
   if (existsSync(mergedDocsFile)) {
     console.log(`Reusing existing merged-docs file: ${path.relative(gitRoot, mergedDocsFile)}`);

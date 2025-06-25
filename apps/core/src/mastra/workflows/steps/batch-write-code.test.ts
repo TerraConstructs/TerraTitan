@@ -130,4 +130,64 @@ describe('batchWriteCode', () => {
     // expect(fs.writeFile).toHaveBeenCalledWith(`/target/lib/module1/test1-${mockTimestamp}.ts`, 'console.log("test1");');
     // expect(fs.writeFile).toHaveBeenCalledWith('/target/lib/module2/test2.ts', 'console.log("test2");');
   });
+
+  it('should preserve nested directory structure from input files', async () => {
+    // Setup mocks - no files exist
+    vi.mocked(fs.access).mockRejectedValue({ code: 'ENOENT' });
+    vi.mocked(fs.mkdir).mockResolvedValue(undefined);
+    vi.mocked(fs.writeFile).mockResolvedValue(undefined);
+
+    const writeRequests = [
+      {
+        inputFile: 'upstream/aws-cdk/v2.186.0/packages/aws-cdk-lib/aws-apigateway/lib/deployment.ts',
+        workspace: { targetDir: '/target' },
+        infixPath: 'src/aws',
+        outputModule: 'compute',
+        code: 'export class Deployment {}',
+      },
+      {
+        inputFile: 'upstream/aws-cdk/v2.186.0/packages/aws-cdk-lib/aws-apigateway/test/integrations/lambda.test.ts',
+        workspace: { targetDir: '/target' },
+        infixPath: 'test/aws',
+        outputModule: 'compute',
+        code: 'describe("lambda integration", () => {});',
+      },
+      {
+        inputFile: 'upstream/aws-cdk/v2.186.0/packages/aws-cdk-lib/aws-apigateway/test/deployment.test.ts',
+        workspace: { targetDir: '/target' },
+        infixPath: 'test/aws',
+        outputModule: 'compute',
+        code: 'describe("deployment", () => {});',
+      },
+      {
+        inputFile: 'upstream/aws-cdk/v2.186.0/packages/aws-cdk-lib/aws-apigateway/lib/gateway-test.ts',
+        workspace: { targetDir: '/target' },
+        infixPath: 'src/aws',
+        outputModule: 'compute',
+        code: 'export class GatewayCondition {}',
+      },
+    ];
+
+    await batchWriteCode(writeRequests);
+
+    // Should create nested directories as needed
+    expect(fs.mkdir).toHaveBeenCalledWith('/target/src/aws/compute', { recursive: true });
+    expect(fs.mkdir).toHaveBeenCalledWith('/target/test/aws/compute/integrations', { recursive: true });
+    expect(fs.mkdir).toHaveBeenCalledWith('/target/test/aws/compute', { recursive: true });
+
+    // Should preserve nested directory structure
+    expect(fs.writeFile).toHaveBeenCalledWith('/target/src/aws/compute/deployment.ts', 'export class Deployment {}');
+    expect(fs.writeFile).toHaveBeenCalledWith(
+      '/target/test/aws/compute/integrations/lambda.test.ts',
+      'describe("lambda integration", () => {});',
+    );
+    expect(fs.writeFile).toHaveBeenCalledWith(
+      '/target/test/aws/compute/deployment.test.ts',
+      'describe("deployment", () => {});',
+    );
+    expect(fs.writeFile).toHaveBeenCalledWith(
+      '/target/src/aws/compute/gateway-test.ts',
+      'export class GatewayCondition {}',
+    );
+  });
 });

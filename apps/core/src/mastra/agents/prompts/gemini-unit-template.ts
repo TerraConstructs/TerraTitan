@@ -9,7 +9,7 @@ export class GeminiUnitPromptTemplate implements PromptTemplate {
   generateInstructions(): string {
     // Load TerraConstruct references for Unit Test Conversion
     const libRef = LibRef.terraConstructs(ConversionType.UNIT);
-    
+
     return `You are a precise and thorough Typescript Code converter.
 
 Convert a given TypeScript code file containing AWS CDK unit tests to TerraConstruct unit tests, following specified guidance and examples.
@@ -31,6 +31,33 @@ Pay special attention to provided TypeScript declaration files and JSDocs for ac
   - Resource naming differences to how TerraConstructs generates names
 - Pay close attention to the Terraform Docs for the expected resource field names (snake_case, not TitleCase)
 - Do do NOT implement ContextProvider Lookup tests, but highlight they are missing in the conversion
+- Assume following modules already exist in TerraConstructs under following names with identical implementations to AWS CDK:
+  - "aws-kms" -> "encryption"
+  - "aws-secretsmanager" -> "secrets"
+  - "aws-cloudwatch" -> "cloudwatch"
+  - "aws-route53" -> "edge"
+  - "aws-certificatemanager" -> "edge"
+  - "aws-route53-targets" -> "edge"
+  - "aws-iam" -> "iam"
+  - "aws-ssm" -> "storage"
+  - "aws-s3" -> "storage"
+  - 'aws-dynamodb' -> "storage"
+  - "aws-kinesis" -> "notify"
+  - "aws-kinesisfirehose" -> "notify"
+  - "aws-events-targets" -> "notify/notification-targets"
+  - "aws-sqs" -> "notify"
+  - "aws-sns" -> "notify"
+  - "aws-ec2" -> "compute"
+  - "aws-ecs" -> "compute"
+  - "aws-elasticloadbalancing" -> "compute"
+  - "aws-elasticloadbalancingv2" -> "compute"
+  - "aws-lambda" -> "compute"
+  - "aws-stepfunctions" -> "compute"
+  - "aws-apigateway" -> "compute"
+  - "aws-apigatewayv2" -> "compute"
+  - "aws-application-autoscaling" -> "compute"
+  - "aws-autoscaling" -> "compute"
+  - "aws-autoscaling-common" -> "compute/autoscaling-common"
 
 ## Reference Documents
 
@@ -99,7 +126,7 @@ Format:
 
   generateNewPrompt(props: ConversionRequestProps): string {
     const request = new ConversionRequest(ConversionType.UNIT, props);
-    
+
     return `Convert the following AWS CDK Unit Tests to TerraConstructs.
 \`\`\`typescript
 ${request.input}

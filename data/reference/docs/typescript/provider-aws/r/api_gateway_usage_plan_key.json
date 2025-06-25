@@ -1,0 +1,46 @@
+{
+  "arguments": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "keyId",
+      "type": "string",
+      "description": "(Required) Identifier of the API key resource.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "keyType",
+      "type": "string",
+      "description": "(Required) Type of the API key resource. Currently, the valid key type is API_KEY.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "usagePlanId",
+      "type": "string",
+      "description": "(Required) Id of the usage plan resource representing to associate the key to.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    }
+  ]
+}

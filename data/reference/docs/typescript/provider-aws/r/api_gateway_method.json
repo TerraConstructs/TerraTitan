@@ -1,0 +1,88 @@
+{
+  "arguments": [
+    {
+      "name": "apiKeyRequired",
+      "type": "bool",
+      "description": "(Optional) Specify if the method requires an API key",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "authorization",
+      "type": "string",
+      "description": "(Required) Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "authorizationScopes",
+      "type": "set",
+      "description": "(Optional) Authorization scopes used when the authorization is `COGNITO_USER_POOLS`",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "authorizerId",
+      "type": "string",
+      "description": "(Optional) Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "httpMethod",
+      "type": "string",
+      "description": "(Required) HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "operationName",
+      "type": "string",
+      "description": "(Optional) Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "requestModels",
+      "type": "map",
+      "description": "(Optional) Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "requestParameters",
+      "type": "map",
+      "description": "(Optional) Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "requestValidatorId",
+      "type": "string",
+      "description": "(Optional) ID of a `aws_api_gateway_request_validator`",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "resourceId",
+      "type": "string",
+      "description": "(Required) API resource ID",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "restApiId",
+      "type": "string",
+      "description": "(Required) ID of the associated REST API",
+      "required": true,
+      "optional": false
+    }
+  ]
+}

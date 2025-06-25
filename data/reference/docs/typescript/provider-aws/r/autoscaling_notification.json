@@ -1,0 +1,32 @@
+{
+  "arguments": [
+    {
+      "name": "groupNames",
+      "type": "set",
+      "description": "(Required) List of AutoScaling Group Names",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "notifications",
+      "type": "set",
+      "description": "(Required) List of Notification Types that trigger notifications. Acceptable values are documented [in the AWS documentation here][1]",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "topicArn",
+      "type": "string",
+      "description": "(Required) Topic ARN for notifications to be sent through",
+      "required": true,
+      "optional": false
+    }
+  ]
+}

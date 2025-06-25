@@ -1,0 +1,53 @@
+{
+  "arguments": [
+    {
+      "name": "accessAssociationSource",
+      "type": "string",
+      "description": "(Required) The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "accessAssociationSourceType",
+      "type": "string",
+      "description": "(Required) The type of the domain name access association source. Valid values are `VPCE`.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "domainNameArn",
+      "type": "string",
+      "description": "(Required) The ARN of the domain name.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "(**Deprecated**, use `arn` instead) Internal identifier assigned to this domain name access association.",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "tags",
+      "type": "map",
+      "description": "(Optional) Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tagsAll",
+      "type": "map",
+      "description": "",
+      "required": false,
+      "optional": false
+    }
+  ]
+}

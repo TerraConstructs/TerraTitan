@@ -1,0 +1,46 @@
+{
+  "arguments": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "responseParameters",
+      "type": "map",
+      "description": "(Optional) Map of parameters (paths, query strings and headers) of the Gateway Response.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "responseTemplates",
+      "type": "map",
+      "description": "(Optional) Map of templates used to transform the response body.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "responseType",
+      "type": "string",
+      "description": "(Required) Response type of the associated GatewayResponse.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "restApiId",
+      "type": "string",
+      "description": "(Required) String identifier of the associated REST API.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "statusCode",
+      "type": "string",
+      "description": "(Optional) HTTP status code of the Gateway Response.",
+      "required": false,
+      "optional": true
+    }
+  ]
+}

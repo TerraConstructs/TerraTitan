@@ -1,0 +1,74 @@
+{
+  "arguments": [
+    {
+      "name": "autoscalingGroupName",
+      "type": "string",
+      "description": "(Required) The name of the Auto Scaling group.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "timeouts",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "trafficSource",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "timeouts",
+      "full_name": "Timeouts",
+      "arguments": [
+        {
+          "name": "create",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "delete",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "trafficSource",
+      "full_name": "TrafficSource",
+      "arguments": [
+        {
+          "name": "identifier",
+          "type": "string",
+          "description": "(Required) Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "(Required) Provides additional context for the value of `identifier`.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

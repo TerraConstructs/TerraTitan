@@ -1,0 +1,46 @@
+{
+  "arguments": [
+    {
+      "name": "contentType",
+      "type": "string",
+      "description": "(Required) Content type of the model",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "(Optional) Description of the model",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) Name of the model",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "restApiId",
+      "type": "string",
+      "description": "(Required) ID of the associated REST API",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "schema",
+      "type": "string",
+      "description": "(Required) Schema of the model in a JSON form",
+      "required": false,
+      "optional": true
+    }
+  ]
+}

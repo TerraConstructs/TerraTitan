@@ -171,9 +171,14 @@ export const filterInputFilesStep = createStep({
     })
     .passthrough(),
   outputSchema: filteredInputFilesSchema,
-  execute: async ({ inputData, resumeData, suspend }) => {
+  execute: async ({ inputData, resumeData, suspend, getStepResult }) => {
     const srcInputRefs = inputData[findLibInputRefsStep.id];
     const testInputRefs = inputData[findTestInputRefsStep.id];
+    const upstreamDetails = getStepResult(ensureUpstreamStep);
+
+    const relativeToUpstreamDir = (filePath: string) => {
+      return path.relative(upstreamDetails.upstreamDir, filePath);
+    };
 
     if (!srcInputRefs) throw new Error(`Missing src input refs in input for ${filterInputFilesStep.id}`);
     if (!testInputRefs) throw new Error(`Missing test input refs in input for ${filterInputFilesStep.id}`);
@@ -206,7 +211,7 @@ export const filterInputFilesStep = createStep({
         name: 'Source Files',
         description: `${srcInputRefs.inputFiles.length} source files with L1 constructs`,
         choices: srcInputRefs.inputFiles.map(file => ({
-          name: path.basename(file.inputFile),
+          name: `${path.basename(file.inputFile)} (${relativeToUpstreamDir(file.inputFile)})`,
           description: `L1 constructs: ${file.inputRefs.map(ref => ref.sourceClass).join(', ')}`,
           value: {
             filePath: file.inputFile,
@@ -223,7 +228,7 @@ export const filterInputFilesStep = createStep({
         name: 'Raw Source Files',
         description: `${srcInputRefs.rawFiles.length} source files without L1 constructs`,
         choices: srcInputRefs.rawFiles.map(file => ({
-          name: path.basename(file),
+          name: `${path.basename(file)} (${relativeToUpstreamDir(file)})`,
           description: 'No L1 constructs detected',
           value: {
             filePath: file,
@@ -240,7 +245,7 @@ export const filterInputFilesStep = createStep({
         name: 'Test Files',
         description: `${testInputRefs.inputFiles.length} unit test files`,
         choices: testInputRefs.inputFiles.map(file => ({
-          name: path.basename(file.inputFile),
+          name: `${path.basename(file.inputFile)} (${relativeToUpstreamDir(file.inputFile)})`,
           description: `Testing module: ${path.basename(path.dirname(file.inputFile))}`,
           value: {
             filePath: file.inputFile,
@@ -618,9 +623,9 @@ export const vNextConversionWorkflow = createWorkflow({
     findLibCdktfRefsStep,
     reviewCdktfRefsStep,
     exportConversionContextStep,
-    // batchConvertSourceCodeStep,
-    // batchConvertUnitTestsStep,
-    // batchWriteToWorkspaceStep,
+    batchConvertSourceCodeStep,
+    batchConvertUnitTestsStep,
+    batchWriteToWorkspaceStep,
   ],
 });
 

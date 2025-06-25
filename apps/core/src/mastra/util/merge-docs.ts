@@ -144,10 +144,10 @@ export class MergeDocs {
   /**
    * Process the markdown file with tfdocs2json and update the declaration file
    */
-  public process2(tfdocs2jsonOutput?: TfDocs2JsonOutput): MergeDocs {
+  public process2(interfaceName?: string, tfdocs2jsonOutput?: TfDocs2JsonOutput): MergeDocs {
     // Find the main Config interface for the resource type
     const resourceType = path.basename(path.dirname(this.declarationPath));
-    const configInterfaceName = `${kebabToTitleCase(resourceType)}Config`;
+    const configInterfaceName = interfaceName ? interfaceName + 'Config' : `${kebabToTitleCase(resourceType)}Config`;
     const interfaces = this.sourceFile.getInterfaces();
     const configInterface = interfaces.find(intf => intf.getName() === configInterfaceName);
 

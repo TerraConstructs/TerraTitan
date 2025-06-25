@@ -32,7 +32,7 @@ describe('CDKTF Reference Processor', () => {
         {
           inputFile: '/path/to/source.ts',
           inputRefs: [{ sourceFile: '/path/to/aws-cdk/sns.d.ts', sourceClass: 'CfnTopic' }],
-          mergedDocsFiles: ['/path/to/merged/sns_topic/index.d.ts'],
+          mergedDocsFiles: ['/path/to/merged/sns-topic/index.d.ts'],
           markdownHclFiles: ['/path/to/docs/r/sns_topic.html.markdown'],
         },
       ];
@@ -43,7 +43,7 @@ describe('CDKTF Reference Processor', () => {
       expect(requests[0]).toEqual({
         inputFile: '/path/to/source.ts',
         inputRefFiles: ['/path/to/aws-cdk/sns.d.ts'],
-        outputRefFiles: ['/path/to/merged/sns_topic/index.d.ts'],
+        outputRefFiles: ['/path/to/merged/sns-topic/index.d.ts'],
       });
     });
     it('should build correct source conversion requests with deduplication', () => {
@@ -54,7 +54,7 @@ describe('CDKTF Reference Processor', () => {
             { sourceFile: '/path/to/aws-cdk/sns.d.ts', sourceClass: 'CfnTopic' },
             { sourceFile: '/path/to/aws-cdk/sns.d.ts', sourceClass: 'CfnTopicProps' },
           ],
-          mergedDocsFiles: ['/path/to/merged/sns_topic/index.d.ts', '/path/to/merged/sns_topic/index.d.ts'],
+          mergedDocsFiles: ['/path/to/merged/sns-topic/index.d.ts', '/path/to/merged/sns-topic/index.d.ts'],
           markdownHclFiles: ['/path/to/docs/r/sns_topic.html.markdown', '/path/to/docs/r/sns_topic.html.markdown'],
         },
       ];
@@ -65,7 +65,7 @@ describe('CDKTF Reference Processor', () => {
       expect(requests[0]).toEqual({
         inputFile: '/path/to/source.ts',
         inputRefFiles: ['/path/to/aws-cdk/sns.d.ts'],
-        outputRefFiles: ['/path/to/merged/sns_topic/index.d.ts'],
+        outputRefFiles: ['/path/to/merged/sns-topic/index.d.ts'],
       });
     });
   });
@@ -76,7 +76,7 @@ describe('CDKTF Reference Processor', () => {
         {
           inputFile: '/path/to/source.ts',
           inputRefs: [{ sourceFile: '/path/to/aws-cdk/sns.d.ts', sourceClass: 'CfnTopic' }],
-          mergedDocsFiles: ['/path/to/merged/sns_topic/index.d.ts'],
+          mergedDocsFiles: ['/path/to/merged/sns-topic/index.d.ts'],
           markdownHclFiles: ['/path/to/docs/r/sns_topic.html.markdown'],
         },
       ];
@@ -136,7 +136,7 @@ describe('CDKTF Reference Processor', () => {
         {
           inputFile: '/path/to/source.ts',
           inputRefs: [{ sourceFile: '/path/to/aws-cdk/sns.d.ts', sourceClass: 'CfnTopic' }],
-          mergedDocsFiles: ['/path/to/merged/sns_topic/index.d.ts'],
+          mergedDocsFiles: ['/path/to/merged/sns-topic/index.d.ts'],
           markdownHclFiles: ['/path/to/docs/r/sns_topic.html.markdown'],
         },
       ];
@@ -152,7 +152,7 @@ describe('CDKTF Reference Processor', () => {
       const unitTestRequests = buildUnitTestConversionRequests(mockProcessedRefs, testFiles);
 
       // Source files should use merged docs (TypeScript + markdown)
-      expect(sourceRequests[0].outputRefFiles).toEqual(['/path/to/merged/sns_topic/index.d.ts']);
+      expect(sourceRequests[0].outputRefFiles).toEqual(['/path/to/merged/sns-topic/index.d.ts']);
 
       // Unit test files should use raw markdown HCL docs
       expect(unitTestRequests[0].outputRefFiles).toEqual(['/path/to/docs/r/sns_topic.html.markdown']);

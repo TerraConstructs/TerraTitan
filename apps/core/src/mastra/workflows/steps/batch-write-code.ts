@@ -46,15 +46,56 @@ export async function batchWriteCode(writeRequests: z.infer<typeof batchWriteCod
       await sema.acquire();
       try {
         const outputDir = path.join(workspace.targetDir, infixPath, outputModule);
-        // Create target directory if it doesn't exist
-        await fs.mkdir(outputDir, { recursive: true });
-        const targetFile = path.join(outputDir, path.basename(inputFile));
-        return await writeWithoutConflict(targetFile, code);
+        
+        // Extract the relative path structure from the input file
+        // This preserves nested directories like 'integrations/', 'lib/', etc.
+        const relativePath = extractRelativeFilePath(inputFile);
+        const targetFilePath = path.join(outputDir, relativePath);
+        
+        // Create target directory including nested subdirectories if they don't exist
+        await fs.mkdir(path.dirname(targetFilePath), { recursive: true });
+        
+        return await writeWithoutConflict(targetFilePath, code);
       } finally {
         sema.release();
       }
     }),
   );
+}
+
+/**
+ * Extracts the relative file path from an upstream input file path.
+ * Preserves nested directory structure for proper file organization.
+ * 
+ * For source files: extracts everything after '/lib/'
+ * For test files: extracts everything after '/test/'
+ * 
+ * Examples:
+ * - 'upstream/aws-cdk/v2.186.0/packages/aws-cdk-lib/aws-apigateway/lib/deployment.ts' 
+ *   → 'deployment.ts'
+ * - 'upstream/aws-cdk/v2.186.0/packages/aws-cdk-lib/aws-apigateway/test/integrations/lambda.test.ts' 
+ *   → 'integrations/lambda.test.ts'
+ * - 'upstream/aws-cdk/v2.186.0/packages/aws-cdk-lib/aws-apigateway/test/deployment.test.ts' 
+ *   → 'deployment.test.ts'
+ */
+function extractRelativeFilePath(inputFile: string): string {
+  const normalizedPath = path.posix.normalize(inputFile);
+  
+  // Check for test files first (more specific pattern)
+  const testMatch = normalizedPath.match(/\/test\/(.+)$/);
+  if (testMatch && testMatch[1]) {
+    return testMatch[1]; // Everything after '/test/'
+  }
+  
+  // Check for source files in lib directory
+  const libMatch = normalizedPath.match(/\/lib\/(.+)$/);
+  if (libMatch && libMatch[1]) {
+    return libMatch[1]; // Everything after '/lib/'
+  }
+  
+  // Fallback: if no pattern matches, just return the filename
+  // This handles edge cases and maintains backward compatibility
+  return path.basename(inputFile);
 }
 
 /**
