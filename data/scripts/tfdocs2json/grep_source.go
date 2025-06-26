@@ -18,14 +18,30 @@ func ParseResourceSchema(
 	documentation string,
 	interactive bool,
 ) Output {
+	return ParseResourceSchemaWithMapping(schema, documentation, interactive, nil, nil)
+}
+
+// ParseResourceSchemaWithMapping walks the given schema and builds an Output with mapping support.
+// documentation is the raw doc text; interactive toggles prompting.
+// mapCollector collects ambiguous mappings for map generation mode.
+// mapFile provides pre-selected mappings for unattended mode.
+func ParseResourceSchemaWithMapping(
+	schema ResourceSchema,
+	documentation string,
+	interactive bool,
+	mapCollector *MapFileCollector,
+	mapFile *MapFile,
+) Output {
 	var out Output
 
 	// Resource Block Attributes → root args (with description enrichment)
-	out.Arguments = parseAttributes(
+	out.Arguments = parseAttributesWithMapping(
 		schema.Block.Attributes,
 		documentation,
 		interactive,
 		"", // parent path at root
+		mapCollector,
+		mapFile,
 	)
 
 	// For each direct BlockType, add a "block"-type arg at the root
@@ -45,11 +61,13 @@ func ParseResourceSchema(
 	})
 
 	// Recurse into block types to collect all nested blocks
-	out.Blocks = collectBlocks(
+	out.Blocks = collectBlocksWithMapping(
 		schema.Block.BlockTypes,
 		documentation,
 		interactive,
 		nil, // no parent path yet
+		mapCollector,
+		mapFile,
 	)
 
 	return out
@@ -71,6 +89,19 @@ func parseAttributes(
 	interactive bool,
 	parentFullPath string,
 ) []Arg {
+	return parseAttributesWithMapping(attrs, documentation, interactive, parentFullPath, nil, nil)
+}
+
+// parseAttributesWithMapping turns a map of Attribute into a sorted []Arg with mapping support.
+// It enriches empty descriptions via extractDescriptionWithMapping.
+func parseAttributesWithMapping(
+	attrs map[string]Attribute,
+	documentation string,
+	interactive bool,
+	parentFullPath string,
+	mapCollector *MapFileCollector,
+	mapFile *MapFile,
+) []Arg {
 	args := make([]Arg, 0, len(attrs))
 	for rawName, at := range attrs {
 		camel := util.ToCamelCase(rawName)
@@ -82,7 +113,7 @@ func parseAttributes(
 				Attribute:     at,
 				IsBlockType:   false,
 			}
-			desc = extractDescription(documentation, info, interactive)
+			desc = extractDescriptionWithMapping(documentation, info, interactive, mapCollector, mapFile)
 			if desc == "" {
 				fmt.Fprintf(os.Stderr,
 					"Warning: no description for %q (camel=%q)\n",
@@ -113,6 +144,19 @@ func collectBlocks(
 	interactive bool,
 	parentPath []string,
 ) []ArgumentBlock {
+	return collectBlocksWithMapping(blockTypes, documentation, interactive, parentPath, nil, nil)
+}
+
+// collectBlocksWithMapping traverses blockTypes recursively with mapping support.
+// parentPath holds the camelCase names of all ancestor blocks.
+func collectBlocksWithMapping(
+	blockTypes map[string]BlockType,
+	documentation string,
+	interactive bool,
+	parentPath []string,
+	mapCollector *MapFileCollector,
+	mapFile *MapFile,
+) []ArgumentBlock {
 	var out []ArgumentBlock
 
 	// Sort keys for deterministic ordering
@@ -137,11 +181,13 @@ func collectBlocks(
 		}
 
 		// Parse this block's attributes (enriching descriptions).
-		args := parseAttributes(
+		args := parseAttributesWithMapping(
 			bt.Block.Attributes,
 			documentation,
 			interactive,
 			pascalCasePath,
+			mapCollector,
+			mapFile,
 		)
 
 		// **inject** one Arg per nested BlockType**
@@ -164,11 +210,13 @@ func collectBlocks(
 
 		// Recurse into nested block_types
 		if len(bt.Block.BlockTypes) > 0 {
-			nested := collectBlocks(
+			nested := collectBlocksWithMapping(
 				bt.Block.BlockTypes,
 				documentation,
 				interactive,
 				thisPath,
+				mapCollector,
+				mapFile,
 			)
 			out = append(out, nested...)
 		}
@@ -289,6 +337,11 @@ func collectAllAttributesWithInfo(block Block, prefix string, allAttributes *[]A
 
 // extractDescription extracts the description for a given camelCase name from the source byte slice.
 func extractDescription(sourceStr string, attrInfo AttributeInfo, interactive bool) string {
+	return extractDescriptionWithMapping(sourceStr, attrInfo, interactive, nil, nil)
+}
+
+// extractDescriptionWithMapping extracts the description for a given camelCase name with mapping support.
+func extractDescriptionWithMapping(sourceStr string, attrInfo AttributeInfo, interactive bool, mapCollector *MapFileCollector, mapFile *MapFile) string {
 	// Create patterns to search for - handle both dash types
 	camelCaseName := attrInfo.CamelCaseName
 	patterns := []string{
@@ -390,6 +443,24 @@ func extractDescription(sourceStr string, attrInfo AttributeInfo, interactive bo
 			// If only one description found, return it directly
 			return foundDescriptions[0]
 		}
+		
+		// Handle multiple descriptions based on mode
+		if mapCollector != nil {
+			// Map generation mode: collect this ambiguous mapping
+			mapCollector.AddMapping(attrInfo, foundDescriptions)
+			return foundDescriptions[0] // Return first one for now
+		}
+		
+		if mapFile != nil {
+			// Map usage mode: look up the selected description
+			if selectedDesc, found := mapFile.GetSelectedDescription(attrInfo.FullPath); found {
+				return selectedDesc
+			}
+			// Fall back to warning if not found in map file
+			fmt.Fprintf(os.Stderr, "Warning: Attribute '%s' not found in map file, using first description\n", attrInfo.FullPath)
+			return foundDescriptions[0]
+		}
+		
 		if interactive {
 			return selectDescriptionInteractively(attrInfo, foundDescriptions)
 		} else {
@@ -407,6 +478,9 @@ func extractDescription(sourceStr string, attrInfo AttributeInfo, interactive bo
 
 // deduplicateDescriptions removes duplicate strings from a slice while preserving order
 func deduplicateDescriptions(descriptions []string) []string {
+	if len(descriptions) == 1 {
+		return descriptions // No duplicates to remove
+	}
 	seen := make(map[string]bool)
 	result := make([]string, 0, len(descriptions))
 	
