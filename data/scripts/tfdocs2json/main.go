@@ -40,12 +40,58 @@ func main() {
 		source      = flag.String("source", "hashicorp/aws", "Provider source")
 		outputFile  = flag.String("output", "", "Output file path (default stdout)")
 		interactive = flag.Bool("interactive", false, "Enable interactive mode for selecting descriptions when multiple matches found")
+		generateMap = flag.String("map", "", "Generate mapping file for ambiguous descriptions")
+		useMap      = flag.String("unattended", "", "Use pre-generated mapping file for unattended processing")
 	)
 	flag.Parse()
 
-	// Validate Markdown path
-	if *mdPath == "" {
-		fmt.Fprintln(os.Stderr, "Usage: tfdocs2json -md ./fixtures/docs/ami.html.markdown [-provider aws]")
+	// Handle optional -md flag when using -unattended
+	var actualMdPath string
+	var preloadedMapFile *MapFile
+	
+	if *useMap != "" {
+		// Load map file to get markdown path
+		var mapErr error
+		preloadedMapFile, mapErr = LoadMapFile(*useMap)
+		if mapErr != nil {
+			fmt.Fprintf(os.Stderr, "Error loading map file: %v\n", mapErr)
+			os.Exit(1)
+		}
+		
+		if *mdPath == "" {
+			// Use path from map file
+			actualMdPath = preloadedMapFile.MarkdownFile
+		} else {
+			// Validate provided path matches map file
+			if *mdPath != preloadedMapFile.MarkdownFile {
+				fmt.Fprintf(os.Stderr, "Warning: Provided markdown path '%s' differs from map file path '%s'\n", *mdPath, preloadedMapFile.MarkdownFile)
+				fmt.Fprintf(os.Stderr, "Continue with provided path? (y/N): ")
+				var response string
+				fmt.Scanln(&response)
+				if response != "y" && response != "Y" {
+					fmt.Fprintln(os.Stderr, "Aborting.")
+					os.Exit(1)
+				}
+			}
+			actualMdPath = *mdPath
+		}
+	} else {
+		// Validate Markdown path for non-unattended modes
+		if *mdPath == "" {
+			fmt.Fprintln(os.Stderr, "Usage: tfdocs2json -md ./fixtures/docs/ami.html.markdown [-provider aws]")
+			os.Exit(1)
+		}
+		actualMdPath = *mdPath
+	}
+
+	// Validate flag combinations
+	if *generateMap != "" && *useMap != "" {
+		fmt.Fprintln(os.Stderr, "Error: Cannot use both -map and -unattended flags simultaneously")
+		os.Exit(1)
+	}
+	
+	if (*generateMap != "" || *useMap != "") && *interactive {
+		fmt.Fprintln(os.Stderr, "Error: Cannot use -interactive with mapping flags")
 		os.Exit(1)
 	}
 
@@ -69,7 +115,7 @@ func main() {
 	}
 
 	// Parse the Markdown similar to how tfdocs does it for its checks
-	doc := contents.NewDocument(*mdPath, *provider)
+	doc := contents.NewDocument(actualMdPath, *provider)
 	if err := doc.Parse(); err != nil {
 		fmt.Fprintf(os.Stderr, "Error parsing Markdown: %v\n", err)
 		os.Exit(1)
@@ -81,9 +127,39 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Create mapping parameters
+	var mapCollector *MapFileCollector
+	var mapFile *MapFile
+	
+	if *generateMap != "" {
+		mapCollector = NewMapFileCollector(actualMdPath)
+	}
+	
+	if *useMap != "" {
+		// Use the preloaded map file
+		mapFile = preloadedMapFile
+	}
+
 	// out := ParseMarkdown(doc, resourceSchema)
 	// out := GrepSource(string(doc.Source), resourceSchema, *interactive)
-	out := ParseResourceSchema(resourceSchema, string(doc.Source), *interactive)
+	out := ParseResourceSchemaWithMapping(resourceSchema, string(doc.Source), *interactive, mapCollector, mapFile)
+
+	// Handle map generation mode
+	if *generateMap != "" {
+		if mapCollector.HasMappings() {
+			err := mapCollector.WriteMapFile(*generateMap)
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "Error writing map file: %v\n", err)
+				os.Exit(1)
+			}
+			fmt.Fprintf(os.Stderr, "Generated mapping file: %s\n", *generateMap)
+			fmt.Fprintf(os.Stderr, "Please edit the file to select descriptions, then run with -unattended flag\n")
+			os.Exit(0)
+		} else {
+			fmt.Fprintf(os.Stderr, "No ambiguous descriptions found for %s - no mapping file needed\n", actualMdPath)
+			os.Exit(0)
+		}
+	}
 
 	// JSON-encode with indentation
 	var enc *json.Encoder

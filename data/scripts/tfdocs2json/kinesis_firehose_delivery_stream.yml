@@ -1,0 +1,1919 @@
+markdown_file: ./fixtures/docs/kinesis_firehose_delivery_stream.html.markdown
+generated_at: "2025-06-26T17:32:49+07:00"
+mappings:
+    - attribute_path: .name
+      camel_case_name: name
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+        - (Optional) The HTTP endpoint name.
+        - (Required) The name of the HTTP endpoint common attribute.
+      selected_description: (Required) A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+    - attribute_path: ElasticsearchConfiguration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+    - attribute_path: ElasticsearchConfiguration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: ElasticsearchConfiguration.indexName
+      camel_case_name: indexName
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The Elasticsearch index name.
+        - (Required) The OpenSearch index name.
+        - (Required) The Serverless offering for Amazon OpenSearch Service index name.
+      selected_description: (Required) The Elasticsearch index name.
+    - attribute_path: ElasticsearchConfiguration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+    - attribute_path: ElasticsearchConfiguration.s3BackupMode
+      camel_case_name: s3BackupMode
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+        - (Optional) The S3 backup mode.
+      selected_description: (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+    - attribute_path: ElasticsearchConfiguration.typeName
+      camel_case_name: typeName
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Elasticsearch type name with maximum length of 100 characters.
+        - (Optional) The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+      selected_description: (Optional) The Elasticsearch type name with maximum length of 100 characters.
+    - attribute_path: ElasticsearchConfiguration.indexRotationPeriod
+      camel_case_name: indexRotationPeriod
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+        - (Optional) The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+      selected_description: (Optional) The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+    - attribute_path: ElasticsearchConfiguration.retryDuration
+      camel_case_name: retryDuration
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        - (Optional) After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+        - (Optional) After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+        - (Optional) After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+      selected_description: (Optional) After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+    - attribute_path: ElasticsearchConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: ElasticsearchConfigurationProcessingConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables data processing.
+    - attribute_path: ElasticsearchConfigurationS3Configuration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    - attribute_path: ElasticsearchConfigurationS3Configuration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    - attribute_path: ElasticsearchConfigurationS3Configuration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: ElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: ElasticsearchConfigurationVpcConfig.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+    - attribute_path: ExtendedS3Configuration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    - attribute_path: ExtendedS3Configuration.s3BackupMode
+      camel_case_name: s3BackupMode
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+        - (Optional) The S3 backup mode.
+      selected_description: (Optional) The S3 backup mode.
+    - attribute_path: ExtendedS3Configuration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    - attribute_path: ExtendedS3Configuration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: ExtendedS3ConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: ExtendedS3ConfigurationDataFormatConversionConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+    - attribute_path: ExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe.compression
+      camel_case_name: compression
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The compression code to use over data blocks. The default is `SNAPPY`.
+        - (Optional) The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+      selected_description: (Optional) The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+    - attribute_path: ExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.compression
+      camel_case_name: compression
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The compression code to use over data blocks. The default is `SNAPPY`.
+        - (Optional) The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+      selected_description: (Optional) The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+    - attribute_path: ExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration.databaseName
+      camel_case_name: databaseName
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) Specifies the name of the AWS Glue database that contains the schema for the output data.
+        - (Required) The name of the Apache Iceberg database.
+      selected_description: (Required) Specifies the name of the AWS Glue database that contains the schema for the output data.
+    - attribute_path: ExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+    - attribute_path: ExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration.tableName
+      camel_case_name: tableName
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+        - (Required) The name of the Apache Iceberg Table.
+      selected_description: (Required) Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+    - attribute_path: ExtendedS3ConfigurationDynamicPartitioningConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+    - attribute_path: ExtendedS3ConfigurationDynamicPartitioningConfiguration.retryDuration
+      camel_case_name: retryDuration
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        - (Optional) After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+        - (Optional) After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+        - (Optional) After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+      selected_description: (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+    - attribute_path: ExtendedS3ConfigurationProcessingConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables data processing.
+    - attribute_path: ExtendedS3ConfigurationS3BackupConfiguration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    - attribute_path: ExtendedS3ConfigurationS3BackupConfiguration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    - attribute_path: ExtendedS3ConfigurationS3BackupConfiguration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: ExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: HttpEndpointConfiguration.s3BackupMode
+      camel_case_name: s3BackupMode
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+        - (Optional) The S3 backup mode.
+      selected_description: (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+    - attribute_path: HttpEndpointConfiguration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+    - attribute_path: HttpEndpointConfiguration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: HttpEndpointConfiguration.name
+      camel_case_name: name
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Required) A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+        - (Optional) The HTTP endpoint name.
+        - (Required) The name of the HTTP endpoint common attribute.
+      selected_description: (Optional) The HTTP endpoint name.
+    - attribute_path: HttpEndpointConfiguration.retryDuration
+      camel_case_name: retryDuration
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        - (Optional) After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+        - (Optional) After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+        - (Optional) After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+      selected_description: (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+    - attribute_path: HttpEndpointConfiguration.roleArn
+      camel_case_name: roleArn
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Optional) The ARN of the role the stream assumes.
+    - attribute_path: HttpEndpointConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: HttpEndpointConfigurationProcessingConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables data processing.
+    - attribute_path: HttpEndpointConfigurationRequestConfigurationCommonAttributes.name
+      camel_case_name: name
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+        - (Optional) The HTTP endpoint name.
+        - (Required) The name of the HTTP endpoint common attribute.
+      selected_description: (Required) The name of the HTTP endpoint common attribute.
+    - attribute_path: HttpEndpointConfigurationS3Configuration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    - attribute_path: HttpEndpointConfigurationS3Configuration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    - attribute_path: HttpEndpointConfigurationS3Configuration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: HttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: HttpEndpointConfigurationSecretsManagerConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the Secrets Manager configuration.
+    - attribute_path: HttpEndpointConfigurationSecretsManagerConfiguration.roleArn
+      camel_case_name: roleArn
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Optional) The ARN of the role the stream assumes.
+    - attribute_path: IcebergConfiguration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+    - attribute_path: IcebergConfiguration.s3BackupMode
+      camel_case_name: s3BackupMode
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+        - (Optional) The S3 backup mode.
+      selected_description: (Optional) The S3 backup mode.
+    - attribute_path: IcebergConfiguration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+    - attribute_path: IcebergConfiguration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: IcebergConfiguration.retryDuration
+      camel_case_name: retryDuration
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        - (Optional) After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+        - (Optional) After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+        - (Optional) After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+      selected_description: (Optional) The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+    - attribute_path: IcebergConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: IcebergConfigurationDestinationTableConfiguration.tableName
+      camel_case_name: tableName
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+        - (Required) The name of the Apache Iceberg Table.
+      selected_description: (Required) The name of the Apache Iceberg Table.
+    - attribute_path: IcebergConfigurationDestinationTableConfiguration.databaseName
+      camel_case_name: databaseName
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) Specifies the name of the AWS Glue database that contains the schema for the output data.
+        - (Required) The name of the Apache Iceberg database.
+      selected_description: (Required) The name of the Apache Iceberg database.
+    - attribute_path: IcebergConfigurationProcessingConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables data processing.
+    - attribute_path: IcebergConfigurationS3Configuration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    - attribute_path: IcebergConfigurationS3Configuration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: IcebergConfigurationS3Configuration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    - attribute_path: IcebergConfigurationS3ConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: KinesisSourceConfiguration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) The ARN of the role that provides access to the source Kinesis stream.
+    - attribute_path: MskSourceConfigurationAuthenticationConfiguration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) The ARN of the role used to access the Amazon MSK cluster.
+    - attribute_path: OpensearchConfiguration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+    - attribute_path: OpensearchConfiguration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: OpensearchConfiguration.indexName
+      camel_case_name: indexName
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The Elasticsearch index name.
+        - (Required) The OpenSearch index name.
+        - (Required) The Serverless offering for Amazon OpenSearch Service index name.
+      selected_description: (Required) The OpenSearch index name.
+    - attribute_path: OpensearchConfiguration.indexRotationPeriod
+      camel_case_name: indexRotationPeriod
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+        - (Optional) The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+      selected_description: (Optional) The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+    - attribute_path: OpensearchConfiguration.retryDuration
+      camel_case_name: retryDuration
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        - (Optional) After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+        - (Optional) After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+        - (Optional) After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+      selected_description: (Optional) After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+    - attribute_path: OpensearchConfiguration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+    - attribute_path: OpensearchConfiguration.s3BackupMode
+      camel_case_name: s3BackupMode
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+        - (Optional) The S3 backup mode.
+      selected_description: (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+    - attribute_path: OpensearchConfiguration.typeName
+      camel_case_name: typeName
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Elasticsearch type name with maximum length of 100 characters.
+        - (Optional) The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+      selected_description: (Optional) The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+    - attribute_path: OpensearchConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: OpensearchConfigurationProcessingConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables data processing.
+    - attribute_path: OpensearchConfigurationS3Configuration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    - attribute_path: OpensearchConfigurationS3Configuration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: OpensearchConfigurationS3Configuration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    - attribute_path: OpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: OpensearchConfigurationVpcConfig.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+    - attribute_path: OpensearchserverlessConfiguration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+    - attribute_path: OpensearchserverlessConfiguration.s3BackupMode
+      camel_case_name: s3BackupMode
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+        - (Optional) The S3 backup mode.
+      selected_description: (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+    - attribute_path: OpensearchserverlessConfiguration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+    - attribute_path: OpensearchserverlessConfiguration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: OpensearchserverlessConfiguration.indexName
+      camel_case_name: indexName
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The Elasticsearch index name.
+        - (Required) The OpenSearch index name.
+        - (Required) The Serverless offering for Amazon OpenSearch Service index name.
+      selected_description: (Required) The Serverless offering for Amazon OpenSearch Service index name.
+    - attribute_path: OpensearchserverlessConfiguration.retryDuration
+      camel_case_name: retryDuration
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        - (Optional) After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+        - (Optional) After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+        - (Optional) After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+      selected_description: (Optional) After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+    - attribute_path: OpensearchserverlessConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: OpensearchserverlessConfigurationProcessingConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables data processing.
+    - attribute_path: OpensearchserverlessConfigurationS3Configuration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    - attribute_path: OpensearchserverlessConfigurationS3Configuration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    - attribute_path: OpensearchserverlessConfigurationS3Configuration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: OpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: OpensearchserverlessConfigurationVpcConfig.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+    - attribute_path: RedshiftConfiguration.retryDuration
+      camel_case_name: retryDuration
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        - (Optional) After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+        - (Optional) After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+        - (Optional) After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+      selected_description: (Optional) The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+    - attribute_path: RedshiftConfiguration.s3BackupMode
+      camel_case_name: s3BackupMode
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+        - (Optional) The S3 backup mode.
+      selected_description: (Optional) The S3 backup mode.
+    - attribute_path: RedshiftConfiguration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    - attribute_path: RedshiftConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: RedshiftConfigurationProcessingConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables data processing.
+    - attribute_path: RedshiftConfigurationS3BackupConfiguration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    - attribute_path: RedshiftConfigurationS3BackupConfiguration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    - attribute_path: RedshiftConfigurationS3BackupConfiguration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: RedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: RedshiftConfigurationS3Configuration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    - attribute_path: RedshiftConfigurationS3Configuration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    - attribute_path: RedshiftConfigurationS3Configuration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: RedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: RedshiftConfigurationSecretsManagerConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the Secrets Manager configuration.
+    - attribute_path: RedshiftConfigurationSecretsManagerConfiguration.roleArn
+      camel_case_name: roleArn
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Optional) The ARN of the role the stream assumes.
+    - attribute_path: ServerSideEncryption.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Whether to enable encryption at rest. Default is `false`.
+    - attribute_path: SnowflakeConfiguration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) The ARN of the IAM role.
+    - attribute_path: SnowflakeConfiguration.s3BackupMode
+      camel_case_name: s3BackupMode
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+        - (Optional) The S3 backup mode.
+      selected_description: (Optional) The S3 backup mode.
+    - attribute_path: SnowflakeConfiguration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+    - attribute_path: SnowflakeConfiguration.retryDuration
+      camel_case_name: retryDuration
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        - (Optional) After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+        - (Optional) After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+        - (Optional) After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+      selected_description: (Optional) After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+    - attribute_path: SnowflakeConfiguration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+    - attribute_path: SnowflakeConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: SnowflakeConfigurationProcessingConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables data processing.
+    - attribute_path: SnowflakeConfigurationS3Configuration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    - attribute_path: SnowflakeConfigurationS3Configuration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    - attribute_path: SnowflakeConfigurationS3Configuration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: SnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: SnowflakeConfigurationSecretsManagerConfiguration.roleArn
+      camel_case_name: roleArn
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Optional) The ARN of the role the stream assumes.
+    - attribute_path: SnowflakeConfigurationSecretsManagerConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the Secrets Manager configuration.
+    - attribute_path: SnowflakeConfigurationSnowflakeRoleConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Whether the Snowflake role is enabled.
+    - attribute_path: SplunkConfiguration.s3BackupMode
+      camel_case_name: s3BackupMode
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Optional) The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+        - (Optional) The S3 backup mode.
+      selected_description: (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+    - attribute_path: SplunkConfiguration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+    - attribute_path: SplunkConfiguration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: SplunkConfiguration.retryDuration
+      camel_case_name: retryDuration
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        - (Optional) After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+        - (Optional) After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+        - (Optional) After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
+        - (Optional) Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+      selected_description: (Optional) After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+    - attribute_path: SplunkConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: SplunkConfigurationProcessingConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables data processing.
+    - attribute_path: SplunkConfigurationS3Configuration.roleArn
+      camel_case_name: roleArn
+      required: true
+      optional: false
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+    - attribute_path: SplunkConfigurationS3Configuration.bufferingInterval
+      camel_case_name: bufferingInterval
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+    - attribute_path: SplunkConfigurationS3Configuration.bufferingSize
+      camel_case_name: bufferingSize
+      required: false
+      optional: true
+      type: number
+      available_descriptions:
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+    - attribute_path: SplunkConfigurationS3ConfigurationCloudwatchLoggingOptions.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the logging. Defaults to `false`.
+    - attribute_path: SplunkConfigurationSecretsManagerConfiguration.enabled
+      camel_case_name: enabled
+      required: false
+      optional: true
+      type: bool
+      available_descriptions:
+        - (Optional) Whether to enable encryption at rest. Default is `false`.
+        - (Optional) Whether the Snowflake role is enabled.
+        - (Optional) Enables or disables the logging. Defaults to `false`.
+        - (Optional) Enables or disables data processing.
+        - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        - (Optional) Enables or disables the Secrets Manager configuration.
+        - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables the Secrets Manager configuration.
+    - attribute_path: SplunkConfigurationSecretsManagerConfiguration.roleArn
+      camel_case_name: roleArn
+      required: false
+      optional: true
+      type: string
+      available_descriptions:
+        - (Required) The ARN of the role that provides access to the source Kinesis stream.
+        - (Required) The ARN of the role used to access the Amazon MSK cluster.
+        - (Required) The arn of the role the stream assumes.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+        - (Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        - (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+        - (Required) The ARN of the IAM role.
+        - (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+        - (Required) The ARN of the AWS credentials.
+        - (Optional) The ARN of the role the stream assumes.
+        - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      selected_description: (Optional) The ARN of the role the stream assumes.
