@@ -6,11 +6,17 @@
 
 TerraTitan is an LLM-powered workflow that converts AWS CDK constructs to Terraform CDK (CDKTF). This tool is a major component used to generate and maintain the [TerraConstructs](https://github.com/TerraConstructs/base) library, providing reliable and trustworthy infrastructure components for everyone to use.
 
+[Introduction Slides](https://gamma.app/docs/AI-Applied-Porting-libraries-with-RAG-l4khbikxmv3phrx)
+
 ## Goals
 
 - Automated conversion of AWS CDK constructs to Terraform CDK
-- Generate code for Unit Tests (+ future: and integration testing to ensure reliability)
+- Generate code for:
+  - [x] Source Code (AWSCDK > CDKTF)
+  - [x] Unit Tests (Jest)
+  - [ ] Integration Tests (terratest / golang)
 - CLI to manage LLM Code generation workflow
+- Observability using [signoz](https://signoz.io/)
 
 ## Repo Layout
 
@@ -43,6 +49,7 @@ TerraTitan is an LLM-powered workflow that converts AWS CDK constructs to Terraf
 │     ├── openai-cli            # ... OpenAI/Gemini prompt benchmarking (using bun.sh)
 │     ├── research-assitant     # ... demo mastra workflow (using bun.sh)
 │     ├── tf-doc-scrape.sh      # ... download copy of Terraform Docs (markdown)
+│     ├── tfdocs2json           # ... Export terraform-provider-xx schema and combine with Terraform Docs
 │     └── validate-file         # ... run tsc syntax check on sourceFile
 └── packages
    ├── eslint-config
@@ -52,21 +59,35 @@ TerraTitan is an LLM-powered workflow that converts AWS CDK constructs to Terraf
 
 ## Pnpm Worskpaces and Turbo Repo
 
-This repository uses [pnpm](https://pnpm.io/) workspaces and [turbo](https://turbo.build) to easily manage and publish multiple apps and libraries.
+This repository uses [pnpm](https://pnpm.io/) workspaces and [turbo](https://turbo.build) to easily manage multiple apps and libraries (as a monorepo).
 
 ### Getting Started
 
-- Install [NodeJS](https://nodejs.org/en/download) using nvm
+- Install all dependencies using [mise](https://mise.jdx.dev/getting-started.html) (or manually)
+
+  ```bash
+  mise install
+  ```
+
+  see [mise](mise.toml) for a list of required toolkits.
+
 - Enable [corepack](https://github.com/nodejs/corepack?tab=readme-ov-file#default-installs):
 
   ```bash
   corepack enable
   ```
 
-- Install repo-wide dependencies:
+- Install repo-wide dependencies using [pnpm](https://pnpm.io/):
 
   ```bash
   pnpm install
+  ```
+
+- Build & Install the `tfdocs2json` binary (see requirements in mise.toml):
+
+  ```bash
+  cd data/scripts/tfdocs2json
+  make install
   ```
 
 ### Run tasks
@@ -76,17 +97,14 @@ This repository uses [pnpm](https://pnpm.io/) workspaces and [turbo](https://tur
 - `pnpm run build`: Runs build task
 - `pnpm run repo-lint`: Lints repo-wide dependency versions
 
-### Useful Links
+### Stand up Signoz
 
-Learn more about the power of Turborepo:
+To stand up Signoz for observability, you can use the provided Docker Compose file:
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
-
+```bash
+cd signoz
+./start.sh
+```
 
 ## 📄 License
 

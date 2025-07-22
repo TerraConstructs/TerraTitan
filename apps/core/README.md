@@ -1,12 +1,17 @@
 # Core
 
-TerraTitan Core Workflows using Mastra.
+TerraTitan Core Workflows powered by Mastra.
 
 [mastra](https://mastra.ai) is an open-source TypeScript LLM Agent framework
+
+> [!CAUTION]
+> Using LLMs can incur costs. Make sure to monitor your usage and set up appropriate limits with your LLM provider.
 
 ## Prerequisites
 
 1. **Set up the OpenAI & Gemini API:**
+
+   The conversion workflow uses OpenAI for embeddings and ReRanking and Gemini (2.5 Pro) for code generation.
 
    - If you're new to the OpenAI API, [sign up for an account](https://platform.openai.com/signup).
    - Follow the [Quickstart](https://platform.openai.com/docs/quickstart) to retrieve your API key.
