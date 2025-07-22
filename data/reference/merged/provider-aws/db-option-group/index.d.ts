@@ -7,12 +7,7 @@ import * as cdktf from 'cdktf';
 export interface DbOptionGroupConfig extends cdktf.TerraformMetaArguments {
     /** (Required) Specifies the name of the engine that this option group should be associated with. */
     readonly engineName: string;
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_option_group#id DbOptionGroup#id}
-    *
-    * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-    * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-    */
+    /** */
     readonly id?: string;
     /** (Required) Specifies the major version of the engine that this option group should be associated with. */
     readonly majorEngineVersion: string;
@@ -28,29 +23,19 @@ export interface DbOptionGroupConfig extends cdktf.TerraformMetaArguments {
     readonly tags?: {
         [key: string]: string;
     };
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_option_group#tags_all DbOptionGroup#tags_all}
-    */
+    /** */
     readonly tagsAll?: {
         [key: string]: string;
     };
-    /** (Optional) The options to apply. See [`option` Block](#option-block) below for more details. */
+    /** */
     readonly option?: DbOptionGroupOption[] | cdktf.IResolvable;
-    /**
-    * timeouts block
-    *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_option_group#timeouts DbOptionGroup#timeouts}
-    */
+    /** */
     readonly timeouts?: DbOptionGroupTimeouts;
 }
 export interface DbOptionGroupOptionOptionSettings {
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_option_group#name DbOptionGroup#name}
-    */
+    /** (Required) Name of the setting. */
     readonly name: string;
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_option_group#value DbOptionGroup#value}
-    */
+    /** (Required) Value of the setting. */
     readonly value: string;
 }
 export declare function dbOptionGroupOptionOptionSettingsToTerraform(struct?: DbOptionGroupOptionOptionSettings | cdktf.IResolvable): any;
@@ -103,7 +88,7 @@ export interface DbOptionGroupOption {
     readonly version?: string;
     /** (Optional) List of VPC Security Groups for which the option is enabled. */
     readonly vpcSecurityGroupMemberships?: string[];
-    /** (Optional) The option settings to apply. See [`optionSettings` Block](#option_settings-block) below for more details. */
+    /** */
     readonly optionSettings?: DbOptionGroupOptionOptionSettings[] | cdktf.IResolvable;
 }
 export declare function dbOptionGroupOptionToTerraform(struct?: DbOptionGroupOption | cdktf.IResolvable): any;
@@ -189,7 +174,7 @@ export declare class DbOptionGroupTimeoutsOutputReference extends cdktf.ComplexO
     get deleteInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_option_group aws_db_option_group}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_option_group aws_db_option_group}
 */
 export declare class DbOptionGroup extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_db_option_group";
@@ -197,12 +182,12 @@ export declare class DbOptionGroup extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a DbOptionGroup resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DbOptionGroup to import
-    * @param importFromId The id of the existing DbOptionGroup that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_option_group#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DbOptionGroup that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_option_group#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DbOptionGroup to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_option_group aws_db_option_group} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_option_group aws_db_option_group} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

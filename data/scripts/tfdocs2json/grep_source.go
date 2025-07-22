@@ -349,6 +349,7 @@ func extractDescriptionWithMapping(sourceStr string, attrInfo AttributeInfo, int
 		"`" + camelCaseName + "` –", // Em-dash with camelCase
 		"`" + camelCaseName + "`–",  // Em-dash with camelCase and missing spaces
 		"`" + camelCaseName + "`-",  // Hyphen with camelCase
+		"* `" + camelCaseName + "`",  // No Hyphen, just bullet point
 	}
 
 	foundDescriptions := make([]string, 0)
@@ -438,19 +439,19 @@ func extractDescriptionWithMapping(sourceStr string, attrInfo AttributeInfo, int
 	if len(foundDescriptions) > 0 {
 		// Deduplicate descriptions
 		foundDescriptions = deduplicateDescriptions(foundDescriptions)
-		
+
 		if len(foundDescriptions) == 1 {
 			// If only one description found, return it directly
 			return foundDescriptions[0]
 		}
-		
+
 		// Handle multiple descriptions based on mode
 		if mapCollector != nil {
 			// Map generation mode: collect this ambiguous mapping
 			mapCollector.AddMapping(attrInfo, foundDescriptions)
 			return foundDescriptions[0] // Return first one for now
 		}
-		
+
 		if mapFile != nil {
 			// Map usage mode: look up the selected description
 			if selectedDesc, found := mapFile.GetSelectedDescription(attrInfo.FullPath); found {
@@ -460,7 +461,7 @@ func extractDescriptionWithMapping(sourceStr string, attrInfo AttributeInfo, int
 			fmt.Fprintf(os.Stderr, "Warning: Attribute '%s' not found in map file, using first description\n", attrInfo.FullPath)
 			return foundDescriptions[0]
 		}
-		
+
 		if interactive {
 			return selectDescriptionInteractively(attrInfo, foundDescriptions)
 		} else {
@@ -483,14 +484,14 @@ func deduplicateDescriptions(descriptions []string) []string {
 	}
 	seen := make(map[string]bool)
 	result := make([]string, 0, len(descriptions))
-	
+
 	for _, desc := range descriptions {
 		if !seen[desc] {
 			seen[desc] = true
 			result = append(result, desc)
 		}
 	}
-	
+
 	return result
 }
 

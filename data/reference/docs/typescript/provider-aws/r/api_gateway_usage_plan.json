@@ -79,14 +79,14 @@
         {
           "name": "apiId",
           "type": "string",
-          "description": "",
+          "description": "(Required) - API Id of the associated API stage in a usage plan.",
           "required": true,
           "optional": false
         },
         {
           "name": "stage",
           "type": "string",
-          "description": "",
+          "description": "(Required) - API stage name of the associated API stage in a usage plan.",
           "required": true,
           "optional": false
         },
@@ -106,21 +106,21 @@
         {
           "name": "burstLimit",
           "type": "number",
-          "description": "",
+          "description": "(Optional) - The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.",
           "required": false,
           "optional": true
         },
         {
           "name": "path",
           "type": "string",
-          "description": "",
+          "description": "(Required) - Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.",
           "required": true,
           "optional": false
         },
         {
           "name": "rateLimit",
           "type": "number",
-          "description": "",
+          "description": "(Optional) - The API request steady-state rate limit.",
           "required": false,
           "optional": true
         }
@@ -133,21 +133,21 @@
         {
           "name": "limit",
           "type": "number",
-          "description": "",
+          "description": "(Optional) - Maximum number of requests that can be made in a given time period.",
           "required": true,
           "optional": false
         },
         {
           "name": "offset",
           "type": "number",
-          "description": "",
+          "description": "(Optional) - Number of requests subtracted from the given limit in the initial time period.",
           "required": false,
           "optional": true
         },
         {
           "name": "period",
           "type": "string",
-          "description": "",
+          "description": "(Optional) - Time period in which the limit applies. Valid values are \"DAY\", \"WEEK\" or \"MONTH\".",
           "required": true,
           "optional": false
         }
@@ -160,14 +160,14 @@
         {
           "name": "burstLimit",
           "type": "number",
-          "description": "",
+          "description": "(Optional) - The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.",
           "required": false,
           "optional": true
         },
         {
           "name": "rateLimit",
           "type": "number",
-          "description": "",
+          "description": "(Optional) - The API request steady-state rate limit.",
           "required": false,
           "optional": true
         }

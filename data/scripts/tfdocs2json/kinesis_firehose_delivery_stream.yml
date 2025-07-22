@@ -23,7 +23,7 @@ mappings:
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
     - attribute_path: ElasticsearchConfiguration.bufferingSize
       camel_case_name: bufferingSize
       required: false
@@ -35,7 +35,7 @@ mappings:
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
         - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
-      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
     - attribute_path: ElasticsearchConfiguration.indexName
       camel_case_name: indexName
       required: true
@@ -238,7 +238,7 @@ mappings:
         - (Required) The ARN of the AWS credentials.
         - (Optional) The ARN of the role the stream assumes.
         - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+      selected_description: (Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
     - attribute_path: ExtendedS3Configuration.s3BackupMode
       camel_case_name: s3BackupMode
       required: false
@@ -250,7 +250,7 @@ mappings:
         - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
         - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
         - (Optional) The S3 backup mode.
-      selected_description: (Optional) The S3 backup mode.
+      selected_description: (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
     - attribute_path: ExtendedS3Configuration.bufferingInterval
       camel_case_name: bufferingInterval
       required: false
@@ -263,7 +263,7 @@ mappings:
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
     - attribute_path: ExtendedS3Configuration.bufferingSize
       camel_case_name: bufferingSize
       required: false
@@ -312,7 +312,7 @@ mappings:
       available_descriptions:
         - (Optional) The compression code to use over data blocks. The default is `SNAPPY`.
         - (Optional) The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
-      selected_description: (Optional) The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+      selected_description: (Optional) The compression code to use over data blocks. The default is `SNAPPY`.
     - attribute_path: ExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.compression
       camel_case_name: compression
       required: false
@@ -373,7 +373,7 @@ mappings:
         - (Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
         - (Optional) Enables or disables the Secrets Manager configuration.
         - (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
-      selected_description: (Optional) Enables or disables dynamic partitioning. Defaults to `false`.
+      selected_description: (Optional) Enables or disables dynamic partitioning. Defaults to `false`. **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, Terraform will recreate the resource whenever dynamic partitioning is enabled or disabled.
     - attribute_path: ExtendedS3ConfigurationDynamicPartitioningConfiguration.retryDuration
       camel_case_name: retryDuration
       required: false
@@ -389,7 +389,7 @@ mappings:
         - (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
         - (Optional) After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
         - (Optional) Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
-      selected_description: (Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
+      selected_description: (Optional) Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
     - attribute_path: ExtendedS3ConfigurationProcessingConfiguration.enabled
       camel_case_name: enabled
       required: false
@@ -423,7 +423,7 @@ mappings:
         - (Required) The ARN of the AWS credentials.
         - (Optional) The ARN of the role the stream assumes.
         - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+      selected_description: (Required) The ARN of the AWS credentials.
     - attribute_path: ExtendedS3ConfigurationS3BackupConfiguration.bufferingInterval
       camel_case_name: bufferingInterval
       required: false
@@ -436,7 +436,7 @@ mappings:
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
     - attribute_path: ExtendedS3ConfigurationS3BackupConfiguration.bufferingSize
       camel_case_name: bufferingSize
       required: false
@@ -487,7 +487,7 @@ mappings:
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
     - attribute_path: HttpEndpointConfiguration.bufferingSize
       camel_case_name: bufferingSize
       required: false
@@ -545,7 +545,7 @@ mappings:
         - (Required) The ARN of the AWS credentials.
         - (Optional) The ARN of the role the stream assumes.
         - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-      selected_description: (Optional) The ARN of the role the stream assumes.
+      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
     - attribute_path: HttpEndpointConfigurationCloudwatchLoggingOptions.enabled
       camel_case_name: enabled
       required: false
@@ -603,7 +603,7 @@ mappings:
         - (Required) The ARN of the AWS credentials.
         - (Optional) The ARN of the role the stream assumes.
         - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+      selected_description: (Required) The ARN of the AWS credentials.
     - attribute_path: HttpEndpointConfigurationS3Configuration.bufferingInterval
       camel_case_name: bufferingInterval
       required: false
@@ -628,7 +628,7 @@ mappings:
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
         - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
-      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
     - attribute_path: HttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions.enabled
       camel_case_name: enabled
       required: false
@@ -676,7 +676,7 @@ mappings:
         - (Required) The ARN of the AWS credentials.
         - (Optional) The ARN of the role the stream assumes.
         - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-      selected_description: (Optional) The ARN of the role the stream assumes.
+      selected_description: (Optional) The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
     - attribute_path: IcebergConfiguration.roleArn
       camel_case_name: roleArn
       required: true
@@ -708,7 +708,7 @@ mappings:
         - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
         - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
         - (Optional) The S3 backup mode.
-      selected_description: (Optional) The S3 backup mode.
+      selected_description: (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
     - attribute_path: IcebergConfiguration.bufferingInterval
       camel_case_name: bufferingInterval
       required: false
@@ -721,7 +721,7 @@ mappings:
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
     - attribute_path: IcebergConfiguration.bufferingSize
       camel_case_name: bufferingSize
       required: false
@@ -733,7 +733,7 @@ mappings:
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
         - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
-      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
     - attribute_path: IcebergConfiguration.retryDuration
       camel_case_name: retryDuration
       required: false
@@ -808,7 +808,7 @@ mappings:
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300. (5 minutes).
     - attribute_path: IcebergConfigurationS3Configuration.bufferingSize
       camel_case_name: bufferingSize
       required: false
@@ -820,7 +820,7 @@ mappings:
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
         - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
-      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
     - attribute_path: IcebergConfigurationS3Configuration.roleArn
       camel_case_name: roleArn
       required: true
@@ -840,7 +840,7 @@ mappings:
         - (Required) The ARN of the AWS credentials.
         - (Optional) The ARN of the role the stream assumes.
         - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+      selected_description: (Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
     - attribute_path: IcebergConfigurationS3ConfigurationCloudwatchLoggingOptions.enabled
       camel_case_name: enabled
       required: false
@@ -907,7 +907,7 @@ mappings:
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
     - attribute_path: OpensearchConfiguration.bufferingSize
       camel_case_name: bufferingSize
       required: false
@@ -919,7 +919,7 @@ mappings:
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
         - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
-      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
     - attribute_path: OpensearchConfiguration.indexName
       camel_case_name: indexName
       required: true
@@ -1068,7 +1068,7 @@ mappings:
         - (Required) The ARN of the AWS credentials.
         - (Optional) The ARN of the role the stream assumes.
         - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+      selected_description: (Required) The ARN of the AWS credentials.
     - attribute_path: OpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions.enabled
       camel_case_name: enabled
       required: false
@@ -1147,7 +1147,7 @@ mappings:
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description:  (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
     - attribute_path: OpensearchserverlessConfiguration.bufferingSize
       camel_case_name: bufferingSize
       required: false
@@ -1159,7 +1159,7 @@ mappings:
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
         - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
-      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
     - attribute_path: OpensearchserverlessConfiguration.indexName
       camel_case_name: indexName
       required: true
@@ -1233,7 +1233,7 @@ mappings:
         - (Required) The ARN of the AWS credentials.
         - (Optional) The ARN of the role the stream assumes.
         - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+      selected_description: (Required) The ARN of the AWS credentials.
     - attribute_path: OpensearchserverlessConfigurationS3Configuration.bufferingInterval
       camel_case_name: bufferingInterval
       required: false
@@ -1258,7 +1258,7 @@ mappings:
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
         - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
-      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
     - attribute_path: OpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions.enabled
       camel_case_name: enabled
       required: false
@@ -1320,7 +1320,7 @@ mappings:
         - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
         - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
         - (Optional) The S3 backup mode.
-      selected_description: (Optional) The S3 backup mode.
+      selected_description: (Optional) The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
     - attribute_path: RedshiftConfiguration.roleArn
       camel_case_name: roleArn
       required: true
@@ -1340,7 +1340,7 @@ mappings:
         - (Required) The ARN of the AWS credentials.
         - (Optional) The ARN of the role the stream assumes.
         - (Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-      selected_description: (Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
+      selected_description: (Required) The arn of the role the stream assumes.
     - attribute_path: RedshiftConfigurationCloudwatchLoggingOptions.enabled
       camel_case_name: enabled
       required: false
@@ -1566,7 +1566,7 @@ mappings:
         - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
         - (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
         - (Optional) The S3 backup mode.
-      selected_description: (Optional) The S3 backup mode.
+      selected_description: (Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
     - attribute_path: SnowflakeConfiguration.bufferingSize
       camel_case_name: bufferingSize
       required: false
@@ -1578,7 +1578,7 @@ mappings:
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
         - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
-      selected_description: (Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
     - attribute_path: SnowflakeConfiguration.retryDuration
       camel_case_name: retryDuration
       required: false
@@ -1607,7 +1607,7 @@ mappings:
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination. The default value is 0s.
     - attribute_path: SnowflakeConfigurationCloudwatchLoggingOptions.enabled
       camel_case_name: enabled
       required: false
@@ -1767,7 +1767,7 @@ mappings:
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         - (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
         - (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      selected_description: (Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
     - attribute_path: SplunkConfiguration.bufferingSize
       camel_case_name: bufferingSize
       required: false
@@ -1779,7 +1779,7 @@ mappings:
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
         - (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         - (Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
-      selected_description: (Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+      selected_description: (Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
     - attribute_path: SplunkConfiguration.retryDuration
       camel_case_name: retryDuration
       required: false
