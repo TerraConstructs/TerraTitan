@@ -69,9 +69,9 @@ async function main() {
       wfToRun = await select<z.infer<typeof workflowTypeSchema>>({
         message: 'Select which workflow to run:',
         choices: [
-          { value: 'convert', name: 'Conversion Workflow' },
-          { value: 'docsMerge', name: 'Docs Merge Workflow (LLM)' },
-          { value: 'convert-vNext', name: 'Conversion Workflow vNext' },
+          // { value: 'convert', name: 'Conversion Workflow' },
+          // { value: 'docsMerge', name: 'Docs Merge Workflow (LLM)' },
+          { value: 'convert-vNext', name: 'Conversion Workflow' },
           { value: 'batchConvert', name: 'Demo Batch Source Code Conversion Workflow' },
           { value: 'batchTestConvert', name: 'Demo Batch Unit Tests Conversion Workflow' },
           { value: 'cdktfRef', name: 'Demo aws-elasticloadbalancingv2.CfnTargetGroup CDKTF Reference retrieval' },
