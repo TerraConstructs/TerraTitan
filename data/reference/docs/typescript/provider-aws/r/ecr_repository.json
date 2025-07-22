@@ -1,0 +1,136 @@
+{
+  "arguments": [
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "encryptionConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "forceDelete",
+      "type": "bool",
+      "description": "(Optional) If `true`, will delete the repository even if it contains images.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "imageScanningConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "imageTagMutability",
+      "type": "string",
+      "description": "(Optional) The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) Name of the repository.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "registryId",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "repositoryUrl",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "tags",
+      "type": "map",
+      "description": "(Optional) A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tagsAll",
+      "type": "map",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "timeouts",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "encryptionConfiguration",
+      "full_name": "EncryptionConfiguration",
+      "arguments": [
+        {
+          "name": "encryptionType",
+          "type": "string",
+          "description": "(Optional) The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "kmsKey",
+          "type": "string",
+          "description": "(Optional) The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "imageScanningConfiguration",
+      "full_name": "ImageScanningConfiguration",
+      "arguments": [
+        {
+          "name": "scanOnPush",
+          "type": "bool",
+          "description": "(Required) Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "timeouts",
+      "full_name": "Timeouts",
+      "arguments": [
+        {
+          "name": "delete",
+          "type": "string",
+          "description": "(Default `20m`)",
+          "required": false,
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

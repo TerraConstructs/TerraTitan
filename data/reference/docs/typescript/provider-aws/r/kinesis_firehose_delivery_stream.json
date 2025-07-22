@@ -1,0 +1,3622 @@
+{
+  "arguments": [
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "destination",
+      "type": "string",
+      "description": "(Required) This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "destinationId",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "elasticsearchConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "extendedS3Configuration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "httpEndpointConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "icebergConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "kinesisSourceConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "mskSourceConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "opensearchConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "opensearchserverlessConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "redshiftConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "serverSideEncryption",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "snowflakeConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "splunkConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tags",
+      "type": "map",
+      "description": "(Optional) A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tagsAll",
+      "type": "map",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "timeouts",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "versionId",
+      "type": "string",
+      "description": "(Optional) Specifies the table version for the output data schema. Defaults to `LATEST`.",
+      "required": false,
+      "optional": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "elasticsearchConfiguration",
+      "full_name": "ElasticsearchConfiguration",
+      "arguments": [
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "clusterEndpoint",
+          "type": "string",
+          "description": "(Optional) The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "domainArn",
+          "type": "string",
+          "description": "(Optional) The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "indexName",
+          "type": "string",
+          "description": "(Required) The Elasticsearch index name.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "indexRotationPeriod",
+          "type": "string",
+          "description": "(Optional) The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "retryDuration",
+          "type": "number",
+          "description": "(Optional) After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "s3BackupMode",
+          "type": "string",
+          "description": "(Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "typeName",
+          "type": "string",
+          "description": "(Optional) The Elasticsearch type name with maximum length of 100 characters.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3Configuration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "vpcConfig",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processingConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "ElasticsearchConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processingConfiguration",
+      "full_name": "ElasticsearchConfigurationProcessingConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables data processing.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processors",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processors",
+      "full_name": "ElasticsearchConfigurationProcessingConfigurationProcessors",
+      "arguments": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "(Required) The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameters",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "parameters",
+      "full_name": "ElasticsearchConfigurationProcessingConfigurationProcessorsParameters",
+      "arguments": [
+        {
+          "name": "parameterName",
+          "type": "string",
+          "description": "(Required) Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameterValue",
+          "type": "string",
+          "description": "(Required) Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "s3Configuration",
+      "full_name": "ElasticsearchConfigurationS3Configuration",
+      "arguments": [
+        {
+          "name": "bucketArn",
+          "type": "string",
+          "description": "(Required) The ARN of the S3 bucket",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compressionFormat",
+          "type": "string",
+          "description": "(Optional) The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, \u0026 `HADOOP_SNAPPY`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "errorOutputPrefix",
+          "type": "string",
+          "description": "(Optional) Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional) Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "(Optional) The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "ElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "vpcConfig",
+      "full_name": "ElasticsearchConfigurationVpcConfig",
+      "arguments": [
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "securityGroupIds",
+          "type": "set",
+          "description": "(Required) A list of security group IDs to associate with Kinesis Firehose.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "subnetIds",
+          "type": "set",
+          "description": "(Required) A list of subnet IDs to associate with Kinesis Firehose.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "vpcId",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "extendedS3Configuration",
+      "full_name": "ExtendedS3Configuration",
+      "arguments": [
+        {
+          "name": "bucketArn",
+          "type": "string",
+          "description": "(Required) The ARN of the S3 bucket",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compressionFormat",
+          "type": "string",
+          "description": "(Optional) The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, \u0026 `HADOOP_SNAPPY`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "customTimeZone",
+          "type": "string",
+          "description": "(Optional) The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "errorOutputPrefix",
+          "type": "string",
+          "description": "(Optional) Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "fileExtension",
+          "type": "string",
+          "description": "(Optional) The file extension to override the default file extension (for example, `.json`).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional) Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "(Optional) The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "s3BackupMode",
+          "type": "string",
+          "description": "(Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "dataFormatConversionConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "dynamicPartitioningConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processingConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3BackupConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "ExtendedS3ConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "dataFormatConversionConfiguration",
+      "full_name": "ExtendedS3ConfigurationDataFormatConversionConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "inputFormatConfiguration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "outputFormatConfiguration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "schemaConfiguration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "inputFormatConfiguration",
+      "full_name": "ExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration",
+      "arguments": [
+        {
+          "name": "deserializer",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "deserializer",
+      "full_name": "ExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer",
+      "arguments": [
+        {
+          "name": "hiveJsonSerDe",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "openXJsonSerDe",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "hiveJsonSerDe",
+      "full_name": "ExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe",
+      "arguments": [
+        {
+          "name": "timestampFormats",
+          "type": "list",
+          "description": "(Optional) A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "openXJsonSerDe",
+      "full_name": "ExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe",
+      "arguments": [
+        {
+          "name": "caseInsensitive",
+          "type": "bool",
+          "description": "(Optional) When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "columnToJsonKeyMappings",
+          "type": "map",
+          "description": "(Optional) A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = \"timestamp\" }` to map this key to a column named ts.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "convertDotsInJsonKeysToUnderscores",
+          "type": "bool",
+          "description": "(Optional) When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is \"a.b\", you can define the column name to be \"a_b\" when using this option. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "outputFormatConfiguration",
+      "full_name": "ExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration",
+      "arguments": [
+        {
+          "name": "serializer",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "serializer",
+      "full_name": "ExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer",
+      "arguments": [
+        {
+          "name": "orcSerDe",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "parquetSerDe",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "orcSerDe",
+      "full_name": "ExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe",
+      "arguments": [
+        {
+          "name": "blockSizeBytes",
+          "type": "number",
+          "description": "(Optional) The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bloomFilterColumns",
+          "type": "list",
+          "description": "(Optional) A list of column names for which you want Kinesis Data Firehose to create bloom filters.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bloomFilterFalsePositiveProbability",
+          "type": "number",
+          "description": "(Optional) The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compression",
+          "type": "string",
+          "description": "(Optional) The compression code to use over data blocks. The default is `SNAPPY`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "dictionaryKeyThreshold",
+          "type": "number",
+          "description": "(Optional) A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "enablePadding",
+          "type": "bool",
+          "description": "(Optional) Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "formatVersion",
+          "type": "string",
+          "description": "(Optional) The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "paddingTolerance",
+          "type": "number",
+          "description": "(Optional) A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "rowIndexStride",
+          "type": "number",
+          "description": "(Optional) The number of rows between index entries. The default is `10000` and the minimum is `1000`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "stripeSizeBytes",
+          "type": "number",
+          "description": "(Optional) The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "parquetSerDe",
+      "full_name": "ExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe",
+      "arguments": [
+        {
+          "name": "blockSizeBytes",
+          "type": "number",
+          "description": "(Optional) The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compression",
+          "type": "string",
+          "description": "(Optional) The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "enableDictionaryCompression",
+          "type": "bool",
+          "description": "(Optional) Indicates whether to enable dictionary compression.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "maxPaddingBytes",
+          "type": "number",
+          "description": "(Optional) The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "pageSizeBytes",
+          "type": "number",
+          "description": "(Optional) The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "writerVersion",
+          "type": "string",
+          "description": "(Optional) Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "schemaConfiguration",
+      "full_name": "ExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration",
+      "arguments": [
+        {
+          "name": "catalogId",
+          "type": "string",
+          "description": "(Optional) The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "databaseName",
+          "type": "string",
+          "description": "(Required) Specifies the name of the AWS Glue database that contains the schema for the output data.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "region",
+          "type": "string",
+          "description": "(Optional) If you don't specify an AWS Region, the default is the current region.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "tableName",
+          "type": "string",
+          "description": "(Required) Specifies the AWS Glue table that contains the column information that constitutes your data schema.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "versionId",
+          "type": "string",
+          "description": "(Optional) Specifies the table version for the output data schema. Defaults to `LATEST`.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "dynamicPartitioningConfiguration",
+      "full_name": "ExtendedS3ConfigurationDynamicPartitioningConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables dynamic partitioning. Defaults to `false`. **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, Terraform will recreate the resource whenever dynamic partitioning is enabled or disabled.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "retryDuration",
+          "type": "number",
+          "description": "(Optional) Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processingConfiguration",
+      "full_name": "ExtendedS3ConfigurationProcessingConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables data processing.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processors",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processors",
+      "full_name": "ExtendedS3ConfigurationProcessingConfigurationProcessors",
+      "arguments": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "(Required) The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameters",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "parameters",
+      "full_name": "ExtendedS3ConfigurationProcessingConfigurationProcessorsParameters",
+      "arguments": [
+        {
+          "name": "parameterName",
+          "type": "string",
+          "description": "(Required) Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameterValue",
+          "type": "string",
+          "description": "(Required) Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "s3BackupConfiguration",
+      "full_name": "ExtendedS3ConfigurationS3BackupConfiguration",
+      "arguments": [
+        {
+          "name": "bucketArn",
+          "type": "string",
+          "description": "(Required) The ARN of the S3 bucket",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compressionFormat",
+          "type": "string",
+          "description": "(Optional) The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, \u0026 `HADOOP_SNAPPY`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "errorOutputPrefix",
+          "type": "string",
+          "description": "(Optional) Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional) Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "(Optional) The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the AWS credentials.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "ExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "httpEndpointConfiguration",
+      "full_name": "HttpEndpointConfiguration",
+      "arguments": [
+        {
+          "name": "accessKey",
+          "type": "string",
+          "description": "(Optional) The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Optional) The HTTP endpoint name.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "retryDuration",
+          "type": "number",
+          "description": "(Optional) Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3BackupMode",
+          "type": "string",
+          "description": "(Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": "(Required) The HTTP endpoint URL to which Kinesis Firehose sends your data.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processingConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "requestConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3Configuration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "secretsManagerConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "HttpEndpointConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processingConfiguration",
+      "full_name": "HttpEndpointConfigurationProcessingConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables data processing.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processors",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processors",
+      "full_name": "HttpEndpointConfigurationProcessingConfigurationProcessors",
+      "arguments": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "(Required) The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameters",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "parameters",
+      "full_name": "HttpEndpointConfigurationProcessingConfigurationProcessorsParameters",
+      "arguments": [
+        {
+          "name": "parameterName",
+          "type": "string",
+          "description": "(Required) Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameterValue",
+          "type": "string",
+          "description": "(Required) Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "requestConfiguration",
+      "full_name": "HttpEndpointConfigurationRequestConfiguration",
+      "arguments": [
+        {
+          "name": "contentEncoding",
+          "type": "string",
+          "description": "(Optional) Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "commonAttributes",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "commonAttributes",
+      "full_name": "HttpEndpointConfigurationRequestConfigurationCommonAttributes",
+      "arguments": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Required) The name of the HTTP endpoint common attribute.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "(Required) The value of the HTTP endpoint common attribute.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "s3Configuration",
+      "full_name": "HttpEndpointConfigurationS3Configuration",
+      "arguments": [
+        {
+          "name": "bucketArn",
+          "type": "string",
+          "description": "(Required) The ARN of the S3 bucket",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compressionFormat",
+          "type": "string",
+          "description": "(Optional) The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, \u0026 `HADOOP_SNAPPY`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "errorOutputPrefix",
+          "type": "string",
+          "description": "(Optional) Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional) Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "(Optional) The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the AWS credentials.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "HttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "secretsManagerConfiguration",
+      "full_name": "HttpEndpointConfigurationSecretsManagerConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the Secrets Manager configuration.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Optional) The ARN of the Secrets Manager secret. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "secretArn",
+          "type": "string",
+          "description": "(Optional) The ARN of the Secrets Manager secret. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "icebergConfiguration",
+      "full_name": "IcebergConfiguration",
+      "arguments": [
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "catalogArn",
+          "type": "string",
+          "description": "(Required) Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "retryDuration",
+          "type": "number",
+          "description": "(Optional) The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "s3BackupMode",
+          "type": "string",
+          "description": "(Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "destinationTableConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processingConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3Configuration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "IcebergConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "destinationTableConfiguration",
+      "full_name": "IcebergConfigurationDestinationTableConfiguration",
+      "arguments": [
+        {
+          "name": "databaseName",
+          "type": "string",
+          "description": "(Required) The name of the Apache Iceberg database.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "s3ErrorOutputPrefix",
+          "type": "string",
+          "description": "(Optional) The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "tableName",
+          "type": "string",
+          "description": "(Required) The name of the Apache Iceberg Table.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "uniqueKeys",
+          "type": "list",
+          "description": "(Optional) A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processingConfiguration",
+      "full_name": "IcebergConfigurationProcessingConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables data processing.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processors",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processors",
+      "full_name": "IcebergConfigurationProcessingConfigurationProcessors",
+      "arguments": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "(Required) The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameters",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "parameters",
+      "full_name": "IcebergConfigurationProcessingConfigurationProcessorsParameters",
+      "arguments": [
+        {
+          "name": "parameterName",
+          "type": "string",
+          "description": "(Required) Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameterValue",
+          "type": "string",
+          "description": "(Required) Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "s3Configuration",
+      "full_name": "IcebergConfigurationS3Configuration",
+      "arguments": [
+        {
+          "name": "bucketArn",
+          "type": "string",
+          "description": "(Required) The ARN of the S3 bucket",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300. (5 minutes).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compressionFormat",
+          "type": "string",
+          "description": "(Optional) The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, \u0026 `HADOOP_SNAPPY`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "errorOutputPrefix",
+          "type": "string",
+          "description": "(Optional) Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional) Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "(Optional) The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "IcebergConfigurationS3ConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "kinesisSourceConfiguration",
+      "full_name": "KinesisSourceConfiguration",
+      "arguments": [
+        {
+          "name": "kinesisStreamArn",
+          "type": "string",
+          "description": "(Required) The kinesis stream used as the source of the firehose delivery stream.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the role that provides access to the source Kinesis stream.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "mskSourceConfiguration",
+      "full_name": "MskSourceConfiguration",
+      "arguments": [
+        {
+          "name": "mskClusterArn",
+          "type": "string",
+          "description": "(Required) The ARN of the Amazon MSK cluster.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "readFromTimestamp",
+          "type": "string",
+          "description": "(Optional) The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "topicName",
+          "type": "string",
+          "description": "(Required) The topic name within the Amazon MSK cluster.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "authenticationConfiguration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "authenticationConfiguration",
+      "full_name": "MskSourceConfigurationAuthenticationConfiguration",
+      "arguments": [
+        {
+          "name": "connectivity",
+          "type": "string",
+          "description": "(Required) The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the role used to access the Amazon MSK cluster.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "opensearchConfiguration",
+      "full_name": "OpensearchConfiguration",
+      "arguments": [
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "clusterEndpoint",
+          "type": "string",
+          "description": "(Optional) The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "domainArn",
+          "type": "string",
+          "description": "(Optional) The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "indexName",
+          "type": "string",
+          "description": "(Required) The OpenSearch index name.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "indexRotationPeriod",
+          "type": "string",
+          "description": "(Optional) The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "retryDuration",
+          "type": "number",
+          "description": "(Optional) After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "s3BackupMode",
+          "type": "string",
+          "description": "(Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "typeName",
+          "type": "string",
+          "description": "(Optional) The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "documentIdOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processingConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3Configuration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "vpcConfig",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "OpensearchConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "documentIdOptions",
+      "full_name": "OpensearchConfigurationDocumentIdOptions",
+      "arguments": [
+        {
+          "name": "defaultDocumentIdFormat",
+          "type": "string",
+          "description": "(Required) The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "processingConfiguration",
+      "full_name": "OpensearchConfigurationProcessingConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables data processing.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processors",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processors",
+      "full_name": "OpensearchConfigurationProcessingConfigurationProcessors",
+      "arguments": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "(Required) The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameters",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "parameters",
+      "full_name": "OpensearchConfigurationProcessingConfigurationProcessorsParameters",
+      "arguments": [
+        {
+          "name": "parameterName",
+          "type": "string",
+          "description": "(Required) Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameterValue",
+          "type": "string",
+          "description": "(Required) Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "s3Configuration",
+      "full_name": "OpensearchConfigurationS3Configuration",
+      "arguments": [
+        {
+          "name": "bucketArn",
+          "type": "string",
+          "description": "(Required) The ARN of the S3 bucket",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compressionFormat",
+          "type": "string",
+          "description": "(Optional) The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, \u0026 `HADOOP_SNAPPY`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "errorOutputPrefix",
+          "type": "string",
+          "description": "(Optional) Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional) Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "(Optional) The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the AWS credentials.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "OpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "vpcConfig",
+      "full_name": "OpensearchConfigurationVpcConfig",
+      "arguments": [
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "securityGroupIds",
+          "type": "set",
+          "description": "(Required) A list of security group IDs to associate with Kinesis Firehose.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "subnetIds",
+          "type": "set",
+          "description": "(Required) A list of subnet IDs to associate with Kinesis Firehose.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "vpcId",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "opensearchserverlessConfiguration",
+      "full_name": "OpensearchserverlessConfiguration",
+      "arguments": [
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "collectionEndpoint",
+          "type": "string",
+          "description": "(Required) The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "indexName",
+          "type": "string",
+          "description": "(Required) The Serverless offering for Amazon OpenSearch Service index name.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "retryDuration",
+          "type": "number",
+          "description": "(Optional) After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "s3BackupMode",
+          "type": "string",
+          "description": "(Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processingConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3Configuration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "vpcConfig",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "OpensearchserverlessConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processingConfiguration",
+      "full_name": "OpensearchserverlessConfigurationProcessingConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables data processing.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processors",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processors",
+      "full_name": "OpensearchserverlessConfigurationProcessingConfigurationProcessors",
+      "arguments": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "(Required) The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameters",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "parameters",
+      "full_name": "OpensearchserverlessConfigurationProcessingConfigurationProcessorsParameters",
+      "arguments": [
+        {
+          "name": "parameterName",
+          "type": "string",
+          "description": "(Required) Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameterValue",
+          "type": "string",
+          "description": "(Required) Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "s3Configuration",
+      "full_name": "OpensearchserverlessConfigurationS3Configuration",
+      "arguments": [
+        {
+          "name": "bucketArn",
+          "type": "string",
+          "description": "(Required) The ARN of the S3 bucket",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compressionFormat",
+          "type": "string",
+          "description": "(Optional) The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, \u0026 `HADOOP_SNAPPY`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "errorOutputPrefix",
+          "type": "string",
+          "description": "(Optional) Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional) Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "(Optional) The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the AWS credentials.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "OpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "vpcConfig",
+      "full_name": "OpensearchserverlessConfigurationVpcConfig",
+      "arguments": [
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "securityGroupIds",
+          "type": "set",
+          "description": "(Required) A list of security group IDs to associate with Kinesis Firehose.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "subnetIds",
+          "type": "set",
+          "description": "(Required) A list of subnet IDs to associate with Kinesis Firehose.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "vpcId",
+          "type": "string",
+          "description": "",
+          "required": false,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "redshiftConfiguration",
+      "full_name": "RedshiftConfiguration",
+      "arguments": [
+        {
+          "name": "clusterJdbcurl",
+          "type": "string",
+          "description": "(Required) The jdbcurl of the redshift cluster.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "copyOptions",
+          "type": "string",
+          "description": "(Optional) Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "dataTableColumns",
+          "type": "string",
+          "description": "(Optional) The data table columns that will be targeted by the copy command.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "dataTableName",
+          "type": "string",
+          "description": "(Required) The name of the table in the redshift cluster that the s3 bucket will copy to.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "description": "(Optional) The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "retryDuration",
+          "type": "number",
+          "description": "(Optional) The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The arn of the role the stream assumes.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "s3BackupMode",
+          "type": "string",
+          "description": "(Optional) The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "(Optional) The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3Configuration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "secretsManagerConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processingConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3BackupConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "RedshiftConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processingConfiguration",
+      "full_name": "RedshiftConfigurationProcessingConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables data processing.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processors",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processors",
+      "full_name": "RedshiftConfigurationProcessingConfigurationProcessors",
+      "arguments": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "(Required) The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameters",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "parameters",
+      "full_name": "RedshiftConfigurationProcessingConfigurationProcessorsParameters",
+      "arguments": [
+        {
+          "name": "parameterName",
+          "type": "string",
+          "description": "(Required) Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameterValue",
+          "type": "string",
+          "description": "(Required) Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "s3BackupConfiguration",
+      "full_name": "RedshiftConfigurationS3BackupConfiguration",
+      "arguments": [
+        {
+          "name": "bucketArn",
+          "type": "string",
+          "description": "(Required) The ARN of the S3 bucket",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compressionFormat",
+          "type": "string",
+          "description": "(Optional) The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, \u0026 `HADOOP_SNAPPY`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "errorOutputPrefix",
+          "type": "string",
+          "description": "(Optional) Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional) Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "(Optional) The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "RedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "s3Configuration",
+      "full_name": "RedshiftConfigurationS3Configuration",
+      "arguments": [
+        {
+          "name": "bucketArn",
+          "type": "string",
+          "description": "(Required) The ARN of the S3 bucket",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compressionFormat",
+          "type": "string",
+          "description": "(Optional) The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, \u0026 `HADOOP_SNAPPY`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "errorOutputPrefix",
+          "type": "string",
+          "description": "(Optional) Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional) Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "(Optional) The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "RedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "secretsManagerConfiguration",
+      "full_name": "RedshiftConfigurationSecretsManagerConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the Secrets Manager configuration.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Optional) The ARN of the role the stream assumes.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "secretArn",
+          "type": "string",
+          "description": "(Optional) The ARN of the Secrets Manager secret. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "serverSideEncryption",
+      "full_name": "ServerSideEncryption",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Whether to enable encryption at rest. Default is `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "keyArn",
+          "type": "string",
+          "description": "(Optional) Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "keyType",
+          "type": "string",
+          "description": "(Optional) Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "snowflakeConfiguration",
+      "full_name": "SnowflakeConfiguration",
+      "arguments": [
+        {
+          "name": "accountUrl",
+          "type": "string",
+          "description": "(Required) The URL of the Snowflake account. Format: https://[account_identifier].snowflakecomputing.com.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination. The default value is 0s.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "contentColumnName",
+          "type": "string",
+          "description": "(Optional) The name of the content column.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "dataLoadingOption",
+          "type": "string",
+          "description": "(Optional) The data loading option.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "database",
+          "type": "string",
+          "description": "(Required) The Snowflake database name.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "keyPassphrase",
+          "type": "string",
+          "description": "(Optional) The passphrase for the private key.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "metadataColumnName",
+          "type": "string",
+          "description": "(Optional) The name of the metadata column.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "privateKey",
+          "type": "string",
+          "description": "(Optional) The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "retryDuration",
+          "type": "number",
+          "description": "(Optional) After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) The ARN of the IAM role.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "s3BackupMode",
+          "type": "string",
+          "description": "(Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "schema",
+          "type": "string",
+          "description": "(Required) The Snowflake schema name.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "table",
+          "type": "string",
+          "description": "(Required) The Snowflake table name.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "description": "(Optional) The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processingConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3Configuration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "secretsManagerConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "snowflakeRoleConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "snowflakeVpcConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "SnowflakeConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processingConfiguration",
+      "full_name": "SnowflakeConfigurationProcessingConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables data processing.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processors",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processors",
+      "full_name": "SnowflakeConfigurationProcessingConfigurationProcessors",
+      "arguments": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "(Required) The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameters",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "parameters",
+      "full_name": "SnowflakeConfigurationProcessingConfigurationProcessorsParameters",
+      "arguments": [
+        {
+          "name": "parameterName",
+          "type": "string",
+          "description": "(Required) Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameterValue",
+          "type": "string",
+          "description": "(Required) Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "s3Configuration",
+      "full_name": "SnowflakeConfigurationS3Configuration",
+      "arguments": [
+        {
+          "name": "bucketArn",
+          "type": "string",
+          "description": "(Required) The ARN of the S3 bucket",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compressionFormat",
+          "type": "string",
+          "description": "(Optional) The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, \u0026 `HADOOP_SNAPPY`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "errorOutputPrefix",
+          "type": "string",
+          "description": "(Optional) Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional) Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "(Optional) The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "SnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "secretsManagerConfiguration",
+      "full_name": "SnowflakeConfigurationSecretsManagerConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the Secrets Manager configuration.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Optional) The ARN of the role the stream assumes.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "secretArn",
+          "type": "string",
+          "description": "(Optional) The ARN of the Secrets Manager secret. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "snowflakeRoleConfiguration",
+      "full_name": "SnowflakeConfigurationSnowflakeRoleConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Whether the Snowflake role is enabled.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "snowflakeRole",
+          "type": "string",
+          "description": "(Optional) The Snowflake role.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "snowflakeVpcConfiguration",
+      "full_name": "SnowflakeConfigurationSnowflakeVpcConfiguration",
+      "arguments": [
+        {
+          "name": "privateLinkVpceId",
+          "type": "string",
+          "description": "(Required) The VPCE ID for Firehose to privately connect with Snowflake.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "splunkConfiguration",
+      "full_name": "SplunkConfiguration",
+      "arguments": [
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "hecAcknowledgmentTimeout",
+          "type": "number",
+          "description": "(Optional) The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "hecEndpoint",
+          "type": "string",
+          "description": "(Required) The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "hecEndpointType",
+          "type": "string",
+          "description": "(Optional) The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "hecToken",
+          "type": "string",
+          "description": "(Optional) The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "retryDuration",
+          "type": "number",
+          "description": "(Optional) After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3BackupMode",
+          "type": "string",
+          "description": "(Optional) Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "s3Configuration",
+          "type": "block",
+          "description": "",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "secretsManagerConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processingConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "SplunkConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processingConfiguration",
+      "full_name": "SplunkConfigurationProcessingConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables data processing.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "processors",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "processors",
+      "full_name": "SplunkConfigurationProcessingConfigurationProcessors",
+      "arguments": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "(Required) The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameters",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "parameters",
+      "full_name": "SplunkConfigurationProcessingConfigurationProcessorsParameters",
+      "arguments": [
+        {
+          "name": "parameterName",
+          "type": "string",
+          "description": "(Required) Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameterValue",
+          "type": "string",
+          "description": "(Required) Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "name": "s3Configuration",
+      "full_name": "SplunkConfigurationS3Configuration",
+      "arguments": [
+        {
+          "name": "bucketArn",
+          "type": "string",
+          "description": "(Required) The ARN of the S3 bucket",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "bufferingInterval",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "bufferingSize",
+          "type": "number",
+          "description": "(Optional) Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "compressionFormat",
+          "type": "string",
+          "description": "(Optional) The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, \u0026 `HADOOP_SNAPPY`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "errorOutputPrefix",
+          "type": "string",
+          "description": "(Optional) Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "kmsKeyArn",
+          "type": "string",
+          "description": "(Optional) Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "description": "(Optional) The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Required) Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "cloudwatchLoggingOptions",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "cloudwatchLoggingOptions",
+      "full_name": "SplunkConfigurationS3ConfigurationCloudwatchLoggingOptions",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the logging. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logGroupName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch group name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "logStreamName",
+          "type": "string",
+          "description": "(Optional) The CloudWatch log stream name for logging. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "secretsManagerConfiguration",
+      "full_name": "SplunkConfigurationSecretsManagerConfiguration",
+      "arguments": [
+        {
+          "name": "enabled",
+          "type": "bool",
+          "description": "(Optional) Enables or disables the Secrets Manager configuration.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "roleArn",
+          "type": "string",
+          "description": "(Optional) The ARN of the role the stream assumes.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "secretArn",
+          "type": "string",
+          "description": "(Optional) The ARN of the Secrets Manager secret. This value is required if `enabled` is true.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "timeouts",
+      "full_name": "Timeouts",
+      "arguments": [
+        {
+          "name": "create",
+          "type": "string",
+          "description": "(Default `30m`)",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "delete",
+          "type": "string",
+          "description": "(Default `30m`)",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "update",
+          "type": "string",
+          "description": "(Default `10m`)",
+          "required": false,
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

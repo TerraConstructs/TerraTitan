@@ -32,7 +32,7 @@ export interface DbInstanceConfig extends cdktf.TerraformMetaArguments {
     /** (Optional) Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information. */
     readonly customerOwnedIpEnabled?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_instance#database_insights_mode DbInstance#database_insights_mode}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance#database_insights_mode DbInstance#database_insights_mode}
     */
     readonly databaseInsightsMode?: string;
     /** (Optional) The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica. */
@@ -70,7 +70,7 @@ export interface DbInstanceConfig extends cdktf.TerraformMetaArguments {
     /** (Optional) Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. */
     readonly iamDatabaseAuthenticationEnabled?: boolean | cdktf.IResolvable;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_instance#id DbInstance#id}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance#id DbInstance#id}
     *
     * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
     * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -113,11 +113,11 @@ export interface DbInstanceConfig extends cdktf.TerraformMetaArguments {
     /** (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb` is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`. */
     readonly password?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_instance#password_wo DbInstance#password_wo}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance#password_wo DbInstance#password_wo}
     */
     readonly passwordWo?: string;
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_instance#password_wo_version DbInstance#password_wo_version}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance#password_wo_version DbInstance#password_wo_version}
     */
     readonly passwordWoVersion?: number;
     /** (Optional) Specifies whether Performance Insights are enabled. Defaults to false. */
@@ -149,7 +149,7 @@ export interface DbInstanceConfig extends cdktf.TerraformMetaArguments {
         [key: string]: string;
     };
     /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_instance#tags_all DbInstance#tags_all}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance#tags_all DbInstance#tags_all}
     */
     readonly tagsAll?: {
         [key: string]: string;
@@ -171,7 +171,7 @@ export interface DbInstanceConfig extends cdktf.TerraformMetaArguments {
     /**
     * timeouts block
     *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_instance#timeouts DbInstance#timeouts}
+    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance#timeouts DbInstance#timeouts}
     */
     readonly timeouts?: DbInstanceTimeouts;
 }
@@ -395,7 +395,7 @@ export declare class DbInstanceTimeoutsOutputReference extends cdktf.ComplexObje
     get updateInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_instance aws_db_instance}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance aws_db_instance}
 */
 export declare class DbInstance extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_db_instance";
@@ -403,12 +403,12 @@ export declare class DbInstance extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a DbInstance resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the DbInstance to import
-    * @param importFromId The id of the existing DbInstance that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_instance#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing DbInstance that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the DbInstance to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/db_instance aws_db_instance} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/db_instance aws_db_instance} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

@@ -1,49 +1,59 @@
 {
   "arguments": [
     {
-      "name": "roleArn",
-      "type": "string",
-      "description": "(Required) Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.",
-      "required": true,
-      "optional": false,
-      "level": 0
-    },
-    {
       "name": "dbClusterIdentifier",
       "type": "string",
       "description": "(Required) DB Cluster Identifier to associate with the IAM Role.",
       "required": true,
-      "optional": false,
-      "level": 0
+      "optional": false
     },
     {
       "name": "featureName",
       "type": "string",
       "description": "(Required) Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).",
       "required": true,
-      "optional": false,
-      "level": 0
+      "optional": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "roleArn",
+      "type": "string",
+      "description": "(Required) Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "timeouts",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
     }
   ],
   "blocks": [
     {
       "name": "timeouts",
+      "full_name": "Timeouts",
       "arguments": [
         {
           "name": "create",
           "type": "string",
           "description": "(Default `10m`) - `delete` - (Default `10m`)",
           "required": false,
-          "optional": true,
-          "level": 0
+          "optional": true
         },
         {
           "name": "delete",
           "type": "string",
           "description": "(Default `10m`)",
           "required": false,
-          "optional": true,
-          "level": 0
+          "optional": true
         }
       ]
     }

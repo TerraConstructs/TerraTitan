@@ -23,19 +23,13 @@ export interface RdsClusterConfig extends cdktf.TerraformMetaArguments {
     readonly clusterIdentifier?: string;
     /** (Optional, Forces new resource) Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`. */
     readonly clusterIdentifierPrefix?: string;
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster#cluster_members RdsCluster#cluster_members}
-    */
+    /** */
     readonly clusterMembers?: string[];
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster#cluster_scalability_type RdsCluster#cluster_scalability_type}
-    */
+    /** (Optional, Forces new resources) Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`. */
     readonly clusterScalabilityType?: string;
     /** (Optional, boolean) Copy all Cluster `tags` to snapshots. Default is `false`. */
     readonly copyTagsToSnapshot?: boolean | cdktf.IResolvable;
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster#database_insights_mode RdsCluster#database_insights_mode}
-    */
+    /** (Optional) The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`. */
     readonly databaseInsightsMode?: string;
     /** (Optional) Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5] */
     readonly databaseName?: string;
@@ -69,7 +63,7 @@ export interface RdsClusterConfig extends cdktf.TerraformMetaArguments {
     readonly engine: string;
     /** (Optional) The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html */
     readonly engineLifecycleSupport?: string;
-    /** (Optional) Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`. */
+    /** (Optional) Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`""`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`. */
     readonly engineMode?: string;
     /** (Optional) Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see [Attribute Reference](#attribute-reference) below. */
     readonly engineVersion?: string;
@@ -81,12 +75,7 @@ export interface RdsClusterConfig extends cdktf.TerraformMetaArguments {
     readonly iamDatabaseAuthenticationEnabled?: boolean | cdktf.IResolvable;
     /** (Optional) List of ARNs for the IAM roles to associate to the RDS Cluster. */
     readonly iamRoles?: string[];
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster#id RdsCluster#id}
-    *
-    * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-    * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-    */
+    /** */
     readonly id?: string;
     /** (Optional) Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster. */
     readonly iops?: number;
@@ -94,15 +83,11 @@ export interface RdsClusterConfig extends cdktf.TerraformMetaArguments {
     readonly kmsKeyId?: string;
     /** (Optional) Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `masterPassword` is provided. */
     readonly manageMasterUserPassword?: boolean | cdktf.IResolvable;
-    /** (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicationSourceIdentifier` is provided or unless a `globalClusterIdentifier` is provided when the cluster is the "secondary" cluster of a global database) Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]. Cannot be set if `manageMasterUserPassword` is set to `true`. */
+    /** (Optional, required unless `manageMasterUserPassword` is set to true, a `snapshotIdentifier`, `replicationSourceIdentifier`, or `masterPasswordWo` is provided or unless a `globalClusterIdentifier` is provided when the cluster is the "secondary" cluster of a global database) Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]. Cannot be set if `manageMasterUserPassword` is set to `true`. */
     readonly masterPassword?: string;
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster#master_password_wo RdsCluster#master_password_wo}
-    */
+    /** */
     readonly masterPasswordWo?: string;
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster#master_password_wo_version RdsCluster#master_password_wo_version}
-    */
+    /** (Optional) Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required. */
     readonly masterPasswordWoVersion?: number;
     /** (Optional) Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used. */
     readonly masterUserSecretKmsKeyId?: string;
@@ -142,31 +127,21 @@ export interface RdsClusterConfig extends cdktf.TerraformMetaArguments {
     readonly tags?: {
         [key: string]: string;
     };
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster#tags_all RdsCluster#tags_all}
-    */
+    /** */
     readonly tagsAll?: {
         [key: string]: string;
     };
-    /** (Optional) List of VPC security groups to associate with the Cluster */
+    /** (Optional) List of VPC security groups to associate with the Cluster For more detailed documentation about each argument, refer to the AWS official documentation: */
     readonly vpcSecurityGroupIds?: string[];
-    /** (Optional) Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below. */
+    /** */
     readonly restoreToPointInTime?: RdsClusterRestoreToPointInTime;
-    /**
-    * s3_import block
-    *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster#s3_import RdsCluster#s3_import}
-    */
+    /** */
     readonly s3Import?: RdsClusterS3Import;
-    /** (Optional) Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below. */
+    /** */
     readonly scalingConfiguration?: RdsClusterScalingConfiguration;
-    /** (Optional) Nested attribute with scaling properties for ServerlessV2. Only valid when `engineMode` is set to `provisioned`. More details below. */
+    /** */
     readonly serverlessv2ScalingConfiguration?: RdsClusterServerlessv2ScalingConfiguration;
-    /**
-    * timeouts block
-    *
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster#timeouts RdsCluster#timeouts}
-    */
+    /** */
     readonly timeouts?: RdsClusterTimeouts;
 }
 export interface RdsClusterMasterUserSecret {
@@ -354,11 +329,11 @@ export declare class RdsClusterScalingConfigurationOutputReference extends cdktf
     get timeoutActionInput(): string | undefined;
 }
 export interface RdsClusterServerlessv2ScalingConfiguration {
-    /** (Optional) Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`. */
+    /** (Required) Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`. */
     readonly maxCapacity: number;
-    /** (Optional) Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`. */
+    /** (Required) Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`. */
     readonly minCapacity: number;
-    /** (Optional) Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`. */
+    /** (Optional) Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`. */
     readonly secondsUntilAutoPause?: number;
 }
 export declare function rdsClusterServerlessv2ScalingConfigurationToTerraform(struct?: RdsClusterServerlessv2ScalingConfigurationOutputReference | RdsClusterServerlessv2ScalingConfiguration): any;
@@ -423,7 +398,7 @@ export declare class RdsClusterTimeoutsOutputReference extends cdktf.ComplexObje
     get updateInput(): string | undefined;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster aws_rds_cluster}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_cluster aws_rds_cluster}
 */
 export declare class RdsCluster extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_rds_cluster";
@@ -431,12 +406,12 @@ export declare class RdsCluster extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a RdsCluster resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the RdsCluster to import
-    * @param importFromId The id of the existing RdsCluster that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing RdsCluster that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_cluster#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the RdsCluster to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster aws_rds_cluster} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_cluster aws_rds_cluster} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

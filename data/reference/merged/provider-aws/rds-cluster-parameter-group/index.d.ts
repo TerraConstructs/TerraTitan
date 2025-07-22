@@ -9,12 +9,7 @@ export interface RdsClusterParameterGroupConfig extends cdktf.TerraformMetaArgum
     readonly description?: string;
     /** (Required) The family of the DB cluster parameter group. */
     readonly family: string;
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster_parameter_group#id RdsClusterParameterGroup#id}
-    *
-    * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-    * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-    */
+    /** */
     readonly id?: string;
     /** (Optional, Forces new resource) The name of the DB cluster parameter group. If omitted, Terraform will assign a random, unique name. */
     readonly name?: string;
@@ -24,19 +19,17 @@ export interface RdsClusterParameterGroupConfig extends cdktf.TerraformMetaArgum
     readonly tags?: {
         [key: string]: string;
     };
-    /**
-    * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster_parameter_group#tags_all RdsClusterParameterGroup#tags_all}
-    */
+    /** */
     readonly tagsAll?: {
         [key: string]: string;
     };
-    /** (Optional) A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group. */
+    /** */
     readonly parameter?: RdsClusterParameterGroupParameter[] | cdktf.IResolvable;
 }
 export interface RdsClusterParameterGroupParameter {
     /** (Optional) "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here. */
     readonly applyMethod?: string;
-    /** (Optional, Forces new resource) The name of the DB cluster parameter group. If omitted, Terraform will assign a random, unique name. */
+    /** (Required) The name of the DB parameter. */
     readonly name: string;
     /** (Required) The value of the DB parameter. */
     readonly value: string;
@@ -86,7 +79,7 @@ export declare class RdsClusterParameterGroupParameterList extends cdktf.Complex
     get(index: number): RdsClusterParameterGroupParameterOutputReference;
 }
 /**
-* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster_parameter_group aws_rds_cluster_parameter_group}
+* Represents a {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_cluster_parameter_group aws_rds_cluster_parameter_group}
 */
 export declare class RdsClusterParameterGroup extends cdktf.TerraformResource {
     static readonly tfResourceType = "aws_rds_cluster_parameter_group";
@@ -94,12 +87,12 @@ export declare class RdsClusterParameterGroup extends cdktf.TerraformResource {
     * Generates CDKTF code for importing a RdsClusterParameterGroup resource upon running "cdktf plan <stack-name>"
     * @param scope The scope in which to define this construct
     * @param importToId The construct id used in the generated config for the RdsClusterParameterGroup to import
-    * @param importFromId The id of the existing RdsClusterParameterGroup that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster_parameter_group#import import section} in the documentation of this resource for the id to use
+    * @param importFromId The id of the existing RdsClusterParameterGroup that should be imported. Refer to the {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_cluster_parameter_group#import import section} in the documentation of this resource for the id to use
     * @param provider? Optional instance of the provider where the RdsClusterParameterGroup to import is found
     */
     static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider): cdktf.ImportableResource;
     /**
-    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.93.0/docs/resources/rds_cluster_parameter_group aws_rds_cluster_parameter_group} Resource
+    * Create a new {@link https://registry.terraform.io/providers/hashicorp/aws/5.100.0/docs/resources/rds_cluster_parameter_group aws_rds_cluster_parameter_group} Resource
     *
     * @param scope The scope in which to define this construct
     * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

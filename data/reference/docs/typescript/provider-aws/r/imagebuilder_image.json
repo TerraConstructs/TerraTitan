@@ -1,0 +1,273 @@
+{
+  "arguments": [
+    {
+      "name": "arn",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "containerRecipeArn",
+      "type": "string",
+      "description": "(Optional) - Amazon Resource Name (ARN) of the container recipe.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "dateCreated",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "distributionConfigurationArn",
+      "type": "string",
+      "description": "(Optional) Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "enhancedImageMetadataEnabled",
+      "type": "bool",
+      "description": "(Optional) Whether additional information about the image being created is collected. Defaults to `true`.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "executionRole",
+      "type": "string",
+      "description": "(Optional) Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "imageRecipeArn",
+      "type": "string",
+      "description": "(Optional) Amazon Resource Name (ARN) of the image recipe.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "imageScanningConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "imageTestsConfiguration",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "infrastructureConfigurationArn",
+      "type": "string",
+      "description": "(Required) Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.",
+      "required": true,
+      "optional": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Required) The name of the Workflow parameter.",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "osVersion",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "outputResources",
+      "type": "list",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "platform",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "tags",
+      "type": "map",
+      "description": "(Optional) Key-value map of resource tags for the Image Builder Image. If configured with a provider [`defaultTags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tagsAll",
+      "type": "map",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "timeouts",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "version",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": false
+    },
+    {
+      "name": "workflow",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "imageScanningConfiguration",
+      "full_name": "ImageScanningConfiguration",
+      "arguments": [
+        {
+          "name": "imageScanningEnabled",
+          "type": "bool",
+          "description": "(Optional) Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "ecrConfiguration",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "ecrConfiguration",
+      "full_name": "ImageScanningConfigurationEcrConfiguration",
+      "arguments": [
+        {
+          "name": "containerTags",
+          "type": "set",
+          "description": "(Optional) Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "repositoryName",
+          "type": "string",
+          "description": "(Optional) The name of the container repository that Amazon Inspector scans to identify findings for your container images.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "imageTestsConfiguration",
+      "full_name": "ImageTestsConfiguration",
+      "arguments": [
+        {
+          "name": "imageTestsEnabled",
+          "type": "bool",
+          "description": "(Optional) Whether image tests are enabled. Defaults to `true`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "timeoutMinutes",
+          "type": "number",
+          "description": "(Optional) Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "timeouts",
+      "full_name": "Timeouts",
+      "arguments": [
+        {
+          "name": "create",
+          "type": "string",
+          "description": "(Default `60m`)",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "workflow",
+      "full_name": "Workflow",
+      "arguments": [
+        {
+          "name": "onFailure",
+          "type": "string",
+          "description": "(Optional) The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "parallelGroup",
+          "type": "string",
+          "description": "(Optional) The parallel group in which to run a test Workflow.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "workflowArn",
+          "type": "string",
+          "description": "(Required) Amazon Resource Name (ARN) of the Image Builder Workflow.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "parameter",
+          "type": "block",
+          "description": "",
+          "required": false,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "parameter",
+      "full_name": "WorkflowParameter",
+      "arguments": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "(Required) The name of the Workflow parameter.",
+          "required": true,
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "(Required) The value of the Workflow parameter.",
+          "required": true,
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

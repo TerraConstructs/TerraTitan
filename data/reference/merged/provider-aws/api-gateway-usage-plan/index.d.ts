@@ -29,11 +29,11 @@ export interface ApiGatewayUsagePlanConfig extends cdktf.TerraformMetaArguments 
     readonly throttleSettings?: ApiGatewayUsagePlanThrottleSettings;
 }
 export interface ApiGatewayUsagePlanApiStagesThrottle {
-    /** */
+    /** (Optional) - The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity. */
     readonly burstLimit?: number;
-    /** */
+    /** (Required) - Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`. */
     readonly path: string;
-    /** */
+    /** (Optional) - The API request steady-state rate limit. */
     readonly rateLimit?: number;
 }
 export declare function apiGatewayUsagePlanApiStagesThrottleToTerraform(struct?: ApiGatewayUsagePlanApiStagesThrottle | cdktf.IResolvable): any;
@@ -82,9 +82,9 @@ export declare class ApiGatewayUsagePlanApiStagesThrottleList extends cdktf.Comp
     get(index: number): ApiGatewayUsagePlanApiStagesThrottleOutputReference;
 }
 export interface ApiGatewayUsagePlanApiStages {
-    /** */
+    /** (Required) - API Id of the associated API stage in a usage plan. */
     readonly apiId: string;
-    /** */
+    /** (Required) - API stage name of the associated API stage in a usage plan. */
     readonly stage: string;
     /** */
     readonly throttle?: ApiGatewayUsagePlanApiStagesThrottle[] | cdktf.IResolvable;
@@ -134,11 +134,11 @@ export declare class ApiGatewayUsagePlanApiStagesList extends cdktf.ComplexList 
     get(index: number): ApiGatewayUsagePlanApiStagesOutputReference;
 }
 export interface ApiGatewayUsagePlanQuotaSettings {
-    /** */
+    /** (Optional) - Maximum number of requests that can be made in a given time period. */
     readonly limit: number;
-    /** */
+    /** (Optional) - Number of requests subtracted from the given limit in the initial time period. */
     readonly offset?: number;
-    /** */
+    /** (Optional) - Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH". */
     readonly period: string;
 }
 export declare function apiGatewayUsagePlanQuotaSettingsToTerraform(struct?: ApiGatewayUsagePlanQuotaSettingsOutputReference | ApiGatewayUsagePlanQuotaSettings): any;
@@ -167,9 +167,9 @@ export declare class ApiGatewayUsagePlanQuotaSettingsOutputReference extends cdk
     get periodInput(): string | undefined;
 }
 export interface ApiGatewayUsagePlanThrottleSettings {
-    /** */
+    /** (Optional) - The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity. */
     readonly burstLimit?: number;
-    /** */
+    /** (Optional) - The API request steady-state rate limit. */
     readonly rateLimit?: number;
 }
 export declare function apiGatewayUsagePlanThrottleSettingsToTerraform(struct?: ApiGatewayUsagePlanThrottleSettingsOutputReference | ApiGatewayUsagePlanThrottleSettings): any;

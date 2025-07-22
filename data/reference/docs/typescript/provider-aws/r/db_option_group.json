@@ -1,150 +1,169 @@
 {
   "arguments": [
     {
-      "name": "name",
+      "name": "arn",
       "type": "string",
-      "description": "(Optional, Forces new resource) Name of the option group. If omitted, Terraform will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.",
+      "description": "",
       "required": false,
-      "optional": true,
-      "level": 0
-    },
-    {
-      "name": "namePrefix",
-      "type": "string",
-      "description": "(Optional, Forces new resource) Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.",
-      "required": false,
-      "optional": true,
-      "level": 0
-    },
-    {
-      "name": "skipDestroy",
-      "type": "bool",
-      "description": "(Optional) Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Terraform state.",
-      "required": false,
-      "optional": true,
-      "level": 0
-    },
-    {
-      "name": "tags",
-      "type": "map",
-      "description": "(Optional) Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
-      "required": false,
-      "optional": true,
-      "level": 0
+      "optional": false
     },
     {
       "name": "engineName",
       "type": "string",
       "description": "(Required) Specifies the name of the engine that this option group should be associated with.",
       "required": true,
-      "optional": false,
-      "level": 0
+      "optional": false
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "",
+      "required": false,
+      "optional": true
     },
     {
       "name": "majorEngineVersion",
       "type": "string",
       "description": "(Required) Specifies the major version of the engine that this option group should be associated with.",
       "required": true,
-      "optional": false,
-      "level": 0
+      "optional": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "(Optional, Forces new resource) Name of the option group. If omitted, Terraform will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "namePrefix",
+      "type": "string",
+      "description": "(Optional, Forces new resource) Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "option",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
     },
     {
       "name": "optionGroupDescription",
       "type": "string",
       "description": "(Optional) Description of the option group. Defaults to \"Managed by Terraform\".",
       "required": false,
-      "optional": true,
-      "level": 0
+      "optional": true
     },
     {
-      "name": "option",
-      "type": "block",
-      "description": "(Optional) The options to apply. See [`option` Block](#option-block) below for more details.",
+      "name": "skipDestroy",
+      "type": "bool",
+      "description": "(Optional) Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Terraform state.",
       "required": false,
-      "optional": true,
-      "level": 0
+      "optional": true
+    },
+    {
+      "name": "tags",
+      "type": "map",
+      "description": "(Optional) Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "tagsAll",
+      "type": "map",
+      "description": "",
+      "required": false,
+      "optional": true
+    },
+    {
+      "name": "timeouts",
+      "type": "block",
+      "description": "",
+      "required": false,
+      "optional": true
     }
   ],
   "blocks": [
     {
       "name": "option",
+      "full_name": "Option",
       "arguments": [
-        {
-          "name": "version",
-          "type": "string",
-          "description": "(Optional) Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.",
-          "required": false,
-          "optional": true,
-          "level": 0
-        },
-        {
-          "name": "vpcSecurityGroupMemberships",
-          "type": "set",
-          "description": "(Optional) List of VPC Security Groups for which the option is enabled.",
-          "required": false,
-          "optional": true,
-          "level": 0
-        },
         {
           "name": "dbSecurityGroupMemberships",
           "type": "set",
           "description": "(Optional) List of DB Security Groups for which the option is enabled.",
           "required": false,
-          "optional": true,
-          "level": 0
+          "optional": true
         },
         {
           "name": "optionName",
           "type": "string",
           "description": "(Required) Name of the option (e.g., MEMCACHED).",
           "required": true,
-          "optional": false,
-          "level": 0
+          "optional": false
         },
         {
           "name": "port",
           "type": "number",
           "description": "(Optional) Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.",
           "required": false,
-          "optional": true,
-          "level": 0
+          "optional": true
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "(Optional) Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.",
+          "required": false,
+          "optional": true
+        },
+        {
+          "name": "vpcSecurityGroupMemberships",
+          "type": "set",
+          "description": "(Optional) List of VPC Security Groups for which the option is enabled.",
+          "required": false,
+          "optional": true
         },
         {
           "name": "optionSettings",
           "type": "block",
-          "description": "(Optional) The option settings to apply. See [`optionSettings` Block](#option_settings-block) below for more details.",
+          "description": "",
           "required": false,
-          "optional": true,
-          "level": 0
-        },
+          "optional": true
+        }
+      ]
+    },
+    {
+      "name": "optionSettings",
+      "full_name": "OptionOptionSettings",
+      "arguments": [
         {
           "name": "name",
           "type": "string",
-          "description": "(Optional, Forces new resource) Name of the option group. If omitted, Terraform will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.",
+          "description": "(Required) Name of the setting.",
           "required": true,
-          "optional": false,
-          "level": 0
+          "optional": false
         },
         {
           "name": "value",
           "type": "string",
           "description": "(Required) Value of the setting.",
           "required": true,
-          "optional": false,
-          "level": 0
+          "optional": false
         }
       ]
     },
     {
       "name": "timeouts",
+      "full_name": "Timeouts",
       "arguments": [
         {
           "name": "delete",
           "type": "string",
           "description": "(Default `15m`)",
           "required": false,
-          "optional": true,
-          "level": 0
+          "optional": true
         }
       ]
     }
