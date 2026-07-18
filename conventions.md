@@ -137,6 +137,16 @@ code is expected to MATCH them, e.g. zero-duration rotation → synth-time Valid
   violations. After integ synth-only, run `tofu init -backend=false && tofu validate` in the
   synthesized tf/<app> dir (plugin comes from TF_PLUGIN_CACHE_DIR — no AWS credentials needed) and
   treat failures as pipeline failures.
+- **Sentinel-default mismatches (found live, run 2 — the fourth oracle).** Some TF resources give
+  UNSET attributes a concrete default where CFN means "don't change" — e.g. `aws_autoscaling_schedule`
+  defaults unset `min_size`/`max_size`/`desired_capacity` to **0** and reserves **-1** as the
+  "don't modify" sentinel; passing through `undefined` made AWS reject `min_size=5` with
+  `desired_capacity=0` at APPLY time (schema-valid, jest-green, tofu-validate-green). Mapping-phase
+  attributeNotes MUST flag every CFN optional field whose TF counterpart has a non-equivalent unset
+  default/sentinel, and converters must map "unset" explicitly (e.g. `?? -1`). Only live apply
+  catches this class — which is why the integ live cycle exists.
+- **Integ synth uses compiled `lib/`, not `src/`.** After ANY src edit, `pnpm compile` before
+  re-running integ targets — tsc/jest green proves nothing about what go-synth bundles.
 
 ## Test conversion rules
 
