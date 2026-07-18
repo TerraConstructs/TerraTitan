@@ -58,9 +58,23 @@ than relying on fix loops.
 - (Mine) Check convert-stage results; respawn stream-error casualties instead of leaning on fix loops.
 - (Mine) tofu validate gate now structural in convert-module.js Integ loop.
 
-## Live validation
+## Live validation — PASS (after one real bug found and fixed)
 
-`make autoscaling.custom-scaling` full cycle (synth → apply → Go SDK validation → destroy) run
-post-workflow under `aws-vault exec --no-session tcons-vincent`: see addendum below when recorded.
-App deploys: 1× t2.micro ASG (min=max=1) + VPC/subnet/IGW + 1 scaling policy + 4 schedules —
-`name_prefix` confirmed in synthesized JSON.
+`make autoscaling.custom-scaling` (synth → tofu apply → Go SDK validation → destroy) under
+`aws-vault exec --no-session tcons-vincent`. App: 1× t2.micro ASG (min=max=1) + VPC/IGW +
+CPU target-tracking policy + 4 cron schedules.
+
+- Attempt 1: infra flake — provider registry download timeout (nothing deployed). Fixed with
+  TF_PLUGIN_CACHE_DIR pointing at the cached provider.
+- Attempt 2: **real construct bug, invisible to all three static oracles** (jest, convention-verify,
+  tofu validate): `aws_autoscaling_schedule` defaults unset min/max/desired to 0 (CFN semantics:
+  "don't change") and reserves -1 as the no-modify sentinel. Undefined passthrough → AWS 400
+  `Desired capacity must be greater than or equal to min size` at APPLY. Fixed with `?? -1`
+  (+ comment + snapshot update); codified in conventions as the sentinel-default mismatch class.
+- Attempt 3 (recompiled lib): **PASS in 185s** — 17 resources applied, all live assertions green
+  (capacities, launch template t2.micro, 4 scheduled-action recurrences + capacities), 17 destroyed,
+  zero account residue.
+
+Verification ladder proven across runs: jest (shape) → independent verify (invariants, run 1's
+lesson) → tofu validate (provider schema, PR #117's lesson) → live apply (provider runtime
+semantics, run 2's lesson). Each layer caught a real bug the layers below could not.
