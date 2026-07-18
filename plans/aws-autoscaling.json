@@ -1,0 +1,217 @@
+{
+  "module": "aws-autoscaling",
+  "awsCdkTag": "v2.233.0",
+  "targetNamespace": "compute",
+  "targetSubdir": "src/aws/compute/auto-scaling",
+  "jsiiSubmodule": "autoscaling",
+  "barrelLine": "export * as autoscaling from \"./auto-scaling\";  // add under a new \"// aws-autoscaling (EC2 Auto Scaling)\" comment in src/aws/compute/index.ts, NOT flattened",
+  "upstreamLibDir": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib",
+  "cfnGeneratedGroundTruth": "/Users/vincentsmet/tcons/conversion-run/cdklib/node_modules/aws-cdk-lib/aws-autoscaling/lib/autoscaling.generated.d.ts",
+
+  "cfnResources": [
+    {
+      "name": "CfnAutoScalingGroup",
+      "usedIn": ["src/aws/compute/auto-scaling/auto-scaling-group.ts"],
+      "providerMapping": "autoscalingGroup.AutoscalingGroup (@cdktn/provider-aws/lib/autoscaling-group). Expose as `public readonly resource: autoscalingGroup.AutoscalingGroup`."
+    },
+    {
+      "name": "CfnLaunchConfiguration",
+      "usedIn": [
+        "src/aws/compute/auto-scaling/auto-scaling-group.ts",
+        "src/aws/compute/auto-scaling/aspects/require-imdsv2-aspect.ts"
+      ],
+      "providerMapping": "launchConfiguration.LaunchConfiguration exists but is the DEPRECATED path. The terraform aws_autoscaling_group uses a `launch_template` block; port the ASG onto compute/launch-template.ts (launchTemplate.LaunchTemplate) exclusively and treat the CfnLaunchConfiguration code paths as the legacy branch that becomes the launch-template branch (the AUTOSCALING_GENERATE_LAUNCH_TEMPLATE feature-flag behaviour is the DEFAULT here). In require-imdsv2-aspect the CfnLaunchConfiguration branch throws/no-ops since only launch templates are emitted."
+    },
+    {
+      "name": "CfnLifecycleHook",
+      "usedIn": ["src/aws/compute/auto-scaling/lifecycle-hook.ts"],
+      "providerMapping": "autoscalingLifecycleHook.AutoscalingLifecycleHook (@cdktn/provider-aws/lib/autoscaling-lifecycle-hook)."
+    },
+    {
+      "name": "CfnScheduledAction",
+      "usedIn": ["src/aws/compute/auto-scaling/scheduled-action.ts"],
+      "providerMapping": "autoscalingSchedule.AutoscalingSchedule (@cdktn/provider-aws/lib/autoscaling-schedule)."
+    },
+    {
+      "name": "CfnScalingPolicy",
+      "usedIn": [
+        "src/aws/compute/auto-scaling/step-scaling-action.ts",
+        "src/aws/compute/auto-scaling/target-tracking-scaling-policy.ts"
+      ],
+      "providerMapping": "autoscalingPolicy.AutoscalingPolicy (@cdktn/provider-aws/lib/autoscaling-policy). CRITICAL: this is the EC2-AutoScaling policy resource, NOT appautoscalingPolicy. The appscaling twins (compute/step-scaling-action.ts, target-tracking-scaling-policy.ts) import `appautoscalingPolicy` — the aws-autoscaling ports must import `autoscalingPolicy` instead."
+    },
+    {
+      "name": "CfnWarmPool",
+      "usedIn": ["src/aws/compute/auto-scaling/warm-pool.ts"],
+      "providerMapping": "No standalone terraform resource. aws_autoscaling_group carries an inline `warm_pool` block (autoscalingGroup.AutoscalingGroupWarmPool). The WarmPool construct must configure the PARENT ASG's warm_pool block (mutate/late-bind the ASG resource) rather than create a separate resource — inverse of the CFN AWS::AutoScaling::WarmPool separate-resource model. Verify against autoscaling-group/index.d.ts (`warmPool` property)."
+    }
+  ],
+
+  "srcFiles": [
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/termination-policy.ts",
+      "target": "src/aws/compute/auto-scaling/termination-policy.ts",
+      "order": 1,
+      "siblings": ["src/aws/compute/architecture.ts"],
+      "notes": "Pure enum file, no imports. Leaf. Provenance header required (v2.233.0 lib path)."
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/schedule.ts",
+      "target": "src/aws/compute/auto-scaling/schedule.ts",
+      "order": 1,
+      "siblings": ["src/aws/compute/schedule.ts", "src/aws/compute/autoscaling-common/interval-utils.ts"],
+      "notes": "ASG-specific Schedule abstract class + CronOptions. DO NOT reuse compute/schedule.ts (the appscaling Schedule) — it is a DIFFERENT class that collides by name; this one lives inside the `auto-scaling` namespace so no flat-barrel collision. Mirror the already-converted compute/schedule.ts idioms: `Annotations` from cdktn, `UnscopedValidationError` from ../../errors, `Duration` from ../../duration. Leaf (core-only imports)."
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/step-scaling-action.ts",
+      "target": "src/aws/compute/auto-scaling/step-scaling-action.ts",
+      "order": 2,
+      "siblings": ["src/aws/compute/step-scaling-action.ts"],
+      "notes": "Closest twin is compute/step-scaling-action.ts (appscaling) — mirror structure exactly BUT swap the target from IScalableTarget -> IAutoScalingGroup and the provider resource appautoscalingPolicy -> autoscalingPolicy.AutoscalingPolicy (maps CfnScalingPolicy). IAutoScalingGroup is a forward type-ref to auto-scaling-group.ts (order 4) — import as type; the interface shape is defined there. Exports AdjustmentType, MetricAggregationType, StepScalingAction. Uses Lazy (cdktn Lazy.numberValue/stringValue)."
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/target-tracking-scaling-policy.ts",
+      "target": "src/aws/compute/auto-scaling/target-tracking-scaling-policy.ts",
+      "order": 2,
+      "siblings": ["src/aws/compute/target-tracking-scaling-policy.ts"],
+      "notes": "Mirror the appscaling twin compute/target-tracking-scaling-policy.ts; swap appautoscalingPolicy -> autoscalingPolicy.AutoscalingPolicy and target -> IAutoScalingGroup (forward type-ref). cloudwatch import: `import * as cloudwatch from \"../cloudwatch\"`. Exports BaseTargetTrackingProps, PredefinedMetric, TargetTrackingScalingPolicy (all consumed by auto-scaling-group.ts)."
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/scheduled-action.ts",
+      "target": "src/aws/compute/auto-scaling/scheduled-action.ts",
+      "order": 2,
+      "siblings": ["src/aws/notify/queue.ts", "src/aws/compute/auto-scaling/schedule.ts"],
+      "notes": "Imports Schedule (order 1, same subdir ./schedule) + IAutoScalingGroup (forward type-ref) + CfnScheduledAction -> autoscalingSchedule.AutoscalingSchedule. Extends AwsConstructBase; add outputs getter + physicalName naming per queue.ts invariant."
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/warm-pool.ts",
+      "target": "src/aws/compute/auto-scaling/warm-pool.ts",
+      "order": 2,
+      "siblings": ["src/aws/notify/queue.ts"],
+      "notes": "CfnWarmPool has NO standalone terraform resource — warm_pool is an inline block on aws_autoscaling_group. The WarmPool construct must set the parent ASG's warm_pool block (late-bound/mutating the AutoScalingGroup created by order-4 file) rather than instantiate a resource. IAutoScalingGroup is a forward type-ref. Uses Lazy (cdktn) + Names. Flag this as a structural deviation from the CFN separate-resource model in the file header comment."
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/lifecycle-hook-target.ts",
+      "target": "src/aws/compute/auto-scaling/lifecycle-hook-target.ts",
+      "order": 2,
+      "siblings": ["src/aws/compute/lb-shared/load-balancer-targets.ts"],
+      "notes": "Pure interfaces (ILifecycleHookTarget, BindHookTargetOptions, LifecycleHookTargetConfig). References the LifecycleHook class (order 3) only as a TYPE inside BindHookTargetOptions — type-only mutual recursion with lifecycle-hook.ts, safe. iam.IRole -> `import * as iam from \"../../iam\"`."
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/step-scaling-policy.ts",
+      "target": "src/aws/compute/auto-scaling/step-scaling-policy.ts",
+      "order": 3,
+      "siblings": ["src/aws/compute/step-scaling-policy.ts", "src/aws/compute/autoscaling-common/interval-utils.ts"],
+      "notes": "Mirror appscaling twin compute/step-scaling-policy.ts. Imports StepScalingAction/AdjustmentType/MetricAggregationType from ./step-scaling-action (order 2), findAlarmThresholds/normalizeIntervals from ../autoscaling-common/interval-utils (ALREADY PORTED — do not duplicate), cloudwatch from ../cloudwatch, IAutoScalingGroup forward type-ref. Exports BasicStepScalingPolicyProps, StepScalingPolicy, ScalingInterval."
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/lifecycle-hook.ts",
+      "target": "src/aws/compute/auto-scaling/lifecycle-hook.ts",
+      "order": 3,
+      "siblings": ["src/aws/notify/queue.ts", "src/aws/compute/auto-scaling/lifecycle-hook-target.ts"],
+      "notes": "Imports ILifecycleHookTarget from ./lifecycle-hook-target (order 2), IAutoScalingGroup forward type-ref, CfnLifecycleHook -> autoscalingLifecycleHook.AutoscalingLifecycleHook, iam from ../../iam. Extends AwsConstructBase; outputs getter + naming invariant. Exports LifecycleHook, BasicLifecycleHookProps."
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/auto-scaling-group.ts",
+      "target": "src/aws/compute/auto-scaling/auto-scaling-group.ts",
+      "order": 4,
+      "siblings": [
+        "src/aws/compute/launch-template.ts",
+        "src/aws/compute/instance.ts",
+        "src/aws/compute/volume.ts",
+        "src/aws/compute/security-group.ts",
+        "src/aws/compute/connections.ts",
+        "src/aws/notify/queue.ts",
+        "src/aws/notify/topic.ts"
+      ],
+      "notes": "THE HUB (100KB). Defines IAutoScalingGroup (the interface every other file forward-references) + AutoScalingGroup + UpdatePolicy + props. Imports the concrete children (LifecycleHook, ScheduledAction, StepScalingPolicy, TargetTrackingScalingPolicy, TerminationPolicy, WarmPool) all from same subdir (orders 1-3), plus BlockDevice/BlockDeviceVolume/EbsDeviceVolumeType from ../volume (the EC2 volume.ts — DO NOT port the upstream aws-autoscaling/volume.ts, see layoutNotes), plus AutoScalingGroupRequireImdsv2Aspect from ./aspects (order 5, RUNTIME cycle — forward import, resolved at call time). Cross-module: cloudwatch->../cloudwatch, ec2 stays in ../ (same compute ns: LaunchTemplate/Instance/Vpc/SecurityGroup/UserData/MachineImage), elb->../load-balancer, elbv2->../alb + ../nlb, iam->../../iam, sns->../../notify. CfnAutoScalingGroup->autoscalingGroup.AutoscalingGroup; launch-config path becomes launch-template path (default). Carries PROPERTY_INJECTION_ID per topic.ts. Give the converter maximum budget; split-read the file."
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/aspects/require-imdsv2-aspect.ts",
+      "target": "src/aws/compute/auto-scaling/aspects/require-imdsv2-aspect.ts",
+      "order": 5,
+      "siblings": ["src/aws/compute/aspects/require-imdsv2-aspect.ts", "src/aws/compute/launch-template.ts"],
+      "notes": "There is ALREADY a compute/aspects/require-imdsv2-aspect.ts (the EC2 one) — read it for the terraconstructs IAspect idiom, but this is the ASG-specific aspect (AutoScalingGroupRequireImdsv2Aspect). Imports AutoScalingGroup concrete (order 4, runtime cycle) + LaunchTemplate/CfnLaunchTemplate from ../.. (compute launch-template) + CfnLaunchConfiguration. Since only launch templates are emitted, the launch-configuration branch is the throw/no-op path."
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/aspects/index.ts",
+      "target": "src/aws/compute/auto-scaling/aspects/index.ts",
+      "order": 6,
+      "siblings": ["src/aws/compute/autoscaling-common/index.ts"],
+      "notes": "Barrel: `export * from \"./require-imdsv2-aspect\";`. No provenance header (barrel exception)."
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/index.ts",
+      "target": "src/aws/compute/auto-scaling/index.ts",
+      "order": 6,
+      "siblings": ["src/aws/compute/autoscaling-common/index.ts", "src/aws/compute/index.ts"],
+      "notes": "Subdir barrel. Re-export all ported files: aspects, auto-scaling-group, schedule, lifecycle-hook, lifecycle-hook-target, scheduled-action, step-scaling-action, step-scaling-policy, target-tracking-scaling-policy, termination-policy, warm-pool. DO NOT `export * from ./autoscaling.generated` (no generated file). REPLACE the dropped volume.ts by re-exporting the block-device types from the EC2 volume so the namespace API surface matches upstream: `export { BlockDevice, BlockDeviceVolume, EbsDeviceVolumeType, EbsDeviceOptions, EbsDeviceOptionsBase, EbsDeviceSnapshotOptions, EbsDeviceProps } from \"../volume\";` (preserves autoscaling.BlockDeviceVolume / autoscaling.EbsDeviceVolumeType). No provenance header (barrel exception). Separately add `export * as autoscaling from \"./auto-scaling\";` to src/aws/compute/index.ts."
+    }
+  ],
+
+  "skippedSrcFiles": [
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/lib/volume.ts",
+      "reason": "Byte-for-byte a copy of the EC2 block-device types. The EC2 port already lives at src/aws/compute/volume.ts and exports the IDENTICAL set (BlockDevice, EbsDeviceOptionsBase, EbsDeviceOptions, EbsDeviceSnapshotOptions, EbsDeviceProps, BlockDeviceVolume, EbsDeviceVolumeType). Do NOT convert/duplicate — auto-scaling-group.ts imports these from ../volume and auto-scaling/index.ts re-exports them (see index note) to preserve the autoscaling.* API surface."
+    }
+  ],
+
+  "testFiles": [
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/test/auto-scaling-group.test.ts",
+      "target": "test/aws/compute/auto-scaling/auto-scaling-group.test.ts"
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/test/scaling.test.ts",
+      "target": "test/aws/compute/auto-scaling/scaling.test.ts"
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/test/scheduled-action.test.ts",
+      "target": "test/aws/compute/auto-scaling/scheduled-action.test.ts"
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/test/lifecyclehooks.test.ts",
+      "target": "test/aws/compute/auto-scaling/lifecyclehooks.test.ts"
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/test/warm-pool.test.ts",
+      "target": "test/aws/compute/auto-scaling/warm-pool.test.ts"
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/test/cron.test.ts",
+      "target": "test/aws/compute/auto-scaling/cron.test.ts"
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/test/cfn-init.test.ts",
+      "target": "test/aws/compute/auto-scaling/cfn-init.test.ts"
+    },
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/test/aspects/require-imdsv2-aspect.test.ts",
+      "target": "test/aws/compute/auto-scaling/aspects/require-imdsv2-aspect.test.ts"
+    }
+  ],
+
+  "skippedTestFiles": [
+    {
+      "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/aws-cdk-lib/aws-autoscaling/test/example.images.lit.ts",
+      "reason": "A `.lit.ts` documentation snippet used by rosetta for README examples, not a Jest test. Do not port."
+    }
+  ],
+
+  "integChoice": {
+    "upstream": "/Users/vincentsmet/tcons/upstream-aws-cdk/packages/@aws-cdk-testing/framework-integ/test/aws-autoscaling/test/integ.custom-scaling.ts",
+    "appTarget": "integ/aws/compute/apps/autoscaling.custom-scaling.ts",
+    "makeTarget": "autoscaling.custom-scaling",
+    "reason": "Simplest/cheapest fixture that stands up ONE real AutoScalingGroup on a launch template (in the terraconstructs port an ASG with instanceType+machineImage always synths aws_launch_template + aws_autoscaling_group — no deprecated launch configuration) while still exercising the module's headline scaling surface: Schedule.cron via scaleOnSchedule (4 cron schedules) and TargetTracking via scaleOnCpuUtilization. Single t2.micro (BURSTABLE2.MICRO), default capacity, no CfnParameter (rules out integ.capacity.ts which uses non-portable CfnParameter), no 9-ASG/mixedInstancesPolicy/instanceRequirements/IMDSv2 heaviness (rules out integ.asg-lt.ts), no classic ELB or launch-configuration paths. Go validator should assert the 4 cron expressions and the CPU target (50%) and min/max capacities.",
+    "allIntegCandidatesListed": [
+      "integ.amazonlinux2.ts", "integ.asg-capacity-distribution-strategy.ts", "integ.asg-capacity-rebalance.ts",
+      "integ.asg-instance-maintenance-policy.ts", "integ.asg-instance-termination-policy.ts", "integ.asg-keypair.ts",
+      "integ.asg-lc.ts", "integ.asg-lt.ts", "integ.asg-step-scaling.ts", "integ.asg-update-policy.ts",
+      "integ.asg-w-classic-loadbalancer.ts", "integ.asg-w-elbv2.ts", "integ.capacity.ts", "integ.custom-scaling.ts",
+      "integ.external-role.ts", "integ.health-checks.ts", "integ.role-target-hook.ts", "integ.spot-instances.ts",
+      "integ.step-scaling-with-cooldown.ts", "integ.warm-pool.ts"
+    ]
+  },
+
+  "layoutNotes": "DIR + EXPORT STRATEGY: aws-autoscaling ports into a NEW subdirectory src/aws/compute/auto-scaling/ (kebab dir) exported from src/aws/compute/index.ts as a jsii submodule via `export * as autoscaling from \"./auto-scaling\";` — NOT flattened. This is mandated by the established compute/index.ts pattern (`export * as autoscalingcommon from \"./autoscaling-common\"`, `export * as tasks`, `export * as lbtargets`, `export * as alpha`, `export * as sources`, `export * as destinations`; notify uses `export * as targets`) and is the only jsii-safe way to avoid flat-barrel class-name collisions.\n\nCOLLISIONS (why flattening is impossible): compute/ ALREADY flattens the aws-applicationautoscaling twins at the root (index.ts lines 111-116: base-scalable-attribute, schedule, scalable-target, step-scaling-policy, step-scaling-action, target-tracking-scaling-policy). aws-autoscaling re-declares colliding names: Schedule + CronOptions (vs appscaling schedule.ts), StepScalingAction + AdjustmentType + MetricAggregationType (vs appscaling step-scaling-action.ts), StepScalingPolicy + BasicStepScalingPolicyProps + StepScalingPolicyProps + ScalingInterval (vs appscaling step-scaling-policy.ts), TargetTrackingScalingPolicy + BaseTargetTrackingProps + PredefinedMetric (vs appscaling target-tracking-scaling-policy.ts). Namespacing under `autoscaling.*` resolves ALL of them with zero flat-barrel collisions. Consumers reach the big construct as compute.autoscaling.AutoScalingGroup.\n\nRELATION TO appscaling files (MUST NOT DUPLICATE): the appscaling twins are the closest structural exemplars and each aws-autoscaling file should mirror its twin's terraconstructs shape, BUT they are genuinely different classes (appscaling targets IScalableTarget + appautoscalingPolicy resource + ServiceNamespace; aws-autoscaling targets IAutoScalingGroup + autoscalingPolicy resource). The one truly shared, already-ported dependency is aws-autoscaling-common: it lives at src/aws/compute/autoscaling-common/ (interval-utils findAlarmThresholds/normalizeIntervals, types, test-utils) — step-scaling-policy.ts imports it via `../autoscaling-common/interval-utils`; DO NOT re-port it. Schedule/StepScaling/TargetTracking are ported fresh INSIDE the auto-scaling namespace, not reused from the flat appscaling files.\n\nVOLUME (critical): upstream aws-autoscaling/lib/volume.ts is a duplicate of the EC2 block-device types and MUST NOT be ported. src/aws/compute/volume.ts (the EC2 Volume port) already exports the identical set (BlockDevice, EbsDeviceOptionsBase, EbsDeviceOptions, EbsDeviceSnapshotOptions, EbsDeviceProps, BlockDeviceVolume, EbsDeviceVolumeType). auto-scaling-group.ts imports them from ../volume, and auto-scaling/index.ts RE-EXPORTS them so the namespace API keeps autoscaling.BlockDeviceVolume / autoscaling.EbsDeviceVolumeType (used by the upstream asg-lt integ and by ASG blockDevices prop).\n\nPROVIDER RESOURCE MAPPING: CfnAutoScalingGroup->autoscalingGroup.AutoscalingGroup, CfnLifecycleHook->autoscalingLifecycleHook.AutoscalingLifecycleHook, CfnScheduledAction->autoscalingSchedule.AutoscalingSchedule, CfnScalingPolicy->autoscalingPolicy.AutoscalingPolicy (NOT appautoscalingPolicy — the appscaling twins use appautoscalingPolicy; do not copy that import blindly), CfnWarmPool->inline warm_pool block on aws_autoscaling_group (no standalone resource — WarmPool mutates the parent ASG), CfnLaunchConfiguration->prefer launchTemplate.LaunchTemplate (the launch-template branch is the default emit path; launch-configuration is legacy/no-op).\n\nORDERING & CYCLES: IAutoScalingGroup (defined in the order-4 hub auto-scaling-group.ts) is a pervasive FORWARD type-reference for the order-2/3 children — import it as a type; the converter reads the upstream interface to know its shape. Two genuine cycles exist: (a) lifecycle-hook.ts <-> lifecycle-hook-target.ts (type-only, safe, ordered target@2 then hook@3); (b) auto-scaling-group.ts <-> aspects/require-imdsv2-aspect.ts (RUNTIME cycle: hub@4 imports the aspect class, aspect@5 imports the AutoScalingGroup class — resolved because usage is at call time; convert hub first with a forward import, aspect after). Files sharing an order number never import each other. Order: 1=[termination-policy, schedule]; 2=[step-scaling-action, target-tracking-scaling-policy, scheduled-action, warm-pool, lifecycle-hook-target]; 3=[step-scaling-policy, lifecycle-hook]; 4=[auto-scaling-group]; 5=[aspects/require-imdsv2-aspect]; 6=[aspects/index, index].\n\nTEST LAYOUT mirrors src under test/aws/compute/auto-scaling/ (+ aspects/ subdir). scaling.test.ts covers step-scaling+target-tracking+schedule together (matches upstream, no 1:1 src file — keep as-is). cron.test.ts tests Schedule.cron -> auto-scaling/cron.test.ts. cfn-init.test.ts exercises ASG signals/cfn-init — port but expect several cases to need `test.skip` (+reason) where cfn-init/CreationPolicy signalling is CFN-only and unsupported by the terraform provider. example.images.lit.ts is a rosetta doc snippet, not ported.\n\nINTEG: app filename == make target == go test name triple => autoscaling.custom-scaling (dotted, matching existing apigw.* app naming under integ/aws/compute/apps/). Provenance header links to integ.custom-scaling.ts. Uses LocalBackend + env vars per conventions; register ASG name output for the Go validator to assert cron schedules + CPU target-tracking target + capacities."
+}
