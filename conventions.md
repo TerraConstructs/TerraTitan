@@ -47,6 +47,50 @@ aws-apigateway(v2)/aws-application-autoscaling/aws-autoscaling→compute.
 Cross-module references in upstream code (e.g. `import * as kms from '../aws-kms'`) map to the corresponding
 base namespace (e.g. `import * as kms from '../encryption'` — but verify the actual export names in that namespace).
 
+## The prepare-time `toTerraform()` pattern (established repo-wide — 11 L2 overrides on main)
+
+Use when an L2 accumulates config via post-construction imperative APIs (`addStatements`,
+`addTarget`, `attachToRole`, ...) and the reflecting TF resources must be singular/merged, or can
+only be created once all callers finished mutating the construct. Canonical: `src/aws/iam/policy.ts`
+(one `IamRolePolicy`/`IamUserPolicy`/`IamGroupPolicy` per attachment). Others: iam/managed-policy,
+iam/group, iam/user, notify/rule (event targets), storage/table (contributor insights),
+storage/ecr-repository (lifecycle policy), storage/bucket (+bucket-notifications dependency wiring),
+compute/method (API GW integration/responses), compute/lb-shared/base-target-group (attachments).
+
+The idiom:
+```ts
+/** Adds resources to the terraform JSON output. Called by TerraformStack.prepareStack() */
+public toTerraform(): any {
+  if (/* nothing accumulated / not attached */) return {};
+  for (let i = 0; i < this.items.length; i++) {
+    const id = `SomeDeterministicId${i}`;          // stable, key/index-derived
+    if (this.node.tryFindChild(id)) continue;      // idempotency guard (never findChild — throws)
+    new SomeL1Resource(this, id, { /* from accumulated config */ });
+  }
+  return {};  // side effect (new children) is the point; fragment contributes nothing
+}
+```
+- Singleton L1 blocks need no guard — call the L1 `put*` setter unconditionally (last write wins;
+  see base-target-group). Only creation of new child constructs needs `tryFindChild`.
+- Do NOT add `toTerraform()` to constructs whose rendering is consumed BY another construct's
+  `toTerraform()` — infinite recursion (see the warning in iam/policy-document.ts).
+- `dependsOn` for lazily-created children is propagated automatically by the stack's
+  `TerraformDependencyAspect` (aspects run after prepareStack) — no manual wiring.
+
+## TEST HARNESS RULE (hard): always force the prepare pass
+
+cdktn's raw `Testing.synth(stack)` does NOT run `prepareStack()`. Worse: the lazy `toTerraform()`
+overrides still execute as a side effect during final synthesis — but the element list was already
+snapshotted, so the created resources are **silently missing from the emitted JSON** (e.g. an
+attached iam Policy yields the policy document but NO `aws_iam_role_policy`), and a weak test stays
+green. Therefore:
+- ALWAYS assert through the repo helpers in `test/assertions.ts` (`Template.synth`, `Template.fromStack`,
+  `new Template(stack)`, `Template.resources/expectOutput/...`) — every one calls `stack.prepareStack()`
+  first. Raw `Testing.synth` is allowed ONLY with an explicit `stack.prepareStack()` on the line before.
+- Real `App.synth()`/`cdktn synth` (and therefore integ apps) are safe — the gap is unit tests only.
+- Verify/review phases must grep converted tests for raw `Testing.synth` without a preceding
+  `prepareStack()` and flag each as a violation.
+
 ## Cfn resources with NO terraform-provider-aws equivalent (composition strategy)
 
 Some Cfn resources have no TF resource and never will (provider maintainers decline when no
@@ -78,9 +122,14 @@ composition patterns (established by base PR #117, commit 2ced2b2):
 
 ## HARD REPO INVARIANTS (run-1 regressions — violating ANY of these fails the conversion)
 
-1. **gridUUID physical naming.** Every nameable resource MUST use one of the repo's two sanctioned
-   stack-scoped naming patterns — NEVER a bare literal `name:` passthrough:
-   - **Preferred** — prefix form (src/aws/notify/queue.ts):
+1. **Stack-scoped physical naming.** Every physical name MUST come from one of the two stack
+   helpers (both render the stack-rooted construct path, so both carry the gridUUID scoping).
+   FORBIDDEN: bare literals or unscoped user-prop passthrough (`name: props.xName` alone) — the
+   run-1 critical regression. The two sanctioned forms (measured on main: 54 vs 8 call sites):
+   - **Exact-name form (majority — topic.ts, kinesis-stream.ts, log-group.ts, alarm.ts, ...):**
+     `name: props.<x>Name ?? this.stack.uniqueResourceName(this)` — deterministic full name,
+     user-supplied name honored verbatim.
+   - **Prefix form (queue.ts, bucket.ts, role.ts, function.ts, state-machine.ts):**
      ```ts
      namePrefix = this.stack.uniqueResourceNamePrefix(this, {
        prefix: namePrefix ?? this.gridUUID + "-",
@@ -89,9 +138,9 @@ composition patterns (established by base PR #117, commit 2ced2b2):
      });
      this.physicalName = namePrefix;   // → Terraform *_name_prefix attribute
      ```
-   - **Exact-name form** where the service/UX requires it (PR #117 secret.ts):
-     `name: props.<x>Name ?? this.stack.uniqueResourceName(this)` — mirror the closest sibling's
-     choice; if no sibling precedent exists, use the prefix form and flag the decision in notes.
+     Provider appends a random suffix (create-before-destroy safe); even user names get suffixed.
+   Choose by mirroring the closest sibling; no precedent → prefer prefix form if the TF resource
+   supports `name_prefix` AND replacement churn is likely, else exact-name. Record the choice in notes.
 2. **Public L1 handle.** Expose the underlying provider resource as `public readonly resource: <l1>.<Type>`
    (downstream constructs read it) — never private.
 3. **Sibling shape over raw upstream.** Before converting any construct, read the closest sibling in the
