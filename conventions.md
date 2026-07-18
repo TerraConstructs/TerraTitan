@@ -38,13 +38,32 @@ It ports the AWS CDK L2 developer experience onto Terraform via **CDKTN** (commu
 ## Namespace registry (aws-cdk-lib module → base namespace)
 
 aws-sqs→notify, aws-sns→notify, aws-events→notify, aws-kinesis→notify, aws-kinesisfirehose→notify,
-aws-events-targets→notify/notification-targets, aws-iam→iam, aws-kms→encryption, aws-secretsmanager→secrets,
+aws-events-targets→notify/notification-targets, aws-iam→iam, aws-kms→encryption,
+aws-secretsmanager→encryption (established by PR #117 — NOT "secrets" as older terratitan prompts said),
 aws-cloudwatch→cloudwatch, aws-route53/aws-certificatemanager/aws-route53-targets→edge,
 aws-s3/aws-ssm/aws-dynamodb→storage, aws-ec2/aws-ecs/aws-elasticloadbalancing(v2)/aws-lambda/aws-stepfunctions/
 aws-apigateway(v2)/aws-application-autoscaling/aws-autoscaling→compute.
 
 Cross-module references in upstream code (e.g. `import * as kms from '../aws-kms'`) map to the corresponding
 base namespace (e.g. `import * as kms from '../encryption'` — but verify the actual export names in that namespace).
+
+## Cfn resources with NO terraform-provider-aws equivalent (composition strategy)
+
+Some Cfn resources have no TF resource and never will (provider maintainers decline when no
+matching service API exists — e.g. `AWS::SecretsManager::SecretTargetAttachment`, which is
+CloudFormation-side merge magic). The mapping manifest must record these as
+`tfResources: [], strategy: "composition"` with the design in `attributeNotes`. Sanctioned
+composition patterns (established by base PR #117, commit 2ced2b2):
+
+- **Prepare-time composition**: create/mutate a provider resource lazily in an idempotent
+  `toTerraform()` (first prepareStack pass) — mirror `src/aws/iam/policy.ts` — so late `attach()`-style
+  calls can merge into a single resource (`jsonencode(merge(jsondecode(base), fields))`) instead of
+  creating conflicting duplicates.
+- **Sanctioned API superset**: when Terraform needs client-side data that CloudFormation merges
+  server-side, an upstream interface MAY gain optional props (e.g. `SecretAttachmentTargetProps.connectionFields`)
+  — document the deviation in a comment referencing the missing provider capability.
+- **Test-only L1 adapters**: helper adapters for not-yet-ported modules used by integ apps live under
+  `integ/`, never in `src/`.
 
 ## Test conversion rules
 
@@ -59,16 +78,20 @@ base namespace (e.g. `import * as kms from '../encryption'` — but verify the a
 
 ## HARD REPO INVARIANTS (run-1 regressions — violating ANY of these fails the conversion)
 
-1. **gridUUID physical naming.** Every nameable resource MUST use the stack prefix helper and the
-   Terraform `*_name_prefix` attribute — NEVER a bare `name:`. Golden snippet (src/aws/notify/queue.ts):
-   ```ts
-   namePrefix = this.stack.uniqueResourceNamePrefix(this, {
-     prefix: namePrefix ?? this.gridUUID + "-",
-     allowedSpecialCharacters: "_-",
-     maxLength: 80,   // use the service's real name-length limit
-   });
-   this.physicalName = namePrefix;
-   ```
+1. **gridUUID physical naming.** Every nameable resource MUST use one of the repo's two sanctioned
+   stack-scoped naming patterns — NEVER a bare literal `name:` passthrough:
+   - **Preferred** — prefix form (src/aws/notify/queue.ts):
+     ```ts
+     namePrefix = this.stack.uniqueResourceNamePrefix(this, {
+       prefix: namePrefix ?? this.gridUUID + "-",
+       allowedSpecialCharacters: "_-",
+       maxLength: 80,   // the service's real name-length limit
+     });
+     this.physicalName = namePrefix;   // → Terraform *_name_prefix attribute
+     ```
+   - **Exact-name form** where the service/UX requires it (PR #117 secret.ts):
+     `name: props.<x>Name ?? this.stack.uniqueResourceName(this)` — mirror the closest sibling's
+     choice; if no sibling precedent exists, use the prefix form and flag the decision in notes.
 2. **Public L1 handle.** Expose the underlying provider resource as `public readonly resource: <l1>.<Type>`
    (downstream constructs read it) — never private.
 3. **Sibling shape over raw upstream.** Before converting any construct, read the closest sibling in the
