@@ -114,7 +114,8 @@ composition patterns (established by base PR #117, commit 2ced2b2):
 - **Never synthesize provider-invalid config for CFN sentinel semantics.** CFN magic values (e.g.
   `Duration.days(0)` = "rotation disabled") often have NO Terraform representation — an empty
   required block (`rotation_rules {}`) or half-populated exactly-one-of block fails `terraform
-  validate`. If unrepresentable: throw `ValidationError` at construct time (or omit the resource
+  validate`. (Empirically confirmed 2026-07-19: PR #117's zero-duration RotationSchedule synth
+  fails `tofu validate` with "Invalid combination of arguments" — never reaches AWS.) If unrepresentable: throw `ValidationError` at construct time (or omit the resource
   entirely when that preserves semantics). Tests must assert the error — a test asserting the
   invalid synthesized shape is worse than no test.
 - **Composition preconditions fail at construct time.** When a composition strategy or API superset
