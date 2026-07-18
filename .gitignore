@@ -1,0 +1,4 @@
+node_modules/
+cdklib/
+*.tfstate
+.DS_Store
