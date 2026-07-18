@@ -234,7 +234,8 @@ if (integPort) {
   for (let i = 1; i <= 3 && !integSynthOk; i++) {
     const fix = await agent(`Iteration ${i}/3 integ synth-fix loop.
 Run: cd ${WT} && ${MISE} pnpm compile ; then cd ${WT}/integ/aws/${NS} && ${MISE} make ${plan.integChoice.makeTarget}-synth-only (add SKIP_<extra-stage>=true for any non-standard stages).
-Fix app/Go/Makefile (or constructs only if the error genuinely originates there; invariants still apply). Inspect tf/${plan.integChoice.makeTarget}/cdk.tf.json: expected resources present WITH name_prefix. Return clean, remainingErrors, summary.`,
+PROVIDER-VALIDATE GATE (mandatory — catches provider-schema violations jest cannot): cd ${WT}/integ/aws/${NS}/tf/${plan.integChoice.makeTarget} && ${MISE} tofu init -backend=false && ${MISE} tofu validate. A validate failure is a construct bug (empty required blocks, exactly-one-of violations, CFN sentinel values with no TF representation) — fix per conventions.md (ValidationError at construct time for unrepresentable semantics), never by hand-editing synthesized JSON.
+Fix app/Go/Makefile (or constructs only if the error genuinely originates there; invariants still apply). Inspect the synthesized cdk.tf.json: expected resources present with stack-scoped naming. Return clean (synth + tofu validate both pass), remainingErrors, summary.`,
       { label: `integ:fix-${i}`, phase: 'Integ', model: 'sonnet', schema: FIX_SCHEMA })
     if (!fix) break
     integSynthOk = fix.clean

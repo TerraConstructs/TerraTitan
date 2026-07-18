@@ -109,6 +109,30 @@ composition patterns (established by base PR #117, commit 2ced2b2):
 - **Test-only L1 adapters**: helper adapters for not-yet-ported modules used by integ apps live under
   `integ/`, never in `src/`.
 
+## Correctness rules mined from external review (PR #117 review, sakul-learning)
+
+- **Never synthesize provider-invalid config for CFN sentinel semantics.** CFN magic values (e.g.
+  `Duration.days(0)` = "rotation disabled") often have NO Terraform representation — an empty
+  required block (`rotation_rules {}`) or half-populated exactly-one-of block fails `terraform
+  validate`. If unrepresentable: throw `ValidationError` at construct time (or omit the resource
+  entirely when that preserves semantics). Tests must assert the error — a test asserting the
+  invalid synthesized shape is worse than no test.
+- **Composition preconditions fail at construct time.** When a composition strategy or API superset
+  has combinations that cannot work (e.g. merging `connectionFields` into a scalar secret value),
+  reject with a diagnostic `ValidationError` when the combination is configured — never synthesize
+  a Terraform expression that fails at plan/apply.
+- **Imported (`fromXxx`) variants must not silently no-op.** If an imperative API cannot take effect
+  on an imported resource, throw (preferred) or warn loudly, and document the limitation in the
+  JSDoc of the interface method — never return success while discarding input.
+- **ARN/name parsing must respect the declared import form** (partial vs complete ARN suffix
+  handling) and carry edge-case tests (names that look like the AWS suffix pattern).
+- **No empty skipped-test placeholders.** `test.skip` must wrap a real portable body with a reason;
+  an empty placeholder catches no regression — replace with active constructor-error tests or drop.
+- **PIPELINE GATE — provider validation:** synth-level jest assertions cannot catch provider-schema
+  violations. After integ synth-only, run `tofu init -backend=false && tofu validate` in the
+  synthesized tf/<app> dir (plugin comes from TF_PLUGIN_CACHE_DIR — no AWS credentials needed) and
+  treat failures as pipeline failures.
+
 ## Test conversion rules
 
 - Tests are Jest, colocated under `test/aws/<namespace>/`, mirroring source names (`queue.ts` → `queue.test.ts`).
