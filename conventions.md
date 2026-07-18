@@ -111,6 +111,10 @@ composition patterns (established by base PR #117, commit 2ced2b2):
 
 ## Correctness rules mined from external review (PR #117 review, sakul-learning)
 
+(All five findings were confirmed and fixed by the PR author in 7cf5c24 using the same offline
+`tofu validate` methodology — the reference implementation now embodies these rules, so converted
+code is expected to MATCH them, e.g. zero-duration rotation → synth-time ValidationError.)
+
 - **Never synthesize provider-invalid config for CFN sentinel semantics.** CFN magic values (e.g.
   `Duration.days(0)` = "rotation disabled") often have NO Terraform representation — an empty
   required block (`rotation_rules {}`) or half-populated exactly-one-of block fails `terraform
