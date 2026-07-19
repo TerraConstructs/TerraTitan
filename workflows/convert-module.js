@@ -58,7 +58,7 @@ const PLAN_SCHEMA = {
   type: 'object',
   properties: {
     cfnResources: { type: 'array', items: { type: 'object', properties: { name: { type: 'string' }, usedIn: { type: 'array', items: { type: 'string' } } }, required: ['name', 'usedIn'] } },
-    srcFiles: { type: 'array', items: { type: 'object', properties: { upstream: { type: 'string' }, target: { type: 'string' }, order: { type: 'number' }, siblings: { type: 'array', items: { type: 'string' } }, notes: { type: 'string' } }, required: ['upstream', 'target', 'order'] } },
+    srcFiles: { type: 'array', items: { type: 'object', properties: { upstream: { type: 'string' }, target: { type: 'string' }, order: { type: 'number' }, loc: { type: 'number' }, copyMode: { type: 'boolean' }, siblings: { type: 'array', items: { type: 'string' } }, notes: { type: 'string' } }, required: ['upstream', 'target', 'order', 'loc', 'copyMode'] } },
     testFiles: { type: 'array', items: { type: 'object', properties: { upstream: { type: 'string' }, target: { type: 'string' } }, required: ['upstream', 'target'] } },
     integChoice: { type: 'object', properties: { upstream: { type: 'string' }, appTarget: { type: 'string' }, makeTarget: { type: 'string' }, reason: { type: 'string' } }, required: ['upstream', 'appTarget', 'makeTarget', 'reason'] },
     layoutNotes: { type: 'string' },
@@ -75,7 +75,8 @@ ${CTX}
    real conversion; PURE_L2 composes only other L2s — mark those files copyMode:true in their notes
    so converters copy near-verbatim, adjusting imports/headers only; BARREL), dependency waves
    (refine, don't recompute), and crossModuleDeps. Only investigate beyond the scan where it is
-   ambiguous. Also check ${CFN} for a *-canned-metrics.generated.js — if present, note in
+   ambiguous. Carry each file's loc and set copyMode:true (as srcFiles fields) for PURE_L2 files
+   per the scan. Also check ${CFN} for a *-canned-metrics.generated.js — if present, note in
    layoutNotes that ${TOOLS}/gen-canned-metrics.mjs must generate the .ts (deterministic codegen,
    NOT an LLM conversion; these files ship only in the built npm bundle, never in the aws-cdk git tree).
 1. Inventory ${UP}/lib and ${UP}/test. Per lib file, identify Cfn* L1 constructs (ground truth: ${CFN}).
@@ -133,23 +134,37 @@ const CONVERT_SCHEMA = {
 }
 const orders = [...new Set(plan.srcFiles.map(f => f.order))].sort((a, b) => a - b)
 const convertNotes = []
+const BATCH_LOC = 700  // max summed upstream LOC per converter agent (per-agent overhead amortization)
+const fileSpec = f => `- ${UP}/lib/${f.upstream}  ->  ${WT}/${f.target}${f.notes ? `  (notes: ${JSON.stringify(f.notes).slice(0, 400)})` : ''}${(f.siblings || []).length ? `  (siblings: ${f.siblings.join(', ')})` : ''}`
 for (const ord of orders) {
   const wave = plan.srcFiles.filter(f => f.order === ord)
-  const results = await parallel(wave.map(f => () => agent(`Convert one AWS CDK ${MOD} source file to TerraConstructs.
-Input: ${UP}/lib/${f.upstream}   →   Output: ${WT}/${f.target}
+  const copies = wave.filter(f => f.copyMode)
+  const real = wave.filter(f => !f.copyMode)
+  const batches = []
+  let cur = [], budget = 0
+  for (const f of real) {
+    const loc = f.loc || 300
+    if (cur.length && budget + loc > BATCH_LOC) { batches.push(cur); cur = []; budget = 0 }
+    cur.push(f); budget += loc
+  }
+  if (cur.length) batches.push(cur)
+  if (copies.length) batches.push(copies)  // ALL copy-mode files of the wave in ONE cheap agent
+
+  const results = await parallel(batches.map(batch => () => {
+    const isCopy = batch[0].copyMode
+    return agent(`Convert ${batch.length} AWS CDK ${MOD} source file(s) to TerraConstructs${isCopy ? ' in COPY MODE' : ''}.
+Files (input -> output):
+${batch.map(fileSpec).join('\n')}
 ${CTX}
-Layout plan notes: ${JSON.stringify(plan.layoutNotes).slice(0, 1500)}
-Per-file notes: ${JSON.stringify(f.notes || '')} | Siblings to mirror: ${(f.siblings || []).join(', ') || 'per CTX'}
-Requirements (ALL mandatory):
-- FIRST LINE header: // https://github.com/aws/aws-cdk/blob/${TAG}/packages/aws-cdk-lib/${MOD}/lib/${f.upstream}  + blank line.
-- HARD REPO INVARIANTS (conventions.md): gridUUID uniqueResourceNamePrefix + *_name_prefix (never bare name), public readonly resource L1 handle, sibling shape over raw upstream, marker interfaces preserved.
-- Preserve upstream public API + JSDoc; note forced changes in comments. Use mapped @cdktn/provider-aws resources; 1-to-many splits transparent.
-- Earlier-wave files exist at their plan targets — import per plan; do not duplicate already-ported code.
-- Wire barrels only if the plan assigns it to your file. Do not run compiler/tests. Return written + notes.`,
-    { label: `convert:${f.upstream}`, phase: 'Convert', model: 'sonnet', schema: CONVERT_SCHEMA })))
+Read ${RUN}/conventions-core.md as your rulebook (the full ${RUN}/conventions.md ONLY if a core rule is ambiguous for your case).
+Layout plan notes: ${JSON.stringify(plan.layoutNotes).slice(0, 1200)}
+${isCopy ? `COPY MODE: these files use no Cfn L1s — copy near-verbatim: add the provenance header, rewrite imports to the repo layout (cdktn, repo-relative paths per the plan), keep code and JSDoc otherwise unchanged. Note anything that forced a real change.` : `Requirements (ALL mandatory): FIRST LINE provenance header per core sheet (tag ${TAG}); hard invariants (stack-scoped naming, public readonly resource, sibling shape, marker interfaces); preserve upstream public API + JSDoc; use mapped @cdktn/provider-aws resources per the manifest with 1-to-many splits transparent.`}
+Earlier-wave files exist at their plan targets — import per plan; do not duplicate already-ported code. Wire barrels only if the plan assigns it to one of your files. Do not run compiler/tests. Return written + notes.`,
+      { label: `convert:${isCopy ? 'copy-batch' : batch.map(f => f.upstream.split('/').pop()).join('+').slice(0, 60)}`, phase: 'Convert', model: 'sonnet', ...(isCopy ? { effort: 'low' } : {}), schema: CONVERT_SCHEMA })
+  }))
   results.filter(Boolean).forEach(r => convertNotes.push(r.notes || ''))
-  if (results.filter(Boolean).length < wave.length) return { failed: `convert-wave-${ord}` }
-  log(`Wave ${ord}: ${wave.map(f => f.upstream).join(', ')}`)
+  if (results.filter(Boolean).length < batches.length) return { failed: `convert-wave-${ord}` }
+  log(`Wave ${ord}: ${batches.length} agent(s) for ${wave.length} file(s)`)
 }
 
 // deterministic codegen step: canned metrics (if the service has them)
@@ -184,7 +199,7 @@ phase('Test')
 await parallel(plan.testFiles.map(tf => () => agent(`Convert one AWS CDK ${MOD} test file to the TerraConstructs Jest suite.
 Input: ${UP}/test/${tf.upstream}   →   Output: ${WT}/${tf.target}
 ${CTX}
-Requirements: FIRST LINE header // https://github.com/aws/aws-cdk/blob/${TAG}/packages/aws-cdk-lib/${MOD}/test/${tf.upstream} + blank line; upstream describe/test names VERBATIM (typos included); unported APIs → drop tests; unported-module features → commented import breadcrumb + omit; provider-unsupported → commented test block + reason; old CFN assertion commented beneath each new Terraform assertion; wrapping describe with toMatchSnapshot() synth tests (harness idiom: test/aws/notify/queue.test.ts + test/assertions.ts); assert terraform types/snake_case attrs per ${RUN}/mappings/${MOD}.json. Do NOT run jest. Return written + notes.`,
+Read ${RUN}/conventions-core.md as your rulebook (full conventions.md only if ambiguous). Requirements: FIRST LINE header // https://github.com/aws/aws-cdk/blob/${TAG}/packages/aws-cdk-lib/${MOD}/test/${tf.upstream} + blank line; upstream describe/test names VERBATIM (typos included); unported APIs → drop tests; unported-module features → commented import breadcrumb + omit; provider-unsupported → commented test block + reason; old CFN assertion commented beneath each new Terraform assertion; wrapping describe with toMatchSnapshot() synth tests (harness idiom: test/aws/notify/queue.test.ts + test/assertions.ts); assert terraform types/snake_case attrs per ${RUN}/mappings/${MOD}.json. Do NOT run jest. Return written + notes.`,
   { label: `test:convert:${tf.upstream}`, phase: 'Test', model: 'sonnet', schema: CONVERT_SCHEMA })))
 const testTargets = plan.testFiles.map(tf => tf.target).join(' ')
 let testsPass = false
@@ -233,12 +248,14 @@ const VERDICT_SCHEMA = {
   properties: {
     pass: { type: 'boolean' },
     violations: { type: 'array', items: { type: 'object', properties: { file: { type: 'string' }, rule: { type: 'string' }, detail: { type: 'string' } }, required: ['file', 'rule', 'detail'] } },
+    advisories: { type: 'array', items: { type: 'object', properties: { file: { type: 'string' }, rule: { type: 'string' }, detail: { type: 'string' } }, required: ['file', 'rule', 'detail'] } },
     notes: { type: 'string' },
   },
-  required: ['pass', 'violations'],
+  required: ['pass', 'violations', 'advisories'],
 }
 let verifyPass = false
 let lastViolations = []
+let advisories = []
 for (let round = 1; round <= 3 && !verifyPass; round++) {
   const v = await agent(`INDEPENDENT convention verification round ${round} for converted ${MOD} in ${WT}. The tests were pipeline-authored — catch what they cannot. Verify EVERY converted file (${RUN}/plans/${MOD}.json) against ${RUN}/conventions.md:
 1. HARD INVARIANTS: every nameable TF resource uses uniqueResourceNamePrefix + *_name_prefix (never bare name); public readonly resource handles; sibling-shape (construct ids, outputs keys, PROPERTY_INJECTION_ID); marker interfaces.
@@ -248,13 +265,14 @@ for (let round = 1; round <= 3 && !verifyPass; round++) {
 5. No duplication of already-ported code; barrel collision-free.
 6. Integ leg: app + Go validator + Makefile target all exist per the plan's integChoice, app has its provenance header, and the naming triple (app filename == make target == Go Test name) holds.
 7. TARGET-TAG SURFACE: diff exported public members of converted files against the upstream ${TAG} .d.ts next to ${CFN} — flag any ADDITION not present in the target tag (deprecated members from older tags slip in) unless the plan explicitly sanctions it.
-Read actual files, snapshots, and git -C ${WT} diff — do not trust agent notes. Return pass, violations[] (precise + actionable), notes.`,
+Read actual files, snapshots, and git -C ${WT} diff — do not trust agent notes. SPLIT your findings: violations[] = BLOCKING rule breaches that must be fixed (invariant breaks, missing headers, tautologies, provider-invalid config); advisories[] = opinions/tensions per the project-intent preamble (design inconsistencies, sign-off items, DevX suggestions) — advisories do NOT fail the run and will NOT trigger a fix round; route human-judgment items there. pass = zero violations (advisories allowed). Return pass, violations, advisories, notes.`,
     { label: `verify:round-${round}`, phase: 'Verify', model: 'opus', schema: VERDICT_SCHEMA })
   if (!v) break
-  verifyPass = v.pass
+  verifyPass = v.pass && v.violations.length === 0
   lastViolations = v.violations
-  log(`Verify ${round}: ${v.pass ? 'PASS' : v.violations.length + ' violations'}`)
-  if (!v.pass && round < 3) {
+  advisories = v.advisories || []
+  log(`Verify ${round}: ${verifyPass ? 'PASS' : v.violations.length + ' blocking'} (+${(v.advisories || []).length} advisory)`)
+  if (!verifyPass && v.violations.length && round < 3) {
     await agent(`Fix these violations in ${WT} exactly as specified; then cd ${WT} && npx tsc --noEmit -p tsconfig.json && ${MISE} pnpm jest --coverage=false ${testTargets} (update snapshots only if emitted Terraform legitimately changed — inspect diff). No new violations.
 ${JSON.stringify(lastViolations, null, 2)}
 Rules: ${RUN}/conventions.md. Return written + notes.`,
@@ -285,4 +303,4 @@ Inputs: git -C ${WT} diff main (stat + full); upstream .d.ts next to ${CFN}; pla
 Produce apiGaps, invariantFindings (your OWN spot-check of the hardest files incl. snapshots), testCoverageNotes, pipelineIssues (for the next run), and attempt to write the full markdown report to ${RUN}/report-${MOD}.md (set reportWritten). Verdict: quality, PR-readiness, what a human must review first.`,
   { label: 'review:final', phase: 'Review', model: 'opus', schema: REVIEW_SCHEMA })
 
-return { module: MOD, mappings: finalEntries.length, compileClean, testsPass, verifyPass, unresolvedViolations: lastViolations.length, integ: { choice: plan.integChoice.upstream, synthOk: integSynthOk }, review }
+return { module: MOD, mappings: finalEntries.length, compileClean, testsPass, verifyPass, unresolvedViolations: lastViolations.length, advisories: advisories.length, integ: { choice: plan.integChoice.upstream, synthOk: integSynthOk }, review }
