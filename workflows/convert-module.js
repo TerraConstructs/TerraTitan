@@ -30,7 +30,7 @@ export const meta = {
   ],
 }
 
-const A = args || {}
+const A = typeof args === 'string' ? JSON.parse(args) : (args || {})
 for (const k of ['module', 'namespace', 'tag', 'worktree', 'upstreamLib', 'upstreamInteg', 'cfnDecls', 'runDir', 'providerPrefix']) {
   if (!A[k]) throw new Error('missing arg: ' + k)
 }
