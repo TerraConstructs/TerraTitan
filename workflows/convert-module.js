@@ -24,8 +24,8 @@ export const meta = {
     { title: 'Convert', detail: 'src conversion, dependency waves', model: 'sonnet' },
     { title: 'Compile', detail: 'tsc + jsii fix loop', model: 'sonnet' },
     { title: 'Test', detail: 'test conversion + fix loop', model: 'sonnet' },
-    { title: 'Verify', detail: 'independent convention verification', model: 'opus' },
     { title: 'Integ', detail: 'port integ app + Go validator + synth-only', model: 'sonnet' },
+    { title: 'Verify', detail: 'independent convention verification (after ALL legs land)', model: 'opus' },
     { title: 'Review', detail: 'API fidelity + final report', model: 'opus' },
   ],
 }
@@ -200,6 +200,32 @@ Return clean, remainingErrors, summary.`,
   log(`Test ${i}: ${fix.clean ? 'PASSING' : fix.remainingErrors + ' failures'}`)
 }
 
+// ---------- Integ ----------
+phase('Integ')
+const integPort = await agent(`Port one upstream integ test to the terraconstructs integ harness in ${WT}.
+Upstream: ${UPINTEG}/${plan.integChoice.upstream} (chosen: ${plan.integChoice.reason})
+${CTX}
+Deliverables:
+1. App ${WT}/${plan.integChoice.appTarget}: FIRST LINE header // https://github.com/aws/aws-cdk/blob/${TAG}/packages/@aws-cdk-testing/framework-integ/test/${MOD}/test/${plan.integChoice.upstream} + blank line. Mirror existing apps in ${WT}/integ/aws/${NS}/apps/ exactly (env vars, LocalBackend, relative src imports, outputs for the Go validator).
+2. Go validator in ${WT}/integ/aws/${NS}/: Test function + validate fn per existing patterns (filename==make-target==TestName triple); hand-mirror app literals as assertions; port validation intent from upstream integ comments as terratest checks.
+3. Makefile target "${plan.integChoice.makeTarget}" mirroring existing targets.
+Cheapest possible resources. Return written + notes.`,
+  { label: 'integ:port', phase: 'Integ', model: 'sonnet', schema: CONVERT_SCHEMA })
+let integSynthOk = false
+if (integPort) {
+  for (let i = 1; i <= 3 && !integSynthOk; i++) {
+    const fix = await agent(`Iteration ${i}/3 integ synth-fix loop.
+Run: cd ${WT} && ${MISE} pnpm compile ; then cd ${WT}/integ/aws/${NS} && ${MISE} make ${plan.integChoice.makeTarget}-synth-only (add SKIP_<extra-stage>=true for any non-standard stages).
+GO GATE (mandatory): cd ${WT} && ${MISE} go vet ./integ/... — the Go validator must vet clean.
+PROVIDER-VALIDATE GATE (mandatory — catches provider-schema violations jest cannot): cd ${WT}/integ/aws/${NS}/tf/${plan.integChoice.makeTarget} && ${MISE} tofu init -backend=false && ${MISE} tofu validate. A validate failure is a construct bug (empty required blocks, exactly-one-of violations, CFN sentinel values with no TF representation) — fix per conventions.md (ValidationError at construct time for unrepresentable semantics), never by hand-editing synthesized JSON.
+Fix app/Go/Makefile (or constructs only if the error genuinely originates there; invariants still apply). Inspect the synthesized cdk.tf.json: expected resources present with stack-scoped naming. Return clean (synth + tofu validate both pass), remainingErrors, summary.`,
+      { label: `integ:fix-${i}`, phase: 'Integ', model: 'sonnet', schema: FIX_SCHEMA })
+    if (!fix) break
+    integSynthOk = fix.clean
+    log(`Integ synth ${i}: ${fix.clean ? 'OK' : fix.summary.slice(0, 120)}`)
+  }
+}
+
 // ---------- Independent verify ----------
 phase('Verify')
 const VERDICT_SCHEMA = {
@@ -220,6 +246,8 @@ for (let round = 1; round <= 3 && !verifyPass; round++) {
 3. Test parity: spot-check 10+ names verbatim vs upstream; dropped tests must correspond to genuinely unported APIs (grep src before accepting); snapshot describes exist and .snap files contain name_prefix.
 4. Tautology hunt in tests.
 5. No duplication of already-ported code; barrel collision-free.
+6. Integ leg: app + Go validator + Makefile target all exist per the plan's integChoice, app has its provenance header, and the naming triple (app filename == make target == Go Test name) holds.
+7. TARGET-TAG SURFACE: diff exported public members of converted files against the upstream ${TAG} .d.ts next to ${CFN} — flag any ADDITION not present in the target tag (deprecated members from older tags slip in) unless the plan explicitly sanctions it.
 Read actual files, snapshots, and git -C ${WT} diff — do not trust agent notes. Return pass, violations[] (precise + actionable), notes.`,
     { label: `verify:round-${round}`, phase: 'Verify', model: 'opus', schema: VERDICT_SCHEMA })
   if (!v) break
@@ -234,30 +262,9 @@ Rules: ${RUN}/conventions.md. Return written + notes.`,
   }
 }
 
-// ---------- Integ ----------
-phase('Integ')
-const integPort = await agent(`Port one upstream integ test to the terraconstructs integ harness in ${WT}.
-Upstream: ${UPINTEG}/${plan.integChoice.upstream} (chosen: ${plan.integChoice.reason})
-${CTX}
-Deliverables:
-1. App ${WT}/${plan.integChoice.appTarget}: FIRST LINE header // https://github.com/aws/aws-cdk/blob/${TAG}/packages/@aws-cdk-testing/framework-integ/test/${MOD}/test/${plan.integChoice.upstream} + blank line. Mirror existing apps in ${WT}/integ/aws/${NS}/apps/ exactly (env vars, LocalBackend, relative src imports, outputs for the Go validator).
-2. Go validator in ${WT}/integ/aws/${NS}/: Test function + validate fn per existing patterns (filename==make-target==TestName triple); hand-mirror app literals as assertions; port validation intent from upstream integ comments as terratest checks.
-3. Makefile target "${plan.integChoice.makeTarget}" mirroring existing targets.
-Cheapest possible resources. Return written + notes.`,
-  { label: 'integ:port', phase: 'Integ', model: 'sonnet', schema: CONVERT_SCHEMA })
-let integSynthOk = false
-if (integPort) {
-  for (let i = 1; i <= 3 && !integSynthOk; i++) {
-    const fix = await agent(`Iteration ${i}/3 integ synth-fix loop.
-Run: cd ${WT} && ${MISE} pnpm compile ; then cd ${WT}/integ/aws/${NS} && ${MISE} make ${plan.integChoice.makeTarget}-synth-only (add SKIP_<extra-stage>=true for any non-standard stages).
-PROVIDER-VALIDATE GATE (mandatory — catches provider-schema violations jest cannot): cd ${WT}/integ/aws/${NS}/tf/${plan.integChoice.makeTarget} && ${MISE} tofu init -backend=false && ${MISE} tofu validate. A validate failure is a construct bug (empty required blocks, exactly-one-of violations, CFN sentinel values with no TF representation) — fix per conventions.md (ValidationError at construct time for unrepresentable semantics), never by hand-editing synthesized JSON.
-Fix app/Go/Makefile (or constructs only if the error genuinely originates there; invariants still apply). Inspect the synthesized cdk.tf.json: expected resources present with stack-scoped naming. Return clean (synth + tofu validate both pass), remainingErrors, summary.`,
-      { label: `integ:fix-${i}`, phase: 'Integ', model: 'sonnet', schema: FIX_SCHEMA })
-    if (!fix) break
-    integSynthOk = fix.clean
-    log(`Integ synth ${i}: ${fix.clean ? 'OK' : fix.summary.slice(0, 120)}`)
-  }
-}
+// mechanical: stage everything so review + downstream diffs see the full conversion
+await agent(`Mechanical step: cd ${WT} && git add -A && git status --short | head -40. Confirm every converted deliverable (src, test, snapshots, integ app, Go files, Makefile) is staged — nothing untracked. Return written=[] and notes=the status summary.`,
+  { label: 'stage:git-add', phase: 'Verify', model: 'sonnet', effort: 'low', schema: CONVERT_SCHEMA })
 
 // ---------- Review ----------
 phase('Review')
