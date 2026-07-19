@@ -183,7 +183,7 @@ const FIX_SCHEMA = {
 let compileClean = false
 for (let i = 1; i <= 6 && !compileClean; i++) {
   const fix = await agent(`Iteration ${i}/6 compile-fix loop in ${WT}.
-Run: cd ${WT} && npx tsc --noEmit -p tsconfig.json ; if clean also: ${MISE} pnpm compile (jsii, stricter).
+Run: cd ${WT} && npx tsc --noEmit -p tsconfig.json ; if clean also: ${MISE} pnpm compile (jsii, stricter) AND ${MISE} pnpm eslint (projen --fix pass — commit-ready formatting; CI's self-mutation gate reformats anything you leave dirty).
 Fix errors ONLY in newly converted files (targets in ${RUN}/plans/${MOD}.json + barrels) — adapt converted code to the codebase, never the reverse; never "fix" by removing invariants (name_prefix, public handles, marker interfaces).
 Converter notes: ${JSON.stringify(convertNotes.join(' | ')).slice(0, 2000)}
 Return clean (both pass), remainingErrors, summary.`,
@@ -224,6 +224,7 @@ Deliverables:
 1. App ${WT}/${plan.integChoice.appTarget}: FIRST LINE header // https://github.com/aws/aws-cdk/blob/${TAG}/packages/@aws-cdk-testing/framework-integ/test/${MOD}/test/${plan.integChoice.upstream} + blank line. Mirror existing apps in ${WT}/integ/aws/${NS}/apps/ exactly (env vars, LocalBackend, relative src imports, outputs for the Go validator).
 2. Go validator in ${WT}/integ/aws/${NS}/: Test function + validate fn per existing patterns (filename==make-target==TestName triple); hand-mirror app literals as assertions; port validation intent from upstream integ comments as terratest checks.
 3. Makefile target "${plan.integChoice.makeTarget}" mirroring existing targets.
+4. Go deps: add ONLY what the validator needs (targeted go get, then go mod tidy); if tidy bumps shared transitives (aws-sdk-go-v2 core, smithy-go), note the bumps prominently — they perturb every integ suite and reviewers must see them.
 Cheapest possible resources. Return written + notes.`,
   { label: 'integ:port', phase: 'Integ', model: 'sonnet', schema: CONVERT_SCHEMA })
 let integSynthOk = false
@@ -259,7 +260,7 @@ let advisories = []
 for (let round = 1; round <= 3 && !verifyPass; round++) {
   const v = await agent(`INDEPENDENT convention verification round ${round} for converted ${MOD} in ${WT}. The tests were pipeline-authored — catch what they cannot. Verify EVERY converted file (${RUN}/plans/${MOD}.json) against ${RUN}/conventions.md:
 1. HARD INVARIANTS: every nameable TF resource uses uniqueResourceNamePrefix + *_name_prefix (never bare name); public readonly resource handles; sibling-shape (construct ids, outputs keys, PROPERTY_INJECTION_ID); marker interfaces.
-2. Provenance headers: FIRST LINE, exact format, ${TAG}.
+2. Provenance headers: FIRST LINE, exact format, ${TAG}. PROPERTY_INJECTION_ID shape: terraconstructs.aws.<ns>[.<submodule>].<Class> — verify the submodule segment against the actual file path and a real sibling's id.
 3. Test parity: spot-check 10+ names verbatim vs upstream; dropped tests must correspond to genuinely unported APIs (grep src before accepting); snapshot describes exist and .snap files contain name_prefix.
 4. Tautology hunt in tests.
 5. No duplication of already-ported code; barrel collision-free.
