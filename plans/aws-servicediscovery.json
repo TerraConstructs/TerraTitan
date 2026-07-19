@@ -1,0 +1,116 @@
+{
+  "cfnResources": [
+    { "name": "CfnHttpNamespace", "usedIn": ["http-namespace.ts"] },
+    { "name": "CfnInstance", "usedIn": ["alias-target-instance.ts", "cname-instance.ts", "ip-instance.ts", "non-ip-instance.ts"] },
+    { "name": "CfnPrivateDnsNamespace", "usedIn": ["private-dns-namespace.ts"] },
+    { "name": "CfnPublicDnsNamespace", "usedIn": ["public-dns-namespace.ts"] },
+    { "name": "CfnService", "usedIn": ["service.ts"] }
+  ],
+  "srcFiles": [
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/lib/namespace.ts",
+      "target": "src/aws/edge/cloudmap/namespace.ts",
+      "order": 1,
+      "siblings": ["src/aws/edge/dns-zone.ts", "src/aws/notify/topic.ts"],
+      "notes": "copyMode:true (PURE_L2 — only interfaces INamespace/BaseNamespaceProps + enum NamespaceType, no resource). Adjust: `IResource`->`IAwsConstruct` imported from \"../../\" (aws-construct); add v2.233.0 provenance header. INamespace extends IAwsConstruct. NOTE +1 relative-path depth vs edge/ siblings because this lives in the cloudmap/ subdir (edge/dns-zone uses \"../\"; here use \"../../\")."
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/lib/service.ts",
+      "target": "src/aws/edge/cloudmap/service.ts",
+      "order": 2,
+      "siblings": ["src/aws/edge/dns-zone.ts", "src/aws/notify/topic.ts", "src/aws/edge/cloudmap/instance.ts", "src/aws/edge/cloudmap/ip-instance.ts"],
+      "notes": "L1_BACKED CfnService -> serviceDiscoveryService.ServiceDiscoveryService (import { serviceDiscoveryService } from \"@cdktn/provider-aws\"). ServiceBase/Service extend AwsConstructBase; props extend AwsConstructProps. HARD INVARIANT #1: provider `name` is REQUIRED and there is NO name_prefix on this resource, while CDK `name` is optional (CFN-generated) -> default `props.name ?? this.stack.uniqueResourceName(this)` (exact form; flag maxLength to CloudMap service-name limit). Map dnsConfig -> { namespaceId, routingPolicy, dnsRecords: [{ ttl, type }] }; healthCheckConfig -> { type, resourcePath, failureThreshold }; healthCheckCustomConfig -> { failureThreshold }. type='HTTP' when discoveryType===API (dnsConfig omitted). Keep enums DnsRecordType/RoutingPolicy/HealthCheckType/DiscoveryType and interfaces HealthCheckConfig/HealthCheckCustomConfig/BaseServiceProps/DnsServiceProps/ServiceProps/ServiceAttributes + static fromServiceAttributes + register* methods. elbv2: `import * as elbv2 from \"../../compute\"` (ILoadBalancerV2, loadBalancer.loadBalancerDnsName) for registerLoadBalancer -> AliasTargetInstance. INVARIANT #2: expose `public readonly resource: serviceDiscoveryService.ServiceDiscoveryService`. Add `get outputs()` returning { serviceArn, serviceName, serviceId } (Topic-style; abstract getter from AwsConstructBase). PROPERTY_INJECTION_ID e.g. \"terraconstructs.aws.edge.Service\". ValidationError from \"../../../errors\". CIRCULAR with the order-4 instance subclasses (register* instantiate AliasTargetInstance/IpInstance/CnameInstance/NonIpInstance while they type-import IService/DnsRecordType from here) — co-read them. cdktn has NO `Names` export (see layoutNotes)."
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/lib/instance.ts",
+      "target": "src/aws/edge/cloudmap/instance.ts",
+      "order": 3,
+      "siblings": ["src/aws/edge/cloudmap/service.ts", "src/aws/notify/topic.ts"],
+      "notes": "PURE_L2 base/interfaces (IInstance, BaseInstanceProps, abstract InstanceBase). Adjust: InstanceBase extends AwsConstructBase (was Resource); IInstance extends IAwsConstruct (was IResource). uniqueInstanceId(): cdktn does NOT export `Names` — replace `Names.uniqueId(this)` with `this.stack.uniqueResourceName(this, { maxLength: 64 })` (or node.addr) keeping the last-64-chars trim; converter verify helper signature. Leave `get outputs()` abstract for subclasses. +1 path depth (\"../../\"). v2.233.0 header."
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/lib/private/utils.ts",
+      "target": "src/aws/edge/cloudmap/private/utils.ts",
+      "order": 3,
+      "siblings": ["src/aws/edge/cloudmap/namespace.ts", "src/aws/edge/cloudmap/service.ts"],
+      "notes": "copyMode:true (PURE_L2 pure function defaultDiscoveryType). Import-path adjustments only (from './namespace', './service' — sibling paths unchanged within cloudmap/). NO provenance header (private/* exception). Does not import instance.ts — safe same-order as instance.ts."
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/lib/alias-target-instance.ts",
+      "target": "src/aws/edge/cloudmap/alias-target-instance.ts",
+      "order": 4,
+      "siblings": ["src/aws/edge/cloudmap/instance.ts", "src/aws/edge/cloudmap/service.ts", "src/aws/notify/topic.ts"],
+      "notes": "L1_BACKED CfnInstance -> serviceDiscoveryInstance.ServiceDiscoveryInstance. Provider config prop is `attributes` (NOT instanceAttributes): { AWS_ALIAS_DNS_NAME: props.dnsName, ...customAttributes }. instanceId (default via stack helper, see layoutNotes — Names.uniqueId unavailable), serviceId. instanceId attr from resource.id. INVARIANT #2: expose `public readonly resource`. `get outputs()` -> { instanceId }. Keep HTTP-namespace + record-type + WEIGHTED-routing validations. Does not import the other order-4 subclasses."
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/lib/cname-instance.ts",
+      "target": "src/aws/edge/cloudmap/cname-instance.ts",
+      "order": 4,
+      "siblings": ["src/aws/edge/cloudmap/instance.ts", "src/aws/edge/cloudmap/service.ts", "src/aws/edge/cloudmap/namespace.ts"],
+      "notes": "L1_BACKED CfnInstance -> serviceDiscoveryInstance.ServiceDiscoveryInstance. attributes: { AWS_INSTANCE_CNAME: props.instanceCname, ...customAttributes }. instanceId default via stack helper. Expose resource; outputs { instanceId }. Keep DNS-namespace + CNAME-record validations."
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/lib/ip-instance.ts",
+      "target": "src/aws/edge/cloudmap/ip-instance.ts",
+      "order": 4,
+      "siblings": ["src/aws/edge/cloudmap/instance.ts", "src/aws/edge/cloudmap/service.ts"],
+      "notes": "L1_BACKED CfnInstance -> serviceDiscoveryInstance.ServiceDiscoveryInstance. attributes: { AWS_INSTANCE_IPV4, AWS_INSTANCE_IPV6, AWS_INSTANCE_PORT: port.toString(), ...customAttributes } (omit undefined ipv4/ipv6). instanceId default via stack helper. Expose resource; outputs { instanceId }. Keep A/AAAA/SRV/port validations."
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/lib/non-ip-instance.ts",
+      "target": "src/aws/edge/cloudmap/non-ip-instance.ts",
+      "order": 4,
+      "siblings": ["src/aws/edge/cloudmap/instance.ts", "src/aws/edge/cloudmap/service.ts", "src/aws/edge/cloudmap/private/utils.ts"],
+      "notes": "L1_BACKED CfnInstance -> serviceDiscoveryInstance.ServiceDiscoveryInstance. attributes: { ...customAttributes } only. instanceId default via stack helper. Expose resource; outputs { instanceId }. Keep DiscoveryType.API-only + non-empty-customAttributes validations."
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/lib/http-namespace.ts",
+      "target": "src/aws/edge/cloudmap/http-namespace.ts",
+      "order": 5,
+      "siblings": ["src/aws/edge/cloudmap/namespace.ts", "src/aws/edge/cloudmap/service.ts", "src/aws/edge/dns-zone.ts"],
+      "notes": "L1_BACKED CfnHttpNamespace -> serviceDiscoveryHttpNamespace.ServiceDiscoveryHttpNamespace (config: name, description). extends AwsConstructBase implements IHttpNamespace. attrs: arn, id (NO hostedZone). Namespace `name` is a user-REQUIRED exact identifier -> honor props.name verbatim (mirror dns-zone zoneName passthrough; see layoutNotes invariant-#1 note). INVARIANT #2 expose resource. outputs { namespaceArn, namespaceName, namespaceId }. Keep fromHttpNamespaceAttributes + createService(BaseServiceProps) + PROPERTY_INJECTION_ID + @attribute getters. Does not import the other order-5 namespaces."
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/lib/public-dns-namespace.ts",
+      "target": "src/aws/edge/cloudmap/public-dns-namespace.ts",
+      "order": 5,
+      "siblings": ["src/aws/edge/cloudmap/namespace.ts", "src/aws/edge/cloudmap/service.ts", "src/aws/edge/dns-zone.ts"],
+      "notes": "L1_BACKED CfnPublicDnsNamespace -> serviceDiscoveryPublicDnsNamespace.ServiceDiscoveryPublicDnsNamespace (config: name, description). attrs: arn, id, hostedZone -> namespaceHostedZoneId. Name is the required public DNS domain -> honor props.name verbatim. Expose resource. outputs { namespaceArn, namespaceName, namespaceId, namespaceHostedZoneId }. Keep fromPublicDnsNamespaceAttributes + createService(DnsServiceProps) + PROPERTY_INJECTION_ID + @attribute getters."
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/lib/private-dns-namespace.ts",
+      "target": "src/aws/edge/cloudmap/private-dns-namespace.ts",
+      "order": 5,
+      "siblings": ["src/aws/edge/cloudmap/namespace.ts", "src/aws/edge/cloudmap/service.ts", "src/aws/edge/dns-zone.ts"],
+      "notes": "L1_BACKED CfnPrivateDnsNamespace -> serviceDiscoveryPrivateDnsNamespace.ServiceDiscoveryPrivateDnsNamespace (config: name, description, vpc: string). DO NOT compose edge/dns-zone.ts — the provider resource creates the Route53 private zone itself. ec2: `import * as ec2 from \"../../compute\"`; props.vpc: ec2.IVpc -> config vpc: props.vpc.vpcId. Keep the `vpc must be specified` ValidationError. attrs: arn, id, hostedZone -> namespaceHostedZoneId. Name is the required private DNS domain -> honor props.name verbatim. Expose resource. outputs { namespaceArn, namespaceName, namespaceId, namespaceHostedZoneId }. Keep fromPrivateDnsNamespaceAttributes + createService(DnsServiceProps) + PROPERTY_INJECTION_ID + @attribute getters."
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/lib/index.ts",
+      "target": "src/aws/edge/cloudmap/index.ts",
+      "order": 6,
+      "siblings": ["src/aws/edge/index.ts", "src/aws/notify/index.ts"],
+      "notes": "BARREL (no provenance header). Create cloudmap/index.ts re-exporting the 10 non-barrel modules: instance, alias-target-instance, cname-instance, ip-instance, non-ip-instance, namespace, http-namespace, private-dns-namespace, public-dns-namespace, service. DO NOT export './servicediscovery.generated' (that is the CFN L1; TF provider resources are used instead). ALSO wire the parent barrel: edit src/aws/edge/index.ts to add `export * as cloudmap from \"./cloudmap\";` (namespaced re-export — compute/notify precedent). Consumers reference edge.cloudmap.*."
+    }
+  ],
+  "testFiles": [
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/test/namespace.test.ts",
+      "target": "test/aws/edge/cloudmap/namespace.test.ts"
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/test/service.test.ts",
+      "target": "test/aws/edge/cloudmap/service.test.ts"
+    },
+    {
+      "upstream": "packages/aws-cdk-lib/aws-servicediscovery/test/instance.test.ts",
+      "target": "test/aws/edge/cloudmap/instance.test.ts"
+    }
+  ],
+  "integChoice": {
+    "upstream": "packages/@aws-cdk-testing/framework-integ/test/aws-servicediscovery/test/integ.service-with-public-dns-namespace.lit.ts",
+    "appTarget": "integ/aws/edge/apps/service-with-public-dns-namespace.ts",
+    "makeTarget": "service-with-public-dns-namespace",
+    "reason": "Cheapest integ exercising the module's core resources (Namespace + Service + Instance) with minimal counts: one PublicDnsNamespace, one Service (A record, dnsTtl, HTTPS health check), one IpInstance — the canonical instance type. No VPC and no ELB/ALB (unlike the private-dns integ, which drags in a full VPC + ApplicationLoadBalancer). Unambiguously provider-valid: health_check_config is only valid on public DNS namespaces, so no tofu-validate risk (the http-namespace integ attaches a health check to an HTTP-namespace service and adds a 2nd service + NonIpInstance, more resources and a riskier shape). Exercises DnsConfig + HealthCheckConfig + IpInstance in one small stack."
+  },
+  "layoutNotes": "NAMESPACE: edge is validated and kept — no filename or exported-class collisions exist against the current edge barrel (certificate-base, certificate, distribution, dns-alias-record-targets, dns-record, dns-zone, function, key-value-store, origin, response-headers-policy). DIRECTORY + EXPORT STRATEGY: place all 11 CloudMap files in a `cloudmap` SUBDIRECTORY (src/aws/edge/cloudmap/, with private/utils.ts) and wire it via a namespaced re-export `export * as cloudmap from \"./cloudmap\";` in src/aws/edge/index.ts — the established compute/notify submodule pattern (conventions.md). Reason: upstream filenames service.ts / instance.ts / namespace.ts are extremely generic and would pollute the flat edge/ dir and invite future collisions; the subdir isolates them, keeps upstream filenames verbatim, and namespaces the API as edge.cloudmap.Service / edge.cloudmap.PublicDnsNamespace / etc. (No collision forces a rename; the subdir is a hygiene choice.) COLLISION RESOLUTION: none required. ALREADY-PORTED REUSE: compute.IVpc (src/aws/compute/vpc.ts) for PrivateDnsNamespace and compute.ILoadBalancerV2 + loadBalancerDnsName (src/aws/compute/lb-shared/base-load-balancer.ts) for Service.registerLoadBalancer — import `from \"../../compute\"`. Base classes AwsConstructBase / AwsConstructProps / AwsStack / IAwsConstruct from \"../../\"; ValidationError from \"../../../errors\". CRITICAL PATH-DEPTH NOTE: because cloudmap/ is one level deeper than the edge/ exemplars, every cross-cutting import gains one `../` vs dns-zone.ts/topic.ts (dns-zone: \"../\", \"../compute\", \"../../errors\"  ->  cloudmap: \"../../\", \"../../compute\", \"../../../errors\"). DO NOT reuse edge/dns-zone.ts for PrivateDnsNamespace: the provider has a first-class aws_service_discovery_private_dns_namespace that creates the Route53 private zone internally — no route53 composition. PROVIDER MAPPING (cdktn dirs are service-discovery-*): CfnHttpNamespace->serviceDiscoveryHttpNamespace.ServiceDiscoveryHttpNamespace, CfnPublicDnsNamespace->serviceDiscoveryPublicDnsNamespace.ServiceDiscoveryPublicDnsNamespace, CfnPrivateDnsNamespace->serviceDiscoveryPrivateDnsNamespace.ServiceDiscoveryPrivateDnsNamespace, CfnService->serviceDiscoveryService.ServiceDiscoveryService, CfnInstance->serviceDiscoveryInstance.ServiceDiscoveryInstance. Provider instance config uses `attributes` (not CFN's instanceAttributes). Data sources data-aws-service-discovery-{service,http-namespace,dns-namespace} exist but are NOT needed — keep upstream's attribute-based fromXxxAttributes static factories. `Names` UTILITY: cdktn does NOT export `Names` (verified) — the repo has no Names helper either; replace upstream `Names.uniqueId(this)` (instance.ts uniqueInstanceId, alias-target-instance.ts) with `this.stack.uniqueResourceName(this, { maxLength: 64 })` (or node.addr), preserving the trim-to-64 behavior; converters verify the helper signature against topic.ts. PHYSICAL NAMING (INVARIANT #1): aws_service_discovery_service.name is REQUIRED with NO name_prefix while CDK Service name is optional -> default `props.name ?? this.stack.uniqueResourceName(this)` (exact form). By contrast the three namespace `name`s are user-REQUIRED exact identifiers/DNS domains (foobar.com) and MUST pass through verbatim (mirrors dns-zone.ts zoneName passthrough) — this is the semantically-exact case, not the collision-prone generated-name case; document the tension inline. CIRCULAR DEPENDENCY: service.ts <-> the four instance subclasses (Service.register* instantiate them; they type-import IService/DnsRecordType/RoutingPolicy/DiscoveryType from service.ts). Ordering puts service (order 2) before the subclasses (order 4); converters must co-read the cycle. CONVERSION ORDER (leaves first; same-order files never import each other): 1 namespace; 2 service; 3 instance + private/utils (independent of each other); 4 the four instance subclasses (independent of each other); 5 the three concrete namespaces (independent of each other); 6 barrels. BARREL WIRING ASSIGNMENT: the order-6 index.ts converter owns BOTH cloudmap/index.ts (re-export the 10 modules, exclude servicediscovery.generated) AND the edit to edge/index.ts adding the `export * as cloudmap` line. CANNED METRICS: none — no *-canned-metrics.generated.js in the built aws-cdk-lib bundle and the L2 exposes no metricXxx() methods, so gen-canned-metrics.mjs is NOT run. TESTS live under test/aws/edge/cloudmap/ (namespace/service/instance .test.ts); the 4 integ.*.lit.ts files in upstream test/ are integ snapshots, not jest units — excluded from testFiles. All src/test files get the mandatory v2.233.0 provenance header (barrels + private/* + generated excepted)."
+}
