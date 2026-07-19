@@ -49,7 +49,7 @@ Shared context (read BEFORE writing anything):
 - Layout plan: ${RUN}/plans/${MOD}.json  |  Mapping manifest: ${RUN}/mappings/${MOD}.json
 - Sibling exemplars: ${WT}/src/aws/notify/queue.ts (naming/physicalName), topic.ts (outputs shape,
   PROPERTY_INJECTION_ID), plus the closest constructs in src/aws/${NS}/ (read the barrel first).
-Do not modify anything outside ${WT} except files under ${RUN}.`
+Do not modify anything outside ${WT} except files under ${RUN}.${A.integrityNote ? '\n' + A.integrityNote : ''}`
 
 // ---------- Plan ----------
 phase('Plan')
