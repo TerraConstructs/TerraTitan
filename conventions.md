@@ -124,6 +124,14 @@ composition patterns (established by base PR #117, commit 2ced2b2):
   — document the deviation in a comment referencing the missing provider capability.
 - **Test-only L1 adapters**: helper adapters for not-yet-ported modules used by integ apps live under
   `integ/`, never in `src/`.
+- **Interaction protocols need explicit design (run-3 lesson).** When the composition spans multiple
+  constructs (attach()-style APIs), the Plan phase MUST write the protocol into the plan: which
+  construct creates which TF resource, when (constructor vs prepare-time), and how late contributions
+  merge. The protocol MUST preserve upstream's primary usage pattern — e.g. `new Secret().attach(db)`
+  works on an OWNED secret upstream; a design that only supports the inverted case (imported-only)
+  is a defect, not a Terraform deviation. Opus verifies the protocol against upstream's main-path
+  tests BEFORE conversion starts, and never accept a path that silently drops user data (run 3's
+  imported-attach wrote connection fields OVER the credential).
 
 ## Correctness rules mined from external review (PR #117 review, sakul-learning)
 
