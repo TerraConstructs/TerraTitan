@@ -1,7 +1,23 @@
 # TerraConstructs conversion conventions (AWS CDK L2 → terraconstructs/base)
 
-Target library: `terraconstructs` (repo worktree: /Users/vincentsmet/tcons/base-sample).
-It ports the AWS CDK L2 developer experience onto Terraform via **CDKTN** (community fork of CDKTF).
+Target library: `terraconstructs`. It ports the AWS CDK L2 developer experience onto Terraform via
+**CDKTN** (community fork of CDKTF).
+
+## Project intent — read this before applying any rule below
+
+TerraConstructs exists to make developers' lives easier without requiring them to be AWS service-API
+experts: it ports the DevX the AWS CDK team built over 7 years (typed props, enums instead of magic
+strings, validations, intent-focused methods) onto Terraform. The project is EARLY STAGE with no
+declared stable API. Consequences for how agents apply these rules:
+
+- **Faithfulness to AWS CDK is the default** wherever the Terraform model allows, because it lets
+  the library track upstream changes mechanically. Deviations need a Terraform-model reason,
+  documented inline.
+- **Verifiers (opus): be lenient but opinionated.** Many rules below are "it depends" — when a rule
+  and the project intent pull apart, flag the tension with your own reasoned recommendation instead
+  of failing the run. Final design calls are made by humans reviewing DevX in the PR.
+- **Rules are written for readers without prior context** — if a rule seems ambiguous, prefer the
+  interpretation that maximizes developer experience and upstream trackability.
 
 ## Imports — critical
 
@@ -161,25 +177,37 @@ code is expected to MATCH them, e.g. zero-duration rotation → synth-time Valid
 
 ## HARD REPO INVARIANTS (run-1 regressions — violating ANY of these fails the conversion)
 
-1. **Stack-scoped physical naming.** Every physical name MUST come from one of the two stack
-   helpers (both render the stack-rooted construct path, so both carry the gridUUID scoping).
-   FORBIDDEN: bare literals or unscoped user-prop passthrough (`name: props.xName` alone) — the
-   run-1 critical regression. The two sanctioned forms (measured on main: 54 vs 8 call sites):
-   - **Exact-name form (majority — topic.ts, kinesis-stream.ts, log-group.ts, alarm.ts, ...):**
-     `name: props.<x>Name ?? this.stack.uniqueResourceName(this)` — deterministic full name,
-     user-supplied name honored verbatim.
-   - **Prefix form (queue.ts, bucket.ts, role.ts, function.ts, state-machine.ts):**
+1. **Stack-scoped physical naming (hybrid model — the target design).** Physical names must never
+   be a bare literal or an unscoped passthrough of a user prop (`name: props.xName` alone was the
+   run-1 critical regression: names collide when the same stack deploys twice into one AWS
+   environment = account+region). Names come from the stack helpers, which render the stack-rooted
+   construct path and therefore carry the deploy-isolating gridUUID.
+
+   **The ideal L2 surface, where the Terraform resource supports both `name` and `name_prefix`:**
+   - `props.<x>Name` = the user wants EXACT control of the name (discouraged, CDK-style: risks
+     cross-deploy conflicts; honor it verbatim via the TF `name` attribute).
+   - `props.<x>NamePrefix` = the user wants to control only the prefix (TF `name_prefix`; provider
+     appends a random suffix — create-before-destroy safe, multiple stacks coexist).
+   - BOTH provided → throw `ValidationError` at construct time (the provider would reject it anyway).
+   - NEITHER provided → default to the prefix form:
      ```ts
      namePrefix = this.stack.uniqueResourceNamePrefix(this, {
-       prefix: namePrefix ?? this.gridUUID + "-",
+       prefix: this.gridUUID + "-",
        allowedSpecialCharacters: "_-",
-       maxLength: 80,   // the service's real name-length limit
+       maxLength: 80,   // use the service's real name-length limit
      });
-     this.physicalName = namePrefix;   // → Terraform *_name_prefix attribute
+     this.physicalName = namePrefix;
      ```
-     Provider appends a random suffix (create-before-destroy safe); even user names get suffixed.
-   Choose by mirroring the closest sibling; no precedent → prefer prefix form if the TF resource
-   supports `name_prefix` AND replacement churn is likely, else exact-name. Record the choice in notes.
+   If the TF resource supports only `name`, fall back to
+   `props.<x>Name ?? this.stack.uniqueResourceName(this)` (exact form).
+
+   **Caveats (why this is nuanced and resource-specific):** prefix-form names are less predictable,
+   and a stack rename/re-nesting changes the generated name → Terraform REPLACES the resource. For
+   stateful resources (RDS, DynamoDB, ...) that replacement is destructive and terrible UX — flag
+   such resources in notes so humans can weigh escape hatches (terraform `import`/`moved` blocks,
+   explicit `name` override). The existing corpus is NOT consistent (54 exact-only vs 8 prefix-only
+   call sites; few if any hybrid) — the hybrid model is the target, not the current state; mirror
+   siblings where they exist and flag where the sibling itself falls short of the hybrid ideal.
 2. **Public L1 handle.** Expose the underlying provider resource as `public readonly resource: <l1>.<Type>`
    (downstream constructs read it) — never private.
 3. **Sibling shape over raw upstream.** Before converting any construct, read the closest sibling in the
@@ -189,7 +217,13 @@ code is expected to MATCH them, e.g. zero-duration rotation → synth-time Valid
    `public static readonly PROPERTY_INJECTION_ID` if siblings carry it.
 4. **Marker interfaces.** Preserve capability interfaces the sibling pattern declares
    (`iam.IAwsConstructWithPolicy`, `iam.IEncryptedResource`, ...) — don't re-declare members inline.
-5. **Tests are not the oracle.** Repo invariants are verified by an independent phase against these
+5. **Public API types: mirror when upstream mirrors.** If upstream AWS CDK exposes a hand-written
+   interface for a prop, port that interface (the typed props/enums/validations ARE the product —
+   they save developers from researching raw service APIs). If upstream itself exposes a raw
+   `Cfn*` generated type on the L2 surface, exposing the equivalent `@cdktn/provider-aws` generated
+   type is acceptable (same prior); a hand-written mirror is only worth it when it adds real DevX
+   (enums for string unions, range validation) — note the option, don't block on it.
+6. **Tests are not the oracle.** Repo invariants are verified by an independent phase against these
    rules and sibling files — never solely by tests the pipeline itself wrote. Fix-loop agents must
    re-derive expected values from documented behavior; never converge an assertion to x===x and never
    remove `stack.resolve(...)` from only one side of an equality.
@@ -225,10 +259,14 @@ code is expected to MATCH them, e.g. zero-duration rotation → synth-time Valid
 
 ## Generated companion files (codegen, never LLM-converted)
 
-- `<service>-canned-metrics.generated.ts`: copied verbatim from aws-cdk-lib's own build output (these
-  are intermediate build artifacts NOT in the aws-cdk git repo — recover them from the compiled npm
-  bundle's `.generated.d.ts`/js or an existing recovery). Keep the `/* eslint-disable prettier/prettier,max-len */`
-  first line, no GitHub header. Imported directly by the resource file exposing `metricXxx()`.
+- `<service>-canned-metrics.generated.ts`: NEVER LLM-converted — these are aws-cdk build-time
+  codegen, absent from the aws-cdk git tree and present only in the published npm bundle. Generate
+  deterministically with `tools/gen-canned-metrics.mjs <built-aws-cdk-lib-module-lib-dir> <out.ts>`
+  (claude-native branch). Keep the `/* eslint-disable prettier/prettier,max-len */` first line, no
+  GitHub header. Import directly from the resource file exposing `metricXxx()` methods; if the L2
+  has no metric methods (e.g. aws-autoscaling), the file still gets generated for convention parity
+  but stays unimported. The Plan phase must check the BUILT bundle for this file — checking the git
+  checkout will always miss it.
 - `*-augmentations.generated.ts` (side-effect import in `index.ts`) and `*-grants.generated.ts`
   (imported by the base class) exist only for older ports (sqs/sns/ec2/lambda). Current best practice
   (DynamoDB, the golden exemplar): hand-written, individually-headed grant helper files

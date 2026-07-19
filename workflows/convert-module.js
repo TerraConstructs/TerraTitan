@@ -34,6 +34,7 @@ const A = typeof args === 'string' ? JSON.parse(args) : (args || {})
 for (const k of ['module', 'namespace', 'tag', 'worktree', 'upstreamLib', 'upstreamInteg', 'cfnDecls', 'runDir', 'providerPrefix']) {
   if (!A[k]) throw new Error('missing arg: ' + k)
 }
+const TOOLS = A.toolsDir || '/Users/vincentsmet/tcons/terratitan-claude-native/tools'
 const WT = A.worktree, UP = A.upstreamLib, UPINTEG = A.upstreamInteg, RUN = A.runDir
 const CFN = A.cfnDecls, TAG = A.tag, MOD = A.module, NS = A.namespace
 const PROVIDER = WT + '/node_modules/@cdktn/provider-aws/lib'
@@ -68,6 +69,15 @@ const PLAN_SCHEMA = {
 const plan = await agent(`Plan the conversion of AWS CDK ${MOD} (${TAG}) into the terraconstructs "${NS}" namespace. Converters follow your plan verbatim.
 ${CTX}
 (The plan file and mapping manifest do not exist yet — YOU produce the plan.)
+0. FIRST run the deterministic scanner and treat its JSON as the authoritative inventory:
+   node ${TOOLS}/cfn-scan.mjs ${UP}/lib --ts ${WT}
+   It gives you: cfnResources (the mapping work-list), per-file classification (L1_BACKED needs
+   real conversion; PURE_L2 composes only other L2s — mark those files copyMode:true in their notes
+   so converters copy near-verbatim, adjusting imports/headers only; BARREL), dependency waves
+   (refine, don't recompute), and crossModuleDeps. Only investigate beyond the scan where it is
+   ambiguous. Also check ${CFN} for a *-canned-metrics.generated.js — if present, note in
+   layoutNotes that ${TOOLS}/gen-canned-metrics.mjs must generate the .ts (deterministic codegen,
+   NOT an LLM conversion; these files ship only in the built npm bundle, never in the aws-cdk git tree).
 1. Inventory ${UP}/lib and ${UP}/test. Per lib file, identify Cfn* L1 constructs (ground truth: ${CFN}).
 2. LAYOUT: check src/aws/${NS}/ for filename AND exported-class-name collisions with existing files. Repo precedent for collisions: subdirectories with namespaced re-exports ("export * as <ns>" in the barrel — see compute/index.ts, notify/index.ts). Identify anything ALREADY ported that this module must import rather than duplicate. Produce a jsii-safe, collision-free layout.
 3. Assign each lib file a target path + conversion order (leaves first; same-order files must not import each other) + sibling files each converter should read.
@@ -141,6 +151,12 @@ Requirements (ALL mandatory):
   if (results.filter(Boolean).length < wave.length) return { failed: `convert-wave-${ord}` }
   log(`Wave ${ord}: ${wave.map(f => f.upstream).join(', ')}`)
 }
+
+// deterministic codegen step: canned metrics (if the service has them)
+await agent(`Mechanical step, no creativity: check for canned metrics. Run: ls ${CFN} | grep canned-metrics. If a *-canned-metrics.generated.js exists, run:
+node ${TOOLS}/gen-canned-metrics.mjs ${CFN} ${WT}/<target-dir-per-plan>/<service>-canned-metrics.generated.ts
+(target dir = the plan's layout dir in ${RUN}/plans/${MOD}.json; service prefix = the js filename's). Verify the output compiles: cd ${WT} && npx tsc --noEmit -p tsconfig.json. If the module's L2 files expose metricXxx() methods, wire imports per conventions; otherwise leave it standalone. If no canned-metrics file exists, do nothing. Return written (may be empty) and notes.`,
+  { label: 'convert:canned-metrics', phase: 'Convert', model: 'sonnet', effort: 'low', schema: CONVERT_SCHEMA })
 
 // ---------- Compile loop ----------
 phase('Compile')
