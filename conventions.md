@@ -31,8 +31,38 @@ declared stable API. Consequences for how agents apply these rules:
 
 - Where AWS CDK extends `Resource`, extend `AwsConstructBase` (from `src/aws/aws-construct.ts`).
 - Constructor props interfaces extend `AwsConstructProps`.
-- Implement the abstract `get outputs(): Record<string, any>` getter exposing the primitive attributes
-  of the construct interface (see `registerOutputs`/`outputName` patterns in existing constructs).
+- **Outputs getter (templated rule — `outputs` is a terratest-observability hook, NOT a public API surface).**
+  Implement the abstract `get outputs(): Record<string, any>` as a plain string-indexed object projecting the
+  construct's already-typed public attributes down to primitives for `registerOutputs` (emitted as ONE
+  `TerraformOutput` named `${outputName}`, read back by Go via `util.LoadOutputAttribute(stack, outputName, key)`).
+  - **OVERRIDES `sibling-shape`.** Most of the existing corpus (~75 constructs) uses a legacy typed-interface +
+    prefixed-key style; that is grandfathered tech-debt (tracked in terraconstructs/base#122). Do NOT mirror it —
+    for the outputs getter, follow this rule, not the closest sibling.
+  - **No new `XxxOutputs` interface.** The typed public/jsii contract already lives on `IXxx` + `fromAttributes`
+    (the AWS CDK mirror). A parallel `XxxOutputs` interface duplicates it — it was a vestige of the deprecated
+    output-registry / IoC-composition model and MUST NOT be reproduced in newly converted modules.
+  - **Bare keys.** The map is already namespaced by `outputName`, so keys are bare: `arn`, `name`, `id`, `url`,
+    `hostedZoneId` — NOT entity/class-prefixed (`queueArn`, `namespaceArn`, `privateDnsNamespaceArn`). This
+    diverges deliberately from the AWS CDK attribute *getter* names. The construct's public attribute getters
+    (`queueArn`, `namespaceArn`, `privateDnsNamespaceArn`, …) still mirror AWS CDK verbatim and are UNTOUCHED —
+    only the outputs MAP keys are bare.
+  - **Omit inapplicable attributes.** If an attribute is genuinely unavailable in an instantiation (e.g.
+    `namespaceHostedZoneId` on an imported namespace), OMIT the key — never emit a `""` sentinel. A missing key
+    reads honestly as "unavailable"; `""` reads as fake data.
+  - **cdktn null-token risk:** never place `null`/`undefined`/Terraform `null` as a *value* in the map — cdktn
+    mis-serializes null tokens (observed bug). Omitting the key sidesteps this entirely. The only null that
+    legitimately reaches Terraform is the top-level `this.outputs || null` fallback when a construct has no outputs.
+  ```ts
+  public get outputs(): Record<string, any> {
+    return { arn: this.queueArn, url: this.queueUrl, name: this.queueName };
+  }
+  // imported / partial instantiation: omit the unavailable key (no "" sentinel, no null value)
+  public get outputs(): Record<string, any> {
+    const out: Record<string, any> = { arn: this.namespaceArn, name: this.namespaceName, id: this.namespaceId };
+    if (this.namespaceHostedZoneId) out.hostedZoneId = this.namespaceHostedZoneId;
+    return out;
+  }
+  ```
 - Where AWS CDK uses `Stack.of(this)`, use `AwsStack.ofAwsConstruct(this)` / the `AwsStack` utility
   attributes (region, account, partition, urlSuffix...) — copy the idiom from the SNS `topic.ts` exemplar.
 - Lazy evaluation: use `Lazy.anyValue()` / `Lazy.stringValue()` / `Lazy.numberValue()` / `Lazy.listValue()`

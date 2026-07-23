@@ -6,9 +6,13 @@ faithful to AWS CDK wherever the Terraform model allows; deviations need a Terra
 documented inline with a `// TERRACONSTRUCTS DEVIATION:` comment.
 
 ## Structure
-- CDK `Resource` → extend `AwsConstructBase`; props extend `AwsConstructProps`; implement
-  `get outputs()` mirroring the sibling convention (`{ <res>Arn, <res>Name, ... }` — check the
-  closest sibling and match its exact key shape); add `PROPERTY_INJECTION_ID` like siblings.
+- CDK `Resource` → extend `AwsConstructBase`; props extend `AwsConstructProps`; add
+  `PROPERTY_INJECTION_ID` like siblings. Implement `get outputs(): Record<string, any>` as a plain
+  string-indexed projection with BARE keys (`{ arn, name, id, url, ... }` — NOT `queueArn`/`namespaceArn`;
+  the map is namespaced by `outputName`). NO new `XxxOutputs` interface (typed contract already on `IXxx`).
+  OMIT any attribute unavailable in this instantiation (imported/partial) — never `""` or a `null`/`undefined`
+  value (cdktn null-token bug). This OVERRIDES sibling-shape: the ~75 legacy typed/prefixed siblings are
+  grandfathered tech-debt — do NOT mirror them for the outputs getter.
 - Expose the L1 as `public readonly resource: <l1>.<Type>` — never private.
 - `Lazy.anyValue()/stringValue()/numberValue()/listValue()` (cdktn) — not CDK's `Lazy.any()` etc.
   Per-element snake_case mappers go INSIDE `produce()`.
