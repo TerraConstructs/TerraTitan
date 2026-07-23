@@ -45,5 +45,8 @@ documented inline with a `// TERRACONSTRUCTS DEVIATION:` comment.
   commented block + reason line. Keep the old CFN assertion commented under each new TF assertion.
 - Assert through `test/assertions.ts` `Template` helpers ONLY (they force `prepareStack()`; raw
   `Testing.synth` silently drops toTerraform-created resources). Add a wrapping describe with
-  `toMatchSnapshot()` synth cases. Never weaken an assertion to a tautology; `test.skip` needs a
+  `toMatchSnapshot()` synth cases. Every snapshotted stack MUST attach
+  `new HttpBackend(stack, { address: "http://localhost:3000" })` (from `cdktn`) — the default
+  local backend leaks a machine-dependent tfstate path into the snapshot and CI churns it.
+  Never weaken an assertion to a tautology; `test.skip` needs a
   real body + reason. Emit a `from*Attributes` round-trip test for every `from*Attributes` static.

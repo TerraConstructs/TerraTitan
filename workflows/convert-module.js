@@ -261,7 +261,7 @@ for (let round = 1; round <= 3 && !verifyPass; round++) {
   const v = await agent(`INDEPENDENT convention verification round ${round} for converted ${MOD} in ${WT}. The tests were pipeline-authored — catch what they cannot. Verify EVERY converted file (${RUN}/plans/${MOD}.json) against ${RUN}/conventions.md:
 1. HARD INVARIANTS: every nameable TF resource uses uniqueResourceNamePrefix + *_name_prefix (never bare name); public readonly resource handles; sibling-shape (construct ids, outputs keys, PROPERTY_INJECTION_ID); marker interfaces.
 2. Provenance headers: FIRST LINE, exact format, ${TAG}. PROPERTY_INJECTION_ID shape: terraconstructs.aws.<ns>[.<submodule>].<Class> — verify the submodule segment against the actual file path and a real sibling's id.
-3. Test parity: spot-check 10+ names verbatim vs upstream; dropped tests must correspond to genuinely unported APIs (grep src before accepting); snapshot describes exist and .snap files contain name_prefix.
+3. Test parity: spot-check 10+ names verbatim vs upstream; dropped tests must correspond to genuinely unported APIs (grep src before accepting); snapshot describes exist and .snap files contain name_prefix. Every snapshotted stack attaches HttpBackend({address:"http://localhost:3000"}) and NO .snap contains "tfstate" or an absolute filesystem path (machine-dependent local-backend path = CI self-mutation churn; grep -rl tfstate over the new .snap files must be empty).
 4. Tautology hunt in tests.
 5. No duplication of already-ported code; barrel collision-free.
 6. Integ leg: app + Go validator + Makefile target all exist per the plan's integChoice, app has its provenance header, and the naming triple (app filename == make target == Go Test name) holds.
