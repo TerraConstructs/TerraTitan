@@ -87,3 +87,30 @@ LB attach, EFS, secrets, ECR-asset are unit-only.
 5. Shared test/assertions.ts changes should be a separate commit ahead of the module commit.
 6. Pause/resume: prefix-based caching — never TaskStop with in-flight agents (this run re-ran ~10
    convert batches, ~150k output tokens wasted); pause only at journal started==results.
+
+## Addendum — live integ-deploy campaign (2026-07-24, post-review)
+
+Three upstream framework-integ ports, all PASS with clean destroys after fix rounds:
+ecs.lb-awsvpc-nw (ALB attach + ScalableTaskCount + HTTP 200), ecs.ebs-taskattach
+(ServiceManagedVolume EBS end-to-end), ecs.sd-awsvpc-nw (EC2 capacity + drain hook +
+CloudMap DiscoverInstances). Four real construct defects found ONLY by live deploys
+(all invisible to jest/snapshot/tofu validate):
+
+1. a628c77 appscaling: policies/scheduled-actions must reference aws_appautoscaling_target
+   ATTRIBUTE tokens (raw prop strings = no dependency edge = PutScalingPolicy race). Pre-existing.
+2. fc85606 base-load-balancer: uniqueResourceName without maxLength:32 (self-rejecting names).
+   Pre-existing.
+3. b0ae9f7 ECS service must depends_on ServiceManagedVolume policy ATTACHMENT (destroy wedge:
+   task DEPROVISIONING, service DRAINING >20min; remedy for wedged state: re-attach
+   AmazonECSInfrastructureRolePolicyForVolumes, releases in ~1min).
+4. 5364b0b desired_count sentinel: omitted + explicit scheduling_strategy => 0 tasks on EC2
+   create (CFN defaults 1). Fix: desired_count ?? 1 + ignore_changes when unpinned.
+
+Validator/harness lessons (codified in port-integ-tests.js playbook): custom steady-state
+poll replaces broken SDK ServicesStableWaiter (nil failures[] crash, ecs v1.52.0);
+suffix-match scope-prefixed physical names; unique gridUUID per app; TF_PLUGIN_CACHE_DIR
+for registry timeouts; ECS service destroy legitimately takes up to ~16min (drain).
+
+External review (sakul-learning, 7 blocking findings, findings-pr123-review.md): finding 5
+partially addressed by defect-3 fix + deploy coverage; findings 1-4, 6, 7 + the {name}-only
+volume validation remain for the fix round.
