@@ -294,12 +294,14 @@ code is expected to MATCH them, e.g. zero-duration rotation → synth-time Valid
   traceability (established pattern, 200+ instances).
 - Add repo-specific snapshot tests (`toMatchSnapshot`) in a wrapping `describe("<Construct>")` block on
   top of the upstream suite — snapshots are the repo's main defense against emitted-Terraform drift.
-- Every stack that gets snapshotted MUST attach an http backend:
-  `new HttpBackend(stack, { address: "http://localhost:3000" })` (import `HttpBackend` from
-  `cdktn`), or pass `gridBackendConfig: { address: "http://localhost:3000" }` to the `AwsStack`
-  props. The default local backend embeds a machine-dependent absolute tfstate path in synth
-  output, so the snapshot differs per machine and CI self-mutation churns it forever (caught by
-  human review on PR #118; the fix cascaded to every PR in the stack).
+- Every stack that gets snapshotted MUST use the http backend, passed as
+  `gridBackendConfig: { address: "http://localhost:3000" }` in the `AwsStack` constructor props —
+  this is the ONLY sanctioned form (user ruling 2026-08-06; direct `new HttpBackend(stack, ...)`
+  attachment is tech debt, cleanup tracked in base#143 — never add new instances). The default
+  local backend embeds a machine-dependent absolute tfstate path in synth output, so the snapshot
+  differs per machine and CI self-mutation churns it forever (caught by human review on PR #118;
+  the fix cascaded to every PR in the stack). Workflows with snapshot tests must gate on BOTH:
+  `grep tfstate test/**/__snapshots__/*.snap` empty AND `grep -rl "new HttpBackend" <new test files>` empty.
 
 ## Generated companion files (codegen, never LLM-converted)
 
