@@ -303,18 +303,35 @@ code is expected to MATCH them, e.g. zero-duration rotation → synth-time Valid
 
 ## Generated companion files (codegen, never LLM-converted)
 
-- `<service>-canned-metrics.generated.ts`: NEVER LLM-converted — these are aws-cdk build-time
-  codegen, absent from the aws-cdk git tree and present only in the published npm bundle. Generate
-  deterministically with `tools/gen-canned-metrics.mjs <built-aws-cdk-lib-module-lib-dir> <out.ts>`
-  (claude-native branch). Keep the `/* eslint-disable prettier/prettier,max-len */` first line, no
-  GitHub header. Import directly from the resource file exposing `metricXxx()` methods; if the L2
-  has no metric methods (e.g. aws-autoscaling), the file still gets generated for convention parity
-  but stays unimported. The Plan phase must check the BUILT bundle for this file — checking the git
-  checkout will always miss it.
-- `*-augmentations.generated.ts` (side-effect import in `index.ts`) and `*-grants.generated.ts`
-  (imported by the base class) exist only for older ports (sqs/sns/ec2/lambda). Current best practice
-  (DynamoDB, the golden exemplar): hand-written, individually-headed grant helper files
-  (`table-grants.ts`, `dynamodb-perms.ts` style) instead of generated grants.
+- **Primary route (storage slice onward): run aws-cdk's real generate phase via in-repo spec2cdk.**
+  `<service>-canned-metrics.generated.ts` AND `<service>-augmentations.generated.ts` are aws-cdk
+  build-time codegen (spec2cdk), absent from the aws-cdk git tree; TerraConstructs SHIPS the
+  `.generated.ts` in version control (`.gitignore` negation entry per file). Generate genuine TS
+  sources — not js/d.ts reconstructions — with the standalone install at
+  `~/tcons/conversion-run/spec2cdk/` (copied from `tools/@aws-cdk/spec2cdk` of the aws-cdk checkout
+  at the reference tag; devDependencies stripped so npm doesn't resolve monorepo workspaces; deps
+  installed from npm — the exact `@aws-cdk/aws-service-spec` pin from the tag's
+  `packages/aws-cdk-lib/package.json` devDependencies, e.g. 0.1.193 @ v2.263.0):
+  `cd ~/tcons/conversion-run/spec2cdk && npx tsx bin/spec2cdk.ts <out-dir> -s AWS::RDS [-s ...]`.
+  Pre-generated slice output lives in `~/tcons/conversion-run/spec2cdk-out/<aws-svc>/`.
+  Validated: generated rds-augmentations metric surface diffs clean against the published
+  aws-cdk-lib@2.263.0 bundle. NOTE: when bumping the reference tag, re-copy spec2cdk from the new
+  tag and re-pin service-spec to that tag's version, then regenerate.
+- Adaptation when landing in base (mechanical, no creativity): rewrite imports
+  (`aws-cdk-lib/aws-cloudwatch` → base's relative `../cloudwatch` path; `./cluster`-style module
+  refs stay valid because the port mirrors upstream file layout), normalize the first line to
+  `/* eslint-disable prettier/prettier,max-len */`, no GitHub header. Augmentations are wired as a
+  side-effect import in the module's `index.ts` (sqs/sns/ec2/lambda precedent); canned metrics
+  import directly from the resource file exposing `metricXxx()`; if the L2 has no metric methods
+  the file still lands for convention parity but stays unimported.
+- Fallback: `tools/gen-canned-metrics.mjs <built-aws-cdk-lib-module-lib-dir> <out.ts>` reconstructs
+  canned metrics from the published npm bundle (.d.ts + .js). Superseded by the spec2cdk route but
+  kept as a cross-check; it cannot produce augmentations.
+- `*-grants.generated.ts` is a DIFFERENT codegen (alpha-package projen grants.json — spec2cdk does
+  NOT emit it; verified: elasticache generation yields only canned-metrics + L1). For alpha modules
+  that re-export grants (aws-elasticache-alpha), reconstruct from the built alpha npm bundle, or
+  follow the DynamoDB golden exemplar: hand-written, individually-headed grant helper files
+  (`table-grants.ts`, `dynamodb-perms.ts` style).
 - If generated metrics don't match real service metrics, add a hand-written `<service>-fixed-canned-metrics.ts`
   wrapper (kinesis pattern) and import the fixed one.
 

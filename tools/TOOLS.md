@@ -21,7 +21,20 @@ prerequisites), and a classification with direct workflow consequences:
 Validated on aws-autoscaling: reproduces run-2's LLM-derived inventory (12 Cfn refs, waves,
 5/12 files PURE_L2) in ~1 second.
 
-### `gen-canned-metrics.mjs` — canned-metrics recovery (feeds Convert)
+### spec2cdk standalone — the REAL aws-cdk generate phase (canned metrics + augmentations + L1)
+`cd ~/tcons/conversion-run/spec2cdk && npx tsx bin/spec2cdk.ts <out-dir> -s AWS::RDS [-s AWS::DocDB ...]`
+Primary route from the storage slice onward (supersedes gen-canned-metrics.mjs). A copy of the
+aws-cdk checkout's `tools/@aws-cdk/spec2cdk` at the reference tag (v2.263.0), devDependencies
+stripped (npm otherwise resolves the whole monorepo workspace and ERESOLVE-fails), deps installed
+from npm with `@aws-cdk/aws-service-spec` at the tag's exact pin (0.1.193). Emits genuine
+`<svc>-canned-metrics.generated.ts`, `<svc>-augmentations.generated.ts` (rds is the only storage-slice
+module with one), and `<svc>.generated.ts` TS sources in ~100ms. Validated: rds augmentations metric
+surface diffs clean vs the published aws-cdk-lib@2.263.0 bundle. Does NOT emit `*-grants.generated.ts`
+(that's alpha-package projen codegen — reconstruct from the built alpha bundle). Pre-generated slice
+output: `~/tcons/conversion-run/spec2cdk-out/`. On tag bump: re-copy, re-pin, regenerate.
+See conventions.md "Generated companion files" for base-side adaptation rules.
+
+### `gen-canned-metrics.mjs` — canned-metrics recovery (fallback / cross-check)
 `node gen-canned-metrics.mjs <aws-cdk-lib-module-lib-dir> <out-file.ts>`
 Reconstructs `<service>-canned-metrics.generated.ts` from a BUILT aws-cdk-lib npm install
 (.d.ts signatures + .js values). These files are aws-cdk build-time codegen: absent from the
